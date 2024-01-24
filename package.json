@@ -1,0 +1,20 @@
+{
+  "name": "@react-map/react-maps",
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": "git@github.com:react-map/react-maps.git",
+  "author": "Shubham Singh <shubh622005@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^8.0.1"
+  },
+  "scripts": {
+    "release": "lerna publish from-package"
+  },
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
