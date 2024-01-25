@@ -121,7 +121,7 @@ const {country_name.capitalize()} = ({{
           id="svg2"
           x="0px"
           y="0px"
-          viewBox="-114 -50.4 611.9 695.7"
+          viewBox="0 0 800 800"
         >
           {{stateCode?.map((stateCode, index) => (
             <path
@@ -166,4 +166,4 @@ export const drawPath = {parse_svg_to_dict(svg_path)};
 ''')
 
 if __name__ == '__main__':
-    create_new_country('algeria')
+    create_new_country('angola')
