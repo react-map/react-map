@@ -14,12 +14,12 @@ def parse_svg_to_dict(svg_file_path):
 
     return title_d_dict
 
-svg_file_path = '/home/jerry/Desktop/react-maps/assets/africa.svg'
+svg_file_path = '/home/jerry/Desktop/react-maps/assets/albania.svg'
 title_d_dict = parse_svg_to_dict(svg_file_path)
 
 def write_dict_to_ts(data, output_file):
     with open(output_file, 'w') as ts_file:
-        ts_file.write('export const svgData = ')
+        ts_file.write('export const drawPath = ')
         json.dump(data, ts_file, ensure_ascii=False, indent=2)
         ts_file.write(';')
 
