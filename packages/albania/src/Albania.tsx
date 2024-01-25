@@ -7,8 +7,8 @@ const Albania = ({
   strokeColor,
   strokeWidth,
   hoverColor,
-  selectedState,
-}: any) => {
+  onSelect,
+}: AlbaniaProps) => {
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -32,17 +32,11 @@ const Albania = ({
   return (
     <>
       <div className="map" style={mapStyle}>
-        <svg
-          version="1.1"
-          id="svg2"
-          x="0px"
-          y="0px"
-          viewBox="-114 -50.4 611.9 695.7"
-        >
+        <svg version="1.1" id="svg2" x="0px" y="0px" viewBox="0 0 800 800">
           {stateCode?.map((stateCode, index) => (
             <path
               key={index}
-              onClick={() => selectedState(stateCode)}
+              onClick={() => onSelect(stateCode)}
               onMouseEnter={() => handleMouseEnter(stateCode)}
               onMouseLeave={() => handleMouseLeave(stateCode)}
               id={stateCode}
