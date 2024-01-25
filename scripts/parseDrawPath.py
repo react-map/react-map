@@ -14,7 +14,7 @@ def parse_svg_to_dict(svg_file_path):
 
     return title_d_dict
 
-# svg_file_path = '/home/jerry/Desktop/react-maps/assets/albania.svg'
+# svg_file_path = '/home/jerry/Desktop/react-maps/assets/india2019.svg'
 # title_d_dict = parse_svg_to_dict(svg_file_path)
 
 # def write_dict_to_ts(data, output_file):
