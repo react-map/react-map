@@ -90,8 +90,8 @@ const {country_name.capitalize()} = ({{
   strokeColor,
   strokeWidth,
   hoverColor,
-  selectedState,
-}}: any) => {{
+  onSelect,
+}}: {country_name.capitalize()}Props) => {{
   const mapStyle = {{
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -126,7 +126,7 @@ const {country_name.capitalize()} = ({{
           {{stateCode?.map((stateCode, index) => (
             <path
               key={{index}}
-              onClick={{() => selectedState(stateCode)}}
+              onClick={{() => onSelect(stateCode)}}
               onMouseEnter={{() => handleMouseEnter(stateCode)}}
               onMouseLeave={{() => handleMouseLeave(stateCode)}}
               id={{stateCode}}
@@ -166,4 +166,4 @@ export const drawPath = {parse_svg_to_dict(svg_path)};
 ''')
 
 if __name__ == '__main__':
-    create_new_country('angola')
+    create_new_country('asia')
