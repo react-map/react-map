@@ -11,6 +11,6 @@ def parse_svg(svg_file_path):
         titles.append(title)
 
     return titles
-svg_file_path = '/home/jerry/Desktop/react-maps/assets/albania.svg'
-titles = parse_svg(svg_file_path)
-print(titles)
+# svg_file_path = '/home/jerry/Desktop/react-maps/assets/albania.svg'
+# titles = parse_svg(svg_file_path)
+# print(titles)

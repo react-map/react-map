@@ -1,7 +1,8 @@
+
 import React from "react";
 import { drawPath, stateCode, constants } from "./constants";
 
-const Africa = ({
+const Algeria = ({
   size,
   mapColor,
   strokeColor,
@@ -22,6 +23,7 @@ const Africa = ({
       path.style.fill = hoverColor || constants.HOVERCOLOR;
     }
   };
+
   const handleMouseLeave = (hoverStateId: string) => {
     const path = document.getElementById(hoverStateId);
     if (path) {
@@ -55,7 +57,7 @@ const Africa = ({
   );
 };
 
-export interface AfricaProps {
+export interface AlgeriaProps {
   size?: number;
   mapColor?: string;
   strokeColor?: string;
@@ -64,4 +66,4 @@ export interface AfricaProps {
   onSelect: (state: string) => void;
 }
 
-export default Africa;
+export default Algeria;

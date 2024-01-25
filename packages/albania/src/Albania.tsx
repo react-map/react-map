@@ -55,7 +55,7 @@ const Albania = ({
   );
 };
 
-export interface IndiaProps {
+export interface AlbaniaProps {
   size?: number;
   mapColor?: string;
   strokeColor?: string;
