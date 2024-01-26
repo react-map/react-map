@@ -1,4 +1,2 @@
-
-        import Bangladesh from './Bangladesh';
-        export default Bangladesh;
-    
+import Bangladesh from "./Bangladesh";
+export default Bangladesh;

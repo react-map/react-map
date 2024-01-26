@@ -39,6 +39,7 @@ export const stateCode = [
   "City of Freeport",
   "New Providence",
 ];
+
 export const drawPath = {
   "Hope Town":
     "M363.16,79.21L361.94,82.28L361.71,83.51L361.75,83.98L361.61,83.95L361.39,83.78L361.14,84.15L360.9,84.74L360.89,85.16L361.15,85.43L363.42,81.46L363.53,80.15L363.28,79.13L363.16,79.21z",

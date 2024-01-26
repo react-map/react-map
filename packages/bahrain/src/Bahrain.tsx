@@ -39,7 +39,7 @@ const Bahrain = ({
           id="svg2"
           x="0px"
           y="0px"
-          viewBox="0 0 800 800"
+          viewBox="-50 -50 900 900"
         >
           {stateCode?.map((stateCode, index) => (
             <path
