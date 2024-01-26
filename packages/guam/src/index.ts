@@ -1,4 +1,2 @@
-
-        import Guam from './Guam';
-        export default Guam;
-    
+import Guam from "./Guam";
+export default Guam;

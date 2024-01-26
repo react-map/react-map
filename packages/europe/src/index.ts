@@ -1,4 +1,2 @@
-
-        import Europe from './Europe';
-        export default Europe;
-    
+import Europe from "./Europe";
+export default Europe;

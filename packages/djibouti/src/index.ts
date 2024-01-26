@@ -1,4 +1,2 @@
-
-        import Djibouti from './Djibouti';
-        export default Djibouti;
-    
+import Djibouti from "./Djibouti";
+export default Djibouti;

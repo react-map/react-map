@@ -1,4 +1,2 @@
-
-        import Guinea from './Guinea';
-        export default Guinea;
-    
+import Guinea from "./Guinea";
+export default Guinea;

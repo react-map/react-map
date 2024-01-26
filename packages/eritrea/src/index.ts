@@ -1,4 +1,2 @@
-
-        import Eritrea from './Eritrea';
-        export default Eritrea;
-    
+import Eritrea from "./Eritrea";
+export default Eritrea;

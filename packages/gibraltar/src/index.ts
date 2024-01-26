@@ -1,4 +1,2 @@
-
-        import Gibraltar from './Gibraltar';
-        export default Gibraltar;
-    
+import Gibraltar from "./Gibraltar";
+export default Gibraltar;

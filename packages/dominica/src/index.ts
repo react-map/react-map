@@ -1,4 +1,2 @@
-
-        import Dominica from './Dominica';
-        export default Dominica;
-    
+import Dominica from "./Dominica";
+export default Dominica;

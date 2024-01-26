@@ -1,4 +1,2 @@
-
-        import Kosovo from './Kosovo';
-        export default Kosovo;
-    
+import Kosovo from "./Kosovo";
+export default Kosovo;

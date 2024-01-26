@@ -1,4 +1,2 @@
-
-        import Ghana from './Ghana';
-        export default Ghana;
-    
+import Ghana from "./Ghana";
+export default Ghana;

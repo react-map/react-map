@@ -1,4 +1,2 @@
-
-        import Egypt from './Egypt';
-        export default Egypt;
-    
+import Egypt from "./Egypt";
+export default Egypt;

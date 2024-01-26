@@ -1,4 +1,2 @@
-
-        import Estonia from './Estonia';
-        export default Estonia;
-    
+import Estonia from "./Estonia";
+export default Estonia;

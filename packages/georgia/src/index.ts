@@ -1,4 +1,2 @@
-
-        import Georgia from './Georgia';
-        export default Georgia;
-    
+import Georgia from "./Georgia";
+export default Georgia;

@@ -1,4 +1,2 @@
-
-        import Ecuador from './Ecuador';
-        export default Ecuador;
-    
+import Ecuador from "./Ecuador";
+export default Ecuador;

@@ -1,4 +1,2 @@
-
-        import Greenland from './Greenland';
-        export default Greenland;
-    
+import Greenland from "./Greenland";
+export default Greenland;

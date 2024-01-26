@@ -1,4 +1,2 @@
-
-        import Gambia from './Gambia';
-        export default Gambia;
-    
+import Gambia from "./Gambia";
+export default Gambia;

@@ -1,4 +1,2 @@
-
-        import Haiti from './Haiti';
-        export default Haiti;
-    
+import Haiti from "./Haiti";
+export default Haiti;

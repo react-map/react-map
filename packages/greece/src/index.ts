@@ -1,4 +1,2 @@
-
-        import Greece from './Greece';
-        export default Greece;
-    
+import Greece from "./Greece";
+export default Greece;

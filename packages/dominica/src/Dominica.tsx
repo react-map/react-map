@@ -1,4 +1,3 @@
-
 import React from "react";
 import { drawPath, stateCode, constants } from "./constants";
 
@@ -39,7 +38,7 @@ const Dominica = ({
           id="svg2"
           x="0px"
           y="0px"
-          viewBox="0 0 800 800"
+          viewBox="-50 -50 2200 1600"
         >
           {stateCode?.map((stateCode, index) => (
             <path

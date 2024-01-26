@@ -1,4 +1,2 @@
-
-        import Gabon from './Gabon';
-        export default Gabon;
-    
+import Gabon from "./Gabon";
+export default Gabon;

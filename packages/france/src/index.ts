@@ -1,4 +1,2 @@
-
-        import France from './France';
-        export default France;
-    
+import France from "./France";
+export default France;

@@ -1,4 +1,2 @@
-
-        import Denmark from './Denmark';
-        export default Denmark;
-    
+import Denmark from "./Denmark";
+export default Denmark;
