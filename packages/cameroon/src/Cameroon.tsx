@@ -39,7 +39,7 @@ const Cameroon = ({
           id="svg2"
           x="0px"
           y="0px"
-          viewBox="0 0 800 800"
+          viewBox="-40 0 1700 1400"
         >
           {stateCode?.map((stateCode, index) => (
             <path

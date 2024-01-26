@@ -39,7 +39,7 @@ const Chad = ({
           id="svg2"
           x="0px"
           y="0px"
-          viewBox="0 0 800 800"
+          viewBox="-40 -50 1300 1000"
         >
           {stateCode?.map((stateCode, index) => (
             <path

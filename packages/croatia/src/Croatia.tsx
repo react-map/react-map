@@ -1,4 +1,3 @@
-
 import React from "react";
 import { drawPath, stateCode, constants } from "./constants";
 
@@ -34,13 +33,7 @@ const Croatia = ({
   return (
     <>
       <div className="map" style={mapStyle}>
-        <svg
-          version="1.1"
-          id="svg2"
-          x="0px"
-          y="0px"
-          viewBox="0 0 800 800"
-        >
+        <svg version="1.1" id="svg2" x="0px" y="0px" viewBox="-50 -50 1200 700">
           {stateCode?.map((stateCode, index) => (
             <path
               key={index}
