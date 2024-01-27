@@ -3,7 +3,8 @@
 Create beautiful,interactive maps with a vivid collection of over 200+ maps ranging from countries, continents and others! 
 
 Drop of a ✨ if you are here. It would mean a lot : )
-![image2](https://github.com/shubhexists/react-maps/assets/110319892/3f59ad8c-92bb-4242-bc57-7ecc0f0a26d9)
+
+![image](https://github.com/reactmaps/react-maps/assets/110319892/913ca23e-4a3f-4285-9c98-f227e2f64c4c)
 
 # Features
 1) Wide range of maps (239 to be exact )
