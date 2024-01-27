@@ -3,8 +3,7 @@
 Create beautiful,interactive maps with a vivid collection of over 200+ maps ranging from countries, continents and others! 
 
 Drop of a ✨ if you are here. It would mean a lot : )
-
-![image](https://github.com/reactmaps/react-maps/assets/110319892/913ca23e-4a3f-4285-9c98-f227e2f64c4c)
+![image2](https://github.com/shubhexists/react-maps/assets/110319892/3f59ad8c-92bb-4242-bc57-7ecc0f0a26d9)
 
 # Features
 1) Wide range of maps (239 to be exact )
@@ -59,7 +58,7 @@ import "react-toastify/dist/ReactToastify.css";
 ``` 
 ### Preview 
 
-[Screencast from 27-01-24 09:54:21 PM IST.webm](https://github.com/reactmaps/react-maps/assets/110319892/377259b0-4acc-40bb-bab9-d49e51e20b14)
+[toastify-demo.webm](https://github.com/reactmaps/react-maps/assets/110319892/377259b0-4acc-40bb-bab9-d49e51e20b14)
 
 2) `react-router-dom`
 ```tsx
@@ -78,7 +77,7 @@ const a = useNavigate();
 <World onSelect={redirect} size={1600} hoverColor="orange" />
 ```
 
-[Screencast from 27-01-24 10:33:42 PM IST.webm](https://github.com/reactmaps/react-maps/assets/110319892/07cafb16-efbc-4616-87d0-9e736a003ef3)
+[router-dom.webm](https://github.com/reactmaps/react-maps/assets/110319892/07cafb16-efbc-4616-87d0-9e736a003ef3)
 
 # Disclaimer 
 1) I did not intend to take sides in disputed territories. So, I have tried my best to include both sides of such territories so that the user is free to choose the map they are comfortable in. 
