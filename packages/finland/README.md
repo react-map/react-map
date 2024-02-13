@@ -1,8 +1,8 @@
-# finland
-This package contains the map of finland. 
+# Finland
+This package contains the map of Finland. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/finland
 ```

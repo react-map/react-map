@@ -1,6 +1,6 @@
 {
     "name": "@react-map/afganistan",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "afganistan-map",
-        "afganistan"
+        "afganistan",
+        "afganistan-react-component",
+        "afganistan-svg",
+        "afganistan-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Afganistan for React"
 }

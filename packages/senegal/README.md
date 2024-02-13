@@ -1,8 +1,8 @@
-# senegal
-This package contains the map of senegal. 
+# Senegal
+This package contains the map of Senegal. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/senegal
 ```

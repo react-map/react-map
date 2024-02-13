@@ -1,8 +1,8 @@
-# kuwait
-This package contains the map of kuwait. 
+# Kuwait
+This package contains the map of Kuwait. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/kuwait
 ```

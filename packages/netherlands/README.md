@@ -1,8 +1,8 @@
-# netherlands
-This package contains the map of netherlands. 
+# Netherlands
+This package contains the map of Netherlands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/netherlands
 ```

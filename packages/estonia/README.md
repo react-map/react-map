@@ -1,8 +1,8 @@
-# estonia
-This package contains the map of estonia. 
+# Estonia
+This package contains the map of Estonia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/estonia
 ```

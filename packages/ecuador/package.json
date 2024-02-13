@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "ecuador-map",
-        "ecuador"
+        "ecuador",
+        "ecuador-react-component",
+        "ecuador-svg",
+        "ecuador-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Ecuador for React"
 }

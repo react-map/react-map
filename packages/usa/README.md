@@ -1,8 +1,8 @@
-# usa
-This package contains the map of usa. 
+# Usa
+This package contains the map of Usa. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/usa
 ```

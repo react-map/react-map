@@ -1,8 +1,8 @@
-# macedonia
-This package contains the map of macedonia. 
+# Macedonia
+This package contains the map of Macedonia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/macedonia
 ```

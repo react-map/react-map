@@ -1,8 +1,8 @@
-# unRegions
-This package contains the map of unRegions. 
+# Unregions
+This package contains the map of Unregions. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/un-regions
 ```

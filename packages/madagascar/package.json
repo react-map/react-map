@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "madagascar-map",
-        "madagascar"
+        "madagascar",
+        "madagascar-react-component",
+        "madagascar-svg",
+        "madagascar-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Madagascar for React"
 }

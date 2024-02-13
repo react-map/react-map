@@ -1,8 +1,8 @@
-# cocosIslands
-This package contains the map of cocosIslands. 
+# Cocosislands
+This package contains the map of Cocosislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/cocos-islands
 ```

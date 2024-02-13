@@ -1,8 +1,8 @@
-# bahamas
-This package contains the map of bahamas. 
+# Bahamas
+This package contains the map of Bahamas. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/bahamas
 ```

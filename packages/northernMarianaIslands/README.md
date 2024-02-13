@@ -1,8 +1,8 @@
-# northernMarianaIslands
-This package contains the map of northernMarianaIslands. 
+# Northernmarianaislands
+This package contains the map of Northernmarianaislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/northern-mariana-islands
 ```

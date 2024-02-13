@@ -1,8 +1,8 @@
-# ecuador
-This package contains the map of ecuador. 
+# Ecuador
+This package contains the map of Ecuador. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/ecuador
 ```

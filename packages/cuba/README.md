@@ -1,8 +1,8 @@
-# cuba
-This package contains the map of cuba. 
+# Cuba
+This package contains the map of Cuba. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/cuba
 ```

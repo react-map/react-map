@@ -1,8 +1,8 @@
-# greenland
-This package contains the map of greenland. 
+# Greenland
+This package contains the map of Greenland. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/greenland
 ```

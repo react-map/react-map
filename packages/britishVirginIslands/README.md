@@ -1,8 +1,8 @@
-# britishVirginIslands
-This package contains the map of britishVirginIslands. 
+# Britishvirginislands
+This package contains the map of Britishvirginislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/british-virgin-islands
 ```

@@ -1,8 +1,8 @@
-# sriLanka
-This package contains the map of sriLanka. 
+# Srilanka
+This package contains the map of Srilanka. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/srilanka
 ```

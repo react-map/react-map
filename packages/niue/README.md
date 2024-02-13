@@ -1,8 +1,8 @@
-# niue
-This package contains the map of niue. 
+# Niue
+This package contains the map of Niue. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/niue
 ```

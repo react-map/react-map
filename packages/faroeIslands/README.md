@@ -1,8 +1,8 @@
-# faroeIslands
-This package contains the map of faroeIslands. 
+# Faroeislands
+This package contains the map of Faroeislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/faroe-islands
 ```

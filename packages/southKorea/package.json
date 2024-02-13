@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "southKorea-map",
-        "southKorea"
+        "southKorea",
+        "southKorea-react-component",
+        "southKorea-svg",
+        "southKorea-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Southkorea for React"
 }

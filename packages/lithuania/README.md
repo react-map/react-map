@@ -1,8 +1,8 @@
-# lithuania
-This package contains the map of lithuania. 
+# Lithuania
+This package contains the map of Lithuania. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/lithuania
 ```

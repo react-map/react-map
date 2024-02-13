@@ -1,8 +1,8 @@
-# burkinaFaso
-This package contains the map of burkinaFaso. 
+# Burkinafaso
+This package contains the map of Burkinafaso. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/burkinafaso
 ```

@@ -1,8 +1,8 @@
-# canada
-This package contains the map of canada. 
+# Canada
+This package contains the map of Canada. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/canada
 ```

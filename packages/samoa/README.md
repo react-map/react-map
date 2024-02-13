@@ -1,8 +1,8 @@
-# samoa
-This package contains the map of samoa. 
+# Samoa
+This package contains the map of Samoa. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/samoa
 ```

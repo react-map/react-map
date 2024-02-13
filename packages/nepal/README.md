@@ -1,8 +1,8 @@
-# nepal
-This package contains the map of nepal. 
+# Nepal
+This package contains the map of Nepal. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/nepal
 ```

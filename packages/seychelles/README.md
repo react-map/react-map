@@ -1,8 +1,8 @@
-# seychelles
-This package contains the map of seychelles. 
+# Seychelles
+This package contains the map of Seychelles. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/seychelles
 ```

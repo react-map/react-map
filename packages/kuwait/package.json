@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "kuwait-map",
-        "kuwait"
+        "kuwait",
+        "kuwait-react-component",
+        "kuwait-svg",
+        "kuwait-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Kuwait for React"
 }

@@ -1,8 +1,8 @@
-# mayotte
-This package contains the map of mayotte. 
+# Mayotte
+This package contains the map of Mayotte. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/mayotte
 ```

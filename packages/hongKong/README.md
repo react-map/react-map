@@ -1,8 +1,8 @@
-# hongKong
-This package contains the map of hongKong. 
+# Hongkong
+This package contains the map of Hongkong. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/hong-kong
 ```

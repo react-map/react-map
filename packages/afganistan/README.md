@@ -1,8 +1,8 @@
-# afganistan
-This package contains the map of afganistan. 
+# Afganistan
+This package contains the map of Afganistan. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/afganistan
 ```

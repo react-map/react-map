@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "croatia-map",
-        "croatia"
+        "croatia",
+        "croatia-react-component",
+        "croatia-svg",
+        "croatia-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Croatia for React"
 }

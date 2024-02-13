@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "congoDR-map",
-        "congoDR"
+        "congoDR",
+        "congoDR-react-component",
+        "congoDR-svg",
+        "congoDR-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Congodr for React"
 }

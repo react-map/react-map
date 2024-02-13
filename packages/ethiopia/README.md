@@ -1,8 +1,8 @@
-# ethiopia
-This package contains the map of ethiopia. 
+# Ethiopia
+This package contains the map of Ethiopia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/ethiopia
 ```

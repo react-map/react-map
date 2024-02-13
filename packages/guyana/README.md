@@ -1,8 +1,8 @@
-# guyana
-This package contains the map of guyana. 
+# Guyana
+This package contains the map of Guyana. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/guyana
 ```

@@ -1,8 +1,8 @@
-# liberia
-This package contains the map of liberia. 
+# Liberia
+This package contains the map of Liberia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/liberia
 ```

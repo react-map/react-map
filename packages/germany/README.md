@@ -1,8 +1,8 @@
-# germany
-This package contains the map of germany. 
+# Germany
+This package contains the map of Germany. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/germany
 ```

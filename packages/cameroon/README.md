@@ -1,8 +1,8 @@
-# cameroon
-This package contains the map of cameroon. 
+# Cameroon
+This package contains the map of Cameroon. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/cameroon
 ```

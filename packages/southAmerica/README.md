@@ -1,8 +1,8 @@
-# southAmerica
-This package contains the map of southAmerica. 
+# Southamerica
+This package contains the map of Southamerica. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/south-america
 ```

@@ -1,8 +1,8 @@
-# africa
-This package contains the map of africa. 
+# Africa
+This package contains the map of Africa. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/africa
 ```

@@ -1,8 +1,8 @@
-# malawi
-This package contains the map of malawi. 
+# Malawi
+This package contains the map of Malawi. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/malawi
 ```

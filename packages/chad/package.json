@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "chad-map",
-        "chad"
+        "chad",
+        "chad-react-component",
+        "chad-svg",
+        "chad-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Chad for React"
 }

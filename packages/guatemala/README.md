@@ -1,8 +1,8 @@
-# guatemala
-This package contains the map of guatemala. 
+# Guatemala
+This package contains the map of Guatemala. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/guatemala
 ```

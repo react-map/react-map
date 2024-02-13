@@ -1,8 +1,8 @@
-# mauritania
-This package contains the map of mauritania. 
+# Mauritania
+This package contains the map of Mauritania. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/mauritania
 ```

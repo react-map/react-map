@@ -1,8 +1,8 @@
-# gibraltar
-This package contains the map of gibraltar. 
+# Gibraltar
+This package contains the map of Gibraltar. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/gibraltar
 ```

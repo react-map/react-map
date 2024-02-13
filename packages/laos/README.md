@@ -1,8 +1,8 @@
-# laos
-This package contains the map of laos. 
+# Laos
+This package contains the map of Laos. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/laos
 ```

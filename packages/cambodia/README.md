@@ -1,8 +1,8 @@
-# cambodia
-This package contains the map of cambodia. 
+# Cambodia
+This package contains the map of Cambodia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/cambodia
 ```

@@ -1,8 +1,8 @@
-# fiji
-This package contains the map of fiji. 
+# Fiji
+This package contains the map of Fiji. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/fiji
 ```

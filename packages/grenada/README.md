@@ -1,8 +1,8 @@
-# grenada
-This package contains the map of grenada. 
+# Grenada
+This package contains the map of Grenada. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/grenada
 ```

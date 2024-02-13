@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "kosovo-map",
-        "kosovo"
+        "kosovo",
+        "kosovo-react-component",
+        "kosovo-svg",
+        "kosovo-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Kosovo for React"
 }

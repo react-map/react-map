@@ -1,8 +1,8 @@
-# china
-This package contains the map of china. 
+# China
+This package contains the map of China. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/china
 ```

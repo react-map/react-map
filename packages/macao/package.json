@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "macao-map",
-        "macao"
+        "macao",
+        "macao-react-component",
+        "macao-svg",
+        "macao-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Macao for React"
 }

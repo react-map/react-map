@@ -1,8 +1,8 @@
-# benin
-This package contains the map of benin. 
+# Benin
+This package contains the map of Benin. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/benin
 ```

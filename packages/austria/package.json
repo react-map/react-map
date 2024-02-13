@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "austria-map",
-        "austria"
+        "austria",
+        "austria-react-component",
+        "austria-svg",
+        "austria-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Austria for React"
 }

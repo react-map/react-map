@@ -1,8 +1,8 @@
-# sierraLeone
-This package contains the map of sierraLeone. 
+# Sierraleone
+This package contains the map of Sierraleone. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/sierra-leone
 ```

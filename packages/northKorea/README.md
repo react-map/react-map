@@ -1,8 +1,8 @@
-# northKorea
-This package contains the map of northKorea. 
+# Northkorea
+This package contains the map of Northkorea. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/north-korea
 ```

@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "norway-map",
-        "norway"
+        "norway",
+        "norway-react-component",
+        "norway-svg",
+        "norway-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Norway for React"
 }

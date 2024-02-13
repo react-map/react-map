@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "sanMarino-map",
-        "sanMarino"
+        "sanMarino",
+        "sanMarino-react-component",
+        "sanMarino-svg",
+        "sanMarino-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Sanmarino for React"
 }

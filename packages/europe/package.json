@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "europe-map",
-        "europe"
+        "europe",
+        "europe-react-component",
+        "europe-svg",
+        "europe-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Europe for React"
 }

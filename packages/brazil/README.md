@@ -1,8 +1,8 @@
-# brazil
-This package contains the map of brazil. 
+# Brazil
+This package contains the map of Brazil. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/brazil
 ```

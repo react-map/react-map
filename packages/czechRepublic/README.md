@@ -1,8 +1,8 @@
-# czechRepublic
-This package contains the map of czechRepublic. 
+# Czechrepublic
+This package contains the map of Czechrepublic. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/czech-republic
 ```

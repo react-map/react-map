@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "greece-map",
-        "greece"
+        "greece",
+        "greece-react-component",
+        "greece-svg",
+        "greece-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Greece for React"
 }

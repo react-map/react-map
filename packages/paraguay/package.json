@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "paraguay-map",
-        "paraguay"
+        "paraguay",
+        "paraguay-react-component",
+        "paraguay-svg",
+        "paraguay-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Paraguay for React"
 }

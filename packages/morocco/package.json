@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "morocco-map",
-        "morocco"
+        "morocco",
+        "morocco-react-component",
+        "morocco-svg",
+        "morocco-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Morocco for React"
 }

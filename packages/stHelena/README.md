@@ -1,8 +1,8 @@
-# stHelena
-This package contains the map of stHelena. 
+# Sthelena
+This package contains the map of Sthelena. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/st-helena
 ```

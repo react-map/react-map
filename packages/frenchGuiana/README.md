@@ -1,8 +1,8 @@
-# frenchGuiana
-This package contains the map of frenchGuiana. 
+# Frenchguiana
+This package contains the map of Frenchguiana. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/french-guiana
 ```

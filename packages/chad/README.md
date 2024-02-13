@@ -1,8 +1,8 @@
-# chad
-This package contains the map of chad. 
+# Chad
+This package contains the map of Chad. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/chad
 ```

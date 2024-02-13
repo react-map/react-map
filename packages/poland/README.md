@@ -1,8 +1,8 @@
-# poland
-This package contains the map of poland. 
+# Poland
+This package contains the map of Poland. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/poland
 ```

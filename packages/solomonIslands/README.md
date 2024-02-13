@@ -1,8 +1,8 @@
-# solomonIslands
-This package contains the map of solomonIslands. 
+# Solomonislands
+This package contains the map of Solomonislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/solomon-islands
 ```

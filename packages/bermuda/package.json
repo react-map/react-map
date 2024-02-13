@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "bermuda-map",
-        "bermuda"
+        "bermuda",
+        "bermuda-react-component",
+        "bermuda-svg",
+        "bermuda-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Bermuda for React"
 }

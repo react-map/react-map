@@ -1,8 +1,8 @@
-# curacao
-This package contains the map of curacao. 
+# Curacao
+This package contains the map of Curacao. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/curacao
 ```

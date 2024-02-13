@@ -1,8 +1,8 @@
-# philippines
-This package contains the map of philippines. 
+# Philippines
+This package contains the map of Philippines. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/philippines
 ```

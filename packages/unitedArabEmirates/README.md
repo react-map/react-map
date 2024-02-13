@@ -1,8 +1,8 @@
-# unitedArabEmirates
-This package contains the map of unitedArabEmirates. 
+# Unitedarabemirates
+This package contains the map of Unitedarabemirates. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/united-arab-emirates
 ```

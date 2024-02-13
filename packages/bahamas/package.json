@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "bahamas-map",
-        "bahamas"
+        "bahamas",
+        "bahamas-react-component",
+        "bahamas-svg",
+        "bahamas-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Bahamas for React"
 }

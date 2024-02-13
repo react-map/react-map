@@ -1,8 +1,8 @@
-# vaticancity
-This package contains the map of vaticancity. 
+# Vaticancity
+This package contains the map of Vaticancity. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/vaticancity
 ```

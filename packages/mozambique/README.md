@@ -1,8 +1,8 @@
-# mozambique
-This package contains the map of mozambique. 
+# Mozambique
+This package contains the map of Mozambique. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/mozambique
 ```

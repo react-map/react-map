@@ -1,8 +1,8 @@
-# nigeria
-This package contains the map of nigeria. 
+# Nigeria
+This package contains the map of Nigeria. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/nigeria
 ```

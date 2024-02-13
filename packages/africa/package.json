@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "africa-map",
-        "africa"
+        "africa",
+        "africa-react-component",
+        "africa-svg",
+        "africa-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Africa for React"
 }

@@ -1,8 +1,8 @@
-# kiribati
-This package contains the map of kiribati. 
+# Kiribati
+This package contains the map of Kiribati. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/kiribati
 ```

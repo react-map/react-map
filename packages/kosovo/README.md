@@ -1,8 +1,8 @@
-# kosovo
-This package contains the map of kosovo. 
+# Kosovo
+This package contains the map of Kosovo. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/kosovo
 ```

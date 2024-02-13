@@ -1,8 +1,8 @@
-# niger
-This package contains the map of niger. 
+# Niger
+This package contains the map of Niger. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/niger
 ```

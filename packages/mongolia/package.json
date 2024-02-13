@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "mongolia-map",
-        "mongolia"
+        "mongolia",
+        "mongolia-react-component",
+        "mongolia-svg",
+        "mongolia-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Mongolia for React"
 }

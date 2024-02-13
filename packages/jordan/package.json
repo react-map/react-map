@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "jordan-map",
-        "jordan"
+        "jordan",
+        "jordan-react-component",
+        "jordan-svg",
+        "jordan-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Jordan for React"
 }

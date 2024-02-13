@@ -1,8 +1,8 @@
-# papuaNewGuinea
-This package contains the map of papuaNewGuinea. 
+# Papuanewguinea
+This package contains the map of Papuanewguinea. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/papua-new-guinea
 ```

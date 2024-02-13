@@ -1,8 +1,8 @@
-# uganda
-This package contains the map of uganda. 
+# Uganda
+This package contains the map of Uganda. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/uganda
 ```

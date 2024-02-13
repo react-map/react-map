@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "tuvalu-map",
-        "tuvalu"
+        "tuvalu",
+        "tuvalu-react-component",
+        "tuvalu-svg",
+        "tuvalu-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Tuvalu for React"
 }

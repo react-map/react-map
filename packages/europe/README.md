@@ -1,8 +1,8 @@
-# europe
-This package contains the map of europe. 
+# Europe
+This package contains the map of Europe. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/europe
 ```

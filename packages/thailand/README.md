@@ -1,8 +1,8 @@
-# thailand
-This package contains the map of thailand. 
+# Thailand
+This package contains the map of Thailand. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/thailand
 ```

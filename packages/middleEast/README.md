@@ -1,8 +1,8 @@
-# middleEast
-This package contains the map of middleEast. 
+# Middleeast
+This package contains the map of Middleeast. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/middle-east
 ```

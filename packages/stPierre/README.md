@@ -1,8 +1,8 @@
-# stPierre
-This package contains the map of stPierre. 
+# Stpierre
+This package contains the map of Stpierre. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/st-pierre
 ```

@@ -1,8 +1,8 @@
-# lebanon
-This package contains the map of lebanon. 
+# Lebanon
+This package contains the map of Lebanon. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/lebanon
 ```

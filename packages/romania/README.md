@@ -1,8 +1,8 @@
-# romania
-This package contains the map of romania. 
+# Romania
+This package contains the map of Romania. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/romania
 ```

@@ -1,8 +1,8 @@
-# world
-This package contains the map of world. 
+# World
+This package contains the map of World. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/world
 ```

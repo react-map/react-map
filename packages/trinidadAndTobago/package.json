@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "trinidadAndTobago-map",
-        "trinidadAndTobago"
+        "trinidadAndTobago",
+        "trinidadAndTobago-react-component",
+        "trinidadAndTobago-svg",
+        "trinidadAndTobago-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Trinidadandtobago for React"
 }

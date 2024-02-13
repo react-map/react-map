@@ -1,8 +1,8 @@
-# namibia
-This package contains the map of namibia. 
+# Namibia
+This package contains the map of Namibia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/namibia
 ```

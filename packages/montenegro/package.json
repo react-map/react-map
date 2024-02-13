@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "montenegro-map",
-        "montenegro"
+        "montenegro",
+        "montenegro-react-component",
+        "montenegro-svg",
+        "montenegro-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Montenegro for React"
 }

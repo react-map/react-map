@@ -1,8 +1,8 @@
-# rwanda
-This package contains the map of rwanda. 
+# Rwanda
+This package contains the map of Rwanda. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/rwanda
 ```

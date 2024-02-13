@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "zimbabwe-map",
-        "zimbabwe"
+        "zimbabwe",
+        "zimbabwe-react-component",
+        "zimbabwe-svg",
+        "zimbabwe-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Zimbabwe for React"
 }

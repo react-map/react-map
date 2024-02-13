@@ -1,8 +1,8 @@
-# guadeloupe
-This package contains the map of guadeloupe. 
+# Guadeloupe
+This package contains the map of Guadeloupe. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/guadeloupe
 ```

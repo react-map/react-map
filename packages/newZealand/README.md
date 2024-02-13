@@ -1,8 +1,8 @@
-# newZealand
-This package contains the map of newZealand. 
+# Newzealand
+This package contains the map of Newzealand. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/new-zealand
 ```

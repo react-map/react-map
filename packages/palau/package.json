@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "palau-map",
-        "palau"
+        "palau",
+        "palau-react-component",
+        "palau-svg",
+        "palau-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Palau for React"
 }

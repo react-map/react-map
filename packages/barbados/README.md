@@ -1,8 +1,8 @@
-# barbados
-This package contains the map of barbados. 
+# Barbados
+This package contains the map of Barbados. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/barbados
 ```

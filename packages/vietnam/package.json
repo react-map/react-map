@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "vietnam-map",
-        "vietnam"
+        "vietnam",
+        "vietnam-react-component",
+        "vietnam-svg",
+        "vietnam-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Vietnam for React"
 }

@@ -1,8 +1,8 @@
-# peru
-This package contains the map of peru. 
+# Peru
+This package contains the map of Peru. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/peru
 ```

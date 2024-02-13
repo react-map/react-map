@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "switzerland-map",
-        "switzerland"
+        "switzerland",
+        "switzerland-react-component",
+        "switzerland-svg",
+        "switzerland-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Switzerland for React"
 }

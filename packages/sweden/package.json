@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "sweden-map",
-        "sweden"
+        "sweden",
+        "sweden-react-component",
+        "sweden-svg",
+        "sweden-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Sweden for React"
 }

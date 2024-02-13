@@ -1,8 +1,8 @@
-# turkey
-This package contains the map of turkey. 
+# Turkey
+This package contains the map of Turkey. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/turkey
 ```

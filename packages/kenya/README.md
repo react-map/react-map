@@ -1,8 +1,8 @@
-# kenya
-This package contains the map of kenya. 
+# Kenya
+This package contains the map of Kenya. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/kenya
 ```

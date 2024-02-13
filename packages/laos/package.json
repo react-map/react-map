@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "laos-map",
-        "laos"
+        "laos",
+        "laos-react-component",
+        "laos-svg",
+        "laos-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Laos for React"
 }

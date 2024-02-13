@@ -1,8 +1,8 @@
-# australia
-This package contains the map of australia. 
+# Australia
+This package contains the map of Australia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/australia
 ```

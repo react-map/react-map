@@ -1,8 +1,8 @@
-# djibouti
-This package contains the map of djibouti. 
+# Djibouti
+This package contains the map of Djibouti. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/djibouti
 ```

@@ -1,8 +1,8 @@
-# zimbabwe
-This package contains the map of zimbabwe. 
+# Zimbabwe
+This package contains the map of Zimbabwe. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/zimbabwe
 ```

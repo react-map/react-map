@@ -1,8 +1,8 @@
-# guineaBissau
-This package contains the map of guineaBissau. 
+# Guineabissau
+This package contains the map of Guineabissau. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/guinea-bissau
 ```

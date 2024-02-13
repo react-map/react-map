@@ -1,8 +1,8 @@
-# lesotho
-This package contains the map of lesotho. 
+# Lesotho
+This package contains the map of Lesotho. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/lesotho
 ```

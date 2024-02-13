@@ -1,8 +1,8 @@
-# norway
-This package contains the map of norway. 
+# Norway
+This package contains the map of Norway. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/norway
 ```

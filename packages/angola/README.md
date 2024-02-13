@@ -1,8 +1,8 @@
-# angola
-This package contains the map of angola. 
+# Angola
+This package contains the map of Angola. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/angola
 ```

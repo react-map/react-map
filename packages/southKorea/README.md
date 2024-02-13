@@ -1,8 +1,8 @@
-# southKorea
-This package contains the map of southKorea. 
+# Southkorea
+This package contains the map of Southkorea. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/south-korea
 ```

@@ -1,8 +1,8 @@
-# iran
-This package contains the map of iran. 
+# Iran
+This package contains the map of Iran. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/iran
 ```

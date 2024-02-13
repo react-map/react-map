@@ -1,8 +1,8 @@
-# dominicanRepublic
-This package contains the map of dominicanRepublic. 
+# Dominicanrepublic
+This package contains the map of Dominicanrepublic. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/dominican-republic
 ```

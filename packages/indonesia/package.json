@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "indonesia-map",
-        "indonesia"
+        "indonesia",
+        "indonesia-react-component",
+        "indonesia-svg",
+        "indonesia-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Indonesia for React"
 }

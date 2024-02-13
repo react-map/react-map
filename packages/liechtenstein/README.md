@@ -1,8 +1,8 @@
-# liechtenstein
-This package contains the map of liechtenstein. 
+# Liechtenstein
+This package contains the map of Liechtenstein. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/liechtenstein
 ```

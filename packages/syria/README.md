@@ -1,8 +1,8 @@
-# syria
-This package contains the map of syria. 
+# Syria
+This package contains the map of Syria. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/syria
 ```

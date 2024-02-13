@@ -1,8 +1,8 @@
-# bermuda
-This package contains the map of bermuda. 
+# Bermuda
+This package contains the map of Bermuda. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/bermuda
 ```

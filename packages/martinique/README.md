@@ -1,8 +1,8 @@
-# martinique
-This package contains the map of martinique. 
+# Martinique
+This package contains the map of Martinique. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/martinique
 ```

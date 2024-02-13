@@ -1,8 +1,8 @@
-# russia
-This package contains the map of russia. 
+# Russia
+This package contains the map of Russia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/russia
 ```

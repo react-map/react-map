@@ -1,8 +1,8 @@
-# indonesia
-This package contains the map of indonesia. 
+# Indonesia
+This package contains the map of Indonesia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/indonesia
 ```

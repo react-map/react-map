@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "chile-map",
-        "chile"
+        "chile",
+        "chile-react-component",
+        "chile-svg",
+        "chile-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Chile for React"
 }

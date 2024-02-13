@@ -1,8 +1,8 @@
-# spain
-This package contains the map of spain. 
+# Spain
+This package contains the map of Spain. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/spain
 ```

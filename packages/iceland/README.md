@@ -1,8 +1,8 @@
-# iceland
-This package contains the map of iceland. 
+# Iceland
+This package contains the map of Iceland. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/iceland
 ```

@@ -1,8 +1,8 @@
-# oman
-This package contains the map of oman. 
+# Oman
+This package contains the map of Oman. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/oman
 ```

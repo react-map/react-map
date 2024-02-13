@@ -1,8 +1,8 @@
-# anguilla
-This package contains the map of anguilla. 
+# Anguilla
+This package contains the map of Anguilla. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/anguilla
 ```

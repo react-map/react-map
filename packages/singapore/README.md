@@ -1,8 +1,8 @@
-# singapore
-This package contains the map of singapore. 
+# Singapore
+This package contains the map of Singapore. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/singapore
 ```

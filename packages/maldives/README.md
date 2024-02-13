@@ -1,8 +1,8 @@
-# maldives
-This package contains the map of maldives. 
+# Maldives
+This package contains the map of Maldives. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/maldives
 ```

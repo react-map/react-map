@@ -1,8 +1,8 @@
-# christmasIsland
-This package contains the map of christmasIsland. 
+# Christmasisland
+This package contains the map of Christmasisland. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/christmas-island
 ```

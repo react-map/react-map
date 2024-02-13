@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "continents-map",
-        "continents"
+        "continents",
+        "continents-react-component",
+        "continents-svg",
+        "continents-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Continents for React"
 }

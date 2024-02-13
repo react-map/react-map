@@ -1,8 +1,8 @@
-# continents
-This package contains the map of continents. 
+# Continents
+This package contains the map of Continents. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/continents
 ```

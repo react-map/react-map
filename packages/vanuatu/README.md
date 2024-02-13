@@ -1,8 +1,8 @@
-# vanuatu
-This package contains the map of vanuatu. 
+# Vanuatu
+This package contains the map of Vanuatu. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/vanuatu
 ```

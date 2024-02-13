@@ -1,8 +1,8 @@
-# tajikistan
-This package contains the map of tajikistan. 
+# Tajikistan
+This package contains the map of Tajikistan. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/tajikistan
 ```

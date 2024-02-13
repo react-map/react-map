@@ -1,8 +1,8 @@
-# americanSamoa
-This package contains the map of americanSamoa. 
+# Americansamoa
+This package contains the map of Americansamoa. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/american-samoa
 ```

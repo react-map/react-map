@@ -1,8 +1,8 @@
-# trinidadAndTobago
-This package contains the map of trinidadAndTobago. 
+# Trinidadandtobago
+This package contains the map of Trinidadandtobago. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/trinidad-and-tobago
 ```

@@ -1,8 +1,8 @@
-# costaRica
-This package contains the map of costaRica. 
+# Costarica
+This package contains the map of Costarica. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/costa-rica
 ```

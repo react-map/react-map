@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "mali-map",
-        "mali"
+        "mali",
+        "mali-react-component",
+        "mali-svg",
+        "mali-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Mali for React"
 }

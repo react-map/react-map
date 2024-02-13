@@ -1,8 +1,8 @@
-# asia
-This package contains the map of asia. 
+# Asia
+This package contains the map of Asia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/asia
 ```

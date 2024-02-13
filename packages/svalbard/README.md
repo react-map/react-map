@@ -1,8 +1,8 @@
-# svalbard
-This package contains the map of svalbard. 
+# Svalbard
+This package contains the map of Svalbard. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/svalbard
 ```

@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "seychelles-map",
-        "seychelles"
+        "seychelles",
+        "seychelles-react-component",
+        "seychelles-svg",
+        "seychelles-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Seychelles for React"
 }

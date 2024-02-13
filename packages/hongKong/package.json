@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "hongKong-map",
-        "hongKong"
+        "hongKong",
+        "hongKong-react-component",
+        "hongKong-svg",
+        "hongKong-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Hongkong for React"
 }

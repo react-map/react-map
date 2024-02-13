@@ -1,8 +1,8 @@
-# albania
-This package contains the map of albania. 
+# Albania
+This package contains the map of Albania. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/albania
 ```

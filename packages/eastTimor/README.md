@@ -1,8 +1,8 @@
-# eastTimor
-This package contains the map of eastTimor. 
+# Easttimor
+This package contains the map of Easttimor. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/east-timor
 ```

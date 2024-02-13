@@ -1,8 +1,8 @@
-# austria
-This package contains the map of austria. 
+# Austria
+This package contains the map of Austria. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/austria
 ```

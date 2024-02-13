@@ -1,8 +1,8 @@
-# saudiArabia
-This package contains the map of saudiArabia. 
+# Saudiarabia
+This package contains the map of Saudiarabia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/saudiarabia
 ```

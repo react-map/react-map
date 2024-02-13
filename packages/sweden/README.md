@@ -1,8 +1,8 @@
-# sweden
-This package contains the map of sweden. 
+# Sweden
+This package contains the map of Sweden. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/sweden
 ```

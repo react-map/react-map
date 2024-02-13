@@ -1,8 +1,8 @@
-# andorra
-This package contains the map of andorra. 
+# Andorra
+This package contains the map of Andorra. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/andorra
 ```

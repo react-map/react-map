@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "equatorialGuinea-map",
-        "equatorialGuinea"
+        "equatorialGuinea",
+        "equatorialGuinea-react-component",
+        "equatorialGuinea-svg",
+        "equatorialGuinea-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Equatorialguinea for React"
 }

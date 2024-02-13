@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "tajikistan-map",
-        "tajikistan"
+        "tajikistan",
+        "tajikistan-react-component",
+        "tajikistan-svg",
+        "tajikistan-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Tajikistan for React"
 }

@@ -1,8 +1,8 @@
-# antiguaBarbuda
-This package contains the map of antiguaBarbuda. 
+# Antiguabarbuda
+This package contains the map of Antiguabarbuda. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/antigua-barbuda
 ```

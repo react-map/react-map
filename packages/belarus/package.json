@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "belarus-map",
-        "belarus"
+        "belarus",
+        "belarus-react-component",
+        "belarus-svg",
+        "belarus-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Belarus for React"
 }

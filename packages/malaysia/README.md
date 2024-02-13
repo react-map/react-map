@@ -1,8 +1,8 @@
-# malaysia
-This package contains the map of malaysia. 
+# Malaysia
+This package contains the map of Malaysia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/malaysia
 ```

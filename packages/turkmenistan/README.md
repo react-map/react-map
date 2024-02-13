@@ -1,8 +1,8 @@
-# turkmenistan
-This package contains the map of turkmenistan. 
+# Turkmenistan
+This package contains the map of Turkmenistan. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/turkmenistan
 ```

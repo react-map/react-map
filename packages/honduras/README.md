@@ -1,8 +1,8 @@
-# honduras
-This package contains the map of honduras. 
+# Honduras
+This package contains the map of Honduras. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/honduras
 ```

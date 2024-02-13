@@ -1,8 +1,8 @@
-# argentina
-This package contains the map of argentina. 
+# Argentina
+This package contains the map of Argentina. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/argentina
 ```

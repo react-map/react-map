@@ -1,8 +1,8 @@
-# azerbaijan
-This package contains the map of azerbaijan. 
+# Azerbaijan
+This package contains the map of Azerbaijan. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/azerbaijan
 ```

@@ -1,8 +1,8 @@
-# italy
-This package contains the map of italy. 
+# Italy
+This package contains the map of Italy. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/italy
 ```

@@ -1,8 +1,8 @@
-# guam
-This package contains the map of guam. 
+# Guam
+This package contains the map of Guam. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/guam
 ```

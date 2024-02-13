@@ -1,8 +1,8 @@
-# micronesia
-This package contains the map of micronesia. 
+# Micronesia
+This package contains the map of Micronesia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/micronesia
 ```

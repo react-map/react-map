@@ -1,8 +1,8 @@
-# palestine
-This package contains the map of palestine. 
+# Palestine
+This package contains the map of Palestine. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/palestine
 ```

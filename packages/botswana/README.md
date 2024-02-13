@@ -1,8 +1,8 @@
-# botswana
-This package contains the map of botswana. 
+# Botswana
+This package contains the map of Botswana. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/botswana
 ```

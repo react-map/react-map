@@ -1,8 +1,8 @@
-# dominica
-This package contains the map of dominica. 
+# Dominica
+This package contains the map of Dominica. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/dominica
 ```

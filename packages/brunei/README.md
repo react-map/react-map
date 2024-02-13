@@ -1,8 +1,8 @@
-# brunei
-This package contains the map of brunei. 
+# Brunei
+This package contains the map of Brunei. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/brunei
 ```

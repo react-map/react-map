@@ -1,8 +1,8 @@
-# israel
-This package contains the map of israel. 
+# Israel
+This package contains the map of Israel. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/israel
 ```

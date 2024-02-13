@@ -1,8 +1,8 @@
-# palau
-This package contains the map of palau. 
+# Palau
+This package contains the map of Palau. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/palau
 ```

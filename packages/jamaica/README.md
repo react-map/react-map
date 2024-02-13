@@ -1,8 +1,8 @@
-# jamaica
-This package contains the map of jamaica. 
+# Jamaica
+This package contains the map of Jamaica. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/jamaica
 ```

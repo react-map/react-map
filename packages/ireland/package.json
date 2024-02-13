@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "ireland-map",
-        "ireland"
+        "ireland",
+        "ireland-react-component",
+        "ireland-svg",
+        "ireland-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Ireland for React"
 }

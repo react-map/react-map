@@ -1,8 +1,8 @@
-# egypt
-This package contains the map of egypt. 
+# Egypt
+This package contains the map of Egypt. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/egypt
 ```

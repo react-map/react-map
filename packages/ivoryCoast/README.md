@@ -1,8 +1,8 @@
-# ivoryCoast
-This package contains the map of ivoryCoast. 
+# Ivorycoast
+This package contains the map of Ivorycoast. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/ivory-coast
 ```

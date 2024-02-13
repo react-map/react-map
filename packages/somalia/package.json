@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "somalia-map",
-        "somalia"
+        "somalia",
+        "somalia-react-component",
+        "somalia-svg",
+        "somalia-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Somalia for React"
 }

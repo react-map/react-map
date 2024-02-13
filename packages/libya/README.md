@@ -1,8 +1,8 @@
-# libya
-This package contains the map of libya. 
+# Libya
+This package contains the map of Libya. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/libya
 ```

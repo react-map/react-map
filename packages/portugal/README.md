@@ -1,8 +1,8 @@
-# portugal
-This package contains the map of portugal. 
+# Portugal
+This package contains the map of Portugal. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/portugal
 ```

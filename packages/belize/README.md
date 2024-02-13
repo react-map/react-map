@@ -1,8 +1,8 @@
-# belize
-This package contains the map of belize. 
+# Belize
+This package contains the map of Belize. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/belize
 ```

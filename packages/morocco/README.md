@@ -1,8 +1,8 @@
-# morocco
-This package contains the map of morocco. 
+# Morocco
+This package contains the map of Morocco. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/morocco
 ```

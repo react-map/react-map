@@ -1,8 +1,8 @@
-# aruba
-This package contains the map of aruba. 
+# Aruba
+This package contains the map of Aruba. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/aruba
 ```

@@ -1,8 +1,8 @@
-# hungary
-This package contains the map of hungary. 
+# Hungary
+This package contains the map of Hungary. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/hungary
 ```

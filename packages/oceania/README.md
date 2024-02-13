@@ -1,8 +1,8 @@
-# oceania
-This package contains the map of oceania. 
+# Oceania
+This package contains the map of Oceania. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/oceania
 ```

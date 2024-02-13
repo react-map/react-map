@@ -1,8 +1,8 @@
-# tunisia
-This package contains the map of tunisia. 
+# Tunisia
+This package contains the map of Tunisia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/tunisia
 ```

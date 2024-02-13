@@ -1,8 +1,8 @@
-# uruguay
-This package contains the map of uruguay. 
+# Uruguay
+This package contains the map of Uruguay. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/uruguay
 ```

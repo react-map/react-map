@@ -1,8 +1,8 @@
-# bhutan
-This package contains the map of bhutan. 
+# Bhutan
+This package contains the map of Bhutan. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/bhutan
 ```

@@ -1,8 +1,8 @@
-# algeria
-This package contains the map of algeria. 
+# Algeria
+This package contains the map of Algeria. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/algeria
 ```

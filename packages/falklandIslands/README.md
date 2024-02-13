@@ -1,8 +1,8 @@
-# falklandIslands
-This package contains the map of falklandIslands. 
+# Falklandislands
+This package contains the map of Falklandislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/falkland-islands
 ```

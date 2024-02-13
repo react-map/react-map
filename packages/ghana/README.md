@@ -1,8 +1,8 @@
-# ghana
-This package contains the map of ghana. 
+# Ghana
+This package contains the map of Ghana. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/ghana
 ```

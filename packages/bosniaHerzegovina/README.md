@@ -1,8 +1,8 @@
-# bosniaHerzegovina
-This package contains the map of bosniaHerzegovina. 
+# Bosniaherzegovina
+This package contains the map of Bosniaherzegovina. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/bosnia-herzegovina
 ```

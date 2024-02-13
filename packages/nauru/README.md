@@ -1,8 +1,8 @@
-# nauru
-This package contains the map of nauru. 
+# Nauru
+This package contains the map of Nauru. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/nauru
 ```

@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "unitedArabEmirates-map",
-        "unitedArabEmirates"
+        "unitedArabEmirates",
+        "unitedArabEmirates-react-component",
+        "unitedArabEmirates-svg",
+        "unitedArabEmirates-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Unitedarabemirates for React"
 }

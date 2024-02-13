@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "cambodia-map",
-        "cambodia"
+        "cambodia",
+        "cambodia-react-component",
+        "cambodia-svg",
+        "cambodia-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Cambodia for React"
 }

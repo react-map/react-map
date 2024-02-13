@@ -1,8 +1,8 @@
-# mongolia
-This package contains the map of mongolia. 
+# Mongolia
+This package contains the map of Mongolia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/mongolia
 ```

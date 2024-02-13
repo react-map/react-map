@@ -1,8 +1,8 @@
-# luxembourg
-This package contains the map of luxembourg. 
+# Luxembourg
+This package contains the map of Luxembourg. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/luxembourg
 ```

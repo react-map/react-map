@@ -1,8 +1,8 @@
-# somalia
-This package contains the map of somalia. 
+# Somalia
+This package contains the map of Somalia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/somalia
 ```

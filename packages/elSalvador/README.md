@@ -1,8 +1,8 @@
-# elSalvador
-This package contains the map of elSalvador. 
+# Elsalvador
+This package contains the map of Elsalvador. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/el-salvador
 ```

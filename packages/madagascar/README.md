@@ -1,8 +1,8 @@
-# madagascar
-This package contains the map of madagascar. 
+# Madagascar
+This package contains the map of Madagascar. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/madagascar
 ```

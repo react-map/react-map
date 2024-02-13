@@ -1,8 +1,8 @@
-# kyrgyzstan
-This package contains the map of kyrgyzstan. 
+# Kyrgyzstan
+This package contains the map of Kyrgyzstan. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/kyrgyzstan
 ```

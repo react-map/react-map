@@ -1,8 +1,8 @@
-# malta
-This package contains the map of malta. 
+# Malta
+This package contains the map of Malta. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/malta
 ```

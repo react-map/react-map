@@ -1,8 +1,8 @@
-# stLucia
-This package contains the map of stLucia. 
+# Stlucia
+This package contains the map of Stlucia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/st-lucia
 ```

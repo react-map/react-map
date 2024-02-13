@@ -1,8 +1,8 @@
-# bulgaria
-This package contains the map of bulgaria. 
+# Bulgaria
+This package contains the map of Bulgaria. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/bulgaria
 ```

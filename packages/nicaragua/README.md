@@ -1,8 +1,8 @@
-# nicaragua
-This package contains the map of nicaragua. 
+# Nicaragua
+This package contains the map of Nicaragua. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/nicaragua
 ```

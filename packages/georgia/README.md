@@ -1,8 +1,8 @@
-# georgia
-This package contains the map of georgia. 
+# Georgia
+This package contains the map of Georgia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/georgia
 ```

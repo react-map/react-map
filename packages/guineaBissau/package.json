@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "guineaBissau-map",
-        "guineaBissau"
+        "guineaBissau",
+        "guineaBissau-react-component",
+        "guineaBissau-svg",
+        "guineaBissau-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Guineabissau for React"
 }

@@ -1,8 +1,8 @@
-# pitcairnIslands
-This package contains the map of pitcairnIslands. 
+# Pitcairnislands
+This package contains the map of Pitcairnislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/pitcairn-islands
 ```

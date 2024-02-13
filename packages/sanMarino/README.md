@@ -1,8 +1,8 @@
-# sanMarino
-This package contains the map of sanMarino. 
+# Sanmarino
+This package contains the map of Sanmarino. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/san-marino
 ```

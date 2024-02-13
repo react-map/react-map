@@ -1,8 +1,8 @@
-# usVirginIslands
-This package contains the map of usVirginIslands. 
+# Usvirginislands
+This package contains the map of Usvirginislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/us-virgin-islands
 ```

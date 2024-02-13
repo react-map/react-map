@@ -1,8 +1,8 @@
-# capeVerde
-This package contains the map of capeVerde. 
+# Capeverde
+This package contains the map of Capeverde. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/cape-verde
 ```

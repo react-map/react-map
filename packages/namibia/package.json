@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "namibia-map",
-        "namibia"
+        "namibia",
+        "namibia-react-component",
+        "namibia-svg",
+        "namibia-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Namibia for React"
 }

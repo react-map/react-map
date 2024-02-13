@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "albania-map",
-        "albania"
+        "albania",
+        "albania-react-component",
+        "albania-svg",
+        "albania-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Albania for React"
 }

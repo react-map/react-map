@@ -21,9 +21,12 @@ def addDetailsInPackageJson():
                     "maps",
                     "react-components",
                     f'{country_dir.name}-map',
-                    f'{country_dir.name}'
+                    f'{country_dir.name}',
+                    f'{country_dir.name}-react-component',
+                    f'{country_dir.name}-svg',
+                    f'{country_dir.name}-react-map',
   ],
-  "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+  "readme": f"Beautiful, easy to use and interactive svg map component of {country_dir.name.capitalize()} for React",
 }
             package_json.update(additional_items)
             with open(country_dir / 'package.json', 'w') as f:

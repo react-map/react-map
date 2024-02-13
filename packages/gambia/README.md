@@ -1,8 +1,8 @@
-# gambia
-This package contains the map of gambia. 
+# Gambia
+This package contains the map of Gambia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/gambia
 ```

@@ -1,8 +1,8 @@
-# armenia
-This package contains the map of armenia. 
+# Armenia
+This package contains the map of Armenia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/armenia
 ```

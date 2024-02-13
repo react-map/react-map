@@ -1,8 +1,8 @@
-# mali
-This package contains the map of mali. 
+# Mali
+This package contains the map of Mali. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/mali
 ```

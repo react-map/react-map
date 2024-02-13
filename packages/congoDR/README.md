@@ -1,8 +1,8 @@
-# congoDR
-This package contains the map of congoDR. 
+# Congodr
+This package contains the map of Congodr. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/congo-dr
 ```

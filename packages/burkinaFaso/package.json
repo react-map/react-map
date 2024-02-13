@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "burkinaFaso-map",
-        "burkinaFaso"
+        "burkinaFaso",
+        "burkinaFaso-react-component",
+        "burkinaFaso-svg",
+        "burkinaFaso-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Burkinafaso for React"
 }

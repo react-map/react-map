@@ -1,8 +1,8 @@
-# montenegro
-This package contains the map of montenegro. 
+# Montenegro
+This package contains the map of Montenegro. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/montenegro
 ```

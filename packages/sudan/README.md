@@ -1,8 +1,8 @@
-# sudan
-This package contains the map of sudan. 
+# Sudan
+This package contains the map of Sudan. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/sudan
 ```

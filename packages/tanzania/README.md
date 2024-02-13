@@ -1,8 +1,8 @@
-# tanzania
-This package contains the map of tanzania. 
+# Tanzania
+This package contains the map of Tanzania. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/tanzania
 ```

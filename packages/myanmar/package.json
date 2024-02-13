@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "myanmar-map",
-        "myanmar"
+        "myanmar",
+        "myanmar-react-component",
+        "myanmar-svg",
+        "myanmar-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Myanmar for React"
 }

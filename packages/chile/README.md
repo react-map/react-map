@@ -1,8 +1,8 @@
-# chile
-This package contains the map of chile. 
+# Chile
+This package contains the map of Chile. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/chile
 ```

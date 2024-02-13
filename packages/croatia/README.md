@@ -1,8 +1,8 @@
-# croatia
-This package contains the map of croatia. 
+# Croatia
+This package contains the map of Croatia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/croatia
 ```

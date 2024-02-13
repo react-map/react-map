@@ -1,8 +1,8 @@
-# unitedKingdom
-This package contains the map of unitedKingdom. 
+# Unitedkingdom
+This package contains the map of Unitedkingdom. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/united-kingdom
 ```

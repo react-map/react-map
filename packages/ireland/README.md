@@ -1,8 +1,8 @@
-# ireland
-This package contains the map of ireland. 
+# Ireland
+This package contains the map of Ireland. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/ireland
 ```

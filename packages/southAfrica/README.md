@@ -1,8 +1,8 @@
-# southAfrica
-This package contains the map of southAfrica. 
+# Southafrica
+This package contains the map of Southafrica. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/south-africa
 ```

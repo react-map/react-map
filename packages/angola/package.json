@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "angola-map",
-        "angola"
+        "angola",
+        "angola-react-component",
+        "angola-svg",
+        "angola-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Angola for React"
 }

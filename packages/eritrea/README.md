@@ -1,8 +1,8 @@
-# eritrea
-This package contains the map of eritrea. 
+# Eritrea
+This package contains the map of Eritrea. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/eritrea
 ```

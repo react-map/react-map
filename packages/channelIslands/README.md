@@ -1,8 +1,8 @@
-# channelIslands
-This package contains the map of channelIslands. 
+# Channelislands
+This package contains the map of Channelislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/channel-islands
 ```

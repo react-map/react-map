@@ -1,8 +1,8 @@
-# comoros
-This package contains the map of comoros. 
+# Comoros
+This package contains the map of Comoros. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/comoros
 ```

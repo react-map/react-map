@@ -1,8 +1,8 @@
-# togo
-This package contains the map of togo. 
+# Togo
+This package contains the map of Togo. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/togo
 ```

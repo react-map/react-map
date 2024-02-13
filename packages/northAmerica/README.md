@@ -1,8 +1,8 @@
-# northAmerica
-This package contains the map of northAmerica. 
+# Northamerica
+This package contains the map of Northamerica. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/north-america
 ```

@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "guyana-map",
-        "guyana"
+        "guyana",
+        "guyana-react-component",
+        "guyana-svg",
+        "guyana-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Guyana for React"
 }

@@ -17,11 +17,11 @@ def addReadme():
             package_name = package_json['name']
             readme_file_path = country_dir / 'README.md'
             readme_file_path.touch()
-            readme_file_path.write_text(f'''# {country_dir.name}
-This package contains the map of {country_dir.name}. 
+            readme_file_path.write_text(f'''# {country_dir.name.capitalize()}
+This package contains the map of {country_dir.name.capitalize()}. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install {package_name}
 ```

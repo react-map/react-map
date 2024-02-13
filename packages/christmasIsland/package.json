@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "christmasIsland-map",
-        "christmasIsland"
+        "christmasIsland",
+        "christmasIsland-react-component",
+        "christmasIsland-svg",
+        "christmasIsland-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Christmasisland for React"
 }

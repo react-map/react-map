@@ -1,8 +1,8 @@
-# switzerland
-This package contains the map of switzerland. 
+# Switzerland
+This package contains the map of Switzerland. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/switzerland
 ```

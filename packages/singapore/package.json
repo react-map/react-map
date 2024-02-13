@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "singapore-map",
-        "singapore"
+        "singapore",
+        "singapore-react-component",
+        "singapore-svg",
+        "singapore-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Singapore for React"
 }

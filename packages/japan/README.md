@@ -1,8 +1,8 @@
-# japan
-This package contains the map of japan. 
+# Japan
+This package contains the map of Japan. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/japan
 ```

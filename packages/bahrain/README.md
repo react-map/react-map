@@ -1,8 +1,8 @@
-# bahrain
-This package contains the map of bahrain. 
+# Bahrain
+This package contains the map of Bahrain. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/bahrain
 ```

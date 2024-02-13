@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "malaysia-map",
-        "malaysia"
+        "malaysia",
+        "malaysia-react-component",
+        "malaysia-svg",
+        "malaysia-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Malaysia for React"
 }

@@ -1,8 +1,8 @@
-# caymanIslands
-This package contains the map of caymanIslands. 
+# Caymanislands
+This package contains the map of Caymanislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/cayman-islands
 ```

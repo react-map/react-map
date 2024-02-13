@@ -1,8 +1,8 @@
-# tuvalu
-This package contains the map of tuvalu. 
+# Tuvalu
+This package contains the map of Tuvalu. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/tuvalu
 ```

@@ -1,8 +1,8 @@
-# denmark
-This package contains the map of denmark. 
+# Denmark
+This package contains the map of Denmark. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/denmark
 ```

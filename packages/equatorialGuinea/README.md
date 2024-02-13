@@ -1,8 +1,8 @@
-# equatorialGuinea
-This package contains the map of equatorialGuinea. 
+# Equatorialguinea
+This package contains the map of Equatorialguinea. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/equatorial-guinea
 ```

@@ -1,8 +1,8 @@
-# uzbekistan
-This package contains the map of uzbekistan. 
+# Uzbekistan
+This package contains the map of Uzbekistan. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/uzbekistan
 ```

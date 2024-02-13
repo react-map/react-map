@@ -1,8 +1,8 @@
-# puertoRico
-This package contains the map of puertoRico. 
+# Puertorico
+This package contains the map of Puertorico. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/puerto-rico
 ```

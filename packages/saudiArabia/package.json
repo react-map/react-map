@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "saudiArabia-map",
-        "saudiArabia"
+        "saudiArabia",
+        "saudiArabia-react-component",
+        "saudiArabia-svg",
+        "saudiArabia-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Saudiarabia for React"
 }

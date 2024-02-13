@@ -1,8 +1,8 @@
-# gabon
-This package contains the map of gabon. 
+# Gabon
+This package contains the map of Gabon. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/gabon
 ```

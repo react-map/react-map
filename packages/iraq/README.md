@@ -1,8 +1,8 @@
-# iraq
-This package contains the map of iraq. 
+# Iraq
+This package contains the map of Iraq. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/iraq
 ```

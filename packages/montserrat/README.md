@@ -1,8 +1,8 @@
-# montserrat
-This package contains the map of montserrat. 
+# Montserrat
+This package contains the map of Montserrat. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/montserrat
 ```

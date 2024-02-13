@@ -1,8 +1,8 @@
-# marshallIslands
-This package contains the map of marshallIslands. 
+# Marshallislands
+This package contains the map of Marshallislands. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/marshall-islands
 ```

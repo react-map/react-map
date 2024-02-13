@@ -1,8 +1,8 @@
-# stVincent
-This package contains the map of stVincent. 
+# Stvincent
+This package contains the map of Stvincent. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/st-vincent
 ```

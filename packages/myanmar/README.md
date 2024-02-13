@@ -1,8 +1,8 @@
-# myanmar
-This package contains the map of myanmar. 
+# Myanmar
+This package contains the map of Myanmar. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/myanmar
 ```

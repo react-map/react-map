@@ -1,8 +1,8 @@
-# guinea
-This package contains the map of guinea. 
+# Guinea
+This package contains the map of Guinea. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/guinea
 ```

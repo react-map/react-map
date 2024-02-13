@@ -1,8 +1,8 @@
-# haiti
-This package contains the map of haiti. 
+# Haiti
+This package contains the map of Haiti. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/haiti
 ```

@@ -1,8 +1,8 @@
-# stKittsNevis
-This package contains the map of stKittsNevis. 
+# Stkittsnevis
+This package contains the map of Stkittsnevis. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/st-kitts-nevis
 ```

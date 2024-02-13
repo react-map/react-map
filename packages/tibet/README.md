@@ -1,8 +1,8 @@
-# tibet
-This package contains the map of tibet. 
+# Tibet
+This package contains the map of Tibet. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/tibet
 ```

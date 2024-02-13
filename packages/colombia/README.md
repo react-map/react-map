@@ -1,8 +1,8 @@
-# colombia
-This package contains the map of colombia. 
+# Colombia
+This package contains the map of Colombia. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/colombia
 ```

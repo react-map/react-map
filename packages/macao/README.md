@@ -1,8 +1,8 @@
-# macao
-This package contains the map of macao. 
+# Macao
+This package contains the map of Macao. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/macao
 ```

@@ -1,8 +1,8 @@
-# stMartin
-This package contains the map of stMartin. 
+# Stmartin
+This package contains the map of Stmartin. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/st-martin
 ```

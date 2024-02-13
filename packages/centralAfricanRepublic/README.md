@@ -1,8 +1,8 @@
-# centralAfricanRepublic
-This package contains the map of centralAfricanRepublic. 
+# Centralafricanrepublic
+This package contains the map of Centralafricanrepublic. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/central-african-republic
 ```

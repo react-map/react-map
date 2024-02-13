@@ -33,7 +33,10 @@
         "maps",
         "react-components",
         "panama-map",
-        "panama"
+        "panama",
+        "panama-react-component",
+        "panama-svg",
+        "panama-react-map"
     ],
-    "readme": "https://github.com/shubhexists/react-maps?tab=readme-ov-file#react-maps"
+    "readme": "Beautiful, easy to use and interactive svg map component of Panama for React"
 }

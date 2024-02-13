@@ -1,8 +1,8 @@
-# mexico
-This package contains the map of mexico. 
+# Mexico
+This package contains the map of Mexico. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/mexico
 ```

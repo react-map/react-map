@@ -1,8 +1,8 @@
-# pakistan
-This package contains the map of pakistan. 
+# Pakistan
+This package contains the map of Pakistan. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/pakistan
 ```

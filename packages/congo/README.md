@@ -1,8 +1,8 @@
-# congo
-This package contains the map of congo. 
+# Congo
+This package contains the map of Congo. 
 ## Installation
 Install the package into your project by -
-```
+```bash
 // with npm
 npm install @react-map/congo
 ```
