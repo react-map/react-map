@@ -1,7 +1,6 @@
-
 {
     "name": "@react-map/brunei",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
@@ -20,5 +19,24 @@
     },
     "publishConfig": {
         "access": "public"
-    }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shubhexists/react-maps"
+    },
+    "author": "Shubham Singh<shubh622005@gmail.com>",
+    "keywords": [
+        "interactive-maps",
+        "react-maps",
+        "react",
+        "svg-maps",
+        "maps",
+        "react-components",
+        "brunei-map",
+        "brunei",
+        "brunei-react-component",
+        "brunei-svg",
+        "brunei-react-map"
+    ],
+    "readme": "Beautiful, easy to use and interactive svg map component of Brunei for React"
 }
