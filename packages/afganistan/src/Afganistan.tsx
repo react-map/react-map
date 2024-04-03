@@ -1,5 +1,7 @@
 import React from "react";
 import { drawPath, stateCode, constants } from "./constants";
+import useMousePosition from "./hooks/mouseTrack";
+import { useState } from "react";
 
 const Afganistan = ({
   size,
@@ -9,6 +11,9 @@ const Afganistan = ({
   hoverColor,
   onSelect,
 }: AfganistanProps) => {
+  const { x, y } = useMousePosition();
+  const [stateHovered, setStateHovered] = useState<String | null>(null);
+
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -18,12 +23,15 @@ const Afganistan = ({
 
   const handleMouseEnter = (hoverStateId: string) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
       path.style.fill = hoverColor || constants.HOVERCOLOR;
     }
   };
+
   const handleMouseLeave = (hoverStateId: string) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
       path.style.fill = mapColor || constants.MAPCOLOR;
     }
@@ -44,6 +52,23 @@ const Afganistan = ({
             />
           ))}
         </svg>
+      </div>
+      <div>
+        {stateHovered && (
+          <div
+            style={{
+              position: "absolute",
+              top: y + 20,
+              left: x + 20,
+              backgroundColor: "white",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+            }}
+          >
+            {stateHovered}
+          </div>
+        )}
       </div>
     </>
   );
