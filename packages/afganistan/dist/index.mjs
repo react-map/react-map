@@ -1,5 +1,5 @@
 // src/Afganistan.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Paktya",
@@ -82,15 +83,106 @@ var drawPath = {
   Badghis: "M185.91,186.72L185.52,186.65L185,186.47L183.23,185.43L183.26,184.97L183.59,184.53L183.65,184.41L183.76,184.14L183.77,183.85L183.71,183.51L183.56,183.15L183.35,182.79L183.04,182.48L180.08,181.92L172.37,181.37L171.85,181.09L171.61,180.92L171.37,180.72L171.18,180.5L171.11,180.27L171.11,179.94L171.25,179.35L171.31,178.85L171.33,178.27L171.11,174.09L170.91,173.09L170.5,171.9L169.85,170.74L169.27,170L168.44,169.17L167.97,168.82L167.51,168.56L166.87,168.3L166.32,168.2L165.98,168.1L165.68,167.91L165.59,167.45L165.7,166.78L166.22,165.33L166.93,164.18L167,163.89L166.93,162.64L167.05,161.59L167.47,160.31L168.32,156.44L168.5,154.09L168.47,151.46L167.93,149.66L166.51,148.82L165.71,148.95L164.26,149.4L159.7,152.08L157.75,152.59L151.76,152.96L150.78,153.18L149.88,153.68L149.21,154.38L148.06,155.95L147.34,156.6L143.42,158.45L139.18,159.33L128.63,159.09L127.6,159.32L126.85,160.1L126.64,161.14L126.98,161.9L127.46,162.66L127.68,163.72L127.99,164.5L130.47,166.75L131.15,167.67L131.47,167.94L132.7,168.41L132.95,168.72L132.91,169.13L132.62,169.68L131.28,170.68L127.55,171.9L126.27,173.17L126.19,174.06L126.3,177.1L126.46,177.83L127.27,178.49L127.44,179.12L126.94,180.99L126.73,183.24L126.44,184.35L125.79,185.03L124.83,185.29L122.82,185.46L121.84,185.69L118.58,187.26L114.19,190.76L113.97,190.87L113.96,191.37L112.08,196.84L108,203.69L107.51,204.84L106.63,207.81L106.27,209.94L105.66,216.57L105.71,217.27L105.82,217.88L106.16,218.97L106.33,219.35L106.47,219.56L106.63,219.68L108.82,220.61L109.18,220.64L109.62,220.62L109.93,220.56L110.15,220.57L110.46,220.67L110.85,220.94L112.53,222.58L113.81,223.59L114.32,223.88L114.68,224.03L116.06,224.42L116.37,224.6L116.7,224.88L117.13,225.33L117.67,225.75L118.31,226.15L118.9,226.38L119.31,226.5L121.14,226.51L122.05,226.4L122.29,226.48L122.51,226.68L123.24,227.86L123.39,228.03L123.57,228.19L123.82,228.58L124.15,229.42L124.08,231.04L124.13,231.19L124.21,231.24L124.3,231.26L124.95,231.24L126.37,231.52L127.93,231.84L130.96,233.3L131.72,233.14L133.45,231.64L133.86,231.39L134.4,231.28L135.97,231.42L140.03,231.88L143.55,233.17L145.16,234.04L145.86,234.76L146.35,235.16L148.35,236.24L149.23,236.52L152.03,237L152.56,237.01L153.35,236.78L154.09,236.43L157.8,237.52L159.23,238.33L159.63,238.7L160.24,239.14L160.65,239.26L161.61,239.16L171.62,236.15L174.88,233.53L175.38,233.35L176.52,233.19L176.83,233.08L177.08,232.91L177.18,232.77L177.27,232.59L177.52,231.56L177.82,231.13L178.33,230.61L179.54,229.77L180.25,229.41L180.84,229.19L181.3,229.14L186.05,229.22L186.63,229.32L187.19,229.5L188.45,230.05L188.78,230.11L194.15,229.72L194.33,229.1L194.44,228.85L194.72,228.48L195.12,228.01L195.73,227.68L196.73,227.37L202.67,227.61L203.45,228.01L203.85,228.16L204.54,228.2L204.93,228.34L205.43,228.34L206.02,228.17L209.23,226.56L217.88,224.17L219.36,223.45L219.68,223.05L219.86,222.95L220.08,222.76L220.25,222.51L220.73,221.43L220.97,220.65L221.27,219.18L221.31,218.69L221.22,217.64L221.21,217.09L221.29,216.47L221.76,214.47L221.85,213.87L221.72,213.23L221.39,212.54L220.56,211.35L220.17,210.63L219.95,209.99L219.88,209.47L219.52,208.77L218.88,207.96L215.9,205.82L215.51,205.42L214.31,203.64L213.61,202.81L213.15,202.37L212.66,202.02L212.06,201.84L210.85,201.95L210.54,201.89L210.22,201.75L208.15,200.42L207.43,199.7L206.46,197.66L205.94,197.9L204.8,198.15L203.18,198.21L201.74,198.47L200.84,198.48L195.88,197.8L191.25,196.26L190.98,196.09L190.84,195.81L190.73,195.04L190.76,194.05L191.02,191.88L190.99,190.95L191.03,190.36L191.49,188.55L191.67,187.22L191.68,186.46L191.62,185.88L191.22,185.51L189.1,185.82L187.34,186.4L186.8,186.45L185.91,186.72z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Afganistan.tsx
+import { useState as useState2 } from "react";
 var Afganistan = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      AfganistanSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      AfganistanMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var AfganistanSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -99,27 +191,161 @@ var Afganistan = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
     }
   };
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var AfganistanMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Afganistan_default = Afganistan;
 
