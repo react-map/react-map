@@ -1,5 +1,5 @@
 // src/Guineabissau.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Tombali",
@@ -32,15 +33,106 @@ var drawPath = {
   Biombo: "M194.16,210.92L193.65,210.12L191.75,207.82L187.96,207.51L184.54,207.68L180.79,207.79L180.28,208.21L180.25,208.39L181.24,209.45L173.48,213.33L169.61,214.7L166.15,215.23L156.91,213.8L151.88,213.63L147.34,215.23L148.48,217.91L148.99,221.39L149.1,228.78L150.14,232.11L152.68,232.71L155.85,232.71L158.88,234.23L165.36,244.03L168.66,246.1L171.01,245.76L173.92,244.62L176.97,244.22L179.64,246.1L182.76,242.36L184.29,238.1L186.58,227.78L188.61,224.06L191.21,221.07L193.25,217.82L194.16,210.92zM286.58,184.56L285.75,183.01L277.39,172.61L266.97,178.31L266.7,178.57L266.67,178.6L266.84,178.78L265.86,182.04L263.96,185.88L263.14,189.65L260.87,188.59L258.6,187.98L253.44,187.68L250.9,186.64L249.53,184.3L248.54,181.79L247.15,180.23L242.59,180.09L236.79,181.55L231.29,183.79L227.6,186.01L225.45,188.37L218.72,198.57L217,205.04L215.99,206L214.24,206.38L212.37,207.27L210.74,208.4L209.69,209.45L208.11,213.01L204.36,227.78L199.84,237.29L198.33,242.61L199.01,247.9L200.05,250.3L201.09,251.5L202.61,251.11L205.24,248.83L207.65,247.23L213.41,245.14L215,244.29L216.76,239.44L216.89,234.18L217.92,229.86L222.27,227.78L220.57,237.6L221.63,240.99L226.72,242.3L229.4,240.73L237.83,224.18L238.34,219.15L239.44,214.58L243.61,211.45L248.61,211.39L254.68,216.59L259.58,216.9L259.58,218.71L256.82,218.86L254.43,218.6L252.45,217.95L250.99,216.97L244.67,217.36L239.87,226.32L234.55,247.9L239.52,246.62L251.93,240.11L254.42,237.84L256.96,236.32L273.8,233.21L274.52,232.91L274.13,226.09L274.33,221.53L275.9,212.6L288.22,190.06L286.58,184.56z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Guineabissau.tsx
+import { useState as useState2 } from "react";
 var Guineabissau = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      GuineabissauSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      GuineabissauMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var GuineabissauSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -49,27 +141,161 @@ var Guineabissau = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1500 550" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var GuineabissauMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Guineabissau_default = Guineabissau;
 

@@ -1,5 +1,5 @@
 // src/Lebanon.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "South Lebanon",
@@ -26,15 +27,106 @@ var drawPath = {
   Beqaa: "M745.32,165.94L741.47,163.39L733.79,153.81L724.78,149.88L717.64,143.88L712.37,135.56L708.97,124.79L708.97,124.69L701.67,122.1L687.12,120.94L671.58,121.65L661.26,124.79L659.83,125.24L658.35,125.35L656.86,125.24L655.44,124.79L653.93,121.93L653.74,121.95L642.56,123.35L635.89,126.05L634.66,127.45L610.99,145.8L608.93,148.56L608.36,149.6L608.03,150.66L607.86,151.93L607.78,154.72L607.45,156.15L606.71,157.7L596.55,170.8L598.72,178.72L598.2,180.33L583.62,210.45L580.99,213.65L576.62,218.02L565.81,226.6L561.19,231.42L559.3,234.09L558.23,236.25L552.3,257.12L536.05,274.07L516.28,299.26L514.47,315.84L512.82,321.51L501.76,340.36L499.7,342.58L498.38,343.3L496.9,343.69L484.71,344.74L480.4,355.4L479.52,359.96L477.6,398.92L453.8,446.78L438.95,469.41L432.77,472.24L408.78,494.13L402.85,501.46L402.44,502.94L400.13,508.19L391.13,523.99L356.59,565.23L374.16,577.84L376.47,582.57L373.01,588.3L371.85,589.59L370.45,590.58L368.81,591.22L367.24,591.42L365.68,591.45L359.64,590.77L355.69,590.79L341.11,612.09L349.34,620.49L349.43,621.86L349.01,623.64L344.65,628.49L341.93,632.29L339.87,633.9L334.68,636.67L304.02,683.16L300.48,689.9L294.36,706.3L287.03,736.94L285.63,740.93L284.23,743.77L280.27,749.36L278.05,751.73L273.41,755.63L274.84,770.76L276.98,779.03L277.89,781.45L280.52,787.26L282.91,790.65L284.72,804.3L294.85,807.82L298.97,806.18L304.18,799.47L308.63,792.25L314.31,785.24L321.64,777.75L325.27,775.23L327.9,774.11L338.31,777.59L349.1,784.05L352.14,788L353.71,792.59L358.9,803.71L361.15,806.47L363.02,807.99L387.42,811.14L396.07,813.48L396.42,813.57L409.68,805.62L419.46,799.78L435.93,785.81L444.38,765.49L437.19,752.55L443.23,744.1L455.75,740.04L468.21,740.2L478.31,735.54L489.24,728.29L497.42,718.62L499.12,706.8L494.46,699.59L485.56,692.97L475.79,688.07L468.21,685.96L455.8,678.99L444.05,676.78L437.03,672.38L439.06,658.74L441.2,656.57L448.12,653.93L450.64,651.45L452.07,645.32L450.53,633.74L451.3,628.39L455.25,622.7L464.97,613.74L468.21,606.46L475.51,595.5L493.08,580.42L500.22,566.79L505.49,559.87L514,556.32L523.89,553.73L533.11,549.74L552.16,538.01L555.68,540.06L562.43,548.6L566.71,551.33L577.8,551.07L586.37,545.89L593.78,539.84L601.85,536.79L611.07,538.57L638.36,552.04L658.4,556.83L668.61,555.18L675.04,546.72L674,533.58L664.83,527.91L643.96,524.34L628.31,512.1L624.97,508.2L621.56,502.08L620.63,499.77L631.99,476.64L639.3,465.19L647.64,454.86L668.78,436.25L686.46,413.71L697.66,408L703.75,408.53L715.17,412.8L722.48,412.44L731.15,408.08L734.06,402.15L735.1,394.61L738.18,385.54L748.56,372.37L772.33,351.95L784.63,331.24L799.62,314.64L799.33,314L796.49,307.74L783.64,294.96L780.18,285.71L777.66,273.62L781.66,265.31L786.77,258.22L787.87,249.86L785.12,244.86L781.66,244.03L777.77,244.33L773.98,242.67L768.32,236.47L756.85,220.28L754.21,215.29L752.78,210.14L753.22,204.85L754.92,201.51L756.85,198.46L758.27,194.02L760.14,183.46L760.58,176.32L757.67,170.68L749.21,164.57L745.32,165.94z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Lebanon.tsx
+import { useState as useState2 } from "react";
 var Lebanon = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      LebanonSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      LebanonMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var LebanonSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -43,36 +135,160 @@ var Lebanon = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement(
-    "svg",
-    {
-      version: "1.1",
-      id: "svg2",
-      x: "0px",
-      y: "0px",
-      viewBox: "-20 -50 2000 1200"
-    },
-    stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
-      "path",
-      {
-        key: index,
-        onClick: () => onSelect(stateCode2),
-        onMouseEnter: () => handleMouseEnter(stateCode2),
-        onMouseLeave: () => handleMouseLeave(stateCode2),
-        id: stateCode2,
-        d: drawPath[stateCode2]
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
       }
-    ))
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var LebanonMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
   )));
 };
 var Lebanon_default = Lebanon;

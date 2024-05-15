@@ -1,5 +1,5 @@
 // src/Thailand.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Krung Thep Maha Nakhon (Bangkok)",
@@ -170,15 +171,106 @@ var drawPath = {
   "Lake Songkhla": "M192.55,878.25l0.63,-0.52l1.87,0.44l0.84,-0.25l1.05,-1.09l0,0l0.89,-0.25l1.78,3.5l1.04,7.82l0,0l-0.72,3.13l0,0l-0.4,0.31l-1.11,-0.75l0,0l-0.67,1.64l-1,0.94l0.54,2.52l1.3,0.96l0.16,-1.57l1.85,-3.33l2.38,-0.06l2.44,1.08l1.29,6.08l-0.44,6.27l1.36,1.28l-0.06,2.73l0.46,0.78l0.06,1.8l-1.34,0.88l1.94,1.25l0,0l-1.39,0.66l0,0l1.08,-0.51l-3.44,-1.8l-0.54,-1.85l0,0l-0.01,-0.19l0,0l0.01,-0.49l0,0l-0.09,-0.28l0,0l-1.43,-1.88l-1.08,-0.04l-0.92,-0.6l-0.93,1.02l-0.81,0.03l-0.04,-1l-1.83,-1.99l-1.04,-0.47l-0.27,-1.49l-1.88,-3.8l0.15,-2.05l-0.76,0.7l-0.74,-0.21l-1.91,-1.93l-1.75,-8.49l-0.22,-5.6l3.01,-2.08L192.55,878.25zM203.61,897.62L203.61,897.62l-2,0.43l0.3,1.38l-0.37,2.44l0.4,-0.39l0.41,0.6l-0.24,0.48l-0.92,-0.13l-0.59,3.37l0.22,0.87l1.68,0.17l-0.16,-3.02l1.03,-0.47l0.48,-2.12l-0.26,-1.52l-0.63,0.17l-0.39,-1.24l0.28,-0.5l1.29,-0.13l0.56,-1.17l-0.75,-0.05L203.61,897.62zM204.48,908.76L204.48,908.76l0.31,-0.34l0.29,3.25l0.92,0.48l0.46,-0.27l1.07,-0.49l0.15,-1.45l-2.1,-1.74l0.28,-0.8l-0.55,-3.87l0,0l-0.6,-0.07l0,0l-1.35,1.11l0.13,0.74l-0.8,1.53l1.55,1.79l0,0L204.48,908.76z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Thailand.tsx
+import { useState as useState2 } from "react";
 var Thailand = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      ThailandSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      ThailandMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var ThailandSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -187,36 +279,160 @@ var Thailand = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement(
-    "svg",
-    {
-      version: "1.1",
-      id: "svg2",
-      x: "0px",
-      y: "0px",
-      viewBox: "-20 -40 1600 1100"
-    },
-    stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
-      "path",
-      {
-        key: index,
-        onClick: () => onSelect(stateCode2),
-        onMouseEnter: () => handleMouseEnter(stateCode2),
-        onMouseLeave: () => handleMouseLeave(stateCode2),
-        id: stateCode2,
-        d: drawPath[stateCode2]
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
       }
-    ))
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var ThailandMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
   )));
 };
 var Thailand_default = Thailand;

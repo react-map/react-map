@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Samoa.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "A'ana",
@@ -72,15 +73,106 @@ var drawPath = {
   Vaisigano: "M23.937,533.662L24.893,533.629L25.709,533.969L27.881,534.19L29.222,535.768L30.47,536.384L31.4,538.065L34.746,539.968L35.085,540.589L36.24,540.809L36.818,541.643L38.89,542.13L40.111,541.739L40.576,541.813L43.77,542.931L45.025,543.663L45.636,543.419L45.755,542.9L47.282,542.563L47.408,542.076L47.223,541.496L47.74,541.191L48.199,541.253L48.597,541.862L49.759,541.191L49.739,541.722L50.25,541.832L51.226,540.947L51.074,540.46L51.937,539.367L52.335,539.153L53.132,539.093L54.772,539.787L54.533,540.973L55.177,541.651L57.129,540.108L57.348,539.43L57.607,539.189L58.716,539.128L59.36,538.445L60.582,537.674L61.843,537.35L64.353,538.725L64.433,539.336L65.05,540.448L66.77,541.451L66.71,542.062L67.932,542.794L69.207,542.454L69.818,542.747L71.77,542.688L72.288,543.051L73.191,542.066L73.536,541.243L74.399,540.561L74.818,539.845L73.828,539.651L73.311,539.286L72.885,537.765L72.979,537.258L74.18,535.924L75.508,535.63L76.703,535.827L77.108,535.699L78.948,534.207L79.559,533.12L80.322,532.567L81.312,532.163L81.312,532.163L80.254,577.57L80.254,577.57L80.149,577.521L80.149,577.521L59.247,566.568L47.824,587.602L47.824,587.602L47.329,586.931L45.396,586.504L43.544,585.699L42.189,584.19L41.864,583.44L40.125,582.199L39.534,582.121L38.697,581.252L36.227,579.876L34.129,576.366L33.578,576.03L33.67,575.573L32.98,574.413L32.92,573.44L32.256,573.055L31.832,571.98L31.406,571.645L29.906,569.364L28.604,568.529L27.522,568.603L24.886,567.597L23.645,565.771L23.18,565.358L21.52,564.692L20.676,564.888L18.884,564.607L17.808,563.766L14.501,560.11L12.463,558.47L10.219,556.127L9.501,555.652L8.99,555.666L7.762,555.107L7.151,553.617L7.018,551.823L6.713,551.548L5.89,551.414L5.464,550.933L5.06,549.107L5.418,548.09L3.711,546.217L3.087,545.816L2.005,544.499L0.83,542.625L0,542.367L0.033,542.094L0.797,541.221L1.919,540.646L2.437,539.853L3.413,539.122L4.309,537.938L4.469,536.932L4.801,536.505L4.986,535.681L5.903,535.406L5.87,535.65L5.471,535.926L5.504,536.23L5.704,536.28L7.357,534.364L8.837,531.668L10.053,532.129L11.992,531.479L12.848,531.826L14.415,531.941L15.086,532.739L15.756,532.923L16.659,533.768L17.257,533.93L18.021,533.724L18.465,533.24L18.565,532.277L18.904,531.49L19.793,530.714L20.69,530.556L21.407,530.937L22.828,533.032z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Samoa.tsx
+var import_react3 = require("react");
 var Samoa = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      SamoaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      SamoaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var SamoaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -89,27 +181,161 @@ var Samoa = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 400 1500 450" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var SamoaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Samoa_default = Samoa;
 

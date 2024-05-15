@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Madagascar.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Vatovavy-Fitovinany",
@@ -94,15 +95,106 @@ var drawPath = {
   "Alaotra-Mangoro": "M554.19,486.86L553.53,486.82L552.9,486.66L551.55,486.52L546.26,487.44L545.68,487.66L544.17,488.49L543.59,488.71L541.63,489.11L541.07,489.32L540.54,489.58L539.98,489.81L539.38,489.97L538.67,490L535.93,489.84L535.31,489.71L534.77,489.49L533.75,488.88L533.2,488.66L532.53,488.61L531.9,488.68L530.56,488.67L529.33,488.35L528.22,487.88L527.61,487.74L527.03,487.74L526.45,487.89L525.5,488.44L525.02,488.63L524.68,488.67L524.17,488.6L523.23,488.06L522.7,487.87L522.26,488.1L521.99,488.71L522.02,490.11L521.94,490.88L521.58,491.7L520.72,492.59L519.34,493.57L518.54,494.35L517.9,495.29L517.17,496.93L517.05,497.74L517.05,498.73L517.86,502.7L518.03,504.12L518.02,505.16L517.13,512L516.91,512.78L516.16,514.56L515.99,515.26L515.67,518L515.68,520.19L516.6,525.44L516.77,526.04L518.43,529.12L518.88,530.25L519.23,531.47L519.65,534.31L519.8,538.49L519.68,539.3L519.17,540.28L518.9,541.09L518.8,541.95L519.09,543.08L519.62,544.49L520.25,545.45L521.89,546.99L522.57,547.89L522.94,548.3L523.28,548.75L523.57,549.26L523.95,550.45L524.2,550.95L524.53,551.33L525.07,551.87L525.87,552.49L526.24,552.9L526.53,553.39L526.76,554.09L527.08,556.13L527.46,556.75L527.91,557.21L528.41,557.51L528.85,557.85L529.25,558.26L529.57,558.74L530.06,559.84L530.37,560.31L530.8,560.68L531.29,560.97L531.85,561.2L532.89,561.75L533.35,562.09L533.58,562.8L533.54,563.8L532.31,567.51L532.38,568.07L532.87,568.63L533.33,569.38L533.62,570.43L533.69,573.3L533.76,573.84L536.25,577.42L537.81,579.03L539.7,580.32L540.27,580.55L540.92,580.69L541.63,580.75L543.08,580.69L544.44,580.89L545,581.14L545.36,581.77L545.53,582.76L545.41,584.68L545.5,585.76L545.7,586.54L545.99,587.22L546.22,588.11L546.33,589.64L546.54,590.56L546.78,591.28L547.02,591.82L547.22,592.42L547.05,593.55L546.54,595.12L544.19,599.49L543.51,600.37L542.65,601.09L542.3,601.63L542.11,602.32L542.18,603.51L542.72,605.54L542.43,606.46L541.87,607.62L540.51,609.72L539.73,610.69L538.67,611.76L538.33,612.43L538.02,613.33L536.95,618.17L536.57,619.12L535.96,619.87L534.51,621.03L534.22,621.6L534.1,622.33L534.29,623.44L534.63,624.08L535.14,624.49L537.2,624.72L537.68,624.99L537.81,625.62L537.75,626.37L537.47,627.51L537.56,628.97L537.42,629.6L536.71,630.31L535.55,631.16L535.07,631.69L534.68,632.45L534.39,633.98L534.39,636.62L534.21,637.28L533.88,637.77L532.67,638.17L532.19,638.75L531.82,640.48L531.58,644.69L531.07,648.22L530.74,649.06L530.2,649.9L528.92,651.07L528.12,651.3L527.37,651.34L526.72,651.25L526.06,651.31L525.51,651.46L525.04,651.64L524.75,651.81L524.39,652.08L524.03,652.64L523.74,653.46L523.55,654.98L523.61,656.82L523.52,657.56L523.23,658.4L522.45,659.4L521.22,660.58L520.89,661.14L520.64,661.9L520.59,663.24L520.67,664.12L520.98,665.49L520.66,666.76L517.74,672.23L514.13,677.25L514.59,679.72L514.81,680.29L515.16,680.95L515.6,681.31L517.11,682.22L517.56,682.57L518.53,683.2L520.21,683.93L520.72,684.23L521.11,684.61L521.41,685.11L521.59,685.72L521.99,690.82L522.18,691.45L522.99,693.01L523.37,694.23L523.9,696.85L524.34,697.97L524.98,699.1L525.1,699.64L525.09,700.37L524.68,701.41L524.42,702.5L524.24,703.78L524.32,706.06L524.66,708.06L524.78,708.42L524.81,708.66L524.58,715.8L524.7,716.82L525.02,717.57L526.7,720.54L526.87,721.4L526.87,724.59L526.98,725.71L527.18,726.54L528.07,728.04L528.33,728.58L528.48,729.19L528.5,729.96L528.38,730.77L527.84,731.77L527.4,732.37L525.61,733.93L525,734.79L524.81,735.15L524.68,735.8L524.53,736.82L524.63,740.98L523.73,750.67L523.83,752.14L523.74,753.63L523.3,755.65L519.63,766.2L518.24,773.93L518.49,782.87L518.87,785.67L519.68,788.86L519.75,789.56L519.45,793.47L519.53,796.1L519.19,801.69L519.02,802.85L518.56,803.97L518.12,804.81L517.56,805.64L517.3,806.3L517.17,807.11L517.15,808.57L517,809.73L516.48,811.23L514.64,814.95L514.49,815.75L514.44,816.69L514.62,818.26L514.86,819.17L518.43,826.21L518.61,826.8L518.68,827.75L518.49,831.16L518.56,832.31L518.71,833.19L519.34,834.95L519.38,839.04L519.67,841.33L519.63,842.8L518.87,850.41L518.53,852.16L518.26,853.01L517.83,853.95L515.96,856.89L514.47,858.64L514.15,859.21L513.96,859.99L513.82,861.44L513.53,862.69L512.77,864.35L511.25,866.95L511.01,867.7L510.83,868.68L510.81,871.45L511.12,873.7L511.12,874.47L510.95,875.33L510.52,876.38L509.26,878.12L508.88,878.92L508.76,880.27L508.92,887.41L509.15,888.76L509.46,889.88L509.64,890.82L509.64,891.5L509.35,894.44L508.32,897.17L523.74,894.13L531.99,888.29L540.25,895.6L558.13,897.06L562.25,870.76L571.88,870.76L567.76,848.87L587.02,843.04L588.39,825.56L598.02,822.64L598.02,800.81L588.39,774.65L582.89,757.23L582.89,734.02L587.02,718.08L600.77,715.18L614.53,706.49L613.15,694.92L603.52,683.34L596.64,674.67L603.52,671.78L617.28,671.78L621.41,660.22L618.65,650.11L607.65,644.34L604.9,638.57L614.53,631.35L620.32,616.64L613.15,608.29L618.65,595.33L615.9,576.61L622.78,559.36L622.78,549.3L625.48,536.77L624.8,536.7L624.17,536.54L621.89,535.67L621.24,535.62L619.36,535.94L618.03,535.88L617.39,535.94L616.79,536.13L616.25,536.36L606.91,542.89L604.86,544.82L603.98,545.53L603.01,546.15L602.5,546.4L601.88,546.55L601.24,546.57L600.64,546.41L600.14,546.09L599.73,545.7L596.23,540.42L595.22,538.29L594.82,537.09L594.57,535.77L594.57,534.28L594.65,533.56L595,532.29L595.47,531.2L597.21,528.18L597.67,527.04L597.83,526.41L597.86,525.76L597.72,525.15L597.49,524.64L596.26,523.48L595.9,523.06L595.6,522.57L595.4,522.01L595.34,521.36L595.46,520.1L595.23,517.32L595.09,516.67L594.82,516.14L594.21,515.17L593.97,514.62L593.74,512.93L593.5,512.46L593.11,512.11L592.14,511.51L591.69,511.15L591.39,510.66L591.05,509.43L590.77,508.92L590.01,508.1L588.15,506.81L586,505.75L583.62,504.96L582.52,504.46L580.58,503.23L577.55,499.17L576.32,498.04L575.47,497.42L574.92,497.21L574.31,497.16L571.78,497.63L570.39,497.6L569.69,497.63L568.62,497.97L568.13,497.92L567.8,497.56L567.58,497.01L567.45,494.81L567.24,494.21L566.87,493.8L566.34,493.53L564.34,493.14L563.78,492.91L563.25,492.63L562.44,491.85L560.99,490.93L560.58,490.55L558.88,488.32L557.63,487.19L557.15,486.89L556.63,486.66L556.05,486.57L554.85,486.8L554.19,486.86z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Madagascar.tsx
+var import_react3 = require("react");
 var Madagascar = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      MadagascarSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      MadagascarMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var MadagascarSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -111,36 +203,160 @@ var Madagascar = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement(
-    "svg",
-    {
-      version: "1.1",
-      id: "svg2",
-      x: "0px",
-      y: "0px",
-      viewBox: "-20 -50 2800 1700"
-    },
-    stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
-      "path",
-      {
-        key: index,
-        onClick: () => onSelect(stateCode2),
-        onMouseEnter: () => handleMouseEnter(stateCode2),
-        onMouseLeave: () => handleMouseLeave(stateCode2),
-        id: stateCode2,
-        d: drawPath[stateCode2]
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
       }
-    ))
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var MadagascarMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
   )));
 };
 var Madagascar_default = Madagascar;

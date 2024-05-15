@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Belize.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Belize",
@@ -62,15 +63,106 @@ var drawPath = {
   Toledo: "M279.38,725.87l0.08,1.26h-0.41l-0.25,-0.67L279.38,725.87zM280.67,723.77l0.32,0.59l-0.49,0.25L280.67,723.77zM282.38,718.57l0.57,0.08l-0.08,0.42l-0.97,0.17L282.38,718.57zM283.84,717.05l0.24,0.59l-0.65,0.25l-0.25,-0.59L283.84,717.05zM146.65,715.04l0.81,1.01l-0.16,0.51l-1.05,-1.26L146.65,715.04zM144.62,714.53l0.08,0.42l-0.73,0.34v-0.67L144.62,714.53zM149.09,710.25l0.08,0.5l-0.49,0.42L149.09,710.25zM162.16,709.83l0.16,0.84l-0.65,0.34l0.08,-1.09L162.16,709.83zM151.2,708.49l0.32,0.76l-0.57,0.25l-0.24,-1.01H151.2zM148.68,707.9v0.5l-0.89,0.76l-1.38,0.59l-0.08,0.59h-0.73l0.33,-0.84l1.14,-0.25L148.68,707.9zM162.4,706.89l0.49,0.5l-0.89,-0.25L162.4,706.89zM165.08,706.05l0.24,1.09l-1.14,0.76l-0.33,-0.84l0.81,0.25l-0.24,-0.92L165.08,706.05zM170.6,705.13l0.81,0.08v0.5l-1.05,0.34l-1.05,-0.42L170.6,705.13zM166.21,704.87l0.65,0.5l-0.08,0.59l-0.33,0.34l-0.57,-0.34l0.24,0.51l-0.65,0.17v-1.09L166.21,704.87zM145.51,704.62l1.14,0.17l-1.62,0.17L145.51,704.62zM192.6,704.62l0.16,0.76l-0.41,0.08l-0.32,-0.67L192.6,704.62zM150.06,704.45l0.73,2.1l-0.08,1.01l-0.41,-0.25l-0.24,0.93l-0.81,0.17l-0.08,-0.5l0.65,0.17l0.16,-0.5l-0.08,-0.59l-0.49,0.17v-0.34l0.81,-0.25l-0.4,-1.68L150.06,704.45zM164.35,702.86l-0.16,0.84l-0.97,-0.25v0.34l1.82,0.31l-0.44,-0.57l0.81,-0.25l-0.06,0.89l0.47,-0.05l-0.08,-0.42l0.57,-0.08l1.14,1.35l0.73,-0.42l0.16,-1.01l0.81,1.09l-1.79,0.59l-0.81,-0.76h-3.41l-0.32,-1.09L164.35,702.86zM153.31,702.77l1.22,0.42l-0.08,0.84l-0.81,0.17l0.32,0.34l-0.16,1.18l-1.06,-0.08v-1.18l-0.65,0.76v-0.84l-0.73,-0.59l0.65,-0.42l0.49,0.25l0.41,-0.84H153.31zM153.14,701.93v0.42l-0.89,-0.17L153.14,701.93zM155.25,701.43l0.41,0.08v1.01l0.65,-0.17l-0.08,0.76l-0.89,0.84l-0.73,-0.84l0.57,-1.01l-0.25,-0.59L155.25,701.43zM165.32,701.26l1.14,0.42l0.57,0.92l1.54,-0.34l0.24,0.59h-0.97l-0.08,0.76l-0.41,-0.34l-0.81,0.25l-0.16,-1.43l-2.27,-0.5L165.32,701.26zM190.97,701.26l0.08,0.76l-0.57,0.25v-0.92L190.97,701.26zM172.71,700.76l0.65,0.17l-0.08,0.92l-0.57,-0.34l-0.73,1.09l-0.57,-0.17l-0.16,-0.67L172.71,700.76zM155.58,700.42l0.08,0.59l-0.73,-0.17L155.58,700.42zM168,700.42l0.49,1.01l-0.16,0.5l-0.73,-1.34L168,700.42zM153.88,700.25l0.08,0.34l-0.81,0.67l0.65,0.08l0.57,-0.84l0.41,0.42l-0.41,0.92l-0.65,0.08l0.08,0.5l-0.32,0.08v-0.59l-0.97,-0.92L153.88,700.25zM154.69,699.25l0.49,0.42l-0.33,0.42l-0.49,-0.33L154.69,699.25zM148.68,699.08l0.16,0.93l-0.73,-0.34v-0.59H148.68zM153.39,699.08l-0.08,0.84H152.9l-0.24,-0.84H153.39zM158.42,698.4l0.49,0.42l-0.48,1.34l-1.79,-0.33l-0.08,-0.34l1.14,-0.08l0.25,-0.67l-0.33,-0.17l-1.54,0.84l0.49,-0.92L158.42,698.4zM155.58,697.98l0.24,0.59l-0.81,0.25l-0.16,-0.59L155.58,697.98zM172.3,694.88l0.24,0.92l-0.89,1.43l-0.57,-0.59l0.57,-1.6L172.3,694.88zM158.58,694.62l0.24,1.01l-0.65,-0.34v-0.67H158.58zM157.45,693.95l-0.33,0.93l-0.81,-0.25l-0.08,-0.42L157.45,693.95zM159.15,693.95l0.08,0.51l-0.81,-0.17L159.15,693.95zM159.8,692.86l0.16,0.25l-0.65,0.59L159.8,692.86zM177.99,691.94l0.41,1.01l-0.81,-0.67L177.99,691.94zM185.94,691.52l-0.49,1.26l-1.14,-0.08v-0.59L185.94,691.52zM164.18,691.26l-0.24,1.01l0.65,0.76l-1.05,-0.08l-0.08,0.34l1.06,0.34l0.08,1.34l-0.57,0.17l-0.32,-0.5l-0.57,0.59l-0.32,-0.75l0.41,-0.08l0.25,0.26l0.4,-0.77l-0.65,-0.17l-0.21,0.47l-1.09,0.28l0.24,0.84l-0.32,0.42l-0.81,0.59l-0.48,-0.17l-0.33,-0.84l0.98,-0.08l-0.81,-0.5v-0.42l2.76,-0.76v-0.34h-0.57l0.57,-0.5v-1.18l0.73,0.17L164.18,691.26zM162.72,691.01v0.67h-0.73v-0.59L162.72,691.01zM173.28,690.68l0.32,1.26l-0.97,-0.25l-0.41,0.92h-0.65l-0.24,0.59l-0.89,-0.34l0.33,-1.01l0.97,-0.67l0.97,0.08L173.28,690.68zM145.43,689.84l0.24,1.01l-0.49,-0.59L145.43,689.84zM164.92,689.25l1.87,0.67l-0.65,0.42l-0.81,-0.17l-0.24,-0.59l-0.97,0.42v-0.59L164.92,689.25zM177.17,687.57v0.67l-0.73,0.34l0.12,-0.64L177.17,687.57zM174.74,687.06l0.41,1.09l-0.4,0.84l-0.89,0.34l-0.41,-1.26l0.65,0.59l0.55,-0.99l-0.79,0.15L174.74,687.06zM175.95,686.56l0.49,0.92l-0.16,0.51l-1.3,-0.84l0.25,-0.5L175.95,686.56zM190.97,682.69l0.33,0.34h-0.41l-0.16,0.67h-0.65v-0.42L190.97,682.69zM220.28,643.43l0.89,0.67l-0.16,0.34l-1.05,-0.34l-0.16,-0.59L220.28,643.43zM231.97,629.47l0.73,0.93l-0.49,1.43l-0.4,-0.34L231.97,629.47zM229.61,629.39l0.65,0.59l1.05,-0.34l-0.49,0.5l0.49,0.76l-0.73,0.08l0.08,0.51l-1.22,-0.67l-0.24,-1.35L229.61,629.39zM239.52,615.34l0.49,0.34l-0.16,1.77l-0.57,-0.5v-1.01l-0.89,-0.25l0.08,-0.5l3.41,-1.85l-0.49,0.93L239.52,615.34zM132.13,551.16l36.12,-0.69l10.99,2.13l6.24,3.59l4.85,6.47v6.04l-2.77,1.15l5.54,7.19l2.77,2.87l4.16,7.18l1.39,7.9l-0.69,4.31l-4.16,2.15l0.69,2.87l44.94,1.93l0,0l1.06,0l0.08,1.26l-1.54,0.51l-2.19,-0.5l-0.97,0.59l0.33,1.18l-0.81,2.44l0.08,1.35l-2.43,1.68l0.24,1.35l-1.3,1.94l-0.16,2.36l0.73,1.68l-0.65,2.02l0.08,1.26l-0.32,-0.25l-0.89,0.59l-0.41,-0.67l-0.81,0.25l-0.57,-1.09l-1.22,1.01l-0.57,-0.17l-0.4,1.09l0.41,2.44h-0.49l-0.16,-0.92l-1.46,-0.59l-0.08,-0.84l-0.97,-0.84l-0.81,-0.34l-0.49,0.42l0.98,0.17l0.49,0.59l0.16,1.77l0.41,0.42l-0.41,0.5l0.16,1.35l0.65,1.43l-1.79,-0.34l-0.08,0.67l0.97,1.43l-0.89,0.34l-0.16,0.67l-0.73,0.34l0.16,1.09l1.06,0.42l0.24,0.59h0.57l0.89,-1.26l0.73,0.08l0.65,-1.35l0.33,0.59l0.73,0.17l-0.16,0.67l-1.3,0.51l0.16,0.76l-0.73,-0.17l-0.89,1.18l0.24,0.5l-0.33,0.25l-0.41,-0.59l-0.97,-0.08l-2.6,2.19l-0.81,-0.17l-0.24,-0.59l0.49,-0.42l0.33,0.51l0.08,-1.09l-0.73,-2.61l-1.22,1.18l-2.68,1.35l0.24,0.76l-0.73,0.59l0.32,2.77l-0.89,0.76l-0.57,2.1l0.49,0.93v1.68l-1.38,1.18l-0.49,2.35l-1.79,4.2l-3,1.68l-2.76,2.27l-2.19,2.19l-0.41,1.85l-2.03,2.19l-4.06,2.1l-0.89,2.27v6.89l-5.93,0.17l-0.73,0.76l-1.46,-0.08l-1.05,0.67l-0.81,1.43l-0.16,2.35l-0.81,2.35l-0.49,0.25l0.16,1.34l-1.14,1.26h-0.41v-0.59l0.49,-0.76l-0.57,0.08l0.16,-0.75l-0.89,-0.84l-0.16,-0.76l2.35,-2.18l-0.08,-0.59l-1.06,-0.92l-1.22,0.17l-0.73,0.67l-0.49,1.68l-1.05,0.34l-0.49,-0.34l1.46,-1.34l0.16,-1.76l0.73,-0.67l-0.08,-2.6l-2.52,2.44l1.3,2.19l-0.16,0.59l-1.14,0.76l-0.08,-0.67l-0.97,-0.59h-0.89l-0.57,0.67l-0.81,-0.42l-1.62,-3.02l-5.19,-4.54l-3.9,-0.08l-1.7,1.01l-0.81,2.02v1.93l1.3,0.59l0.16,1.93l-0.16,0.76l-0.65,0.25l-1.22,1.77l-1.54,-0.17l-0.33,-1.01l-0.97,-0.34l-1.14,1.18l-1.3,0.08l0.16,0.93l-0.73,-0.17l-0.89,0.67l-2.11,0.34l-1.87,-0.25l-0.49,0.76l-1.05,0.42l1.71,0.67l-0.41,1.01l-0.41,-0.34l-1.71,0.42l-2.84,-0.08l-0.73,-0.5l-2.52,-0.25v0.59l-0.89,0.08l0.89,1.51l-1.46,-0.08l-0.16,1.68l-0.89,1.09l-2.44,0.34l-1.46,0.67l-0.33,1.18l0.65,1.6l-0.57,0.42v1.01l2.03,4.2l-0.81,1.26l0.24,0.92l0.89,1.18l-0.08,0.59l1.14,1.26l1.46,0.17l-4.38,2.44l-0.4,0.76l0.33,2.18l-0.81,0.08l-1.22,0.92l0.08,1.34l1.54,1.6l-0.4,0.34l-0.16,1.26l-8.04,3.19l-0.97,0.5l-0.65,0.92l-3.33,0.76l-0.89,1.26l0.16,1.68l-0.65,0.76l-0.16,2.02l-1.06,0.67l-1.13,2.02l-0.73,3.53l-1.54,0.34l-1.22,-0.59l-3.08,0.5l-0.97,1.26l-0.49,1.6l-2.19,0.84l-0.49,1.18l-0.89,0.34l-0.73,0.92l-0.81,0.17v3.78l-0.57,3.11l-1.06,1.85l-5.27,2.52l-2.76,2.35l-2.76,1.43h-0.81l-4.95,2.18l-2.03,2.94l-1.78,0.25l-0.81,1.01l-0.73,2.52l-0.49,4.78l3.57,11.5l1.22,1.93l1.79,4.49l-3.39,1.8l-4.59,1.45L80.19,792l-5.47,-1.27l-4.81,-0.48l-3.65,-1.94l-1.08,0.09l-3.23,1.84l-1.24,-0.08l-1,-2.74l-1.16,-0.99l-2.91,-1.15l-2.5,0.31l-1.54,2.1l-1.18,-3.43l-0.76,-0.48l-0.77,0.21l-0.48,0.9l0.35,1.38l-0.48,1.25l0.14,1.32l-1.3,-0.72l0.04,1.58l-0.9,-0.27l-2.31,-2.62l-0.18,2.9l-0.83,0.07l-0.31,-0.57l-0.08,1.34l-0.82,0.07l-2.01,-3.79l-1.31,-0.69l-2.68,0.08l-2.62,0.91l0.74,1.73l-0.2,0.55l-1.17,-0.27l0.03,1.11l-1.17,-0.27l-0.76,-0.69l-2.13,0.35l-2.1,-1.89l-2.99,2.4l-1.72,0.49l-3.03,-1.16l-3.66,-3.23l-1.31,-0.34l-0.82,0.24l-0.59,2.59l-2.24,0.01l-6.7,2.51l-1.49,-0.73l-0.3,-1.43l-1.02,0.14L0,781.15l2.3,-22.45l8.13,-125.6l0,0l8.77,-0.76l4.85,-10.05l5.54,-3.59l2.77,-4.31h19.4l2.08,-2.87l0.69,-2.87l3.46,-5.03l4.85,0.72l2.77,4.31l5.54,0.72l8.31,-3.59l2.77,-5.74l4.85,-3.59l8.31,-2.15l2.77,-1.44l4.16,-3.59l3.46,-2.15l6.24,-2.87l12.47,-12.93v-3.59l-4.85,-1.44v-3.59l6.93,-1.44l0.67,-6.23l1.17,0.01L132.13,551.16z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Belize.tsx
+var import_react3 = require("react");
 var Belize = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      BelizeSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      BelizeMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var BelizeSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -79,27 +171,161 @@ var Belize = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1200 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var BelizeMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Belize_default = Belize;
 

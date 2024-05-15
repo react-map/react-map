@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Togo.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = ["Savanes", "Centre", "Kara", "Maritime", "Plateaux"];
 var drawPath = {
@@ -54,15 +55,106 @@ var drawPath = {
   Plateaux: "M726.59,1152.51L575.78,1150.63L575.9,1153.18L575.65,1154.98L573.87,1158.62L573.42,1160.64L573.17,1178.54L573.42,1181.05L573.99,1183.27L576.73,1189L577.24,1191.28L577.62,1196.46L578.07,1198.85L579.34,1203.15L579.66,1205.4L578.83,1212.36L579.21,1214.51L579.91,1216.5L580.93,1218.21L582.33,1219.72L585.34,1222.49L586.36,1224.26L586.99,1226.41L587.31,1228.92L587.31,1237L586.93,1239.5L584.96,1246.2L584.13,1251.05L583.81,1259.06L581.88,1268.32L582.14,1278.42L581.82,1280.87L581.18,1283.05L575.59,1294.56L574.95,1296.46L575.14,1298.45L576.16,1300.03L578.38,1302.61L578.07,1303.86L577.75,1304.47L577.37,1304.89L564.9,1313.63L552.53,1317.36L517.97,1324.43L510.44,1324.84L503.82,1324.2L497.78,1322.73L493.58,1320.83L490.25,1319.71L472.88,1316.17L468.3,1314.53L462.36,1314.49L422.96,1319.58L417.08,1319.51L415.05,1318.61L413.07,1318.16L411.04,1318.77L406.84,1324.91L405.38,1326.14L403.72,1327.14L399.46,1328.32L366.65,1332.69L362.9,1334.17L356.47,1338.29L353.27,1340.83L350.98,1343.08L344.62,1345.77L324.05,1347.67L315.69,1349.15L315.99,1351.15L315.65,1375.96L319.38,1399.63L318.49,1421.29L319.64,1429.38L307.76,1427.37L302.5,1435.8L301.23,1448.64L301.35,1459.9L299.02,1465.46L293.47,1468.33L286.89,1470.12L281.5,1472.54L277.35,1476.61L274.8,1481.04L273.32,1486.13L271.75,1510.17L273.79,1530.56L280.4,1548.78L293.34,1560.26L300.8,1561.29L308.95,1559.81L324.05,1554.21L326.76,1557.82L333.34,1584.96L332.83,1593.92L327.35,1609.1L323.54,1628.29L313.65,1653.09L312.26,1669.29L314.08,1687.9L313.78,1705.9L305.94,1720.13L300.63,1723.08L283.33,1727.61L277.31,1728.05L271.33,1729.91L276.03,1736.24L287.7,1745.3L292.53,1754.03L291.56,1761L282.9,1775.5L280.15,1784.19L281.46,1788.15L285.41,1790.51L290.41,1794.37L302.29,1816.55L305,1820.18L312.04,1821.68L319.21,1825.64L325.19,1831.33L328.67,1838L329.09,1844.71L325.53,1865.57L327.82,1874.2L333.21,1879.15L338.98,1883.41L342.58,1889.97L346.44,1890.35L357.89,1889.99L361.63,1890.76L366.88,1895.92L366.63,1899.77L363.75,1903.64L361.16,1908.9L360.99,1911.41L365.82,1910.69L382.26,1908.29L389.07,1905.71L403.4,1896.75L404.93,1895.37L407.54,1892.06L411.74,1885.18L415.62,1880.4L427.67,1869.27L430.53,1865.88L432.56,1862.96L434.35,1858.9L437.02,1849.73L438.67,1833.75L437.84,1814.07L438.54,1809.13L440.07,1804.2L441.66,1801.43L443.57,1799.51L447.41,1797.43L451.48,1795.79L459.31,1794L526.3,1797.81L528.21,1798.32L529.04,1799.48L528.14,1802.4L528.78,1803.81L530.5,1804.71L537.65,1805.67L539.55,1806.57L540.83,1808.01L541.84,1809.74L543.18,1811.28L544.9,1812.43L546.93,1813.33L549.03,1814.01L551.58,1815.29L552.53,1816.06L553.11,1816.8L557.94,1825.16L559.34,1826.61L561.02,1827.73L574.06,1832.22L577.62,1833.82L600.67,1810.92L629.13,1789.79L637.17,1786.81L646.4,1784.76L651.3,1784.31L655.2,1784.57L664.36,1787.55L669.45,1788.51L674.41,1788.7L676.85,1788.35L683.85,1785.85L691.29,1781.94L693.9,1779.63L696.38,1776.42L704.8,1762.89L708.36,1759.78L710.25,1758.88L710.29,1758.86L709.64,1758.37L705.01,1751.51L697.04,1722.14L728.04,1722.35L735.51,1720.13L735.21,1659.39L734.96,1599.35L734.7,1537.57L734.52,1496.89L734.35,1461.25L734.32,1453.97L733.98,1371.87L733.73,1306.29L734.75,1240.25L735.47,1192.74L731.1,1157.16L729.02,1153.33L726.6,1152.52L726.59,1152.51z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Togo.tsx
+var import_react3 = require("react");
 var Togo = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      TogoSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      TogoMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var TogoSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -71,36 +163,160 @@ var Togo = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement(
-    "svg",
-    {
-      version: "1.1",
-      id: "svg2",
-      x: "0px",
-      y: "0px",
-      viewBox: "-20 -40 3100 2200"
-    },
-    stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
-      "path",
-      {
-        key: index,
-        onClick: () => onSelect(stateCode2),
-        onMouseEnter: () => handleMouseEnter(stateCode2),
-        onMouseLeave: () => handleMouseLeave(stateCode2),
-        id: stateCode2,
-        d: drawPath[stateCode2]
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
       }
-    ))
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var TogoMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
   )));
 };
 var Togo_default = Togo;

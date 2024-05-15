@@ -1,5 +1,5 @@
 // src/Cuba.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Mayabeque",
@@ -46,15 +47,106 @@ var drawPath = {
   Cienfuegos: "M335.45,55.93L333.69,54.47L333.31,54.34L332.69,54.28L332.34,54.48L332.06,54.74L331.86,55.05L330.96,56.09L327.9,57.88L326.42,58.9L326.16,59.23L324.54,62.28L324.07,62.94L323.74,63.28L323.44,63.34L322.83,63.42L322.37,63.52L321.87,63.69L320.24,64.46L319.76,64.49L319.41,64.44L318.7,64.2L311.9,63.47L310.17,63.61L309.61,63.58L305.9,62.59L305.09,62.56L304.51,62.67L303.87,63.11L303.58,63.35L302.7,63.9L301.14,64.63L300.69,64.92L299.82,65.75L299.6,66.01L299.2,66.37L298.31,67.01L297.76,67.67L297.78,67.82L298,67.94L298.38,68.01L298.67,68.14L298.78,68.32L298.74,68.66L298.27,69.96L298.02,70.51L296.87,72.38L296.71,72.8L296.79,72.96L296.97,73.01L297.26,72.98L297.61,72.86L297.96,72.7L298.2,72.62L298.41,72.62L298.62,72.71L298.89,72.87L298.98,73.19L298.89,73.6L298.31,74.46L298.09,74.94L297.99,75.36L298.08,75.68L298.31,76.2L298.31,76.61L298.21,77.24L297.82,78.35L297.67,79.04L297.59,79.63L297.67,80.36L297.79,80.77L297.93,81.04L298.14,81.2L298.44,81.28L299.63,81.14L299.92,81.15L300.08,81.24L300.15,81.42L300.19,81.78L300.3,82.08L300.37,82.74L300.06,84.22L303.17,86.42L304.07,87.29L304.87,88.52L307.19,89.85L309.76,90.91L310.78,91.53L311.31,91.74L311.58,91.74L311.79,91.55L311.99,91.31L312.19,91.13L312.49,91.03L313.66,90.99L314.2,90.9L314.89,90.89L315.26,91.06L315.74,91.53L316.08,91.67L316.77,91.63L317.82,91.35L319.36,91.15L320.16,91.22L320.64,91.4L321.17,91.98L321.38,92.3L321.52,92.66L321.6,93.08L321.63,94.46L321.76,95.36L321.92,95.85L322.47,96.72L322.47,96.73L328.34,96.56L331.5,97.77L331.95,95.89L331.5,93.96L330.53,92.15L329.45,90.66L327.23,89.05L326.53,87.96L326.93,86.27L327.99,86.73L329.09,86.87L329.99,86.58L330.5,85.77L331.07,86.71L331.76,87.39L333.52,88.49L332.46,89.69L332.55,90.67L333.48,91.25L334.94,91.25L334.85,92.29L335.52,92.33L336.4,92.09L336.99,92.33L337,92.98L336.7,93.64L336.29,94.31L335.99,95L336.41,94.8L337.55,94.51L336.56,95.34L335.29,95.75L334.01,95.8L332.97,95.6L332.96,96.54L333.17,97.05L333.97,97.77L334.27,97.85L335.16,97.71L335.49,97.77L335.79,98.19L335.85,98.64L335.85,99.05L335.99,99.4L344.03,108.06L346.3,110.02L350.15,111.25L352.33,113.08L355.44,113.76L358.47,114.91L358.75,114.96L358.75,114.95L358.91,111.66L358.99,111.25L359.26,110.86L359.76,110.3L361.77,108.69L364.42,105.93L364.48,104.85L364.37,104.68L362.88,103.54L362.63,102.85L362.52,102.09L362.56,100.9L362.45,98.79L362.26,98.14L361.86,97.59L360.49,96.44L360,95.46L359.61,94.38L358.84,91.23L358.79,90.56L358.84,88.99L358.56,85.92L358.65,85.19L358.93,84.53L359.2,84.07L360,81.5L358.15,80.64L357.25,79.45L356.6,78.27L356.2,77.36L356,76.64L355.76,74.86L355.64,74.57L355.46,74.42L355.15,74.36L354.78,74.39L353.67,74.73L353.15,74.78L352.62,74.68L351.71,74.2L349.03,71.57L348.58,70.95L348.33,70.43L348.29,69.58L349.69,68.04L349.92,66.99L349.72,66.64L349.45,66.34L348.92,66.06L348.62,65.48L348.58,65.03L348.7,64.46L348.99,63.76L348.77,62.95L347.36,62.15L347.1,61.74L346.28,59.81L346.2,59.12L346.22,58.71L346.45,58.51L346.68,58.4L346.98,58.31L347.19,58.2L347.37,57.81L347.48,57.14L347.48,55.73L347.37,55.2L347.22,54.97L347.03,55.12L346.68,55.51L346.46,55.66L346.02,55.74L345.55,55.74L344.52,55.65L344.09,55.66L343.83,55.76L343.59,56.05L343.32,56.58L342.76,58.36L342.62,58.58L342.38,58.71L341.98,58.73L341.41,58.7L341.01,58.74L340.66,58.87L339.84,59.42L339.37,59.65L338.53,59.94L338.13,59.95L337.81,59.84L337.69,59.67L337.64,59.45L337.7,59.1L338.06,58.04L338.21,57.29L338.25,56.13L337.9,55.7L337.28,55.58L335.45,55.93z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Cuba.tsx
+import { useState as useState2 } from "react";
 var Cuba = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      CubaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      CubaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var CubaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -63,27 +155,161 @@ var Cuba = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1200 500" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var CubaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Cuba_default = Cuba;
 

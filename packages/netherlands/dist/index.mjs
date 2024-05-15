@@ -1,5 +1,5 @@
 // src/Netherlands.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Drenthe",
@@ -38,15 +39,106 @@ var drawPath = {
   "Zuid-Holland": "M155.8,478.39l1.06,0.92l0.3,-0.15l0.46,0.13l0.17,0.48l1.11,0.59l0.05,0.38l-2.9,0.13l-1.08,-0.28l-1.09,-1.2l1.53,-0.97L155.8,478.39zM143.96,470.44l1.27,0.03l4.04,1l5.25,2.37l2.52,0.82l0.87,0.46l0.08,0.82l-3.66,1.43l-2.6,-0.1l-1.93,-0.48l-2.48,-1.45l-4.98,-3.42l-0.35,-0.43l0.14,-0.74l0.65,-0.38L143.96,470.44zM179.49,322.71l10.74,4.85l1,-1.86l2.14,-0.59l0.43,-0.03l3.88,1.65l-1.28,1.86l-1.04,2.74l-0.02,0.65l-1.47,3.2l-3.13,3.17l0.29,2.04l-1.25,6.55l-1.3,1.62l-0.09,0.49l0.16,1.31l1.08,0.88l2.33,0.54l1.68,-0.57l2.36,0.93l2.25,0.28l3.24,-0.23l5.13,-2.99l3.01,-0.18l0.4,-0.26l0.21,0.15l1.16,-1.21l1.5,-0.62l3.09,0.49l-0.22,2.94l0.57,1.26l0.08,0.93l-0.19,0.46l0.92,0.7l1.23,-1.55l1.93,-1.24l1.46,-0.33l1.38,-1.08l0.92,-1.34l1.55,-0.67l1.65,0.36l0,0l0.06,1.7l1.12,1.85l-0.03,2.52l0.25,1.37l1.08,-0.05l0.32,0.8l4.53,4.99l2.39,0.85l5.3,3.68l-0.05,0.36l-3.24,1.26l0.59,4.04l-0.71,0.33l-0.08,0.28l-1.14,0.18l-3.09,-0.41l-0.89,-0.69l-0.36,-1.52l-0.92,0.49l-1.49,0.28l-1.27,0.54l-0.9,1.31l-0.32,2.06l-1.95,0.87l-0.25,1.05l5.41,3.88l-0.09,2.34l0.27,3.9l0.28,1.26l0.89,1.08l-0.06,1.36l1.57,-0.38l4.92,-0.05l-0.81,1.64l-3.31,1.21l-2.61,1.98l-2.04,3.18l-1.14,0.85l0.27,1.92l-1.39,1v0.92l0.44,1.44l1.77,-0.18l0.97,-0.69l2.63,0.1l1.01,-0.54l1.3,2.49l-0.14,0.33l-6.35,1.56l1.41,1.87l1.2,0.41l1.01,1.38l-0.62,0.28l1.65,2.33l1.87,2.13l1.19,0.74l0.4,1.38l1.11,0.9l1.28,5.04l1.65,-0.56l1.47,-0.13l3.09,-0.79l1.2,-1.51l1.06,-2.54l1.08,-1.13h0.89l2.39,0.95l1.2,0.08l0.9,-0.62l2.06,-2.92l1.44,-0.85l0.63,-0.13l1.2,0.23l2.44,1.92l1.6,-0.18l0.82,-1.13l0.41,-1.23l1.03,-1.13l2.8,-2.2l0.55,-0.82l3.02,-1.49l1.68,-0.49l1.8,0.1l1.2,0.38l1.58,0.59l2.06,1.2l0.41,0.77l0.35,2.64l0.79,1.67l1.14,0.67l2.82,0.49l1.03,0.67l0,0l-4.57,8.71l-0.46,0.1l0.13,0.64l-2.03,2.94l0.1,1.61l-0.74,-0.36l-2.2,4.07l-0.28,2.17l-0.36,0.69l-1.69,-0.41l-1.03,0.26l-0.95,-0.28l-0.44,0.36l-0.17,1.25l-1.04,1.56l-1.11,0.61l-1.91,0.03l-1.3,0.64l-0.25,0.87l0.4,0.87l1.09,0.67l-0.59,0.56l-1.79,0.72l-0.52,0.59l-1.53,-0.61l-4,0.1l-1.8,-1.58l-0.41,0.43l0.59,1.87l-0.35,1.41l0.95,1.58l3.4,0.46l-1.03,4.98l-2.37,-0.05l0,0l-5.35,-0.79l-4.6,-1.02h-2.61l-1.77,0.41l-3.73,1.86l-2.86,2.96l-2.45,1.76l-0.93,0.38l-1.74,0.38l-4.04,-0.61l-2.14,0.13l-2.2,0.71l-2.37,1.28l-2.45,2.91l-1.53,4.62l-0.71,1.12l-2.01,2.22l-3.5,3.11l-4.79,3.39l-9.97,2.85l-2.5,2.01l-11.87,3.26l-3.48,-0.36l-11.88,-3.97l-2.17,2.04l-1.04,0.66l-0.44,1.15l-0.89,0.03l-0.46,1.02l-1.98,1.96l-0.38,1.65l-1.08,1.78l-1.39,1.45l-1.39,0.81l-3.29,1.53l-3.12,0.66l-2.17,0.97l-3.8,0.89l-4.29,-0.51l0,0l-2.96,-0.97l-5.16,-3.56l-7.25,-5.5l-2.33,-0.25l-2.98,0.08l-2.99,-1.07l-6.96,-0.56l-1.14,-0.46l-1.39,-2.44l-0.51,-2.01l-0.24,-4.94l-2.61,-3.7l-0.63,-2.73l-0.44,-0.66l-6.04,-1.35l-2.25,-2.04l-2.93,-0.41l-3.04,0.79l-2.44,1.45l-3.21,4.08l-1.61,0.31l-4.53,-1.43l-1.31,-1.28l0,0l2.07,-1.07l0.82,-0.79l1.44,-3.75l0.43,-1.25l-0.11,-0.61l-1.61,-3.93l-0.05,-1.58l1.22,-1.89l1.41,-1.1l1.49,-0.31l2.26,-0.87l1.82,-0.05l1.36,-0.36l4.62,-2.17l4.75,-1.81l1.79,-0.46l3.26,0.05l1.58,0.74l0.68,0.64l-1.42,-0.28l-0.22,1.12l2.06,1.25l1.01,1.2l0.78,0.33l0.22,-0.23l-0.54,-0.64l0.02,-0.46l0.7,0.18l0.51,-0.38l0.28,0.21l1.58,-1.84l-0.25,-0.28l0.16,-0.28l1.22,-0.97l1.2,-0.54l0.08,-0.89l-0.71,-1.69l-4.7,-6.98l-0.4,-0.95l0.25,-1.94l0.76,-1.1l1.82,-3.89l0.52,-0.38l-0.11,-0.79l-1.2,-1.05l-0.89,-0.38l-0.59,0.97l0.03,1.1l-0.41,-0.41h-0.17l-0.06,0.46l-0.21,-0.08l-0.4,-0.69l-1.03,-0.33l-0.7,0.56l-0.32,-0.13l-0.84,0.51l-1.06,0.1l-0.55,-0.26l-0.3,-0.54l0.17,-1.38l2.26,-7.99l0.05,-2.1l-0.22,-0.18l-0.57,0.28v-1.38l0.97,-2.25l0.68,-0.51l1.12,0.18l1.12,-1.67l0.43,-0.15l1.47,0.67l0.28,-0.21l1.17,-0.03l1.08,0.69l1.98,0.79l0.95,0.79l3.34,-2.95l2.28,-1.54l1.34,-1.15l0.73,-1l0.98,-0.69l1.76,-2.97l2.01,-2.77l12.2,-14.14l3.42,-4.37l0.03,-0.39l0.38,-0.1l0.68,0.57l0.74,-1.1l-0.21,-0.13l-0.62,0.77l-0.33,-0.28l-0.05,-0.46l3.26,-3.34l1.09,-0.8l2.58,-2.8l7.04,-9.03l4.75,-6.98l6.11,-10.64l4.43,-8.25L179.49,322.71zM110.12,449.38l-1.55,1.89l0.27,0.26l-0.3,0.89l0.1,0.54l-0.52,-0.1l0.17,0.43l-0.25,0.28l0.22,0.2l-0.1,0.25l0.25,0.08l0.74,-0.77l1.11,0.59l1.49,1.35l5.76,2.58l1.96,1.46l4.62,2.3l3.01,2.02l4.38,1.45l-0.11,0.2l0.27,0.2l0.4,-0.1l3.45,3.77l2.12,1.84l1.87,1.27l0.38,0.82l2.72,3.36l0.76,0.69l3.48,2.19l1.49,0.31l2.58,1.83l2.77,1.07l2.09,0.38l5.79,0.31l1.11,-0.13l0.47,-0.43l0.33,-0.56l0.02,-0.89l0.44,-0.03l1,-3.34l-1.22,-0.69l-0.05,-0.33l-0.33,0.18l-6.22,-3.64l-5.51,-2.55v-0.23l-0.41,-0.1l-0.02,0.23l-6.61,-1.99l-3.81,-1.43l-1.17,-0.89l-1.74,-2.45l-0.19,-0.48l0.24,-0.25l0.02,-1.61l-2.41,-2.68l-2.26,-1.25l-1.42,-0.1l-0.79,0.33l-0.6,-0.26l-3.21,-3.91l-0.63,-0.33l-0.43,-0.56l-1.27,0.18l-0.98,-0.18l-0.33,0.1l-0.24,0.46l-0.4,0.05l-1.58,-0.1l-0.68,-0.51l0.11,-0.84l-0.52,-0.13l-0.32,1.05l-0.6,-0.77l-3.77,-1.33l-1.19,-1.12l-1.19,-1.87l-2.26,1.07l-0.49,0.64L110.12,449.38z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Netherlands.tsx
+import { useState as useState2 } from "react";
 var Netherlands = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      NetherlandsSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      NetherlandsMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var NetherlandsSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -55,27 +147,161 @@ var Netherlands = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -40 1500 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var NetherlandsMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Netherlands_default = Netherlands;
 

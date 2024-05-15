@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Gambia: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: GambiaProps) => React.JSX.Element;
+declare const Gambia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: GambiaProps) => React.JSX.Element | null;
 interface GambiaProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Gambia as default };

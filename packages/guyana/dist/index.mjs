@@ -1,5 +1,5 @@
 // src/Guyana.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Cuyuni-Mazaruni",
@@ -34,15 +35,106 @@ var drawPath = {
   "Mahaica-Berbice": "M675.11,503.63L675.11,502.5L683.37,490.59L685.2,486.9L687.2,483.61L689.12,478.47L689.44,469.64L685.62,463.35L686.01,459.51L687.65,455.57L687.74,452.2L688.49,450.28L689.67,447.46L690.4,444.44L693.07,438.72L692.62,432.86L692.35,430.2L692.31,426.68L691.34,424.36L688.43,418.51L689.65,419.61L692.04,423.04L691.9,421.23L691.53,419.83L690.69,418.16L690.13,416.22L689.63,412.18L688.18,405.52L685.04,399.62L681.65,394.68L668.26,381.04L661.65,376.19L656.02,372.41L654.01,371.29L648.91,368.28L645.63,366.64L642.92,365.4L639.55,364.16L636.34,363.9L635.6,364L635.01,364.67L633.39,365.61L631.3,367.9L631.3,370.66L631.04,372.47L630.75,373.97L630.97,375.12L630.11,376.99L629.45,379.97L630.37,383.39L630.42,384.36L630.1,385.41L629.31,386.32L627.63,387.3L625.26,387.99L619.71,388.95L618.73,389.03L616.91,389.38L616.06,389.73L615.23,390.21L614.33,391.21L613.69,392.3L613.32,394.39L613.51,396.81L614.78,402.08L615.16,402.77L615.78,403.31L616.46,403.75L617.63,404.84L618.05,405.53L618.24,406.34L618.16,407.27L617.38,409.89L614,415.93L613.18,416.81L612.46,417.39L611.59,417.66L610.72,417.61L609.77,417.02L608.49,415.81L607.85,415.34L607.07,414.97L605.93,414.89L604.49,415.3L602.47,416.2L600.5,418.13L603.27,422.63L604.13,426.54L604.84,434.35L604.32,439.87L609.3,450.71L611.89,453.55L614.07,454.04L616.58,456.43L616.78,457.84L616.83,459.29L616.54,460.56L613.53,468.04L604.81,504.48L603.51,520.12L602.79,523.67L601.81,526.12L596.62,531.58L594.05,536.11L590.15,546.38L584.86,553.38L581.52,559.38L573.51,580.42L557.6,598.27L553.49,603.94L550.88,610.65L548.45,620.83L542.02,639.3L539.1,640.91L534.11,641.93L506.87,642.52L505.1,648.66L491.22,673L488.34,683.77L481.82,701.53L481.21,705L483.61,709.66L493.49,723.34L500.08,745.99L500.18,747.34L500.04,749.59L498.88,754.24L498.89,756.38L499.21,759.22L504.32,780.19L505.58,783.68L506.87,786.3L522.01,808.81L527.23,819.46L528.1,821.86L528.56,825.5L528.52,829.25L534.12,851.02L534.14,854.05L533.33,861.5L533.74,865.93L534.67,870.64L536.42,875.61L553.56,900.17L563.79,924.37L564.32,927.52L563.75,928.73L551.02,945.9L548.46,950.77L548.12,952.01L547.8,954.29L547.74,956.7L549.51,977.64L549.46,982.45L549.11,985.81L548.4,988.89L546.36,994.47L535.19,1016.1L509.32,1088.45L503.39,1099.73L496.62,1109.88L488.41,1129.17L486.58,1131.79L479.55,1138.9L473.83,1147.11L472.5,1150.82L471.09,1160.41L471.11,1160.48L471.15,1160.58L471.62,1159.99L483.41,1157.97L485.51,1157.61L489.92,1154.65L489.99,1153.1L489.05,1149.67L489.29,1148.06L490.45,1147L494.16,1145.35L495.61,1144.39L496.77,1142.41L497.67,1140.01L498.78,1137.87L500.63,1136.59L501.34,1136.97L502.94,1139.59L504.1,1140.83L506.9,1142.23L510.38,1143.25L513.96,1143.83L517.03,1143.94L519.1,1143.3L520.6,1142.34L522.3,1142.06L525.01,1143.49L526.27,1145.06L527.46,1148.61L528.59,1149.96L533.82,1151.34L541.51,1151.59L548.33,1150.32L550.94,1147.17L553.8,1141.92L554.88,1138.93L555.37,1136.12L554.42,1131.16L554.22,1128.59L555.2,1127.4L557.78,1127.76L562.68,1129.74L565.41,1129.88L568.15,1128.89L573.66,1125.52L586.79,1119.72L591.98,1118.33L597.79,1118.62L611.54,1121.14L616.53,1120.99L624.13,1119.06L628.99,1115.39L639.8,1101.69L641.51,1098.75L645.54,1087.93L647.17,1086.48L649.43,1085.65L652.86,1083.87L655.42,1081.52L657.47,1078.98L659.86,1076.77L663.45,1075.42L667.45,1075.8L673.33,1079.48L676.61,1080.08L690.52,1071.34L698.4,1068.21L703.35,1072.16L704.37,1076.8L706.29,1080.15L709.3,1082.71L713.58,1084.96L716.49,1085.56L719.16,1085.6L724.58,1085.01L728.09,1085.03L729.47,1085.89L730.55,1087.45L733.17,1089.57L735.29,1090.31L746.87,1092.28L749.1,1092.28L751.07,1091.38L758.06,1085.86L760.26,1085.35L763.52,1085.89L766.79,1086.01L769.12,1084.75L771.27,1083.08L774.01,1081.98L777.16,1082.35L779.73,1083.98L782.06,1085.86L784.54,1087.09L787.13,1086.89L792.07,1084.07L799.67,1081.2L799.13,1079.32L798.14,1077.74L796.71,1076.59L793.3,1075.49L791.93,1074.67L790.78,1073.55L789.87,1072.16L783.74,1068.97L767.79,1068.71L763.34,1066.88L747.68,1044.69L746.5,1039.84L745.26,1036.29L743.66,1029.12L741.6,1025.95L740.15,1025.18L736.4,1024.48L734.89,1023.73L734.19,1022.27L734.28,1016.41L732.46,1012.77L726.64,1007.69L725.4,1004.74L726.45,1002.4L726.74,1000.71L725.95,999.13L723.26,996.63L722.49,995.2L721.97,992.96L722.3,991.38L723.1,989.58L723.32,987.81L721.97,986.3L718.65,988.74L716.35,989.53L715.3,988.02L716.16,982.53L715.86,981.35L711.75,976.56L710.96,975.09L710.85,972.32L711.63,970.19L712.06,968.27L710.96,966.19L707.59,968.1L706.29,967.14L705.32,960.73L703.7,957.75L699.5,953.3L698.65,951.18L699.29,949.56L700.41,947.5L700.78,945.73L699.21,944.97L693.64,945.81L693.1,946.18L692.03,943.11L694.84,937.24L693.7,936.17L691.78,936.53L688.52,938.05L686.99,938.39L685.04,937.7L684.32,936.17L683.8,934.64L682.5,933.95L681.83,932.27L679.67,923.84L681.19,922.23L683.72,920.21L685.5,917.92L684.72,915.5L679.31,914.93L677.24,913.74L678.56,911.62L679.42,910.12L679.32,908.84L678.85,907.42L678.56,905.45L679.09,904.88L681.36,904.99L681.89,904.33L681.72,903.1L680.95,901.04L680.77,899.78L679.25,896.16L676.45,893.58L674.97,890.61L677.45,885.84L676.89,885.54L676.78,885.46L676.75,885.32L676.45,884.83L675.35,885.85L673.93,886.79L672.31,887.31L670.68,887.04L668.87,885.72L669.18,884.65L670.23,883.35L670.68,881.38L668.93,877.62L668.56,875.83L668.7,873.83L669.57,870.48L669.78,868.55L669.2,866.6L668.19,865.26L667.82,863.91L669.17,861.87L669.4,860.85L669.78,855.2L669.28,852.91L665.24,844.58L660.09,848.62L655.75,849.36L651.4,848.02L646.27,845.79L646.44,848.74L645.31,850.17L640.71,851.36L640.31,851.9L639.16,853.01L637.94,853.7L637.37,852.98L637,852.14L636.03,851.65L634.75,851.42L633.44,851.36L632.51,850.65L630.43,849.42L628.34,849L626.75,852.2L625.26,852.43L623.48,851.93L618.43,849.11L618.4,849.09L615.66,847.56L611.07,846.62L609.69,846.05L608.89,845.36L608.35,844.53L607.64,842.6L607.3,840.9L607.4,839.55L608.23,836.6L608.32,835.51L607.97,833.49L607.94,832.43L610.41,827.63L610.65,824.75L607.98,821.73L604.6,819.75L603.97,819.45L603.62,818.96L601.87,818.73L601.08,818.39L600.35,817.58L600.14,817.01L600,816.43L598.71,814.03L597.89,811.17L597.3,809.99L591.1,806.02L583.15,802.72L580.44,800.99L578.62,797.97L577.65,794.53L577.22,787.13L576.53,784L573.06,776.58L564.82,764.49L562.17,761.38L551.47,752.93L547.53,747.97L545.93,742.21L543.8,728.35L541.75,721.33L542.03,717.95L544.3,714.48L558.46,699.98L560.26,697.21L561.31,693.99L561.66,689.89L561.21,687.19L560.32,684.7L559.81,682.14L560.46,679.15L562.06,676.64L563.93,674.57L565.47,672.43L566.67,667.03L569.66,659.78L572.42,655.16L574.99,646.85L577.9,642.64L579.2,639.81L579.43,636.72L578.07,633.83L573.71,628.25L571.53,621.54L568.84,619.73L566.12,618.35L564.89,616.11L566.01,610.62L568.63,606.87L571.59,603.68L573.79,600.96L577.1,595.43L578.33,594.28L580.37,593.76L581.94,594.21L583.5,594.98L585.54,595.39L589.52,594.84L591.41,593.35L593.86,588.7L598.22,584.49L603.67,581.81L609.78,581.45L616.17,584.24L623.31,581.67L627.04,581.02L631.21,580.8L632.09,581.33L634.58,583.7L635.66,584.24L637.76,584.06L640.5,583.22L653.37,581.89L657.46,580.8L659.2,580.12L660.41,579.44L661.81,578.9L664.13,578.57L665.55,578.84L666.82,579.38L668.15,579.52L669.78,578.57L663.85,573.2L663.12,571.37L663.32,569.21L663.82,567.36L666.24,561.85L667.33,557.16L668.4,554.9L670.23,553.94L673.12,554.04L675.18,554.68L676.56,556.38L677.45,559.63L679.98,558.57L682.54,557.09L684.52,555.2L685.32,552.92L684.1,549.65L678.68,543.05L677.58,540.28L677.45,539.95L676.75,538.95L675.12,538.45L673.27,538.54L671.9,539.35L671.61,540.91L672.45,542.49L674.12,544.47L673.69,545.55L672.61,546.25L671.21,546.44L669.78,546.03L668.97,545.14L668.67,543.85L668.42,532.45L667.9,531.99L666.87,532.04L665.24,531.64L662.89,532.6L661.44,532.6L660.8,531.08L661.35,529.29L662.68,527.54L670.59,519.56L672.26,516.96L672.91,513.14L673.09,509.63L673.61,507.04L675.11,503.63z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Guyana.tsx
+import { useState as useState2 } from "react";
 var Guyana = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      GuyanaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      GuyanaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var GuyanaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -51,36 +143,160 @@ var Guyana = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement(
-    "svg",
-    {
-      version: "1.1",
-      id: "svg2",
-      x: "0px",
-      y: "0px",
-      viewBox: "-50 -40 2000 1300"
-    },
-    stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
-      "path",
-      {
-        key: index,
-        onClick: () => onSelect(stateCode2),
-        onMouseEnter: () => handleMouseEnter(stateCode2),
-        onMouseLeave: () => handleMouseLeave(stateCode2),
-        id: stateCode2,
-        d: drawPath[stateCode2]
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
       }
-    ))
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var GuyanaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
   )));
 };
 var Guyana_default = Guyana;

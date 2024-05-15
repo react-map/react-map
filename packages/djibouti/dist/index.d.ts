@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Djibouti: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: DjiboutiProps) => React.JSX.Element;
+declare const Djibouti: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: DjiboutiProps) => React.JSX.Element | null;
 interface DjiboutiProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Djibouti as default };

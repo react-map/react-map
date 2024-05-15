@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Eritrea.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Debubawi Keyih Bahri",
@@ -62,15 +63,106 @@ var drawPath = {
   "Gash Barka": "M134.41,267.87L132.62,267.25L131.79,266.36L131.87,265.18L131.68,264.06L130.78,262.8L128.57,261.36L124.98,259.81L120.87,258.57L118.53,256.83L116.56,253.91L114.34,248.68L110.74,243.12L106.21,238.52L98.84,234.03L92.76,231.94L81.64,229.28L78.93,228.26L77.29,227.27L76.48,226.06L74.82,222.22L73.85,220.82L72.85,219.77L71.8,218.95L70.92,218.09L70.07,216.84L69.3,214.93L68.52,211.85L67.73,204.98L66.98,201.73L66,199.06L63.66,195.61L60.36,195.05L61.12,197.2L61.06,199.38L60.64,201.6L60.47,204.24L61.08,206.84L63.24,211.85L63.56,214.49L62.35,217.63L57.38,222.81L55.45,226.04L51.5,237.31L46.14,252.67L40.45,268.94L37.26,274.21L31.39,280.32L29.93,283.04L23.49,306.66L23.19,311.87L24.82,317.24L20.93,319.87L18.61,323.67L12.6,341.58L10.44,344.97L1.7,353.52L0.75,355.66L0.58,358.36L1.94,370.02L4.35,390.61L5.15,397.4L6.55,409.3L8.35,424.71L10.14,439.9L12.77,462.42L15.06,462.46L15.94,460.06L17.43,458.82L19.43,458.35L21.96,458.28L23.6,457.9L27.27,456.17L29.65,455.77L35,455.77L36.01,455.49L37.93,454.3L39.09,454.02L47.2,454.02L51.01,454.55L58.75,456.85L62.69,457.37L63.39,457.83L65.54,460.79L66.48,461.49L67.41,462.01L68.44,462.35L69.66,462.46L70.36,462.23L72.09,460.79L73.06,460.71L75.22,460.97L76.14,460.79L77.62,459.75L78.9,458.23L79.79,456.21L80.12,453.64L80.2,450.7L80.6,448.21L81.56,445.79L83.36,443.15L86.76,440.56L90.86,439.62L99.64,439.8L102.23,438.9L103.86,438.66L106.76,441.15L109,442.47L113.5,449L115.31,450.83L115.76,451.82L115.94,453.64L115.88,456.43L116.21,457.74L117.92,458.74L122.72,462.78L123.24,463.51L124.11,465.81L124.71,468.88L125.42,470.25L126.94,470.82L128.17,471.05L129.38,471.65L130.3,472.58L130.66,473.75L130.79,476.88L131.35,478.91L132.59,480.38L134.72,481.77L136.06,480.4L140.34,470.09L147.16,453.64L154.61,435.68L162.25,417.23L169.97,398.61L174.81,386.87L176.87,388.68L178.31,390.8L180.58,395.3L181.1,395.73L182.25,395.86L182.67,396.28L182.73,396.78L182.69,398.08L182.76,398.46L183.22,399.35L183.48,400.17L183.99,400.76L185.33,400.98L186.49,401.87L186.75,402.83L186.84,403.91L187.51,405.11L188.49,405.91L201.37,411.24L203.52,411.64L210.28,410.46L213.09,410.64L214.92,411.4L216.13,412.89L216.88,414.74L218.29,411.34L217.72,406.89L213.99,398.6L213.19,395.08L212.97,392.22L213.38,390.02L215.64,385.51L217.34,380.62L218.46,379L220.6,377.06L223.23,375.5L227.67,373.72L229.27,372.31L231.04,370.02L233.66,365.54L238.19,360.46L240.35,359.1L242.11,358.36L243.84,358L254.44,357.2L264.69,354.69L269.54,352.62L273.34,352.02L281.26,352.93L281.04,303.55L268.88,305.02L247.14,304.37L243.2,303.36L240.7,301.53L237.43,295.12L234.27,290.79L230.3,286.88L224.7,283.2L220.77,282.01L217.56,281.92L214.67,282.88L208.07,286.15L205.53,287.09L202.53,287.34L200.38,286.6L188.79,278.76L181.95,275.69L178.08,274.5L174.94,274.07L170.79,273.96L168.1,273.41L165.61,272.1L162.26,269.69L158.06,267.59L154.75,266.76L151.43,266.72L143.05,267.82L134.41,267.87z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Eritrea.tsx
+var import_react3 = require("react");
 var Eritrea = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      EritreaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      EritreaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var EritreaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -79,27 +171,161 @@ var Eritrea = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1200 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var EritreaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Eritrea_default = Eritrea;
 

@@ -1,5 +1,5 @@
 // src/Mongolia.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Ulaanbaatar",
@@ -58,15 +59,106 @@ var drawPath = {
   Arhangay: "M337.051,354.134L338.309,354.255L339.269,354.215L340.914,353.922L342.423,353.777L342.729,354.482L343.637,355.57L344.174,356.037L344.687,356.558L345.885,357.306L346.818,357.395L347.422,357.528L347.711,357.641L348.261,357.994L348.894,358.709L349.153,359.234L349.411,359.981L349.673,360.418L350.083,360.723L350.563,360.904L351.112,360.927L351.849,360.703L352.817,360.007L353.874,359.456L354.585,361.113L355.535,364.438L356.14,368.729L356.18,369.29L356.118,370.354L356.291,371.163L356.509,371.678L356.864,372.169L357.308,372.578L358.48,373.454L359.088,374.2L359.455,375.121L359.728,377.191L360.455,378.038L360.835,378.413L362.46,379.63L363.004,379.839L363.551,379.969L364.743,380.013L366.203,380.17L367.379,381.339L368.645,383.074L369.158,384.223L369.838,385.244L370.515,386.544L370.808,387.429L371.159,389.29L371.374,391.992L371.53,392.621L371.667,392.914L372.065,393.394L372.542,393.711L374.197,394.492L375.598,395.152L375.893,396.216L376.094,396.746L376.91,398.521L377.47,399.548L378.654,399.615L379.26,399.732L379.777,399.953L380.356,400.417L381.59,402.005L382.337,403.344L382.929,404.608L383.69,405.941L384.328,406.729L385.108,407.838L386.128,408.846L387.224,409.621L388.8,411.073L389.858,411.86L391.504,413.518L391.803,415.19L391.928,416.688L391.084,417.773L390.639,418.093L389.842,418.489L388.687,418.849L388.032,418.985L386.256,419.098L384.78,419.075L383.861,419.005L382.604,418.782L381.042,418.598L380.141,418.352L379.655,418.067L379.235,417.713L378.877,417.318L378.295,416.47L377.36,415.427L376.279,414.547L375.793,414.353L374.375,414.083L373.816,413.901L373.201,413.512L372.506,412.837L372.073,412.557L371.542,412.402L369.814,412.167L369.288,411.995L368.864,411.678L368.217,410.8L367.415,411.046L367.006,411.312L366.677,411.676L366.555,411.894L366.427,412.456L366.531,413.111L366.81,413.746L366.951,413.953L368.194,415.265L368.445,415.691L368.552,416.219L368.525,416.788L368.461,417.075L368.278,417.541L367.656,418.73L367.183,419.422L366.335,420.243L365.119,421.09L364.579,422.292L364.378,422.919L364.059,425.587L363.802,426.507L363.551,427.022L363.237,427.465L362.131,428.276L360.949,427.54L359.915,426.574L359.476,426.051L358.534,425.103L358.08,424.846L357.543,424.794L356.311,424.899L354.236,425.359L353.079,425.952L352.411,426.139L350.355,426.515L348.921,427.087L348.401,427.461L347.775,428.155L346.9,429.853L346.461,430.256L345.827,430.535L345.128,430.678L341.515,431.076L337.698,431.141L336.187,431.233L335.453,431.356L333.139,431.966L332.445,432.059L331.996,432.021L331.712,431.938L331.179,431.663L330.427,431.122L329.56,431.505L328.672,431.794L328.01,431.948L327.303,432.019L325.882,431.964L324.3,431.684L322.807,431.529L322.212,431.541L320.123,431.829L319.458,431.803L318.543,431.584L318.057,430.618L316.852,428.801L316.441,428.313L315.958,427.892L315.142,427.452L313.773,427.05L313.246,426.815L312.804,426.54L312.459,426.14L312.209,425.402L312.105,424.364L311.799,422.944L311.757,422.297L311.878,420.957L312.458,419.124L306.882,420.857L303.594,421.69L302.806,422.017L301.772,422.706L300.007,423.641L299.664,422.356L299.502,421.45L299.462,420.73L299.507,418.848L299.027,416.66L298.872,413.236L298.686,412.122L298.563,411.769L298.206,411.113L296.811,409.373L295.77,407.937L295.6,407.488L295.518,406.979L295.498,405.299L295.514,403.329L294.745,403.303L294.281,403.393L293.222,403.961L290.909,404.367L288.75,404.809L288.168,404.96L287.609,405.197L287.145,405.467L286.947,405.641L286.669,406.063L286.252,406.928L285.297,407.985L283.996,408.787L283.259,409.104L282.093,409.343L280.277,409.278L278.156,409.302L277.007,409.045L276.165,408.688L275.323,407.575L273.271,406.116L272.904,405.716L272.637,405.234L272.315,404.388L271.849,401.962L271.753,400.92L271.722,399.588L268.655,399.953L266.524,400.393L265.936,400.567L265.086,400.996L264.134,401.621L262.474,403.481L259.831,402.671L259.172,402.363L258.56,401.938L257.752,401.167L257.301,400.579L256.982,399.977L256.593,398.781L256.496,398.085L256.488,397.381L256.613,396.342L257.154,394.552L257.442,392.295L257.144,390.864L257.112,390.176L257.175,389.556L257.482,388.35L257.734,387.669L258.071,386.959L258.526,386.397L259.221,385.99L259.892,385.749L260.408,385.633L261.664,385.586L262.597,385.672L263.515,385.83L264.115,385.853L264.626,385.78L265.611,385.486L266.406,385.068L268.453,383.479L268.798,383.125L269.576,381.964L270.579,381.443L272.344,380.916L273.526,380.48L275.818,379.323L278.655,378.521L281.286,379.826L282.331,380.485L283.373,380.766L284.235,380.729L285.43,380.582L289.16,379.797L292.548,379.184L293.423,378.925L294.187,378.53L294.595,378.141L295.029,377.403L295.267,376.846L295.752,375.381L296.108,373.911L296.192,372.967L296.201,371.525L297.526,371.981L299.115,372.425L299.939,372.773L300.407,373.033L301.219,373.654L302.477,374.43L303.036,374.705L304.199,375.099L305.092,375.166L305.665,375.054L305.931,374.937L306.386,374.56L306.643,374.079L306.744,372.478L307.026,372.041L307.45,371.744L307.961,371.514L308.566,371.332L311.328,371.031L313.154,370.668L312.173,369.367L311.357,368.089L310.893,367.489L310.647,367.008L310.354,366.164L310.259,365.562L310.276,364.628L310.726,362.455L311.028,361.537L312.15,358.91L312.426,358.362L312.82,357.832L313.566,357.186L314.126,356.896L315.267,356.517L315.838,356.249L317.192,355.245L316.558,354.292L316.17,353.903L314.934,353.186L313.153,352.444L314.284,351.36L315.465,350.475L316.521,349.486L317.424,348.376L317.645,347.888L318.139,346.16L318.725,344.705L320.404,345.619L323.25,347.497L324.813,348.066L329.706,350.522L331.996,351.401L332.793,351.776L333.238,352.048L334.843,353.451L335.32,353.682z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Mongolia.tsx
+import { useState as useState2 } from "react";
 var Mongolia = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      MongoliaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      MongoliaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var MongoliaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -75,27 +167,161 @@ var Mongolia = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 200 1500 500" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var MongoliaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Mongolia_default = Mongolia;
 

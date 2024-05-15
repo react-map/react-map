@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Slovenia.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Obalno-kra\u0161ka",
@@ -74,15 +75,106 @@ var drawPath = {
   Pomurska: "M548.99,0.86L555.01,1.11L556.63,4.41L559.53,6.12L561.62,8.34L563.47,8.67L565.39,11.27L565.27,12.85L564.36,13.63L563.85,15.26L563.9,18.86L563.37,20.35L560.18,21.02L558.49,22.6L558.51,27.16L561.43,27.1L561.74,28.05L559.74,33.55L565.52,39.49L565.37,42.12L565.9,42.26L566.91,44.63L569.34,42.5L571.05,44.44L570.95,45.9L569.34,47.59L570.17,48.42L580.63,50.02L578.71,60.04L576.07,60.01L574.58,58.69L573.52,58.66L573.33,61.01L572.23,61.92L572.42,63.99L573.73,65.09L573.5,66.72L574.68,67.3L575.63,66.91L576.6,67.63L578.29,69.78L579.37,72.62L583.69,73.5L585.62,76.84L586.95,77.67L588.25,80.34L589.03,79.98L590.39,81.47L590.95,85.52L592.54,86.02L593,86.7L595.77,86.43L597.62,89.38L597.75,91.47L597.06,92.57L597.6,94.17L599.14,94.33L600.16,95.3L598.83,98.77L599.15,99.73L600.28,100.36L599.82,101.74L598.93,101.52L598.4,102.84L603.2,105.95L608.88,108.45L612,112.36L610.42,112.33L609.47,113.24L607.55,111.4L606.76,112.61L603.72,110.93L603.2,109.99L601.87,109.88L601.13,108.45L599.55,109.66L598.2,109.31L597.41,108.51L598.43,107.13L598.34,106.36L595.34,105.51L592.73,104L593.42,102.81L592.77,101.79L589.23,100.58L587.66,100.86L587.39,99.43L586.42,98.41L585.17,98.55L584.18,99.37L582.56,99.32L581.69,98.24L581.58,96.37L580.87,95.71L579.03,96.15L577.62,95.1L577.42,96.21L576.79,96.4L574.62,94.55L575.15,93.18L574.62,92.38L573.69,92.35L572.97,94.66L570.35,95.9L569.79,95.68L568.45,92.76L567.59,93.12L567.02,94.2L564.66,93.12L563.64,96.59L562.82,96.76L562.42,95.79L561.42,95.6L558.72,96.73L557.8,98.49L555.52,99.9L554.75,99.48L550.17,99.87L548.34,104.96L546.76,106.28L546.76,108.01L549.71,114.61L550.66,123.22L552.45,126.1L556.09,129.07L557.61,131.79L557.41,134.62L555.54,137.8L553.95,139.15L551.02,139.37L550.28,137.04L548.47,134.98L547.35,136.27L545.49,137.2L543.23,136.9L542.45,136.21L539.45,137.94L537.93,137.26L536.07,137.89L533.35,133.55L527.36,129.62L525.73,129.87L522.92,132.12L520.64,135.99L519.48,136.07L517.84,135.22L514.88,136.54L512.41,136.18L510.55,134.87L510.55,134.87L509.54,132.17L510.07,131.32L509.18,130.91L506.8,127.7L507.68,126.9L507.41,122.56L506.42,122.7L505.55,124.7L503.59,125.09L502.68,124.48L502.53,121.32L505.15,118.35L506.29,112.17L505.76,110.76L500.55,105.89L501.65,104.46L501.33,102.43L500.07,101.35L501.18,100.2L501.02,98.88L500.45,97.53L499.11,96.59L498.44,94.55L495.49,91.06L494.94,88.47L496.27,86.37L496.41,80.92L493.44,80.37L491.9,80.75L489.41,79.73L485.78,79.35L484.53,77.31L484.49,75.05L483.39,73.47L484.02,72.76L485.44,72.9L486.47,72.23L486.66,71.3L487.57,71.19L489.03,69.83L489.15,68.76L486.54,67.38L486.15,66.22L484.21,64.26L481.36,63.88L481.05,62.3L479.78,62.39L477.82,61.56L476.44,62.63L475.87,60.9L474.88,61.39L474.31,60.79L473.3,60.95L472.92,60.37L471.21,60.12L470.11,58.03L468.38,57.97L467.24,56.89L467.07,56.45L468.38,55.15L466.5,52.12L464.54,52.83L463.95,53.86L458.8,46.29L458.8,46.29L461.04,44.83L467.35,42.84L474.73,42.78L483.45,46.73L488.46,51.15L497.78,53.72L499.69,55.4L501.08,58.44L505.7,61.17L506.73,59.85L506.95,53.5L504.64,48.91L504.39,47.34L505.07,45.65L502.91,45.27L501.96,43.8L499.75,43.83L500.11,42.5L497.57,40.21L496.62,37.81L497.03,36.45L496.69,34.54L497.34,32.55L496.98,28.24L498.35,24.42L497.72,20.24L498.65,19.8L499.05,18.64L497.64,16.98L496.52,13.82L498.8,11.61L499.75,12.8L500.45,12.91L501.29,11.86L504.52,10.64L505.02,10.55L505.47,12.22L507.3,10.22L508.84,10.89L510.43,10.75L511.21,9.64L511.08,8.45L513.11,6.62L514.42,6.79L516.46,3.69L517.33,3.49L518.24,4.54L519.97,2.41L520.9,2.08L521.17,3.27L522.48,3.3L523.64,5.07L526.41,5.96L528.88,5.96L529.85,4.6L532.44,4.93L534.83,2.66L541.63,1.61L544.24,0.06z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Slovenia.tsx
+var import_react3 = require("react");
 var Slovenia = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      SloveniaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      SloveniaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var SloveniaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -91,27 +183,161 @@ var Slovenia = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -20 1500 450" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var SloveniaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Slovenia_default = Slovenia;
 

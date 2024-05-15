@@ -1,5 +1,5 @@
 // src/Ukraine.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Sevastpol' City",
@@ -68,15 +69,106 @@ var drawPath = {
   Zhytomyr: "M207.17,41.57L208.02,41.45L210.13,44.11L210.48,46.02L211.75,45.36L214.37,43.08L215.98,43.21L216.24,43.63L217.27,43.77L217.28,44.32L220.72,44.42L219.8,44.86L219.91,45.1L220.55,44.85L220.16,45.25L221.55,50.98L222.17,51.25L223.37,49.96L223.36,51.62L223.89,52.72L224.49,52.09L224.6,50.86L224.87,50.74L224.69,49.51L224.19,48.85L226.29,44.89L227.29,44.68L229.13,43.36L231.16,43.3L231.4,44.21L232.19,44.14L233.2,43.36L235.86,39.96L237.86,39.87L238.17,40.18L237.74,41.22L238.43,41.52L238.2,42.1L239.18,42.9L239.37,44.21L240.79,44.55L241.03,46.54L240.59,48.38L241.29,49.5L241.29,50.23L242.52,50.62L243.2,53.41L243.09,54.72L244.4,54.38L244.4,54.38L244.41,54.88L245.6,54.7L245.75,57.68L244.29,60.39L243.42,60.52L243.44,60.19L241.33,60.87L242.25,65.43L243.04,68.26L243.33,68.34L243.51,66.71L244.07,66.57L246.25,68.06L247.8,70.33L249.47,71.85L247.92,74.24L248.01,75.91L248.35,76.27L247.17,75.81L246.23,75.87L246.18,77.81L247,78.09L247.83,78.93L248.55,80.72L249.61,81.58L249.9,82.2L249.15,83.86L250.1,84.5L250.56,84.29L250.81,85.1L249.41,84.83L248.97,85.07L249.07,85.83L249.8,86.28L249.38,86.59L249.52,87.15L248.21,87.32L249.42,87.61L250.25,87.1L251.62,87.32L251.66,88.42L252.5,89.56L251.79,91.21L250.27,92.31L250.24,93.03L249.44,93.51L248.87,93.23L248.58,93.42L248.39,93.66L248.7,94.11L248.11,94.72L248.22,95.02L247.67,94.92L247.79,95.22L247.35,95.4L248.96,96.83L249.34,97.83L249.22,99.1L248.77,99.82L247.85,99.74L248.1,100.32L247.86,100.97L249.38,101.73L249.52,103.24L248.62,103.91L247.68,103.32L247.45,104.26L249.03,104.45L249.16,104.99L248.15,106.26L247.24,106.2L247.77,107.03L248.45,106.87L248.79,106.34L251.12,105.9L251.69,106.37L251.69,106.37L251.69,106.37L251.69,106.37L252.21,107.24L252.21,107.24L252.21,107.24L252.21,107.24L252.25,108.39L252.93,108.56L253.19,109.02L253.83,108.7L253.09,110.25L253.43,110.84L254.99,111.28L255.72,111.1L255.15,112.57L255.55,113.46L254.77,113.76L256,116.09L255.52,116.3L255.13,117.48L254.11,118.63L255.72,120.16L254.6,121.53L254.54,121.98L255.17,122.03L254.24,122.69L255.83,124.55L255.75,126.04L255.17,126.5L255.88,127.92L255.63,128.33L256.59,129.42L256.42,129.74L257.16,131.07L256.86,131.74L255.02,132.75L255.82,133.19L254.35,134.56L254.8,134.78L254.34,135.28L253.97,135.06L253.27,135.98L252.69,135.77L252.5,136.36L250.82,136.79L250.57,137.63L249.46,136.82L248.93,137.27L249.1,137.76L248.61,138.5L248.19,137.9L247.5,138.5L247.06,138.39L247.89,140.64L247.1,142.43L247.4,143.24L248.99,143.26L248.86,145.48L249.69,145.83L249.34,146.54L249.34,146.54L246.84,145.97L246.68,146.45L246.04,146.08L245.14,148.02L244.3,147.59L243.81,148.35L243.37,147.68L241.7,147.63L241.55,149.63L240.82,149.63L240.47,148.96L239.51,149.71L237.31,149.54L236.33,149.95L235.8,149.45L232.85,149.59L231.95,149.27L231.92,148.45L232.62,147.33L231.63,146.81L231.31,145.79L230.46,144.99L232.04,143.14L232.35,141.96L231.05,141.02L231.06,139.93L230.27,139.58L231.17,138.47L230.9,137.58L230.45,137.63L230.64,136.52L228.66,135.14L228.73,134.41L227.95,134.02L227.45,134.13L226.99,135.48L225.06,135.99L224.95,136.43L223.92,136.39L223.23,138.79L222.88,138.87L222.33,138.22L221.36,138.46L219.48,137.97L218.77,138.17L218.7,139.59L217.72,139.99L216.27,137.69L214.81,138.26L214.31,137.49L212.73,137.49L212.18,139.2L211.22,139.72L209.73,139.01L207.4,138.61L206.78,137.99L206.72,138.8L206.05,139.39L205.77,139.15L203.48,139.26L202.08,140.14L200.85,140.23L196.95,139.79L196.06,140.27L195.04,140.34L194.48,140.96L193.28,141.23L192.79,141.02L192.8,141.47L192.8,141.47L192.17,141.6L191.96,142.41L191.29,142.52L189.36,140.51L188.36,140.31L189.22,138.63L187.2,138.28L186.86,138.89L185.63,136.68L185.76,136.06L185.29,134.75L185.76,133.9L184.78,134.03L183.9,132.98L183.54,133.38L183.09,133.28L183.07,131.77L183.4,131.71L183.46,131.1L184,130.91L183.16,128.64L183.13,127.62L183.5,127.57L183.64,127.16L184.09,127.19L185.25,127.95L186.29,126.25L187.18,126.84L187.62,126.27L187.19,124.14L185.43,123.64L185.89,122.76L185.75,122.22L186.33,122.15L185.78,121.72L186,120.58L187.64,119.85L187.1,119.19L187.06,118.02L186.14,118.31L186.34,119.09L185.71,119.18L185.17,116.82L184.69,116.92L184.81,114.63L182.97,115.24L182.49,116.25L182.16,116.27L181.19,115.57L180.86,114.69L179.61,114.46L179.6,113.71L178.92,113.65L178.9,113.92L177.81,112.94L178.35,113L178.21,112.68L178.78,112.47L177.59,111.25L177,110.79L175.31,110.76L175.39,108.79L173.07,107.39L173.35,105.93L174.48,104L174.73,102.19L173.65,102.27L173.38,101.08L171.68,100.09L171.19,98.5L171.19,98.5L172.39,98.25L171.89,97.22L172.34,96.25L171.01,95.26L171.71,94.47L171.77,93.57L171.42,93.24L171.72,92.8L172.84,92.54L173.9,90.05L173.51,88.76L173.74,87.84L172.8,87.44L172.82,86.25L172.51,85.94L172.79,84.38L172.48,83.76L173.09,82.8L172.9,82.14L173.17,81.5L172.9,81.28L173.23,80.68L171.93,79.53L172.05,78.8L172.63,78.57L172.61,78.08L171.28,75.13L172.19,74.7L172.1,73.51L173.91,73.37L174.08,72.89L175.67,72.84L175.3,72.02L175.5,70.91L176.94,69.93L176.9,67.52L177.39,67.27L177.24,66.77L178.66,64.25L180.6,62.37L180.52,61.83L179.72,61.4L180.22,60.89L179.46,58.44L181.28,58.06L182.17,56.72L182.15,55.31L181.24,54.88L181.69,50.8L182.64,50.77L182.49,51.84L183.9,52.77L184.31,53.52L185.36,53.51L184.88,52.02L184.24,52.02L184.19,49.38L185.69,49.15L186.58,48.07L187.25,48.29L187.04,47.28L187.04,47.28L189.54,49.41L190.31,49.5L191.65,46.45L192.83,46.28L193.32,45.87L192.53,44.02L193,42.32L192.35,41.83L193.42,41.08L195.49,41.84L195.84,42.48L195.73,43.94L196.53,43.78L196.95,43.05L197.65,43.06L196.43,44.99L199.7,44.58L200.79,43.85L201.82,43.94L202.77,42.41L203.64,42.27L204.17,41.39L204.31,40.2L207.18,38.25L207.52,38.58z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Ukraine.tsx
+import { useState as useState2 } from "react";
 var Ukraine = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      UkraineSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      UkraineMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var UkraineSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -85,27 +177,161 @@ var Ukraine = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -10 1200 450" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var UkraineMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Ukraine_default = Ukraine;
 

@@ -1,5 +1,5 @@
 // src/Norway.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Akershus",
@@ -52,15 +53,106 @@ var drawPath = {
   Vestfold: "M135.08,738.81l0.23,0l0.57,0.43l0.43,0.26l-0.06,0.37l-0.59,0.02l-0.11,0.72l0.49,-0.34l0.06,0.34l-0.4,0.46l-0.05,1.04l0.12,0.48l0.09,0.57l-0.44,0.8l-0.19,-0.12l-0.16,-0.54l-0.01,-0.59l-0.23,-0.67l-0.06,-0.6l-0.02,-1.67l-0.09,-0.46L135.08,738.81zM135.84,734.89l0.33,1.34l0.4,0.2l-0.11,0.97l0.3,0.42l-0.65,1.2l-1.03,-0.66l-0.63,0.34l-0.15,-0.69l0.11,-1.11l0.48,-0.97l0.03,-1.42l0.32,-0.13L135.84,734.89zM134.75,716.26l0.75,2.11l0.03,0.74l-0.21,0.49l-0.13,0.25l-0.19,0.5l0.16,0.8l-0.11,0.78l-0.02,0.28l-0.32,0.35l-1.02,-0.11l-0.69,-0.45l-0.85,-1.01l-0.52,-0.52l-0.23,0.4l0.66,1.57l0.93,1.37l0.55,0.66l0.42,0.69l0.29,0.48l0.6,1.03l0.48,-0.58l0.72,0.15l0.42,0.08l0.58,0.8l0.4,-0.23l0.05,0.82l-0.27,0.22l-0.23,1.28l-0.31,0.69l0.2,0.76l0.29,0.31l0.57,0.78l0.44,0.43l-0.15,1l-0.39,0.61l-0.3,0.62l-0.27,0.69l-0.26,0.25l-0.2,0.02l-0.31,-0.74l-0.26,-0.43l-0.82,-0.39l-0.48,0.06l-0.12,0.18l-0.72,2.42l-0.24,1.22l0.12,1.17l-0.1,0.43l-0.11,0.73l-0.07,0.95l-0.24,-0.33l-0.23,-0.33l-0.36,-0.34l-0.16,0.19l0.28,0.62l0.37,1.13l0.06,0.6l0.08,0.61l-0.24,0.83l-0.57,-2.8l-0.39,-0.47l0.01,0.93l0.4,1.23l-0.03,0.58l0.02,0.81l-0.21,0.3l-0.2,-1.07l-0.2,-0.21l0.01,-1.31l-0.32,-0.29l-0.24,0.11l-0.29,0.79l0.26,0.38l0.14,0.87l-0.08,0.45l-0.47,0.99l-0.42,0.24l-0.64,0.49l-0.23,0.09l-0.47,0.04l-0.05,-0.93l0.91,-0.36l0.15,-0.3l-0.13,-0.75l-1.25,1.15l-0.5,0.35l-0.51,0.35l-0.17,-1.14l-1.1,-0.2l0.03,0.77l0.42,0.51l0.19,0.48l0.27,0.5l-0.44,0.72l-0.76,0.04l-0.4,0.18l-0.19,-0.17l-0.23,-0.29l-0.22,0.31l0.17,0.48l-0.25,0.2l-0.71,-0.13l-0.66,-0.04l-0.73,-0.4l-0.15,0.14l0.09,0.36l-0.23,0.28l-0.15,-0.41l-0.68,-0.19l-0.11,-0.21l0.61,-0.35l0.24,-0.34l-0.06,-0.5l-0.14,-0.64l-0.11,-0.96l-0.38,0.23l0,0l-0.08,-0.47l0.48,-0.07l0.11,-1.19l0.25,-0.13l0.1,-0.58l-0.2,-0.89l-0.49,-0.65l0.18,-1.55l0.6,-0.49l0.49,-0.09l0.14,-0.36l-0.2,-0.73l-0.57,-0.96l0.54,-0.36l-0.28,-0.6l0.01,-0.57l-2.59,-3.34l0.51,-1.12l-0.17,-1.04l0.19,-1.85l0,0l-0.47,-2.1l1.54,-0.34l2.08,0.56l0.5,-0.16l0.12,-0.4l1.38,0.07l0.33,0.23l1.09,-0.53l-1.05,-1.99l-1.3,-1.55l-0.18,-0.51l-0.78,-0.82l0.37,-0.33l-0.07,-0.8l0.83,-0.52l0.23,-0.34l0.19,-1.11l0.57,-0.46l0.75,0.91l0.93,-0.11l0.84,-1.15l1.99,0.01l0.48,-0.2l0.37,-0.01l1.36,0.11l0.47,-1.11l0,0l0.49,0.1l0.34,0.29L134.75,716.26z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Norway.tsx
+import { useState as useState2 } from "react";
 var Norway = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      NorwaySingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      NorwayMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var NorwaySingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -69,27 +161,161 @@ var Norway = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 0 1600 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var NorwayMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Norway_default = Norway;
 

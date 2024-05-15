@@ -1,5 +1,5 @@
 // src/Estonia.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Viljandimaa",
@@ -44,15 +45,106 @@ var drawPath = {
   Harjumaa: "M204.12,459.56l0.82,0.34l0.12,1.06l0.89,0.45l-0.94,0.17l-0.83,-0.85l-0.17,0.43l1.56,1.56l0.36,-0.33l1.18,1.93l0.56,2.32l-1.33,1.52l-1.6,-0.65l-0.08,-0.87l-3.79,-4.31l-1.63,-2.73l0.12,-0.37l1.18,0.47l2.54,-0.8L204.12,459.56zM212.17,459.41l1.3,4.39l-0.5,0.37l0.26,1.36l-2.18,0.09l-0.27,-0.15l-1.05,-0.06l-0.9,-1.24l0.36,-1.45l-0.33,-0.74l-1.11,-0.74l-0.56,-1.37l-1.43,-0.2l1.04,-0.67l0.59,-1.6l0.82,-0.63l2.61,1.12L212.17,459.41zM343.31,427.58l0.32,1.49l-0.69,0.95l-0.11,-1.01l-1.2,-1.16l1.21,-0.88L343.31,427.58zM331.88,422.16l1.41,0.08l0.42,0.49l-0.56,0.49l0.31,1.07l-0.77,-1.51L331.88,422.16zM326.91,416.65l0.7,0.39l0.23,-0.02l1.1,-0.86l1.5,3.22l-1.43,-1.48l-0.77,-0.15l-0.62,0.39l-1.6,-2.53L326.91,416.65zM286.75,414.72l0.28,0.52l-0.73,0.37l-1.62,2l-1.44,-0.17l-0.78,-1.31l0.17,-1.05l1.92,-0.52l0.23,-0.37l0.98,1.24l0.87,-0.47l-0.33,-0.99L286.75,414.72zM260.93,411.22l0.39,0.04l0.8,2.79l1.17,1.61l1.55,6.27l0.9,1.35l-0.22,0.62l-1.49,0.04l-0.18,0.37l-2.03,-0.64l-1.78,-1.35l-0.35,-0.71l-0.41,0.08l-1.6,-3.5l1.02,-1.36l-0.09,-0.73l0.73,-1.05l0.3,-1.68l0.56,-0.52l0.48,-1.7L260.93,411.22zM316.96,413.69l-1.82,-1.27l-0.32,-1.91L316.96,413.69zM304.73,403.44l0.8,0.92l0.68,-0.26l0.29,0.62l1.73,0.38l0.21,0.82l0.71,0.04l0.09,0.71l1.55,1.71l0.46,1.16l-0.1,0.73l-0.82,0.71l-0.5,-1.01l-2.36,-0.9l-0.6,0.62l-0.92,0.17l-0.14,0.99l-0.65,-1.74l1.79,-0.99l-0.91,-1.2l1.19,0.79l0.08,-0.86l-0.86,-0.41l-0.42,-0.88l-0.11,0.79l-0.46,-1.39l-0.98,-0.34l-0.19,-0.75L304.73,403.44zM373.66,399.57l1.12,-0.17l-0.5,1.43l0.29,0.77l0.67,-0.11l0.1,1.13l0.92,-0.37l0.01,-0.36l0.24,-0.67l2.52,2.27l1.11,1.35l-0.84,0.84l0.36,1.56l0.61,0.66l1.37,0.15l0.26,0.52l-0.66,1.46l-0.76,0.51l1.01,2.51v3.61l-0.43,0.81l1.27,0.81l1,-0.45l1.11,0.41l0.32,1.03l1.38,-0.17l0,0l1.01,1.53l-0.9,1.57l-3.39,1.4l0.48,1.66l-0.17,1.25l1.6,0.45l-0.08,0.62l1.33,2.5l1.48,11.47l1.26,0.32l1.9,-0.19l0.24,1.51h0.6l0.85,1.08l0.06,0.75l-1.18,2.14l0.5,0.91l-0.54,0.69l1.1,1.08l0.16,2.16l1.89,2.07l0.96,1.88l0.69,2.88l-0.28,1.73l1.02,4.77l-0.46,1l1.17,3.6l-0.36,1.02l0.79,1.41l-0.9,0.76l-3.09,0.5l0,0l-0.53,-0.83l-1.01,-0.2l-0.63,-1.82l-0.59,-0.35l-6.83,-0.63l-1.25,-0.8l-1.77,-0.13l-0.65,0.2l-2.38,2.39l-2.93,0.24l-1.29,-0.52l-1.96,1.82l-0.75,-0.43l-1.91,0.46l-0.55,0.52l0.74,0.8l-0.17,1.45l-0.46,-0.07l-0.92,0.95L367.36,476l-0.11,0.24l-2.26,-1.19l-1.73,-1.71l-0.72,-0.22l-1.9,0.28l-2.69,1.91l-2.82,-1.2l-3.21,0.07l0.41,1.02l2.91,3.02l0.67,3.13l1.61,2.94l-2.66,5.92l0.28,0.31l-1.04,1.3l-1.08,0.5l-1.47,3.29l-0.49,0.07l-0.38,1.29l-0.82,0.43l0.95,1.98l-1.31,2.22l-0.18,1.29l3.44,1.64l0.68,0.81l-2.7,5.79l-1.29,-1.11l-0.39,-1.64l-0.66,-0.89l-1.47,-0.57l-2.79,2.49l2.05,3.24l-0.9,6.89l-2.52,2.84l-1.6,-1.29l-1.04,0.37l-1.24,3.24l0,0l-0.72,0.48l-2.52,-1.23l-0.5,0.22l-0.29,-0.97l0.25,-0.81l-1.27,-0.2l-0.35,-0.77l-1.15,-0.61l0.92,-0.72l-0.37,-0.64l-0.71,-0.24l-0.22,0.28l-0.89,-0.74l-2.48,-0.04l0.16,-0.85l0.77,0.11l-0.12,-0.37l-3.12,-0.55l0.28,-0.55l-1.07,-1.84l1.14,-0.61l-2.01,-3.23l0.42,-1.25l1.34,-1.38l-1.4,-0.52l-0.82,0.17l-1.99,-1.42l-1.07,0.44l-0.74,-1.42l-0.68,0.55l-2.61,0.06l-4.19,-1.53l-2.32,-2.77l-0.24,-1.16l-1.44,-1.46l-0.6,-1.86l-1.15,0.7l-1.25,-1.42l-0.6,0.63l-1.65,-0.2l-3.53,-1.96l0.45,-1.11l-0.47,-0.22l-0.07,-3.98l-1.72,0.37l-0.16,-1.33l-0.01,-2.92l0.72,-4.09l-1.53,0.63l-2.7,-0.67l-2.54,0.52l-0.65,0.59l-3.75,-0.07l-0.51,4.76l-1.05,-0.11l-0.48,-1.33l-0.83,-0.87l-0.8,-0.04l-0.2,-0.43l-0.78,0.33l-1.83,-2.41l-0.99,0.85l0.36,1.04l-0.38,0.15l-0.47,-0.85l-0.63,0.33l-0.56,-0.24l-0.67,-0.98l-1.27,0.7l-0.43,-0.37l-2.41,-0.04l-0.28,1.07l-1.04,-0.24l-0.85,2.31l-2.54,2.55l-2.72,-0.54l0.04,2.66l-0.96,2.5l-0.12,1.55l1.84,2.44l-3.48,1.16l1.25,0.98l0.34,1.37l1.37,-0.11l-0.01,5.46l-0.29,-0.26l-1.11,0.46l-1.02,-0.74l-4.89,-0.68l-2.56,0.57l-1.99,1.11l-6.15,0.17l-0.35,0.83l-0.68,-0.04l-1.5,-1.12l-0.43,1.25l0.69,1.4l-1.19,1l0.31,0.44l1.3,-0.63l0.18,0.85l-0.37,0.59l1,1.48l-1.74,0.96l-0.31,-0.76l-1.14,0.37l-0.29,0.65l-0.71,-0.55l-0.31,1.46l-0.92,0.41l-0.66,1l0.37,0.92l0.45,-0.02l-0.07,1.16l-0.9,0.53l-0.49,-0.4l-0.53,0.65l0.67,1.9l-0.28,0.83L239,521.47l-0.22,-1.77l-0.78,-0.5l-1.22,0.04l-1.99,1.51l-1.14,-0.2l-2.36,-3.13l-2.02,1.23l-0.78,1.2l-1.61,-1.22l-2.69,4.38l-2.04,1.03l0.24,1.33l-1.26,0.31l0,0l-0.71,-2.45l0.13,-2.06l7.45,-7.37l-0.38,-0.55l-0.94,-0.22l-0.23,-1.51l-2.75,-1.66l-0.02,-0.66l-1.45,-1.72l0.83,-0.29l-0.79,-1.72l0.79,-0.11l0.93,-1.4l-0.22,-1.46l-5.22,-3.03l-2.79,-0.83l-8.2,-0.76l-1.21,1.03l-0.7,-0.53l-1.38,0.43l-0.44,1.13l-4.27,-5.8l-2.13,0.28l0.16,-1.16l-1.2,-1.79l-4.72,0.15l-0.07,-5.94h-4.72l-0.15,-5.72l0,0l0.72,-0.85l0.6,-2l-0.15,-0.61l-0.9,-0.3l-0.21,-0.5l0.04,-2.61l0.67,0.69l1.18,-0.56l1.43,0.74l0.99,-0.78l0.85,-2.04l2.45,-0.2l1.05,-0.63l2.09,0.89l1.99,1.63h1.08l0.46,1.41l2.5,-2.13l0.89,0.85l3.22,0.95l1.27,-0.48l0.74,-1.09l0.78,-0.13l0.54,-0.28l1.94,-0.78l0.63,0.24l0.54,-0.74l1.06,0.24l0.67,-0.69l0.89,1.08l0.66,-0.52l0.33,0.76l0.65,0.33l1.74,-0.11l0.05,1.11l-0.6,0.09l-0.29,0.8l0.44,0.78l0.24,-0.54l1.04,0.09l0.25,-0.57l1.57,-2.43l0.82,-3.3l0.48,-0.39l-0.7,-0.57l0.28,-0.59l-0.65,-0.26l-0.97,-2.69l-3.44,-2.27l-1.88,-2.12l-0.82,-1.97l-0.2,-5.08l0.49,-0.32l2.06,1.06l1.39,-0.11l2.25,1.6l0.8,0.06l2.6,1.67l1.13,0.26l0.48,0.28l0.57,1.69l3.99,2.68l3.7,-0.56l0.69,-2.4l-1.55,-3.76l-1.22,-1.32l-2.38,-1.02l-1.35,-1.38l0.71,0.13l0.73,-1.88l1.05,0.17l-0.29,1.17l0.85,0.67l2.01,0.34l2.64,-1.82l2.09,-0.26l3.43,-2.74l2.03,-0.8l1,-2.42l-0.11,-1.04l-0.44,-0.37l0.32,-3.37l1.32,-1.03l-0.27,-1.02l0.79,0.3l0.62,-0.63l0.43,0.47l4.54,-0.15l1.31,0.62l2.16,0.24l2.29,2.52l0.66,1.38l3.1,0.95l1.52,1.18l2.23,-1.06l0.89,-1.14l-0.91,-1.75l0.48,-0.73l0.5,0.56l0.96,0.04l0.7,1.08l5.13,3.41l0.62,0.9l0.95,0.17l-0.08,-0.35l1.7,-1.27l0.27,-1.98l-0.35,-0.43l-0.97,-0.3l-0.46,-0.73l-0.4,-0.6l-0.8,-0.48l-0.08,-0.54l-0.39,-0.26l-0.13,-0.86l2.15,1.4l1.73,-0.37l0.46,0.3l0.49,-1.45l-0.17,-0.67l-0.65,-0.32l-0.28,-1.27l0.32,-0.47l0.41,0.88l0.61,-0.04l0.35,0.45l0.37,-0.43l0.01,-0.34l-0.02,-0.95l0.66,2.02l1.41,0.82l-0.54,0.04l-0.76,1.77l-0.76,0.84l-0.35,-0.09l-0.26,0.77l1.43,-0.71l0.91,1.31l0.48,-0.58l0.36,0.15l0.5,0.45l1.03,0.82l0.68,-0.43l0.22,0.63l0.19,0.17l0.48,0.06l0.8,-0.19l1.5,0.48l1.3,-1.25l1.65,-2.85l-0.08,-0.71l0.42,0.06l0.04,-0.06l0.34,-0.39l0.75,-2.48l-0.18,-0.78l-0.85,-0.3l-0.04,-0.65l-0.64,-0.86l-0.45,-0.2l-0.3,0.06l-0.44,-0.97l0.62,-0.62l-0.01,-0.95l-0.95,-1.12l-0.65,0.41l-0.64,-4.56l0.43,-5.7l0.43,1.5l2.27,0.54l0.16,0.99l0.63,0.43l1.02,0.21l0.76,-0.45l0.62,1.25l0.43,-0.13l0.48,0.02l0.57,-0.49l0.99,0.24l0.4,1.55l0.41,-0.15l0.41,0.45l0.05,0.47l-0.58,0.39l0.04,0.84l2.18,1.96L299,430.72l0.4,0.47l0.03,0.04l0.34,0.35l1.19,0.52l0.01,-0.67l0.18,-0.19l0.72,0.84l0.55,-0.32l0.92,0.19l1.13,1.01l2.91,-1.14l0.45,-1.21l-0.24,-0.86l3.48,0.39l1.08,0.93l2.51,-0.41l0.81,-0.82l0.34,0.15l-0.2,1.01l0.72,1.23l1.23,0.97l1.02,-0.39l0.31,1.44h0.6l1.82,1.16l0.06,-1.08l2.07,-1.6l0.58,-1.87l-0.43,-1.62l-1.25,0.13l-0.4,-1.16l-1.55,-1.79l0.68,-0.49l-0.11,-2.71l0.18,0.6l0.86,0.36l0.28,0.78l0.93,0.75l1.91,0.77l1.01,2.19l-0.26,1.01l0.51,0.56l2.23,0.06l1.6,-0.95l2.35,-2.17l0.35,-1.46l0.66,1.33l-0.41,2l1.31,0.88l2.05,0.62l1.27,1.16l2.24,0.58l2.11,-0.65l1.1,0.78l2.42,0.62l0.64,-0.39l1.43,0.34l1.56,-0.61l1.35,-0.97l-0.07,-0.62l0.53,-0.41l-0.35,-2.39l2.07,-0.75l2.37,0.47l0.91,-0.37l1.44,0.13l1.4,-1.46l1.11,-2.86l-0.28,-0.86l-1.15,-0.9l-1.09,-1.66l-0.49,-1.18l0.08,-1.85l-2.07,-2.43l-0.19,-1.5l-0.76,-1.14l-0.01,-4.66l0.3,-1.69l0.62,-0.21l-0.71,-1.56l0.67,0.24l0.46,-0.41l1.42,1.09l-0.65,0.45l0.84,1.93l-0.76,1.5l1.02,1.5l2.17,1.03l1.58,-0.6l0.19,-0.54l0.92,2.55l1.41,0.71l1.12,-0.45l-0.03,0.77l0.9,1.31l-0.13,0.88l0.59,0.92l0.79,-0.11l1,1.72l1.31,0.23l0.76,0.95l1.22,0.09l1.49,-0.69l1.88,-2.3l-0.6,-1.14l1.06,-3.14l-1.03,-1.5l-1.68,-0.94l-0.14,-0.73l0.26,-1.33l-0.41,-1.82l0.89,-0.64l0.1,-1.33l-1.76,-1.07l-0.29,-0.77l0.68,-0.79l0.49,0.15l1.02,-0.84l0.45,-0.17l-0.28,-1.41L373.66,399.57z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Estonia.tsx
+import { useState as useState2 } from "react";
 var Estonia = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      EstoniaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      EstoniaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var EstoniaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -61,27 +153,161 @@ var Estonia = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 300 1000 560" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var EstoniaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Estonia_default = Estonia;
 

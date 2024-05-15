@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Cocosislands: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: CocosislandsProps) => React.JSX.Element;
+declare const Cocosislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: CocosislandsProps) => React.JSX.Element | null;
 interface CocosislandsProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Cocosislands as default };

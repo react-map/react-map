@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Southafrica.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Lesotho",
@@ -70,15 +71,106 @@ var drawPath = {
   "Western Cape": "M556.63,788.86l-1.31,2.61l-0.75,0.54l-1.57,-0.8l-1.36,0.49l-0.44,-0.34l-1.06,0.35l-0.76,-0.13l-0.74,-0.43l-0.5,-0.88l0.4,-0.71l0.04,-0.86l1.17,-1.15l0.2,0.12l0.11,-0.76l0.92,-0.9l2.99,0.5l1.07,0.57l0.97,1.56L556.63,788.86zM558.81,779.83l-1.5,0.43l0.04,-0.48l-1.63,-1.44l1,-0.67l1.44,0.63l0.4,-0.1l0.59,0.86L558.81,779.83zM184.49,347.68l-1.25,0.77l-1.81,0.06l-0.91,0.41l-1.09,0.86l0.09,1.65l-0.27,0.21l-2.43,-0.15l-1.2,-0.42l-4.4,-0.05l-1.39,-0.43l-1.11,0.54l-1.15,-0.75l-3,-0.96l-0.75,-0.2l-0.27,0.19l-4.59,-1.16h-0.5l-2.05,1.76l-0.5,-0.09l-0.64,0.34l-3.13,-0.29l-2.16,0.2l-2.03,0.83l-0.93,1.01l-0.32,1.46l1.31,0.77l-1.25,0.53l-2.64,0.14l-2.1,1.12l-0.51,1.08l0.1,0.37l0.82,0.31l-1.01,0.55l-0.09,0.43l0.31,0.23l-0.72,0.16l-0.49,0.6l-1.46,0.55l-3.06,0.44l-4.12,-1.22l-2.39,0.36l-0.52,0.3l0.16,0.5l-0.38,-0.04l-0.55,0.64l-2.34,0.88l-4.56,-1.84l-3.32,-0.54l-2.49,0.23l-1.34,0.8l-0.06,0.39l0.53,0.87l-0.15,0.7l-0.48,0.46l-4.79,-0.81l-3.34,0.65l-1.42,0.6l-1.33,1.15l-0.7,1.46l-1.46,0.61l-0.43,0.6l-2.26,1.23l-0.25,1.16l-1.72,0.26l-2.13,1.19l-0.86,1.12l0.01,0.87l0.42,0.24l-0.18,0.26l-0.76,0.06l-0.43,0.57l-0.61,0.08l-0.89,-0.61l-0.55,0.02l-0.22,-0.53l-1.33,-1.02l-4.79,-0.13l-0.45,0.43l0.12,0.2l-1.01,0.28l-0.27,-0.27l0.35,-0.24l-0.23,-0.64l-0.61,0.11l-0.3,-0.86l-1.27,-0.57l-0.6,-1.24l-2.01,-0.58l-0.38,-0.99l-0.58,-0.51l-3.14,0.81l0.35,-0.6l0.65,-0.17l0.65,-1.6l0.64,-0.47l-0.63,-2.05l-1.19,-1.7l0.38,-0.29l0.72,0.45l0.27,-0.36l0.67,-0.1l-0.14,-0.14l-1.72,-0.03l-0.5,0.25l-0.63,-0.23l-1.33,0.94l-0.9,-0.49l-1.63,-0.17l-0.2,-0.36l0.3,-0.3l-0.7,-0.91l0.81,-0.47l-0.18,-0.15l0.39,-0.88l-0.53,0.17l-0.69,0.76l0.14,0.52l-1.53,-0.8l-1.1,0.16l-0.72,0.56l-1.46,-0.21l-0.37,0.56l-0.89,-0.13l-0.01,0.56l-0.61,-0.37l-0.3,0.35l-0.47,-1.26l0.55,-0.29l-0.48,-1.3l1,-0.99l0.12,-0.47l-0.98,-1.93l1.3,-0.99l-1.42,-1.78l-1.16,-0.63l-1.45,-0.26l-2.62,0.09l-3.04,0.75l-1.46,1.06l-0.34,1.67l0.81,0.4l0.57,1.29l-0.45,2.4l0.32,0.73l0.66,0.55l-0.62,0.03l-0.54,-0.68l-0.95,-0.46l-0.97,-1.88l-0.25,-2.1l-0.5,-0.58l-0.4,0.03l-0.45,-0.92l0.89,-0.77l-0.08,-1l0.48,-0.88l-0.14,-0.35l-0.35,-0.17l-0.27,0.48l-0.84,-0.73l0.62,-0.46l0.42,-1.16l0.62,-0.42l-0.04,-1.06l0.75,-1.25l0.81,-0.02l0.27,0.67l0.84,-0.39l0.41,-0.94l-0.06,-1.11l-1.01,-2.06l-0.23,-2.55l-1.05,-2.08l-0.56,-0.18l-0.47,-1.21l-1.3,-0.46l0.2,-1.76l-0.76,-1.63l-1.24,-1.37l-2.4,-1.78l0.39,-0.4l-0.04,-0.48l-1.61,-3l-2.3,-2.46l-1.02,-0.39l0.09,-0.5l-0.58,-0.47l0.17,-0.36l0.32,0.11l0.25,-0.98l0.41,0.11l0.49,0.79l-0.03,0.78l0.46,0.21l-0.18,0.5l0.73,0.33l1.01,1.44l0.46,0.03l0.41,-0.41l-0.03,-0.24l-0.32,0.27l-0.72,-0.53l0.2,-0.87l-1.57,-1.28l0.32,-1.64l-0.33,-0.77l-1,-0.86l-0.47,-0.03l-0.69,0.35l-0.2,0.98l-0.64,0.33l-0.55,-0.22l0.24,-0.85l-0.81,-0.74l0.3,-0.48l0.02,-0.5l-0.27,-0.07l0.32,-0.21l-0.01,-0.45l-0.19,-0.5l-0.48,-0.21l0.61,-1.5l-1,-1.18l1.56,-0.82l-0.19,-1.72l0.62,-0.52l0.01,-0.38l0.79,0.26l0.39,-0.7l0.46,0.1l-0.09,0.75l1.03,0.44l-0.13,0.28l1.07,1.04l1.91,-0.21l3.08,-3.07l1.49,-2.82l0.53,-1.72l0.24,-2.16l-0.56,-4.33l0.61,-0.07l0.22,-1.04l-1.14,-4.99l-0.09,-0.7l0.41,-0.3l0.01,-0.39l-1.28,-4.02l0.38,-1.29l-1.13,-2.25l-0.29,-2.21l-2.46,-3.89l-0.38,-1.2l-5.64,-7.02l-0.56,-0.91l0.04,-1.23l-0.37,-0.61l-1.85,-1.83l-1.05,-1.61l0,0l1.76,0.72l-0.5,-2.75l2.67,-2.44l-1.2,-2.28l3.02,-0.36l0.11,-3.79l1.77,-0.36l0.69,0.23l2.09,1.85l1.19,-0.98l1.19,-0.06l2.61,-4.5l0.5,-2.69l0.82,-1.63l-0.48,-1.83l3.21,3.81l-0.66,-2.11l-0.02,-1.86l1.93,-0.52l2.42,3.44l2.57,0.57l1.03,1.61l-0.38,1.13l2.08,1.83l2.35,0.28l0.41,3.9l-2.32,0.74l2.64,1.52l-1.79,1.43L63,257.36l1.31,2.33l-0.25,3.29l0.64,1.56l1.48,0.55l-0.98,1.38l1.12,1.14l0.3,2.2l-0.76,1.46l1.77,0.55l-0.56,1.21l0.48,0.05l0.41,0.76l-0.44,0.37l0.08,1.89l-0.59,0.01l1.22,3.11l-0.36,0.28l0.16,0.95l-1.25,1.22l-0.05,1.83l1.54,0.12l1.26,0.83l0.69,-0.35l0.59,0.25l0.14,0.43l1.98,-1.93l-0.62,2.78l1.28,0.43l0.74,1.65l0.96,0.08l0.34,0.44l0.83,-0.34l0.97,1.11l1.07,0.23l-0.22,2.37l0.58,2.64l-2.52,1.43l0.37,2.23l0.64,0.6l1.39,2.63l-0.49,3.45l1.22,2.5l1.96,-1.27l0.12,-0.57l-0.84,-1.75l0.97,-1.75l-0.01,-1.62l0.59,-0.47l0.74,1.3l1.25,-0.51l-0.43,-0.84l0.76,-0.71l0.79,0.5l1.23,-0.84l0.06,-0.77l1.15,0.21l0.2,0.46l1.9,-0.31l2.55,-2.34l0.47,-1.45l1.11,0.03l0.55,-1.13l1.61,-1.15l0.76,0.49l-0.02,0.96l0.65,0.22l0.36,2.15l-0.66,-0.36l-1.67,1.68l0.19,0.87l-1.07,1.1l-1.15,-0.57l0.01,1.5l1.55,5.69l1.39,1.33l-0.05,2.75l2.48,1.04l1.05,1.75l0.79,0.31l0.1,1.38l0.9,-0.15l1.04,1.18l1.84,-0.17l1.67,-1.44l1.04,1.61l1.41,-0.45l1.75,0.2l0.4,-0.9l1.65,-0.68l0.61,-2.04L113,309.4l-0.5,-0.57l0.05,-0.78l1.09,-0.9l3.39,-0.93l1.02,0.57l3.99,-1.3l-0.46,-1.3l1.27,-3.41l1.18,-0.37l0.97,-0.88l0.48,-1.57l0.77,0.2l1.82,-0.69l0.59,0.33l1.13,-1.28l0.72,0.17l1.55,-0.63l-0.25,-2.49l1.98,-0.7l1.51,1.28l1.35,-1.36l0.93,0.42l0.07,0.6l2.29,0.92l1.77,-0.33l0.33,-1.25l1.74,-0.68l0.09,-2.75l1.62,-0.75l0.5,1.51l1.02,-2.22l-1.23,-1.3l0.38,-1.21l-0.71,-1.44l0.76,-0.7l-0.42,-1.57l2.3,1l0.15,-3.12l2.12,-4.02l0.34,-1.79l0.66,-0.43l4.59,2.64l1.98,0.41l0.06,1.01l1.18,0.63l-0.71,2.29l1.62,0.52l2.49,-0.47l0.94,1.43l1.98,-0.65l0.29,1l0.78,0.35l2.1,-0.64l2.3,1.04l-0.4,1.26l1.01,1.52l3.74,-3.3l-0.01,-0.84l0.92,-1.08l0.45,-1.9l1.48,-0.9l1.8,-0.1l0.22,-0.85l2.83,0.55l0.76,-0.39l0.64,0.05l0.54,-1.03l0.4,-0.16l0.66,0.33l2.61,-0.03l0.27,1.01l2.33,1.01l0.04,0.62l-0.89,0.69l1.13,0.37l0.5,1.28l0.77,-0.03l0.44,-1.08l0.94,-0.43l0.41,-1.93l2.15,-0.03l-0.45,0.62l1.1,2l2.18,-0.12l0,0l0.5,0.87l-0.55,0.02l0.14,0.86l-0.64,-0.08l-0.73,1.77l1.41,-0.25l1.04,0.79l-0.25,0.33l0.58,0.47l-1.15,1.72l-1.1,-0.26l-0.45,0.69l0.54,0.3l0.02,0.74l-1.01,0.08l0.09,1.12l0.79,0.07l-0.01,0.97l-1.17,0.95l-1.25,-0.17l0.12,0.75l-4.02,2.18l-1.18,-0.22l-0.45,-1.06l-1.52,-0.84l-0.42,0.57l-2.12,1.22l-0.58,1.63l0.69,0.77l-0.31,0.6l-5.54,-0.16l-1.1,1.55l-1.69,-0.75l-0.34,0.76l-2.7,1.39l0.61,1.11l-0.18,1.49l1.12,0.75l0.67,2.97l-0.45,0.51l-0.72,0.21l1.9,1.3l0.32,1.69l0.94,0.5l-0.18,1.78l-2.65,-0.83l-2.16,-0.31l-1.42,1.6l-1.61,-2.17l0.77,2.74l-0.35,0.56l-1.95,-0.06l-0.27,0.73l-1.41,1.32l0.34,1.38l-0.91,0.83l0.73,0.83l-0.2,1.55l-1.45,1.41l-0.96,2.38l-0.5,0.23l-1.59,2.94l-0.94,0.16l0.07,1.57l0.5,0.89l3.83,0.4l3.69,-0.96l0.43,0.4l1.59,-0.34l4.55,0.15l0.81,1.29l4.06,0.08l0.25,0.57l2.21,1.11l0.21,2.34l1.87,1.65l-0.14,1.19l-2.1,0.22l-0.73,-0.47l-0.58,0.99l-2.75,1.04l-0.04,1.08l-1.16,1.02l2.56,0.49l0.74,-0.66l1.23,0.18l0.09,1.44l3.68,1.38l-1.54,2.04l0.31,1.38L184.49,347.68z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Southafrica.tsx
+var import_react3 = require("react");
 var Southafrica = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      SouthafricaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      SouthafricaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var SouthafricaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -87,27 +179,161 @@ var Southafrica = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1200 500" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var SouthafricaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Southafrica_default = Southafrica;
 

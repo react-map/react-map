@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Sanmarino: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: SanmarinoProps) => React.JSX.Element;
+declare const Sanmarino: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: SanmarinoProps) => React.JSX.Element | null;
 interface SanmarinoProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Sanmarino as default };

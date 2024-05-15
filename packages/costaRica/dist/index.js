@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Costarica.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Alajuela",
@@ -66,15 +67,106 @@ var drawPath = {
   "San Jos\xE9": "M383.02,205.77L384.68,209.94L386.88,219.46L389,221.25L392.95,222.76L395.95,225.5L397.35,228.41L397.49,231.58L398.04,234.91L399.38,237.7L398.5,239.46L395.08,240.54L393.68,239.94L391.94,239.41L390.32,241.18L388.35,242.85L384.92,243.52L382.09,242.97L373.84,244.06L372.53,244.78L372.32,247.79L369.92,250.63L367.1,252.61L366.83,255.44L369.98,255.01L371.88,255.07L372.83,256.14L372.81,257.7L371.99,259.45L371.12,261.15L370.11,262.33L367.4,266.39L366.87,268.07L364.88,269.16L361.16,271.98L357.58,273.75L356.44,274.01L356.74,276.65L355.87,278.47L357.91,279.51L361.02,279.71L364.33,278.93L366.75,278.8L371.84,275.72L373.26,275.11L375.05,279.79L377.33,283.3L382.15,285.42L382.29,288.36L382.05,290.27L382.77,291.34L384.79,291.52L386.83,292.84L387.44,294.15L388.43,294.65L390.14,293.79L393.03,296.65L394.54,297.42L396.62,297.71L397.58,297.16L400.82,297.71L401.66,299.18L401.64,302.82L402.69,305.5L405.15,307.33L408.04,307.95L410.2,308.98L412.51,309.61L415.26,310.73L417.04,310.51L416.46,313L417.29,315.92L418.69,316.81L421.51,316.9L422.37,319.01L424.63,319.58L428.58,318.61L430.96,319.76L434.02,317.77L435.12,315.66L436.53,314.47L438.59,314.18L440.97,315.04L443.23,317.69L445.21,318.61L449.94,321.54L453.53,322.42L456.21,323.5L462.44,328.81L466.69,330.77L466.69,330.77L469.87,333.62L471.17,339.58L473.19,344.42L477.19,352.61L481.69,355.86L481.69,355.86L479.02,359.45L477.26,362.44L474.51,365.16L471.68,371.11L469.88,372.89L467.62,374.45L465.96,376.91L466.22,378.12L465.82,382.28L463.6,385.39L463.46,386.55L465.46,388.28L468.13,389.42L472.16,389.36L473.33,392.1L473.6,393.7L472.04,397.89L469.24,400.73L469.17,404.71L467.76,407.8L465.9,409.46L462.78,410.93L458.71,411.38L456.18,409.49L447.17,405.76L444,401.41L439.4,399.29L435.8,398.18L433.69,394.49L431.43,389.25L427.88,383.3L421.49,378.81L417.19,383.99L412.22,383.14L405.81,379.86L400.63,375.56L400.06,369.07L400.03,365.9L402.04,361.52L399.77,360.55L397.7,360.43L395.53,358.88L392.93,356.12L390.67,351.34L390.06,348.02L387,347.35L385.48,348.89L384.27,350.88L380.72,351.55L377.01,348.19L375.22,343.75L372.31,344.4L370.85,341.5L370.52,339.84L366.76,337L363.38,335.31L360.8,331.28L357.43,329.93L357.09,326.08L357.61,319.43L353.42,317.7L349.67,319.3L347.46,318.55L345.24,315.15L345.95,309.14L344.97,306.91L343.39,306.09L339.3,305.68L333.26,307.8L329.11,305.67L326.53,305.85L323.37,305.88L318.02,304.01L313.52,301.19L310.25,303.58L304.21,303.8L300.94,304.24L296.5,303.61L295.07,306.01L296.66,309.83L294.78,312.65L292.5,315.65L289.6,318.9L287.66,317.28L286.72,314.6L283.51,315.03L280.02,315.7L274.04,315.86L270.5,314.8L269.17,314.26L266.55,311.1L265.6,307.73L265.5,304.1L261,299.26L260.07,296.75L260.53,292.18L258.97,287.66L259.51,281.99L260.81,281.15L265.42,281.37L268.9,278.28L267.64,276.23L264.94,276.31L263.38,271.9L260.11,271.99L260.21,269.45L262.23,267.2L262.23,267.2L264.71,267.17L267.42,263L267.9,261.43L270.07,258.6L272.7,257.84L275.72,254.81L277.3,253.67L280.03,252.39L281.09,251.26L283.81,249.52L286.46,249.67L294.18,248.08L294.29,247.79L299,247.83L301.61,248.51L304.76,250.44L309.42,250.26L314.09,248.75L321.67,248.14L324.91,246.89L327.68,244.74L329.07,243.14L331.04,241.42L333.88,240.13L336.13,240.24L336.13,240.24L338.33,240.81L339.61,241.36L340.53,241.56L342.95,241.79L346.43,240.59L349.31,240.98L350.19,241.53L353.79,240.45L356.14,240.1L357.27,239.49L360.15,239.53L363.05,238.35L366.11,236.53L368.56,233.7L369.58,230.84L370.08,227.94L367.69,224.49L366.61,222.55L367.09,221.33L367.22,219.65L368.04,218.01L371.43,217.8L373.71,217.28L375.33,215.22L375.62,208.69L375.5,206.15L377.17,203.97L386.38,197.71L386.38,197.71L385.28,199.93z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Costarica.tsx
+var import_react3 = require("react");
 var Costarica = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      CostaricaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      CostaricaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var CostaricaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -83,27 +175,161 @@ var Costarica = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1200 700" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var CostaricaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Costarica_default = Costarica;
 

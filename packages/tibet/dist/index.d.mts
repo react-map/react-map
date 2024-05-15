@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Tibet: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: TibetProps) => React.JSX.Element;
+declare const Tibet: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: TibetProps) => React.JSX.Element | null;
 interface TibetProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Tibet as default };

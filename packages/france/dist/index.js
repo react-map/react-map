@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/France.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Alsace",
@@ -94,15 +95,106 @@ var drawPath = {
   "Rh\xF4ne-Alpes": "M377,302.07l-0.36,3.68l3.42,0.7l0.69,2l4.71,-1.76l3.13,1.49l1.22,-1.23l0.75,1l1.18,-0.59l-0.19,1.73l1.06,0.14l4.04,-1.77l1.37,-6.58l2.2,-0.08l1.88,1.77l2.67,-1.57l2.07,1.7l0.79,-2.13l1.77,-0.31l1.28,1.65l-1.29,1.18l2.35,1.53l-0.69,2.31l1.62,1.34l0.89,-0.25l6.69,-20.51l0.4,1.06l1.39,-0.84l3.01,1.85l4.56,-1.2l0.05,-0.91l1.59,0.81l1.22,2.86l3.26,0.7l0,0l-0.64,1.99l3.23,1.85l-0.66,0.72l1.76,3.58l0.85,-2.24l0.53,1.95l1.59,-0.01l-0.06,3.07l2.71,-0.25l4.32,-4.56l0.15,1.23l2.79,0.89l0.48,2.9l5.99,-0.23l8.11,-9.06l0,0l4.37,2.95l-2.81,4.91l0.93,2.04l-5.99,2.06l-0.64,1.2l1.25,0.9l-1.54,3.17l3.92,-1.4l3.17,0.72l6.93,-5.1l0.59,-1.85l-2.03,0.28l-0.53,-3.12l-1.14,-0.5l1.33,-2.89l11.07,-5.82l6.77,0.14l5.73,1.65l-2.05,4.3l3.9,4.46l-2.52,4.58l-0.29,3.95l4.21,0.78l-0.95,4.55l2.45,-0.97l4.26,6.58l0.27,1.85l-1.98,3.06l-3.46,1.86l-3.85,0.23l-0.55,6.61l4.49,4.38l3.51,0.7l-0.95,3.07l0.96,4.9l2.26,0.61l-0.22,1.32l2.1,0.15l0.61,2.15l3.02,1.61l-3.2,4.62l1.03,4.21l-2.71,2.6l-2.84,-0.49l-2.33,2.97l-2.18,0.08l-0.01,1.86l-1.83,0.56l-3.37,-1.9l-5.67,2.91l0,0l-2.19,-0.87l-1.51,1.41l-1.3,-0.56l-1.25,0.96l0.26,2.22l-1.48,0.18l-3.58,-1.07l-1.31,-3.11l-1.63,0.89l-2.01,-0.73l-1.71,6.12l4.96,1.02l-0.05,2.63l1.47,0.85l-0.1,4.94l-2.67,-1.11l-1.83,1.28l-4.71,-0.72l-3.22,2.82l-1.61,-1.14l-2.83,1.8l1.28,1.36l-1.21,1.23l-2.84,0.82l-2.32,-0.76l-1.17,3.09l1.31,0.93l-1.7,2.15l-1.67,-0.5l-0.84,1.34l-3.57,-0.74l0.2,2.32l-2.11,3.94l2.78,2.41l-1.47,0.13l-0.6,1.66l-6.48,-1.61l0.27,2.98l1.39,0.61l-0.87,1.03l-2.4,-0.34l0.47,2.91l2.61,2.15l1.17,-0.76l1.1,1.19l3.38,-0.19l-0.88,1.58l1.19,0.32l0.44,1.95h1.64l-0.01,4.09l-1.79,1.42l1.64,0.46l-0.17,0.99l-1.96,-0.24l0.35,-1l-1.57,-1.36l-2.5,3.39l-3.59,0.77l-0.81,-1.87l-2.18,-0.2l0.08,-2.6l-1.23,-0.81l-2.37,0.42l-2.03,-1.4l-0.81,1.16l-3.22,-1.2l0.61,-4.8l0,0l-0.66,0.31l0,0l-1.76,1.85l-2.02,-1.74l-10,4.63l-1.26,-4.96l-5.73,-0.97l-0.05,3.44l0,0l-5.98,-4.23l-2.16,0.31l-0.63,3.19l-1.76,-0.42l-0.15,-3.24l-2.73,0.47l-2.87,4.24l-5.29,-4.14l-3.4,1.02l-0.32,-4.18l1.18,-0.81l-3.35,-3.87l-1.48,-5.72l-2.06,-1.37l-1.73,-8.71l0,0l2.58,-1.42l1.07,-3.4l1.62,0.89l-0.24,-1.24l0.73,0.76l1.17,-0.8l0.27,-2.26l5.06,-0.05l2.83,-5.27l3.69,-0.58l-0.72,-2.71l3.46,-1.01l-1.37,-2.34l1.02,-1.75l1.14,0.08l0,0v-0.53l0,0l-1.04,-1.75l2.03,0.44l0.53,1.55l0.9,-0.53l-0.41,-2.45l1.79,-3.65l-2.27,-3.06l-2,1.09l-1.6,-1.09l0.9,-1.58l-1.63,-0.96l1.49,-1.09l-1.36,-1.88l-2.59,0.6l-1.62,-1.83l-2.27,-0.21l-1.39,0.51l0.37,1.13l-3.01,0.39l-0.42,1.32l-2.09,-0.78l-0.1,1.25l-1.36,-2.58l-1.56,-0.25l-1.8,2.47l-0.63,-3.59l3.08,-2.4l0.89,-3.53l-2.12,-4.87l-4.57,-3.16l-1.95,-3.53l0.15,-1.99l-3.81,-3.93l1.39,-1.33l-0.29,-3.36l1.63,-0.95l-2.56,-2.62l0.32,-2.34l3.59,-0.22l1.8,-1.54l-1.07,-3.23l0.67,-2.1l-1.18,-1.39l0.65,-3.05l-1.69,-4.56l4.82,-2.08l0,0l0.36,-0.05l0,0L377,302.07zM419.64,411.83L419.64,411.83l-0.32,0.17l0,0l-0.36,0.64l0,0l-1.51,2.73l0.65,2.61l4.05,0.68l1.51,-3.92l1.98,-0.93l0,0l-0.03,-0.34l0,0l-2.91,-1.77l0,0l-0.5,-0.58l0,0l-0.43,-0.05l0,0l-0.17,-0.44l0,0l-1.28,1.03L419.64,411.83z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/France.tsx
+var import_react3 = require("react");
 var France = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      FranceSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      FranceMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var FranceSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -111,27 +203,161 @@ var France = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -20 1200 650" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var FranceMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var France_default = France;
 

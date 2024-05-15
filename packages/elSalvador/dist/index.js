@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Elsalvador.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Ahuachap\xE1n",
@@ -78,15 +79,106 @@ var drawPath = {
   Usulut\u00E1n: "M538.84,412.68l1.08,0.92l-0.45,0.64l0.09,0.37l0.54,-0.28l-0.36,0.92l-1.17,-0.46l-0.36,0.37l-0.99,-0.64l0.63,-0.46l-0.09,-0.74L538.84,412.68zM527.22,404.4l1.25,0.36l0.37,1.39l0.72,0.55l3.25,-2.02l2.16,1.84l0.45,1.84l1.62,1.56l2.16,-0.18l1.35,-1.75l2.25,0.18l-0.36,1.1l0.99,1.47l-2.61,0.09l-2.43,1.01l-2.35,-0.55l-0.54,0.64l0.9,1.2l-0.18,0.46l-1.17,-1.2l-1.44,-0.09l-4.05,-2.12l-3.24,0.09l-0.54,0.46l-2.43,0.37l-4.33,-1.01l-1.98,-1.38l0.27,-2.02l0.72,-0.73L527.22,404.4zM479.36,400.72l0.54,0.64l-0.72,0.46l-1.53,-0.46l0.09,-0.46L479.36,400.72zM463.32,395.48l2.07,1.1v1.47l-0.72,0.64l-1.17,-0.64v-1.2l-0.54,-0.74v-0.64H463.32zM466.93,395.02l1.89,0.74l1.09,-0.48l0.54,1.22l3.33,1.47l2.79,-0.74l1.35,0.83l-2.43,0.83l-2.07,0.09l-1.55,0.74l-1.6,-2.85l-1.44,-0.46l-2.43,0.18l-0.54,-1.1L466.93,395.02zM475.22,394.46l0.27,0.64l-0.36,0.65l-0.45,0.46l-0.81,-0.28l0.72,-1.29L475.22,394.46zM533.08,394.37l1.98,0.46v2.85l0.45,1.2l1.71,0.83l3.06,2.85l1.62,1.93v0.92l0.72,0.46l-0.72,1.01l-2.61,0.46l-0.54,1.56l-2.16,-0.09l-1.17,-2.85l-2.73,-1.71l-3.13,1.94l-0.63,-1.24l-0.81,-0.92l-0.09,-0.73l2.53,-4.19l-0.4,-2.56l0.11,-1.62l0.87,-0.34L533.08,394.37zM491.89,394l0.45,1.01l-1.26,0.55l-0.72,-0.74l0.09,-0.46L491.89,394zM509.02,392.9l1.62,0.74l0.81,2.39l5.41,5.52l0.18,0.74l-1.17,1.47h-0.81l-2.61,-2.58l-1.35,-0.37l-1.35,-1.2l0.09,-0.55l-1.17,-0.46l-1.98,-3.77L509.02,392.9zM531.14,252.2l2.29,0.45l1.9,-0.27l1.83,1.48l0.59,-0.56l0.62,0.36l0.83,-0.34l1.68,0.28l1.1,-1.48l0.73,0.02l2.37,1.27l4.09,5.39l2,0.53l0.6,1.02l1.77,1.34l0.81,1.54l1.83,-0.07l3.46,1.9l2.42,-0.34l1.53,-1.6l1.23,-0.52l1.56,-0.03l1.04,0.89l1.42,7.61l-1.17,3.06l-0.05,2.61l0.72,1.58l2.49,1.35l0.39,0.79l-0.03,1.01l-0.93,1.2l-0.13,1l0.78,3.36l-0.39,0.69l-0.58,0.05l-2.08,-2.36l-1.31,-0.38l-1.18,0.51l-0.27,2.1l0.98,3.9l-1.71,4.8l1.47,1.25l3.72,1.95l1.09,16.05l-0.72,2.43l-2.23,1.71l-0.9,1.31l0.74,3.73l-0.28,2.1l-1.77,0.76l-3.03,-0.77l-0.83,0.5l-0.7,7.38l0.94,0.64l1.88,-0.88l1.86,0.09l0.58,0.99l0.56,3.88l1.84,1.57l0.1,2.81l-1.51,3.59l0.75,6.41l-1.29,2.89l-0.05,1.47l1.23,1.84l3.47,1.55l1.14,1.55l0.95,0.31l0.72,1.5l1.14,0.24l0.67,1.57l0.05,3.64l1.35,0.52l6.71,-0.18l2.99,0.7l5.77,-0.69l0.79,0.3l-0.39,3.28l1.97,3.99l0.8,3.86l-0.89,1.46l-5.66,2.6l-2.93,3.42l0.03,0.92l1.35,2.01l-0.4,5.03l0.4,1.19l0.77,0.84l1.62,0.34l1.92,-0.93l3.69,-0.37l3.04,-1.07l0.18,-0.9l-3.44,-4.81l-0.09,-2.47l1.89,-7.05l0.95,-0.4l0.88,0.89l0.49,-0.04l0.72,-2.59l0.98,0.63l0.38,-1.38l1.35,0.86l2.26,0.21l0.5,0.44l-1.11,0.59l1.11,0.35l0.84,1.36l3.94,-1.03l1.04,1.07l0.53,-1.18l1.08,0.23l0.47,-1.15l0.63,-0.11l1.11,1.61l-2.02,6.28l0.55,0.38l1.77,-0.81l1.37,0.28l1.3,1.5l2.23,1.5l1.85,3.08l-0.19,0.72l-5.08,4.37l-0.72,1.31l-0.15,1.64l0.69,1.39l1.47,1.32l1.52,0.37l4.03,-2.4l12.22,1.48l2.14,4.88l8.05,10.39l3.62,5.61l0,0l-0.18,0.42l-1.17,-0.37l0.18,0.74l-0.9,0.46l-1.62,-1.01l-5.86,-0.73l-1.8,-0.09l-0.18,0.74h-0.36l-1.62,-0.83l-1.53,1.29h-0.81l-0.36,-0.73l-5.5,-0.18l-0.9,1.38l-1.35,-0.09l-0.54,-0.73l-0.72,-0.09l-0.18,0.64l-1.08,-0.18l-0.63,1.2l-1.08,-0.55l-0.36,1.2l-2.43,-0.46l-0.18,0.74l-0.45,0.09l-0.36,-0.92l-0.99,-0.09l-0.36,1.01h-0.54l-0.36,-0.64l-1.08,-0.46l-5.23,-0.74l-1.71,-1.38l-1.98,0.92l-2.16,-0.09l-11.27,-2l-16.49,-0.85l-1.17,-0.73l0.18,-0.92l3.25,-1.84l2.35,-0.18l1.62,-1.01l0.9,1.47l0.81,0.37l0.18,0.55l-0.45,0.55l0.63,0.55l0.27,-1.84l-0.81,-0.55l-0.54,-1.29l-1.17,-0.09l-0.9,0.64l-0.81,-0.37l1.17,-1.93l2.07,0.46l0.54,-0.55l-0.63,0.28l-1.8,-0.73l-0.45,-2.21l-0.81,-0.64l-1.35,-0.18l-2.25,-1.65l-1.44,-3.77l-0.09,-1.56l-1.17,-0.83v0.65l0.63,0.55v0.46l-0.45,-0.01l-1.8,-1.71l0,-0.4l-0.99,-0.28l3.34,3.22l0.18,2.39l1.71,2.48l0.9,0.92l2.7,0.74l0.72,0.92l-0.18,0.92l-3.43,2.48l-0.63,-0.09l-1.62,-0.55l-0.99,-1.47l-4.69,-0.92l-1.71,-1.38l-0.63,-1.19v-1.1l-0.45,-0.28v1.38l0.63,1.29l1.71,1.75l3.52,1.66l-0.27,0.74l-2.61,0.37l-1.53,1.29l-0.72,-0.37l-1.71,0.55l-5.32,-0.37l-1.62,0.64l-1.62,2.02l2.98,-1.38l1.8,0.74l1.62,-0.64l0.54,0.9l0.72,0.02l0.99,0.92l1.35,-0.92l0.09,1.1l0.9,0.37l1.26,-0.46l0.63,-1.01l0.18,1.29l-1.8,1.01l-1.8,-0.28l-4.24,0.83l-0.9,-0.28l-3.88,1.38l-6.13,-0.09l-2.25,-1.29l-1.71,-1.65l-3.34,-5.15l0.18,-1.56l1.35,-2.57l1.08,-0.92l1.17,0.09l5.86,3.4l4.51,-0.18l-2.52,-0.64l-2.88,0.28l-3.42,-2.57l-0.27,-0.64l0.36,-0.37l2.25,-0.55l2.16,0.09l1.08,-1.1l-1.53,0.57l-5.5,0.26l-1.08,-3.03l-1.44,-1.29l-3.24,-4.6l-6.58,-5.15l-0.27,-2.76l-0.8,-0.74l-2.81,-0.18l-1.8,0.64l-0.45,1.2l0.45,1.84l-0.36,2.21l-2.61,3.86l-1.98,0.28l-1.71,-0.55l-0.45,0.55l-3.06,0.09l-0.18,-1.01l-1.53,-0.46l-2.34,-4.14l-1.53,-1.1l-1.8,-2.21l-0.9,-0.37l-0.18,-1.66h-0.9l-1.26,-1.01l-5.5,-0.46l-1.17,-1.47l-1.17,0.18l-0.18,0.65l-1.44,0.09l-1.17,-0.92h-1.17l-0.45,0.46l-0.45,-1.1l-0.45,-0.09h-4.6l-0.45,-0.28l0.09,-0.55l1.8,0.09l0.63,-0.74l-0.09,-1.01l-1.62,-1.01l0.09,-0.55l-0.81,1.1l1,-0.05l0.72,0.48l0.25,1.03l-1.7,0.1l-2.97,1.29l-0.9,-1.66l-0.09,-1.47l-0.99,-1.01l-1.62,-0.18l-1.17,-1.38l-0.54,-1.66l-1.53,-0.74l-0.27,0.55l1.35,0.37l1.44,3.22l2.25,1.01v0.92l-1.8,0.74l-0.73,-0.83l-1.24,-0.11l-0.64,0.67v1.01l0.45,0.18l-0.36,0.46l-1.8,-0.46l0.18,-1.29l-0.63,-0.74h-2.61l-0.63,0.19v-1.39l-0.45,-0.46l-1.35,0.83l0.63,0.37l0.72,-0.74v1.47l0.81,0.46l0.63,-0.37l1.62,0.37l0.54,1.56l1.62,0.64h1.89l0.9,-0.46l-3.06,4.51l-2.52,-0.37l-1.26,0.28l-0.81,-0.55l-2.34,-0.09l-0.81,1.01l-1.26,0.18l-2.43,-1.47l-2.88,-0.37l-1.89,1.56l0.27,1.1l-0.9,0.09l-2.07,-1.29l-2.8,-0.64l-1.26,0.64l-0.99,-0.55l0.09,0.74l1.44,0.46l1.53,-0.73l0.99,1.01l-0.09,1.29l-1.44,0.09l-0.18,0.55l-0.99,0.46h1.08l0.81,-0.55l0.54,0.64l-0.09,1.84l0.36,0.18l0.72,-0.37l0.63,-1.29l1.89,1.47h1.17l1.17,-1.47l1.35,-0.37l1.17,2.12l3.25,1.93l1.98,-0.09l0.54,-0.92l1.08,-0.37l0.99,0.64l0.81,1.56l1.17,0.18l1.17,-1.01l-0.27,-1.47l2.8,-1.19l1.35,-2.02l0.72,-0.09l0.18,0.74h0.63l1.53,-0.55l-0.09,-0.46l0.54,-0.18l2.43,0.46l5.32,-2.3h1.17l1.98,1.93l2.25,0.28l0.9,1.29l-0.18,1.38l0.81,-0.09l1.62,1.29l2.25,2.85l1.8,1.29l4.15,5.24l-0.54,0.64l-0.72,-0.11l-1.71,-1.18l-1.26,-0.18h-2.34l-3.79,0.83l-2.97,-1.38l-0.81,-1.56l-1.08,-0.46l-2.16,0.18l-2.16,1.47l3.88,-1.29l3.24,3.04l2.16,0.83h4.42l1.98,1.2l3.16,0.55l4.32,-0.37l2.07,1.47l0.72,1.2l1.62,0.65l0.72,1.2l2.16,-0.64l1.98,0.46l0.54,0.55l2.7,-0.18l0.9,0.83h0.81l1.08,1.1l-0.27,0.37l-0.81,-0.28l0.18,0.92l2.61,3.22l1.17,-0.18l0.09,-0.83l-0.45,-0.37l0.36,-0.55l3.15,-1.01l0.54,3.31l0.36,0.46l0.81,-0.18v0.74h-4.42l-10.72,-3.77l-17.93,-3.77l-16.04,-3.95l-24.78,-4.69l-13.52,-1.47l-10.91,-3.4l0,0l-0.17,-1.62l-1.04,-1.33l-5.91,-1.96l-2.52,-1.44l-2.07,-2.13l0.42,-2.08l1.4,-1.58l1.88,-0.88l2.27,-0.33l2.6,-2.27l3.61,-1.66l5.14,-5.16l1.85,-1.21l2.05,-4.2l2.22,-2.66l4.27,-1.7l0.39,-1.09l-0.25,-1.74l-2.11,-1.33l-0.97,-1.96l-0.18,-3.95l5.03,-10.27l5.03,-7.55l3.57,-9.46l2.3,-1.97l1.47,-2.4l0.24,-7.35l1.41,-4.36l0.66,-6.5l1.19,-2.48l-0.7,-4.22l0.7,-2.22l1.78,-1.42l2.73,0.25l0.96,-0.56l3.17,-6.41l1.38,-1.34l1.04,-2.63l1.47,-1.55l6.29,-1.87l7.07,-0.4l3.57,-1.14l0.79,-0.64l1.96,-5.11l3.09,-2.29l1.18,-4.36l3.2,-3.93l2.1,-1.62l2.51,-1.17l1.95,-2.78l2.31,-1.26l4.74,-1.4l1.68,-1.23l2.84,-4.94L531.14,252.2z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Elsalvador.tsx
+var import_react3 = require("react");
 var Elsalvador = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      ElsalvadorSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      ElsalvadorMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var ElsalvadorSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -95,27 +187,161 @@ var Elsalvador = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1500 520" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var ElsalvadorMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Elsalvador_default = Elsalvador;
 

@@ -1,5 +1,5 @@
 // src/Germany.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Baden-Wurttemberg",
@@ -46,15 +47,106 @@ var drawPath = {
   Thuringia: "M308.21,364.11L311.61,364.14L312.29,363.36L315.25,364.37L315.72,366.03L318.13,365.01L319.98,367.17L322.26,366.55L321.79,367.32L323.22,368.12L322.79,369.28L320.54,368.2L320.02,370.61L320.02,370.61L320.36,370.61L320.36,370.61L320.7,372.46L320.7,372.46L320.67,373.07L320.67,373.07L321.62,372.78L323.84,374.77L322.53,376.52L325.55,380.4L324.87,382.08L324.87,382.08L324.92,382.4L324.92,382.4L325.14,385.5L327.98,386.23L326.79,386.99L330.46,386.71L331.22,385.76L336.35,388.48L339.43,388.47L341.37,387.44L343.06,388.21L343.12,389.16L347.7,387.76L349.3,390.3L352.63,390.75L352.83,394.47L354.62,394.77L353.84,395.73L357.69,399.43L356.61,399.94L353.92,404.77L352.68,405.47L351.6,404.61L350.71,407.1L352.27,407.43L352.31,408.77L355.63,408.22L356.18,409.98L357.31,409.95L357.36,412.22L358.28,412.66L357.3,414.31L356.1,414.58L357.07,416.42L356.73,417.89L358.26,419.09L361.97,419.05L363.8,417.46L366.02,418.15L366.69,419.57L367.96,418.13L369.96,418.22L371.85,420.07L372,422.3L374.02,422.63L375.7,425.21L376.73,424.07L378.21,424.65L384.1,423.91L385.6,426.66L387.49,426.17L389.17,427.24L389.15,430.13L391.5,430.37L392.16,432.77L396.87,431.73L401.62,433.5L402.78,431.91L403.26,433.5L404.71,433.38L404.76,435.61L406.35,433.98L405.72,433.22L406.67,431.07L409.56,427.41L409.29,425.46L406.94,425.62L409.06,420.36L409.06,420.36L412.5,419.03L413.77,419.81L414.08,421.36L416.11,420.92L417.15,421.9L420.13,421.02L420.94,422.79L420.94,422.79L422.01,422.76L422.01,422.76L423.1,423.08L423.35,427.71L423.84,426.74L425.39,426.99L425.52,428.82L424.61,429.51L427.71,430.84L429.76,429.79L430.79,435.52L432.72,437.54L431.75,439.22L430.61,438.54L425.29,439.49L424.2,438.77L423.33,439.28L423.55,440.23L421.83,440.04L419.34,443.06L419.12,445.23L417.78,445.59L417.54,443.71L416.71,444.66L414.87,444.14L413.22,445.78L413.15,447.22L410.55,447.61L409.97,446.54L410.18,447.92L409.5,447.06L408.81,448.53L407,447.48L407.21,450.64L409.33,450.48L409.46,451.27L408.04,453.44L406.24,452.95L405.43,455.76L407.97,455.85L408.44,456.8L407.21,457.95L407.72,460.17L411.44,461.19L411.24,463.28L407.94,465.19L407.84,466.63L403.78,465.78L403.18,468.31L400.58,466.68L399.71,471.29L401.3,471.22L401.44,471.96L398.98,472.9L397.56,471.78L396.15,472.01L395.92,474.06L394.64,474.55L392.88,474.61L392.24,472.89L393.41,470.3L391.23,468.17L392.31,467.18L391.14,466.23L389.92,467.52L390.21,468.71L386.32,471.16L386.52,473.99L383.72,474.41L382.78,475.87L383.93,477.91L386.7,477.31L386.73,478.76L388.86,480.96L387.15,482.55L387.82,484.27L386.71,483.44L384.37,484.79L384.64,486.05L386.46,486.4L386.17,487.29L386.17,487.29L379.89,490.67L379.89,489.36L376.99,487.67L376.55,488.59L375.27,488.16L375.97,489.03L374.41,488.71L372.82,490.01L372.44,489.37L367.13,490.86L365.15,489.32L363.73,489.61L363.01,491.07L360.59,492.12L360.5,490.02L357.85,489.54L358.09,486.59L356.93,486.41L355.54,487.62L356.03,486.43L354.1,485.17L354.08,480.22L355.05,480.46L355.4,479.67L354.77,478.48L349.35,477.53L349.42,478.53L347.79,478.75L347.84,480.52L346.55,480.66L345.84,482.04L345.59,481.09L343.09,481.72L343.12,484.69L344.31,486.54L343.74,489.58L345.43,493.56L343.96,494.43L344.9,495.96L343.95,495.88L344.46,498.95L343.33,500.2L343.91,500.68L343.91,500.68L343.65,500.68L343.65,500.68L343.32,502.7L339.73,500.26L339.42,502.25L338.5,502.57L338.91,501.49L336.61,501L335.8,499.59L337.36,496.54L336.09,494.29L334.82,494.69L334.65,492.94L332.97,493.07L332.74,494.42L330.12,495.2L329.66,493.6L326.9,493.07L327.16,494.66L326.34,494.82L323.22,490.38L321.95,490.73L321.95,490.73L321.47,490.92L321.47,490.92L320.39,491.57L319.43,489.97L318.54,490.82L316.62,490.37L314.91,491.67L313.69,491.14L311.68,493.79L309.23,493.16L309.05,495L310.02,495.15L309.21,497.5L310.87,498.02L312.71,500.25L314.77,500.41L314.94,501.63L314.94,501.63L315.29,501.63L315.29,501.63L317.46,502.02L317.53,505.09L316,505.75L314.64,504.36L312.61,505.38L310.2,504.4L310.09,508.37L309.26,509.04L308.19,508.31L308.19,508.31L307.86,508.31L307.86,508.31L305.57,506.52L303.69,507.21L302.29,506.5L301.64,504.97L302.5,504.62L301.71,503.22L302.3,502.39L301.25,502.41L302.07,500.29L301.3,498.8L301.79,496.22L299.36,495.8L298.27,493.2L297.5,493.03L296.38,494.58L296.2,493.62L294.9,494.07L294.92,492.07L294.21,492.25L294.21,492.25L293.74,492.25L293.74,492.25L292.4,489.44L288.76,490.22L288.08,488.73L289.24,487.05L287.23,486.41L287.91,485.66L287.04,485.78L285.07,483.09L284.63,480.24L282.84,480.27L279.89,478.33L278.37,478.53L278.34,476.54L276.86,475.6L276.56,474.22L275,474.46L274.75,475.36L273.19,474.41L272.67,475.36L270.48,473.26L268.08,476.04L268.19,476.96L266.23,478L266.23,478L266.03,476.69L267.47,474.03L265.93,468.54L266.7,467.26L268.82,467.35L267,462.49L263.59,461.96L260.6,462.87L260.3,463.93L261.5,465.47L261,466.66L255.68,465.57L255.85,462.58L258.64,460.19L257.72,459.04L259.74,455.68L259.64,454.01L258.57,453.67L258.83,452.15L260.59,452.19L259.97,449.59L260.55,447.42L261.97,446.34L261.97,446.34L262.38,446.49L262.38,446.49L263.39,446.95L263.96,445.81L265.3,446.07L266,444.23L264.94,444.67L265.01,442.92L267.42,441.23L267.34,440.45L266.59,440.53L266.79,439.43L264.33,437.27L261.76,438.66L262.79,436.27L261.31,436.17L260.63,437.1L260.4,435.21L264.34,435.99L265.12,435.09L265.43,435.69L267.6,434.96L266.31,434.51L266.17,432.66L264.81,431.25L266.07,428.06L270.11,428.98L271.18,428.33L272.92,430.11L276.6,428.59L275.88,427.5L277.27,426.75L276.66,425.82L272.55,423.36L273.39,422.41L272.81,420.83L274.68,417.62L271.17,415.3L274.12,413.9L276.22,417.97L277.03,416.67L276.42,414.08L278.65,410.58L276.02,409.9L274.1,407.91L273.01,408.37L272.4,407.01L270.74,407.56L267.92,406.43L268.5,404.76L266.55,403.69L267.08,401.15L261.78,400.55L261.57,398.94L259.67,398.25L260.25,396.98L258.76,393.45L258.96,391.32L258.96,391.32L263.59,388.32L264.17,386.73L265.99,386.69L266.51,385L267.91,386.94L268.67,385.24L270.62,385.67L270.62,385.67L271.02,385.67L271.02,385.67L273.36,385.58L272.57,384.33L274.61,384.11L275.44,382.34L274.93,381.67L276.44,380.01L277.36,381.57L278.43,381.59L279.22,380.3L282.59,379.22L283.14,377.13L285.38,376.68L287.78,372.17L287.78,372.17L287.78,371.56L287.78,371.56L287.13,369.65L290.76,369.17L290.76,369.17L291.14,369.17L291.14,369.17L295.08,371.13L296.62,373.08L299.29,372.85L302.16,370.46L305.39,372.61L305.96,370.85L304.25,369.97L303.97,367.65L304.88,367.7L304.25,366.35L307.03,365.47L306.6,364.53z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Germany.tsx
+import { useState as useState2 } from "react";
 var Germany = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      GermanySingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      GermanyMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var GermanySingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -63,27 +155,161 @@ var Germany = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -20 1400 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var GermanyMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Germany_default = Germany;
 

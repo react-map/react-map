@@ -1,5 +1,5 @@
 // src/Brazil.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Acre",
@@ -68,15 +69,106 @@ var drawPath = {
   Tocantins: "M433.35,281.82L427.99,283.24L426.25,284.58L423.69,285.68L422.14,285.68L417.61,286.68L415.09,288.76L413.31,289.66L412.85,289.42L411.34,286.8L410.79,286.77L410.28,290.07L409.59,290.15L406.24,289.47L403.11,288L403.67,286.44L403.45,285.7L398.92,286.23L396.16,285.89L395.6,286.43L395.3,287.43L394.55,288.18L393.41,288.13L392.8,285.03L391.69,281.32L390.65,279.44L389.5,278.13L388.32,279.1L386.85,281.49L385.22,287.43L384.59,287.66L380.52,286.23L377.43,284.52L373.5,284.12L371.3,283.09L368.9,282.69L369.42,280.35L370.64,278.47L370.67,276.76L370.11,277.06L368.3,279.15L367.64,280.38L367.44,282.26L367.1,282.71L367.1,282.71L366.3,282.69L365.34,282.18L364.36,278.84L365.1,276.08L364.66,273.03L364.14,272.45L364.13,270.88L364.6,267.57L363.5,265.32L363.55,264.82L364.37,263.93L364.53,263.06L363.14,261.72L363.08,260.86L364.96,254.87L365,251.92L365.54,248.95L367.48,243.66L367.85,243.39L368.28,242.54L368.72,239.4L369.82,238.15L370.38,236.26L371.03,235.24L371.03,235.24L372.65,231.55L373.78,227.1L374.93,225.52L376.12,224.42L377.33,222.74L378.36,220.82L379.73,219.9L380.78,219.74L381.51,218.89L382.45,217.35L382.63,216.36L384.33,213.12L385.42,212.32L387.18,207.17L387.84,203.13L387.69,202.83L386.95,202.51L385.28,200.77L384.68,199.82L384.52,198.94L384.66,198.37L386.07,196.68L387.36,194.58L387.3,191.91L386.87,189.73L387.06,189.38L389.53,187.6L392.94,186.46L395.44,185.25L395.68,184.75L395.53,183.24L396.39,181.97L397.9,180.63L399.19,180.48L399.38,179.14L399.09,177.94L399.34,177.48L400.8,177.02L401.44,176.54L402.37,173.79L401.35,172.45L401.26,171.05L401.55,170.77L402.52,170.69L403.24,170.32L403.61,169.66L403.64,169.02L402.38,167.85L401.51,167.71L401.12,167.4L400.1,165.74L398.81,165.62L396.94,165.87L394.65,165.06L394.65,165.06L395.18,164.42L397.8,162.57L399.76,162.04L400.63,162.09L403.41,163.61L404.81,163.69L405.76,163.17L407.5,163.46L408.09,164.15L408.17,165.18L408.45,165.5L409.67,165.53L413.07,166.96L413.91,167.99L414.38,171.49L415.02,172.99L414.81,176.71L415.04,177.79L415.71,178.92L415.7,179.36L413.93,185.51L413.62,187.88L413.9,188.88L413.65,190.47L411.9,192.51L410.14,193.18L409.96,193.89L411.9,195.21L412.32,194.94L413.69,195.18L413.94,195.53L414.05,196.41L413.43,197.6L414.28,199.04L415.16,198.97L418.16,203.13L419.07,203.98L421.35,207L423.49,205.66L427.76,204.72L429.56,205.94L429.64,207.69L429,210.94L429.39,212.29L426,212.64L424.66,213.18L424.09,213.73L423.41,215.16L422.68,217.84L423.05,219.14L420.42,221.69L420.16,222.39L420.36,222.81L422.44,223.1L423.38,223.79L424.12,225.38L424.18,227.04L424.8,228.08L428.68,230.03L428.77,230.56L427.13,232.37L427.26,234.02L429.4,235.64L430.39,238.51L431.73,240.51L432.44,240.69L434.22,240.48L435.22,240.78L436.04,241.22L436.65,242.04L437.93,242.7L437.93,242.7L440.87,242.91L440.87,242.91L440.18,243.56L439.96,244.54L439.4,245.01L435.58,247.03L432.37,249.65L432.18,250.02L433.47,251.82L433.11,252.21L432.1,252.48L431.2,253.09L429.68,256.58L428.67,257.3L428.17,258.46L428.4,259.38L430.26,261.33L433.85,262L435.72,262.99L435.77,263.75L435.21,264.2L433.17,265.01L432.74,265.97L432.83,266.47L433.18,266.8L434.21,266.62L435.13,266.91L435.71,267.42L436,268.06L435.04,268.77L433.89,269.19L431.94,270.86L431.75,271.71L431.7,274.63L432.05,275.88L432.99,276.54L434.04,276.78L434.45,277.03L434.62,277.45L434.67,278.51L433.31,280.89z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Brazil.tsx
+import { useState as useState2 } from "react";
 var Brazil = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      BrazilSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      BrazilMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var BrazilSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -85,27 +177,161 @@ var Brazil = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1200 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var BrazilMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Brazil_default = Brazil;
 

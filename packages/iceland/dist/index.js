@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Iceland.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Glacier 1",
@@ -86,15 +87,106 @@ var drawPath = {
   Su\u00F0urland: "M397.82,340.84l-0.54,29.22l0,0l-2.7,0.58l-7.43,2.78l-5.79,2.78l-3.09,2.19l-3.02,3.06l-8.03,16.65l-6.23,7.4l-9.19,5.29l-7.19,1.23l-12.53,3.74l-5.6,2.13l-5.28,1.19l-7.16,-1.14l-5.32,-1.82l-3.05,0.25l-0.85,1.56l-2.89,-0.65l-2.07,0.53l-0.25,0.43l-0.63,-0.78l-4.56,-2l-3.29,-2.07l-7.31,-2.59l-11.22,-5.37l-6,-2.21l-9.1,-1.84l-6.75,-0.22l-4.2,0.67l-0.28,0.37l-5.38,-0.96l-5.26,-3.64l-8.91,-9.09l-11.53,-10.23l-7.42,-5.57l-2.75,-1.43l-4.24,-5.11l-2.36,-2.11l-0.95,-0.43l-0.6,0.34l-0.65,-0.67l-3.81,-0.88l-3.39,-2.02l-4.71,-3.83l-0.35,0.44l-2.13,-0.65l-2.61,-0.05l-2.99,0.62l-1.6,1.6l1.05,1.62l-0.34,0.59l-1.16,0.45l-3.99,-0.38l-2.15,0.98l-4.78,0.65l-2.47,1.34l-1.34,0.16l-1.91,-0.71l-1.28,-1.17l-1.4,-2.9l-2.07,-0.82l-2.2,-0.09l-0.39,1.25l-2.61,1.6l-2.51,0.85l-1.36,-0.05l0,0l0.1,-2.11l4.77,-3.95l0.66,-1.97l4.11,-3.29l1.98,-2.96l1.81,-1.48l0,0l1.65,-1.64l0,0l4.11,-0.16l0.99,-4.61l1.48,-0.99l0.82,-2.47l4.61,-6.75l0.49,-2.47l1.65,-1.15l0.49,-2.3l1.15,-1.32l0.66,-2.96l-0.16,-2.3l-0.99,-1.32l-0.33,-4.61l5.1,-5.43l0.33,-1.65l1.81,-1.97l2.14,-0.33l1.97,-1.32l1.32,-1.32l-0.04,-0.84l0,0l2.06,-2.2l0,0l2.17,-2.17l2.33,-5.04l8.07,-7.68l3.49,-3.88l1.24,-2.4l2.27,-0.2l0,0l0.53,1.06l2.54,1.97l3.28,-1.15l1.23,-0.57l0.46,-4.32l0,0l1.34,-0.66l0,0l-0.14,-1.04l0,0l0.88,0.04l0.66,-1.06h1.31l1.15,0.9l-1.47,0.82l0.33,1.39l3.52,0.41l0.57,1.31l-0.08,2.78l2.95,5.24l1.31,0.74l1.15,-0.49l1.06,-2.05l0.08,-4.26l3.28,-1.06l1.15,1.31l0.08,2.46l0.74,1.72l1.39,0.41l1.97,-0.33l4.01,-4.67l9.01,-4.99l2.78,-2.7l-0.33,-1.31l-1.72,-0.33v-1.15l2.46,-1.64l0.16,-2.78l2.29,-1.64l0.08,-1.56l-1.06,-2.7l2.46,-2.78l0.08,-1.96l-1.96,-0.57l1.23,-1.64l3.11,-1.47l1.15,-1.15l0.33,-3.85l-0.74,-1.23l-1.39,-0.41v-1.15l2.87,-2.05l0.9,-4.92l0,0l1.83,1.55l1.46,3.35h2.91l2.62,1.02l6.11,1.02l4.66,2.18h2.48l2.04,-0.73l2.33,0.73l0.87,1.6l7.53,-0.2l0,0l0.19,1.08l-1.75,3.79l1.75,4.08l2.04,-0.15l0.87,0.58v1.46l5.53,5.24l2.62,1.46l2.62,0.44l1.02,-6.26l3.64,0.29l0.73,3.93l2.77,0.29l2.48,1.75l0.87,-1.6l1.31,-0.87l-2.62,-3.2l-0.15,-2.04l1.16,-2.62l3.2,2.48l2.33,-1.02l2.48,-1.89l3.06,-5.53l-0.58,-12.52l0.71,-1.27l0,0l0.91,-0.76l0,0l-0.12,2.47l1.94,0.97l5.24,4.66l0.78,1.55l-0.97,1.55v2.13h2.52l1.17,-0.97l2.33,-0.39l2.52,0.39l1.75,0.97l1.17,2.13l2.33,4.85l0.39,2.52l3.11,2.33l2.52,0.78l7.38,-0.39l3.88,3.11l1.94,2.52l-0.73,0.06l0,0l-1.79,0.14l-2.52,3.49L366,269.51L365.03,273l0.39,3.69l2.72,1.36l2.91,0.78l-0.19,1.75l-1.55,0.97l-5.05,1.55v2.72l-1.75,2.91l-0.58,3.11l-9.12,9.12v2.72l2.52,5.82l3.11,0.78l1.17,0.78l0.19,4.66l4.85,0.58l0.19,2.13l-1.16,0.58l-2.14,0.19l-0.19,4.85l1.75,2.33l1.94,0.39l1.55,2.52l1.94,0.97l7.76,0.19l0.97,-2.33l1.55,-1.94l0.58,-5.63l-0.97,-1.75l-0.39,-4.66l2.52,-0.19v2.72l0.97,3.11h3.3l0.97,-1.36l1.55,-0.97l0.19,-1.94l1.75,-0.19l1.36,0.97l0.97,1.75l1.36,0.19l0.58,-1.94l-0.97,-3.3l1.94,-0.78l1.75,1.94l4.46,3.11l-0.19,3.3l-0.78,1.94l0.58,3.3l-0.97,6.99l-1.55,4.66l-1.36,0.78l0.39,1.55l0.97,0.39L397.82,340.84zM274.98,386.01l1.83,-0.41l3.85,0.41l1.42,1.01l0.81,1.62l-0.51,1.32l-2.64,2.94l-1.83,0.61l-6.59,0.2l-4.77,-4.16l-0.71,-1.62l2.94,-3.04l3.75,-0.3l0,0L274.98,386.01zM309.37,370.09l2.33,0.3l2.23,0.91l3.75,3.25l0.2,1.42l-0.91,1.62l-3.65,1.01l-0.61,1.42l1.52,1.01l1.42,0.1l1.52,1.32v1.83l-2.23,0.2l-1.32,3.75l1.62,2.33l1.42,1.12l3.45,0.81l0.61,0.91l-0.3,1.52l-1.22,1.32l-3.85,2.44l-1.01,-1.01l-2.94,-0.2l-0.81,-1.32l-0.81,-0.2l0.1,1.52l-1.01,1.32l-8.11,-0.1l-1.01,0.81l-2.43,-0.3l-0.41,1.32l-0.91,-0.2l-1.01,-3.85l-1.12,-1.01l-0.71,0.31l-0.1,1.93l-2.54,2.23l-1.42,0.61l-0.3,-1.72l0.91,-0.61l0.71,-1.62l0.3,-3.65l-4.57,-1.42l-0.91,-1.52l0.31,-1.72l1.01,-1.12l2.23,-0.41l0.91,-1.62l0.3,-4.57l0.51,-0.91l1.83,0.51l0.41,0.81l1.62,-0.2l-0.91,-2.03h-1.32l-3.04,-1.32l0.41,-2.43l1.12,-2.54l1.62,0.51l0.61,1.01l5.58,-3.35l0.3,-0.91l1.42,0.1l1.12,-0.91l3.04,-1.01l1.42,0.2l0,0L309.37,370.09zM238.17,413.06l-0.49,1.58l-1.9,1.11l0.46,0.79l-1.02,1.52l-0.72,0.09l-0.01,-0.77l0.74,-0.33l-1.05,-1.47l-0.19,-2.29l-0.74,-0.69l0.59,-0.53l2.23,-0.2l1.07,-0.8l0,1.04L238.17,413.06z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Iceland.tsx
+var import_react3 = require("react");
 var Iceland = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      IcelandSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      IcelandMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var IcelandSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -103,27 +195,161 @@ var Iceland = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -40 1200 500" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var IcelandMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Iceland_default = Iceland;
 

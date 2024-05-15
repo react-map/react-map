@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Senegal: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: SenegalProps) => React.JSX.Element;
+declare const Senegal: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: SenegalProps) => React.JSX.Element | null;
 interface SenegalProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Senegal as default };

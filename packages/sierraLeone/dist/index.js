@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Sierraleone.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = ["Eastern", "Northern", "Western", "Southern"];
 var drawPath = {
@@ -53,15 +54,106 @@ var drawPath = {
   Southern: "M187.15,638.37L191.05,633.74L185.87,631.58L180.38,631.17L164.57,632.51L154.58,635.12L150.14,635.75L121.26,635.76L111.07,637.39L107.16,638.9L103.92,642.28L102.86,645.93L92.98,648.33L92.98,650.31L120.08,657.61L142.54,661L151.17,665.46L175.3,671.86L179.15,672.2L184.58,674.17L189.87,679.18L194.51,685.72L198.11,692.4L192.71,692.4L195.11,696.32L199.37,697.93L203.96,697.17L207.32,694.07L207.52,690.74L205.25,681.9L205.52,677.67L207.87,673.34L210.23,670.65L212.04,667.83L212.75,663.08L211.1,655.24L211.36,652.18L214.37,650.31L211.58,646.42L208.45,643.14L204.67,640.75L199.94,639.38L189.74,639.74L187.15,638.37zM483.5,823.36L491.89,819.49L493.94,818.27L493.38,811.51L494.49,806.99L501.74,802.85L504.27,798.46L505.91,793.41L506.5,789.42L505.54,784.05L506.39,782.27L512.16,781.62L514.13,780.91L515.54,779.46L516.07,777.13L515.2,773.78L511.45,767.63L510.75,764.85L511.57,763.84L516.36,759.4L525.58,744.91L530.08,743.98L551.87,734.11L554.15,731.94L571.37,709.79L571.23,709.74L551.92,702.04L545.03,698.03L536.03,694.28L529.11,692.29L525.93,691.89L522.43,691.78L519.23,691.38L516.35,690.64L515.31,689.88L514.8,688.67L515.07,682.71L514.39,676.44L514.38,670.79L514.54,669.12L513.62,657.16L513.9,654.31L514.44,652.27L520.55,645.83L521.01,644.99L517.06,639.61L516.11,638.71L515.03,637.96L513.82,637.36L512.39,637.01L510.86,636.93L509.38,637.15L506.89,638.38L504.79,639.88L496.45,649.82L490.59,655.16L489.54,655.94L488.35,656.61L487.03,657.06L485.56,657.06L484.22,656.69L482.99,656.08L481.7,655.61L480.44,652.33L479.4,646.53L478.28,632.1L476.84,625.94L475.46,622.48L472.76,621.4L471.91,620.84L471.78,620.23L479.13,615.94L487.68,609.82L488.68,609.33L489.65,609.38L490.43,610.15L491.07,611.31L492.12,613.96L492.9,614.92L494.12,615.21L495.43,614.96L496.58,614.25L497.54,613.36L498.93,611.15L499.95,608.54L500.96,602.34L501.44,600.98L501.98,599.8L502.24,598.21L501.93,596.31L497.48,584.87L496.88,584.31L496.09,584.74L495.27,585.53L491.38,590.69L490.62,591.46L489.89,591.63L489.41,590.24L489.13,588.04L489.28,581.47L491.96,569.18L492.51,567.88L493.22,566.81L510.31,554.41L511.23,553.52L514.39,549.92L516.51,548.52L517.48,547.67L518.32,546.67L519.03,545.57L520.13,543.03L521.58,537.35L521.89,534.41L521.79,531.45L520.85,524.28L520.65,514.14L519.63,508.74L513.16,490.72L512.79,489.26L512.56,487.84L512.54,486.58L512.71,485.6L512.79,484.31L511.97,482.54L510.22,479.93L492.18,461.92L480.91,447.24L476.33,442.82L475.19,442.13L469.53,436.79L468.72,435.15L468.05,432.99L467.8,428.77L468.19,424.3L467.83,422.51L466.93,420.45L463.1,415.94L460.77,413.94L458.75,410.27L455.97,399.03L450.02,403L446.08,403.75L431.09,402.94L427.96,403.39L424.99,404.13L419.22,406.79L417.69,407.81L416.87,408.81L416.27,410.03L416.01,411.59L415.5,418.24L414.21,424.21L413.08,426.26L411.27,428.6L405.11,434.39L403.35,435.56L390.96,440.94L386.12,442.32L379.08,442.79L372.42,442.3L362.38,439.67L357.66,436.74L355.81,436.17L353.92,436.67L351.19,438.12L349.33,438.67L347.74,438.7L344.39,437.9L340.16,438.09L337.73,439.06L335.98,439.14L334.58,439.07L333.87,439.82L329.14,446.14L328.54,447.31L328.24,448.68L328.31,450.05L328.73,451.34L331.27,456.23L332.07,457.22L333.13,457.92L334.26,458.44L334.94,459.49L335.9,462.13L336.17,463.5L336.14,464.87L335.6,467.78L334.58,469.28L333.57,469.3L330.92,468.71L329.41,468.54L328.05,468.13L326.96,467.38L325.99,466.51L324.41,464.41L323.78,463.2L322.25,459.1L321.47,458.04L320.41,457.28L307.38,452.14L291.2,443L289.34,442.32L284.03,441.56L280.17,441.52L277.88,441.81L276.07,442.3L268.52,445.59L266.28,445.9L264.64,445.67L263.47,444.99L262.23,444.42L260.18,444.07L252.65,444.26L250.11,444.73L248.3,445.42L246.38,447.33L244.8,448.57L242.38,450.15L234.31,453.64L233.16,454.35L232.25,455.23L231.43,456.23L229.77,460.06L228.91,461.55L227.57,462.84L225.01,464.16L223.55,463.94L222.56,463.09L221.99,461.81L221.28,460.68L220.24,459.88L219.06,459.27L198.89,458.15L197.04,457.64L196.14,456.73L195.4,455.59L194.93,454.23L194.63,452.75L194.54,449.57L194.28,448.07L193.43,447.11L192.34,446.33L189.79,445.25L185.13,444.66L180.27,444.73L177.95,444.12L176.55,443.06L175.92,441.83L175.16,440.75L174.09,440.03L172.78,439.5L171.22,439.25L155.41,439.48L153.04,439.95L147.58,442.68L145.69,442.93L144.22,442.57L143.33,441.63L142.66,440.44L142.11,439.2L141.36,438.07L140.47,437.1L138.75,436.21L136.26,435.52L131.33,434.94L128.84,435.22L127.09,435.92L126.25,436.85L125.56,437.98L124.38,440.48L122.98,442.72L121.35,444.74L118.42,449.12L113.98,453.81L110.95,456.34L106.52,461.51L102.9,464.33L99.93,465.53L86.96,468.64L86.53,468.97L86.47,469.01L85.8,470.21L84.68,473.47L84.12,476.98L83.96,480.82L85.19,485.13L88.19,487.38L91.77,488.88L94.79,490.94L98.86,497.66L100.96,502.85L104.51,506.2L113.03,507.38L110.27,510.23L107.92,513.64L106.26,517.36L105.64,521.15L103.98,524.68L103.53,526.72L104.74,527.62L105.25,528.48L109.71,541.52L115.42,546.81L122.14,551.49L127.48,556.98L118.69,553.2L114.32,551.88L110.17,551.34L105.19,552.51L96.21,557.6L91.01,558.64L96.63,565.28L100.13,568.33L103.01,569.58L107.02,570.8L109.48,573.71L113.03,580.69L125.51,588.81L138.96,583.28L143.75,582.52L139.08,584.77L136.42,587.13L135.62,590.39L136.51,595.28L138.92,600.16L142.18,602.63L146.03,604.39L156.56,611.87L159.25,612.91L160.96,613.17L162.66,613.21L179.65,616.46L181.7,616.34L185.55,619.4L194.13,616.26L207.32,608.05L215.13,595.86L219.89,591.65L225.23,595.28L221.54,596.22L219.99,599.05L220.21,602.74L221.78,606.23L220.13,608.05L218.7,606.72L214.37,604.4L204.21,618.52L200.89,627.47L207.32,633.74L207.32,629.95L209.13,629.95L210.67,631.47L212.42,631.33L214.36,630.09L216.36,628.28L216.62,630.91L216.43,632.96L215.69,634.52L214.37,635.75L214.37,637.39L218.79,641.19L220.18,646.81L222.12,651.92L228.12,654.14L231.02,654.41L236.33,655.61L238.05,655.79L241.28,654.99L246.92,652.65L252.68,651.54L258.12,648.93L260.73,648.33L265.81,648.18L268.93,646.68L273.59,645.41L275.31,644.27L276,641.96L277.03,640.39L279.55,639.97L282.57,639.88L285.19,639.38L285.61,640.45L287.16,642.87L288.93,641.84L290.8,641.55L292.58,641.45L294.23,641.04L296.2,641.04L295.07,646.29L291.45,648.18L286.57,648.86L281.75,650.31L282.25,651.25L282.85,653.22L283.39,654.14L276.34,654.48L271.26,656.88L266.76,659.63L261.54,661.09L260.34,660.59L257.13,658.18L255.2,657.61L253.43,657.86L250.23,658.98L248.87,659.29L242.21,659.24L239.14,659.7L236.24,661.09L231.49,659.5L228,662.37L225.23,666.47L220.25,670.83L216.85,675.85L214.52,680.86L215.36,683.14L217.56,684.16L219.73,686.09L221.98,687.26L226.67,684.73L229.48,684.98L234.43,686.94L236.56,688.57L238.71,691.82L240.76,692.4L243.38,692.76L245.37,693.83L246.64,695.53L247.07,697.88L238.41,693.94L228.5,690.76L218.82,691.13L210.78,697.88L261.52,714.11L325.35,739.57L387.32,762.14L424.75,784L438.77,795.81L442.47,799.68L444.87,805.67L446.53,805.67L448.68,804.17L451.91,803.66L459.33,803.85L458.33,805.53L457.54,806.52L456.3,807.1L453.91,807.49L457.9,811L462.92,814.53L468.22,817.31L479.11,819.81L483.5,823.36z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Sierraleone.tsx
+var import_react3 = require("react");
 var Sierraleone = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      SierraleoneSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      SierraleoneMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var SierraleoneSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -70,27 +162,161 @@ var Sierraleone = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1600 950" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var SierraleoneMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Sierraleone_default = Sierraleone;
 

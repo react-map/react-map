@@ -1,5 +1,5 @@
 // src/Newzealand.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Auckland",
@@ -48,15 +49,106 @@ var drawPath = {
   "West Coast": "M247.53,548.79l1.1,1.8l-0.48,3.29l1.16,-0.72l0.18,0.78l0.96,0.49l-0.49,0.76l1.03,1.6l0.53,-0.2l0.44,0.69l1.87,-0.14l0.44,0.69l-1.36,1.94l-0.94,0.07l-0.72,1.41l0,0l1,1.05l0,0l-0.61,1.09l0.3,0.46l0.94,-0.07l1.22,-2.17l1.12,0.72l1.17,-0.73l2.02,0.09l-0.31,1.55l1.27,0.95l0.22,1.35l1.09,0.16l0.34,1.02l2.3,2l0.69,2.03l1.74,-0.36l0.72,0.59l-1.35,1.93l-2.27,0.56l0,0l-1.32,0.49l0,0l1.22,1.83l-0.56,1.63l0.31,0.46l-0.64,0.52l0.39,1.56l-2.98,1.96l-1.94,-0.42l-0.04,-0.55l-1.7,0.92l0.61,0.91l-0.52,2.18l-1.06,0.39l0.04,0.55l-0.95,0.07l-1.14,1.27l0.28,1.88l-0.8,0.29l0.5,1.24l-0.38,0.42l0,0l-0.07,0.88l0,0l-1.33,0.49l-0.07,0.88l-0.99,-0.49l-1.18,0.72l0.77,1.14l-0.25,2.09l-1.3,-0.95l-0.22,0.65l-2.06,-0.1l-1.67,1.47l0.46,0.69l-1.25,1.61l0.35,1.02l0.53,-0.2l-0.08,4.35l0,0l-0.8,0.3l0,0l-0.07,0.89l-0.95,0.07l0.51,1.25l-1.25,1.62l0.89,0.83l0.44,2.15l1.69,0.53l-0.83,1.76l1.44,2.65l2.6,-0.11l0.82,1.72l0.96,-0.07l0.09,1.13l3.29,-0.08l0.68,3.52l-0.75,0.87l1.09,1.62l-0.07,0.9l0.53,-0.2l2.31,1.45l0.53,-0.2l-0.31,-0.46l0.49,-0.77l1.07,-0.41l0,0l0.31,0.46l-0.86,1.2l0.09,1.13l-0.69,-0.03l-0.09,2.37l-1.18,0.74l-0.58,-0.36l-2.13,0.82l-2.38,2.96l-2.02,0.49l-0.18,1.24l-1.93,1.63l-0.02,1.48l-2.25,1.16l-0.82,1.79l0.31,0.47l-0.53,0.21l0.31,0.47l-2.67,1.03l-0.58,-0.36l0,0l-1.76,0.39l0,0l0.2,0.81l-2.14,0.83l-0.29,1.59l-1.29,1.09l0.13,1.72l-1.23,0.18l-0.34,1.02l-1.18,0.75l-2.19,0.26l0.06,2.63l-1.07,0.42l-0.22,0.68l0.74,0.6l-1.41,1.44l-0.81,0.31l-1.05,-1.07l-1.99,1.07l-1.01,-0.5l-2.84,0.81l-0.89,-0.83l-1.03,0.99l-0.85,-0.26l-0.49,0.78l0.31,0.47l-1.3,1.09l-0.54,0.21l0.23,-0.68l-1.28,-0.39l-0.92,0.65l-1.39,-0.06l-0.23,0.68l0.43,0.13l-3.03,2.05l0,0l0.4,1.62l0,0l-0.92,0.65l0.09,1.15L208,668.8l-0.58,-0.37l-1.57,1.2l-0.31,-0.47l-0.81,0.31l0.2,0.81l-0.65,0.55l-1.01,-0.5l0.31,0.47l-0.81,0.31l0.2,0.81l-1.19,0.75l0.63,0.94l-1.35,0.52l-0.07,0.92l-1.26,1.67l-1.51,0.28l0.07,-0.91l-0.85,-0.26l-1.38,2.01l-0.81,0.31l-0.02,1.49l-1.78,0.39l-0.07,0.92l-0.81,0.31l-0.31,-0.47l-1.58,1.2l-2.1,-0.09l0.52,1.29l-1.78,0.39l-1.03,0.99l0.63,0.95l-1.68,1.54l-0.06,0.92l-1.24,0.18l-0.2,-0.81l-1.24,0.18l-0.47,-0.71l-0.49,0.78l-1.88,0.72l-0.44,1.36l-1.23,0.18l-0.98,1.56l-1.87,0.72l-0.95,-1.42l-2.2,1.74l-1.65,0.04l-1.72,2.45l0,0l-1.22,0.17l0,0l-0.44,1.36l-2.02,0.48l0.46,2.22l-0.44,1.37l-2.24,1.17l0.04,2.09l-1.02,1l-1.23,0.17l0.47,0.72l-0.65,0.55l0.09,1.17l-1.12,-0.17l-0.22,0.69l-1.61,0.61l0.09,1.17l-1.39,-0.07l-0.83,1.81l-2.65,1.6l-0.41,1.95l-0.7,-0.04l-0.72,1.47l-0.81,0.3l0,0l-0.74,-0.62l-2.05,0.46l-1.55,-0.32l-0.45,1.37l0.63,0.97l-0.57,1.71l-1.94,0.12l-1.15,1.33l-1.67,0.02l-0.46,1.37l-2.79,1.94l-1.6,-0.92l-0.87,-2.4l-1.09,0.4l0.32,0.49l-0.55,0.2l-0.19,1.28l-0.82,0.3l-3.79,-0.13l-0.68,-1.57l-2.57,1.24l0.04,0.59l-2.5,0.3l0.2,0.84l-1.64,0.6l0.52,1.34l-1.21,0.75l0.36,1.09l-3.71,1.05l-0.07,0.94l-0.82,0.3l0.24,1.44l-1.04,3.14l0.32,0.5l-1.28,1.7l0,0l-0.94,0.65l0,0l-1.6,1.2l0.2,0.85l-1.73,-0.59l-0.47,-0.74l-1.09,0.4l-2.88,2.91l-0.86,-0.29l-2.19,0.81l-1.44,1.46l-3.33,0.63l-1.02,-0.54l-0.82,0.31l0,0l-0.31,-0.49l0.82,-2.45l0,0l0.23,-0.7l0,0l0.39,-0.45l-0.9,-0.88l1.49,-0.86l-0.04,-0.6l0.98,-0.06l0.23,-0.7l-1.72,-0.57l0.23,-0.7l-1.33,-1.02l0.39,-0.45l-0.39,-1.68l-1.4,-0.07l-1.05,-1.11l-1.82,-0.21l-3.38,1.6l-2.22,-0.65l0,0l-1.77,-0.99l2.07,-0.84l1.92,-2.24l2.77,-2.32l1.1,-0.31l0.74,-2.12l2.1,-1.65l0.08,-1.86l1.49,-1.32l-0.07,-0.92l5.76,-0.29l0.7,-0.63l0.67,0.15l1.18,-1.42l1.83,-0.56l-0.31,1.11l1.09,0.95l2.32,0.02l3.24,-1.11l1.97,-1.09l3.04,-3.36l2.83,-1.29l4.03,-3.44l2.39,-2.9l4.48,-3.06l3.03,-1.22l1.13,-1.64l2.07,-0.89l1.5,-0.07l1.45,0.25l1.97,-2.18l0.43,0.83l0.91,-0.03l2.35,-2.54l1.54,-0.27l4.12,-6.83l1.91,-1.38l3.02,-0.31l2.36,-1.65l2.68,-3.97l1.25,-0.47l3.63,-3.44l3.34,-5.47l4.96,0.06l-0.07,-1.09l-0.97,0.02l1.83,-2.47l3.3,-1.45l1.18,0.16l1.86,-0.68l6.02,-4.08l5.62,-5.52l3.01,-5.25l4.34,-4.34l3.15,-4.92l2.74,-6.81l0.32,-2.05l1.03,-0.53l2.4,-5.39l1.11,-8.23l1.46,-4.07l0.89,-0.78l0.92,-5.29l1.48,-1.49l0.37,-1.51l0.3,-2.11l-0.51,-0.72l-0.06,-2.82l0.46,-0.39l3.05,0.29l1.6,-1.2l3.4,0.62l1.66,-0.92l6.16,-5.94l4.23,-8.42l3.12,-3.09l1.64,-11.33l-0.3,-3.1l0.51,-3.83l-0.53,-6.83l1.19,-1.25l0.09,-1.27L247.53,548.79z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Newzealand.tsx
+import { useState as useState2 } from "react";
 var Newzealand = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      NewzealandSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      NewzealandMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var NewzealandSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -65,27 +157,161 @@ var Newzealand = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 200 1300 750" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var NewzealandMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Newzealand_default = Newzealand;
 

@@ -1,5 +1,5 @@
 // src/Kenya.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Mombasa",
@@ -108,15 +109,106 @@ var drawPath = {
   Turkana: "M138.35,0L128.64,15.46L45.78,85.7L8.49,121.21L14.06,125.64L15.91,129.26L14.29,131.41L15.61,134.17L17.39,134.99L18.52,136.63L18.24,139.74L15.19,140.71L15.4,142.57L17.35,143.16L19.8,145.83L22.64,147.36L21.15,153.33L18.33,154.98L18.05,157.38L21.99,156.32L25.93,156.51L26.74,155.54L30.76,155.38L31.74,158.41L31.74,160.46L27.16,160.38L25.49,162.51L24.52,162.83L24.56,163.52L28.07,164.02L28.24,165.22L25.74,166.16L26.38,166.79L31.32,165.11L32.1,166.1L32.51,165.44L33.76,165.13L35.93,168.83L39.98,172.33L39.46,174.96L41.62,170.83L44.57,170.03L46.19,170.06L49.18,172.95L49.51,174.29L54.67,175.89L55.5,176.62L54.51,182.41L54.85,185.72L54.3,191.72L51.55,194.46L48.85,194.74L48.07,194.41L48.31,195.32L50.86,198.56L51.09,200.25L50.17,201.82L49.33,202.21L49.26,206.49L52.12,209.32L53.97,215.35L54.74,225.37L55.27,226.22L57.47,227.17L58.67,229.51L60.52,228.55L63.95,229.78L65.12,232.36L66.74,233.74L66.93,241.34L68.02,243.26L69.1,251.07L73.2,252.92L74.54,256.93L78.46,257.39L79.42,255.88L80.42,257.15L82.89,258.17L84.12,261.11L85.18,260.81L85.85,261.43L87.57,268.7L86.68,273.92L88.13,275.3L89.04,278.13L92.2,281.64L94.38,285.35L95.92,286.63L97,286.44L97.12,284.75L98.49,284.39L98.88,284.9L100.45,292.04L102.36,292.05L103.91,296.45L104.46,296.5L104.3,297.9L103.26,298.41L106.3,300.07L110.35,303.36L110.05,301.25L111.32,300.34L111.39,299.39L108.88,295.85L110.05,288.64L110.79,286.95L111.84,287.27L112.34,289.99L116.09,297.45L118.51,295.86L119.93,293.2L120.21,290.82L119.66,288.24L122.41,278.81L125.23,278.88L126.61,280.02L131.67,290.72L131.2,294.97L131.43,297.49L132.34,299.58L131.51,302.52L132.84,305.86L132.39,308.6L135.3,310.56L136.29,311.75L138.98,316.66L141.66,327.05L145.75,340.12L146.66,344.52L146.51,347.12L147.09,348.94L146.36,349.36L145.67,350.85L153.33,358.55L154.09,358.74L154.14,359.24L155.53,359.51L156.02,360.66L155.6,361.63L156.1,362.03L155.52,362.93L156.87,363.4L156.93,364.19L157.3,364.04L157.34,364.66L158.27,364.85L159.68,366.21L160.16,367.36L161.58,366.93L163.38,367.1L167.47,368.61L169.35,367.92L170.89,369.24L171.82,369.41L171.89,369.03L174.84,369.94L176.14,371.31L178.95,372.93L181.16,373.04L185.4,376.65L188.39,377.32L218.81,426.81L226.54,426.66L240.83,444.62L243.18,444.43L244.15,447.13L245.38,447.4L245.82,448.16L247.3,448.29L247.92,448.92L247.71,450.96L248.35,451.87L250.92,450.05L253.41,446.64L253.68,445.32L253.1,443.49L253.72,443.77L253.99,445.71L255.07,445.9L255,444.08L254.45,444L254.49,442.28L253.29,439.46L253.19,437.02L253.54,436.42L252.87,435.1L253.62,432.41L252.47,429.6L253.37,426.46L251,425.09L248.36,426.43L248.29,425.31L247.84,425.09L248.78,424.35L248.54,421.75L249.01,421.07L250.38,420.5L250.55,421.1L250.95,421.05L251.3,420.08L250.48,419.08L250.48,417.79L249.53,418.61L247.91,417.41L248.24,416.79L248.74,416.79L248.64,416.07L249.56,416.49L249.96,415.84L251.43,417.04L253,417.61L253.77,418.63L254.49,418.31L254.49,417.59L254.22,416.49L252.7,414.8L252.92,413.48L252.4,413.33L251.08,414.3L249.48,413.7L249.33,412.93L248.19,412.45L249.71,411.86L250.16,410.89L251.25,410.06L251.38,408.97L252.65,408.54L252.9,407.75L254.46,406.82L254.96,406.87L255.79,403.88L255.24,403.41L254.64,403.93L253.87,402.54L251.9,402.94L251.82,402.24L250.85,401.99L248.09,399.25L244.73,400.15L243.93,399.87L240.97,396.76L238,397.36L237.8,396.76L238.9,394.92L238.52,393.54L238.75,390.43L239.12,389.53L243.13,385.95L243.23,386.67L245.15,386.54L244.93,384.97L245.82,384.18L246.62,385.27L246.07,387.39L246.35,388.96L247.64,391.48L248.49,391.48L250.13,387.64L252.27,385.3L252.25,383.95L253.17,382.18L253.82,381.91L254.49,382.51L255.69,382.28L255.34,381.51L256.18,379.42L256.13,377.92L257.03,376.9L256.93,376L257.68,375.46L257.55,373.46L259.22,372.89L259.07,371.99L259.62,371.59L259.7,370.62L260.99,369.65L261.04,369.15L260.52,368.9L261.66,368.25L261.29,367.08L260.47,368.13L260.64,367.68L259.89,366.61L260.79,367.23L260.92,366.41L260.49,366.06L261.09,365.89L261.36,365.14L260.99,364.62L261.69,364.57L262.09,363.22L261.07,363.15L260.49,362.15L260.27,361.15L261.07,361.25L261.29,360.55L260.89,360.2L261.44,359.11L260.94,358.44L260.34,358.78L260.29,356.09L261.46,355.42L261.54,354.52L262.78,353.88L262.53,353.08L263.08,351.08L262.73,350.59L262.76,347.37L261.79,348.39L262.09,347.35L262.91,346.62L263.33,344.85L263.05,343.55L263.15,343.07L263.75,343.03L263.62,340.69L264.06,340.59L264.7,338.85L265.95,337.94L265.49,333.35L267.05,331.66L267.82,329.17L268.58,329.08L270.1,327.47L270.12,328.12L272.75,327.34L274.76,326.4L277.31,324.4L279.28,323.76L279.12,321.9L280.26,321.29L280.04,319.96L280.51,318.95L279.79,317.53L281.41,316.23L281.5,313.63L269.23,307.72L269.22,303.15L268.24,302.32L267.62,302.98L265.78,303.23L265.1,304.01L262.96,303.04L261.41,298.88L261.98,291.49L261.42,291.04L260.43,287.64L258.37,286.21L256.23,282.77L254.32,282.49L252.82,280.35L252.38,275.91L253.71,273.14L251.84,271.73L251.12,270.11L250.87,267.44L248.59,263.72L247.29,260.22L245.21,257.78L237.31,254.56L236.04,252.9L234.51,247.16L234.5,248.23L233.8,248.77L232.52,247.99L231.56,247.82L231.37,248.19L228.28,246.84L222.51,246.98L222.82,245.76L222.05,246.28L222.08,245.6L221.51,245.65L223.28,239.97L223.28,236.37L224.03,236.09L224.47,235.08L224.39,230.5L223.23,228.28L224.4,224.66L224.5,221.96L223.91,221.24L223.49,222.63L222.32,222.54L220.48,221.51L216.64,220.92L214.36,219.59L214.21,97.78L203.55,88.57L203.04,84.93L204.09,80.5L190.37,65.06L190.34,33.62L195.35,27.44L195.57,24.91L194.63,22.95L193.02,22.02L191.93,18.92L192.18,16.9L193.42,15.89L194.5,14.14L195.14,14.05L195.57,12.34L195.48,11.1L194.69,11.26L193.3,10.25L193.23,9.69L191.4,9.58L191.06,8.94L189.71,8.39L188.75,8.65L187.4,7.61L186.46,7.48L186.62,8.39L184.65,7.4L184.33,6.51L184.69,6.27L184.24,5.76L183.86,6.18L183.73,5.73L182.89,5.83L182.71,5.28L182.1,5.76L181.89,5.33L181.38,5.9L181.4,4.46L180.72,4.56L180.82,3.96L179.02,3.94L178.1,4.57L177.12,4.13L176.3,4.65L174.71,4.35L174.33,3.72L172.38,4.85L170.97,5.03L171.19,3.84L170.77,3.56L170.83,2.68L169.72,2.7L169.66,3.21L169.23,3.24L168.15,2.39L168.42,2L167.92,1.52L165.15,0.78L157.66,0.1L138.35,0z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Kenya.tsx
+import { useState as useState2 } from "react";
 var Kenya = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      KenyaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      KenyaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var KenyaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -125,36 +217,160 @@ var Kenya = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement(
-    "svg",
-    {
-      version: "1.1",
-      id: "svg2",
-      x: "0px",
-      y: "0px",
-      viewBox: "-50 -20 1600 1100"
-    },
-    stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
-      "path",
-      {
-        key: index,
-        onClick: () => onSelect(stateCode2),
-        onMouseEnter: () => handleMouseEnter(stateCode2),
-        onMouseLeave: () => handleMouseLeave(stateCode2),
-        id: stateCode2,
-        d: drawPath[stateCode2]
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
       }
-    ))
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var KenyaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
   )));
 };
 var Kenya_default = Kenya;

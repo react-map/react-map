@@ -1,5 +1,5 @@
 // src/Andorra.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Canillo",
@@ -28,15 +29,106 @@ var drawPath = {
   "Escaldes-Engordany": "M236.07,951.29L239.61,948.08L250.53,947.37L257.46,950.61L264.33,951.96L271.45,950.95L277.69,949.43L280.36,946.9L282.55,946.44L283.86,948.05L284.24,951.6L285.61,960.88L287.36,966.28L291.11,971.18L295.73,975.06L300.59,976.07L305.84,975.56L310.58,973.03L312.33,970.33L315.15,965.98L318.32,963.41L323.18,962.74L325.8,964.59L328.42,965.27L331.3,963.58L334.79,961.72L337.66,961.89L340.78,964.43L345.9,969.08L354.89,976.17L362.76,981.4L370.62,988.49L377.12,995.24L384.48,1001.82L392.72,1006.55L403.35,1012.4L409.2,1018.19L414.95,1019.88L423.31,1021.9L429.68,1020.72L431.68,1019.88L434.8,1017.01L437.05,1014.81L439.92,1014.65L442.91,1014.81L445.29,1016.33L449.16,1018.53L454.77,1021.6L461.67,1024.09L472.25,1025.44L481.04,1028.41L492.83,1031.65L500.82,1032.73L514.21,1035.97L520.2,1038.13L532.02,1039.95L530.65,1044.59L530.65,1048.28L530.77,1056.63L530.77,1064.64L530.46,1072.91L529.71,1075.61L528.96,1078.73L528.4,1081.09L528.58,1083.2L530.15,1085.05L531.02,1088L533.99,1091.94L533.99,1095.06L531.05,1097.33L527.36,1100.25L524.66,1105.1L521.4,1111.5L518.04,1113.21L508.17,1113.77L503.77,1112.35L499.99,1110.65L496.63,1112.07L493.27,1114.97L489.38,1116.99L483.68,1115.78L480.98,1111.64L477.29,1111.19L474.38,1114.06L470.8,1116.59L468.1,1118.88L466.96,1122.49L464.27,1123.46L461,1123.17L459.69,1121.8L454.44,1119.44L451.5,1117.96L447.18,1116.66L442.48,1120.01L439.12,1119.73L433.03,1118.88L428.21,1119.16L422.96,1120.86L418.76,1121.43L413.94,1120.58L408.27,1118.59L401.97,1113.77L397.13,1113.89L394.21,1114.62L392.79,1116.27L389.04,1117.4L384.74,1118.88L380.84,1120.1L377.15,1123.74L373.35,1129L369.16,1137.09L368.18,1141.27L363.14,1157.14L361.04,1161.11L358.32,1162.81L354.24,1162.08L349.71,1157.14L344.46,1151.47L337.54,1142.12L335.62,1137.7L333.2,1135.36L330.89,1134.73L327.65,1135.04L326.15,1136.29L324.33,1138.19L322.48,1137.99L320.24,1138.13L318.09,1137.65L316.76,1134.66L314.88,1131.79L311.01,1127.07L307.02,1122.18L304.4,1119.65L301.52,1116.11L300.52,1110.88L300.52,1108.02L300.15,1104.98L298.59,1103.65L295.53,1102.96L291.29,1102.79L286.79,1101.95L284.29,1098.07L282.67,1092.33L282.17,1084.91L286.01,1079.95L288.76,1075.22L288.76,1072.36L287.51,1069.49L285.38,1065.95L283.51,1062.74L280.64,1059.7L278.27,1056.16L276.4,1053.29L275.02,1048.06L273.4,1043.85L270.15,1042.67L267.78,1038.45L265.41,1032.54L263.29,1027.06L261.16,1024.7L259.29,1019.13L258.54,1014.91L260.29,1012.05L264.66,1009.68L265.16,1006.31L264.41,1002.26L262.54,997.2L259.54,991.29L257.29,986.23L256.17,980.83L255.17,978.13L250.92,971.71L248.55,968.51L244.43,967.83L242.19,967.16L240.56,964.46L237.82,957.54z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Andorra.tsx
+import { useState as useState2 } from "react";
 var Andorra = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      AndorraSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      AndorraMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var AndorraSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -45,27 +137,161 @@ var Andorra = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 500 900 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var AndorraMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Andorra_default = Andorra;
 

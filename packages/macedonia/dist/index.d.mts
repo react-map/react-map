@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Macedonia: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: MacedoniaProps) => React.JSX.Element;
+declare const Macedonia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: MacedoniaProps) => React.JSX.Element | null;
 interface MacedoniaProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Macedonia as default };

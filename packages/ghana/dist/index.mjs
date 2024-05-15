@@ -1,5 +1,5 @@
 // src/Ghana.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Volta",
@@ -34,15 +35,106 @@ var drawPath = {
   Northern: "M618.6,140.55L618.08,139.91L608.93,122.76L606.08,119.72L596.58,113.71L595.1,111.92L593,107.86L591.58,106.15L589.95,105.14L584.33,103.27L582.71,102.16L581.59,101.06L580.31,100.2L576.16,99.67L574.02,99.11L572.05,98.16L570.47,96.84L568.63,93.06L568.75,89.25L569.85,84.63L569.77,84.65L566.31,85.5L554.94,91.38L546.25,92.09L527.9,96.01L525.56,96.79L524.2,97.69L522.71,97.88L514.42,101.59L510.03,102.78L508.82,102.82L505.57,102.54L504.55,102.31L503.75,101.88L502.44,100.55L501.68,99.93L500.47,99.56L499.58,99.77L498.85,100.3L498.31,101.03L497.88,101.86L497.52,102.78L496.43,108.38L496.05,109.29L495.42,110.22L494.2,111.43L493.13,111.91L492.08,112.01L491.3,111.63L490.44,111.06L489.31,110.67L487.33,110.65L486.14,110.98L485.03,111.59L482.77,113.4L481.67,113.82L480.63,113.91L477.95,112.97L472.09,113.02L470.92,113.43L470.07,114.02L468.92,115.76L468.05,116.67L466.42,117.78L465.36,117.84L464.48,117.42L463.78,116.86L462.81,116.62L461.25,117.84L460.48,117.95L459.83,117.57L459.49,116.76L459.57,115.84L459.93,115.01L461.79,113.1L462.34,112.38L462.71,111.49L463,110.5L463.17,109.46L463.2,108.34L463.01,107.3L462.71,106.36L462.21,105.6L461.53,105.02L460.79,104.51L460.12,103.91L459.69,103.16L459.53,102.24L459.69,101.42L460.08,100.74L460.67,100.14L461.05,99.36L461.14,98.4L460.88,97.51L460.42,96.7L459.35,96.09L457.81,95.63L447.03,95.38L445.21,95.68L444.07,96.28L443.74,97.24L443.33,100.64L442.94,101.55L442.11,102.36L440.99,103.08L439.02,103.87L437.83,104.5L437.04,105.23L436.79,106.2L436.61,108.2L436.33,108.99L435.94,109.56L435.12,110.5L434.63,111.22L433.98,113.09L433.58,113.97L433.08,114.73L425.98,121.19L425.96,121.21L425.1,121.93L424.56,122.56L422.6,124.06L420.71,125.02L419.53,125.19L418.82,124.82L418.81,124.06L419.23,123.38L421.37,121.24L421.41,121.19L421.45,121.16L422.34,120.17L422.73,119.48L422.49,118.81L421.39,118.35L418.67,118.43L417.06,118.26L415.92,117.86L415.17,117.34L414.34,116.9L413.3,116.67L411,116.41L408.59,115.73L406.65,115.48L405.31,115.57L403.23,116.07L384.4,123.09L382.89,124.06L382.24,124.65L381.62,125.32L381.11,126.05L380.31,127.8L379.54,130.84L378.7,131.98L377.33,133.15L371.12,136.2L369.84,137.43L368.85,138.93L368.48,139.81L368.25,140.77L368.2,141.78L368.26,142.85L369.57,148.99L369.78,151.23L369.75,152.41L369.59,153.51L369.32,154.52L368.54,155.61L367.38,156.62L364.96,158L363.84,157.95L363.03,157.45L362.69,156.54L362.27,155.73L361.43,155.24L360.23,155.11L357.36,155.22L356.26,155.05L355.36,154.7L352.16,152.92L351.43,152.37L350.62,151.94L349.66,151.67L348.63,151.54L347.68,151.27L347,150.7L346.56,149.9L345.88,148.1L345.28,147.44L344.57,146.9L343.74,146.45L342.98,145.95L342.37,145.32L341.89,144.54L341.3,142.83L341,141.2L335.22,139.34L328.73,135.94L324.87,134.4L322.47,134.15L321.24,134.17L320.01,134.32L318.67,134.7L317.83,135.18L317.19,135.72L314.78,138.85L311.21,145.63L310.1,147.1L307.57,149.62L300.37,154.97L298.14,157.25L296.41,159.67L295.41,161.61L295.06,162.59L294.6,164.74L294.14,171.82L293.95,172.91L293.55,174.16L290.64,179.47L290.12,180.71L290.07,181.9L291.2,183.23L304.89,195.45L306.25,196.92L306.99,198.24L306.53,199.3L305.81,199.94L303.91,200.64L301.62,201.83L300.84,202.06L299.98,202.11L298.92,202.09L297.83,201.94L296.07,201.27L295.18,201.1L294.3,201.27L293.42,201.53L291.17,201.92L290.05,202.34L289.85,202.9L290.32,203.35L293.34,204.1L294.2,204.61L294.73,205.34L294.55,206.77L293.92,207.53L292.96,207.93L291.88,207.96L290.86,207.75L289.79,207.67L288.79,207.72L286.39,209.11L285.24,209.42L283.78,210.12L282.96,210.83L282.41,211.61L282.03,212.44L282.03,212.46L281.3,214.4L281.17,215.46L281.42,218.56L281.35,219.49L281.41,220.43L281.68,221.27L283.17,223.51L283.46,224.46L283.64,225.53L283.58,226.78L283.32,228.29L282.64,230.29L282.28,232.29L281.69,233.47L281.04,234.22L280.18,234.64L275.99,235.9L274.36,237.09L273.2,238.56L271.71,241.15L270.65,242.18L269.55,242.79L265.19,242.91L255.17,241.63L254.48,241.63L251.6,242.18L249.33,242.38L237.68,241.63L214.3,246.85L207.5,247.09L203.14,246.49L201.03,246.01L196.29,245.65L193.87,245.7L191.74,246.01L185.95,247.72L184.85,247.84L168.9,246.65L167.88,246.76L151.24,251.94L149.09,252.26L140.15,252.39L137.46,252.88L134.7,253.67L133.25,254.33L132.17,254.98L131.5,255.59L130.51,257.04L130.08,257.89L128.96,261.27L128.05,262.77L127.11,263.5L125.87,264L122.61,264.76L121.45,265.33L120.59,265.96L120.04,266.7L119.01,268.46L118.16,269.65L116.67,271.36L115.18,272.37L113.9,272.87L93.58,275.67L94.16,276.13L91.86,278.12L90.32,280.79L89.43,283.77L89.15,286.7L89.47,289.66L90.4,291.54L96.83,297.43L103.31,305.65L105.74,308.75L105.93,311.34L105.2,317.16L105.43,318.57L106.32,321.62L106.32,326.54L105.41,329.63L103.27,330.99L100.82,332.14L98.97,334.56L98.68,338L100.09,340.8L102.63,342.68L105.77,343.38L108.59,344.94L108.35,348.4L106.2,351.86L100.51,354.86L98.41,358.16L95.28,364.6L91.46,368.55L90.7,370.06L90.36,379.16L89.62,382.02L87.93,384.59L89.68,385.59L90.83,386.79L92.25,387.78L94.73,388.2L99.34,388.42L103.87,389.45L108.41,391.87L109.57,394.8L109.76,398.51L112.56,407.04L113.63,407.86L114.84,408.04L115.84,408.47L116.25,410.04L116.47,413.16L120.13,425.84L119.93,428.33L118.03,429.39L116.7,430.59L116.24,432.91L117.11,434.34L117.15,434.4L118.77,433.64L119.85,433.07L120.37,433.85L120.91,434.14L122.3,434.42L126.1,436.46L133.33,444.35L133.48,444.12L134.22,444L135.16,444.06L135.9,444.35L138.35,446.83L143.57,456.74L150.31,461.97L151.84,466.11L152.82,468.08L157.11,470.71L158.09,472.25L158.52,474.1L161.76,480.43L160.69,483.84L162.14,486.8L164.32,489.5L165.44,492.2L166.21,493.36L169.58,494.46L170.35,495.98L170.63,497.63L172.8,501.62L174.48,508.07L175.9,519.46L177.6,521.88L179.98,523.63L182.72,525.17L185.26,527.57L190.32,533.9L195.82,536.78L200.46,544.6L203.57,547.58L210.07,549.18L217.88,549.04L235,545.52L235.75,545.02L236.9,543.86L239.85,538.9L241.38,537.44L243.6,534.18L246.55,530.8L250.28,528.99L254.63,529.44L261.79,532.98L265.66,533.84L269.04,532.86L270.84,530.4L271.46,527.19L271.34,523.92L268.34,517.14L262.75,515.83L255.87,516.4L249.05,515.25L247.11,513.62L245.6,511.09L244.61,507.99L244.26,504.66L243.82,503.26L243.03,501.78L242.69,500.18L243.59,498.46L246.09,495.47L247.06,493.7L247.83,491.59L248.33,488.18L247.83,477.27L248.07,473.38L248.87,469.58L250.39,466.04L252.73,462.96L260.05,459.78L273.43,464.07L278.7,461.71L281,461.12L282.27,460.04L282.82,459.36L283.27,458.49L283.86,456.62L284.28,455.78L284.78,455.06L285.72,454.36L286.97,453.78L289.2,453.14L290.61,453.13L301.26,455.23L303.08,455.31L307.48,454.86L309.53,454.4L312.97,452.9L314.53,452.01L315.25,451.46L315.83,450.8L316.24,449.93L317.27,444.6L317.54,443.66L317.93,442.78L318.4,441.99L318.98,441.3L319.63,440.69L322.55,438.79L326.94,438.17L336.59,437.8L338.81,437.93L340.86,438.47L342.52,439.27L343.23,439.82L344.48,441.06L345.17,441.62L346.8,443.4L349.44,445.61L358.39,451.65L359.91,452.45L363.01,453.45L366.85,454.23L369.59,454.47L373.4,454.47L374.92,454.91L375.87,455.6L376.84,458.36L377.71,462.37L380.34,468.44L381.05,471.35L381.14,472.22L381.14,473.21L380.98,474.23L380.33,476.07L378.46,479.58L377.4,480.86L368.2,489.19L367.14,490.6L366.28,492.28L366,493.23L365.81,494.29L365.69,500.25L365.53,501.33L365.22,502.31L364.81,503.12L364.25,503.87L363.71,504.49L362.42,505.69L361.71,506.22L360.46,507.46L359.33,508.91L358.85,509.67L358.45,510.52L358.21,511.45L359.15,512.74L360.99,514.46L365.91,517.7L368.36,520.91L370.25,524.16L389.38,577.89L390.39,579.54L391.68,580.28L393.53,580.79L394.74,581.47L396.09,582.44L396.97,582.62L397.56,582.16L398.47,580.61L399.55,579.17L401.09,576.14L401.42,575.74L401.98,575.31L402.71,574.84L403.58,574.42L404.36,573.77L404.91,572.9L405.19,571.84L405.35,570.69L405.29,566.31L405.1,565.34L404.85,564.42L404.16,562.81L402.25,559.74L401.5,558.13L401.15,556.14L401.15,554.97L401.29,553.83L401.5,552.8L401.84,551.86L402.26,551.06L402.8,550.25L403.47,549.66L404.27,549.18L405.91,548.52L411.65,547.13L412.5,546.76L413.94,545.75L416.59,543.3L417.74,541.93L418.61,540.32L421.46,532.75L421.91,531.99L422.42,531.29L422.95,530.71L424.46,529.49L426.09,528.54L427.81,527.75L430.42,526.92L431.25,526.53L432.02,526.08L433.32,524.91L434.51,523.63L436.76,520.64L437.93,519.36L438.53,518.91L439.07,518.6L439.64,518.39L440.44,518.25L441.46,518.15L443.7,518.28L447.16,518.85L449.44,518.99L451.25,518.88L455.26,518.11L459.31,517.84L460.47,518.04L461.46,518.35L462.3,518.75L463.68,519.84L466.63,522.97L468.7,525.8L469.31,526.43L469.86,527.14L470.46,527.8L470.99,528.51L489.59,543.62L499.57,549.46L502.89,550.62L510.23,551.75L513.46,551.56L515.37,550.92L519.17,547.09L522.75,539.23L523.94,538.05L525,537.51L526.99,537.93L528.35,537.93L530,537.74L536.26,535.64L537.43,535.67L538.38,535.98L542.67,537.98L543.6,538.27L544.97,538.47L546.71,538.43L549.75,537.82L551.18,536.88L552.31,535.7L553.08,534.38L554.11,533.81L555.53,533.36L556.07,532.57L556.45,531.59L558.38,528.39L558.55,527.39L558.54,526.33L558.37,525.33L558.68,524.07L559.53,522.73L562.2,520.28L564.04,518.98L565.45,518.16L573.44,515.36L577.14,515.28L581.53,516.08L585.35,517.32L588.22,518.57L594.52,522.63L597.09,525.12L598.73,527.15L602.64,530.97L604.81,532.57L606.81,532.77L609.96,532.74L617.18,531.91L620.1,531.12L621.78,530.09L622.03,529.05L622.01,528.08L621.87,527.28L621.45,526.52L620.27,519.13L620.36,518.04L620.89,516.86L621.81,516.29L622.95,516.08L628.52,515.84L629.66,515.34L630.37,514.62L630.54,513.63L630.62,512.54L630.37,510.45L630,509.53L628.08,506.56L627.46,505.91L626.68,505.42L625.79,505.04L624.82,504.77L623.68,504.69L618.27,505.35L614.34,506.35L610.14,506.95L609.24,506.98L607.2,506.73L605.25,506.17L604.42,505.81L603.72,505.28L603.3,504.67L603.19,503.76L603.56,501.76L603.56,500.66L603.19,498.67L602.52,496.81L602.41,495.73L602.8,494.25L603.53,493.48L604.64,492.91L605.92,492.6L607.76,491.98L608.62,491.23L609.1,490.32L608.98,489.36L608.54,488.57L607.87,487.95L604.47,486.32L603.78,485.78L603.28,485.06L603.03,484.12L603.03,483.13L603.14,482.09L603.39,481.1L605.34,475.44L606.67,472.66L608.59,469.69L609.6,468.89L610.64,468.55L611.53,468.8L613.14,469.7L614.14,470.01L615.31,470.01L616.87,469.42L617.51,468.53L617.74,467.45L617.51,466.48L617.1,465.66L616.48,465.01L614.51,463.24L613.5,461.74L613.11,460.95L612.81,459.99L612.61,458.98L612.92,457.62L613.64,456.12L617.24,451.46L618.71,448.59L619.88,445.45L620.7,444.01L620.73,442.97L620.42,442.07L619.88,441.3L619.18,440.53L619.3,439.54L619.63,438.34L620.25,437.66L620.89,437.18L625.29,435.35L627.13,434.93L628.1,434.89L629.11,435.07L630,435.39L634.18,437.8L635.13,438.13L636.24,438.3L637.36,438.3L638.44,438.2L644.16,437.04L645.27,436.97L652.27,437.94L652.34,437.94L652.4,437.94L652.01,435.62L653.23,433.9L655.49,433.47L657.62,434.3L659.54,438.38L661.42,436.29L662.62,433.25L661.66,432.53L663.55,431.9L665.21,432.13L667.03,432.69L669.36,433.07L671.34,432.12L671.97,429.72L672.23,426.88L673.14,424.62L673.16,424.59L677.11,418.89L674.86,410L666.2,395.23L666.2,395.21L666.16,395.21L663.75,389.57L665.6,384L668.64,378.36L669.59,372.49L669.57,369.65L670.7,367.9L674.77,364.25L676.94,360.54L676.89,357.64L674.66,351.13L674.83,347.54L676.29,345.8L678.31,344.61L680.13,342.73L680.88,340.44L681.17,335.1L682.84,325.88L681.73,321.61L678.48,318.75L673.14,316.92L673.01,316.73L672.97,316.55L673.01,316.38L674.19,314.34L674.6,312.47L674.29,310.68L673.14,309.06L663.6,305.57L660.23,305.01L653.01,305.42L648.97,306.14L646.24,307.34L645.35,308.78L644.8,312.46L644.1,314.01L642.73,315.17L634.52,318.05L631.18,318.72L627.85,318.36L627.03,315.92L628.5,313.84L627.24,310.93L627.25,308.34L634.74,306.82L637.54,305.72L639.84,304.13L640.52,302.24L638.94,300.27L636.41,300.14L631.83,301L629.96,300.2L628.18,298.94L626.87,297.79L626.42,297.26L626.36,296.1L627.2,290.97L627.64,289.81L636.68,290.82L641,290.57L644.21,288.46L646.67,290.09L649.98,290.65L652.89,289.82L654.14,287.32L652.6,283.54L649.04,282.85L641.76,284.72L636.16,284.12L633.3,280.3L633.17,274.97L635.74,269.8L640.52,274.85L643.54,276.53L646.76,276.13L648.63,273.88L649.13,270.7L648.73,267.38L647.89,264.7L646.69,262.89L645.41,261.47L644.47,259.5L644.21,256.11L648.06,241.95L648.11,239.88L647.3,232.57L647.67,230.03L649.12,227.26L651.42,224.76L652.67,223.64L652.78,222.14L651.56,218.54L649.41,214.22L649.12,213L649.47,211.31L650.08,210.18L650.18,209.02L649.12,207.23L652.26,206.62L655.04,207.09L657.04,206.56L657.16,206L657.8,202.98L657.27,199.29L655.82,198.08L653.84,197.6L651.56,196.13L649.8,191.41L650.75,178.49L650.45,172.35L651.75,169.9L652.26,166.91L653.12,164.11L657.53,160.81L653.86,157.76L652.14,156.93L644.26,158.25L641.76,158.28L643.33,154.58L641.45,151.67L638.39,148.89L636.37,145.58L636.62,144.02L637.22,142.09L637.14,140.07L635.37,138.28L633.53,137.86L631.9,138.38L630.22,139.21L628.18,139.74L626.46,139.5L621.69,137.61L621.22,138.14L620.73,139.34L619.97,140.41L618.6,140.55z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Ghana.tsx
+import { useState as useState2 } from "react";
 var Ghana = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      GhanaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      GhanaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var GhanaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -51,36 +143,160 @@ var Ghana = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement(
-    "svg",
-    {
-      version: "1.1",
-      id: "svg2",
-      x: "0px",
-      y: "0px",
-      viewBox: "-50 -20 1700 1200"
-    },
-    stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
-      "path",
-      {
-        key: index,
-        onClick: () => onSelect(stateCode2),
-        onMouseEnter: () => handleMouseEnter(stateCode2),
-        onMouseLeave: () => handleMouseLeave(stateCode2),
-        id: stateCode2,
-        d: drawPath[stateCode2]
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
       }
-    ))
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var GhanaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
   )));
 };
 var Ghana_default = Ghana;

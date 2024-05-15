@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Christmasisland: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: ChristmasislandProps) => React.JSX.Element;
+declare const Christmasisland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: ChristmasislandProps) => React.JSX.Element | null;
 interface ChristmasislandProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Christmasisland as default };

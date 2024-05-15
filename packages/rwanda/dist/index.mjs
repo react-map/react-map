@@ -1,5 +1,5 @@
 // src/Rwanda.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Kigali City",
@@ -24,15 +25,106 @@ var drawPath = {
   Southern: "M255.07,696.04L262.55,693.52L269.91,688.84L278.53,687.7L282.59,687.86L285.72,686.64L288.65,684.85L300.36,680.61L303.17,680.78L307.38,682.17L323.74,687.58L331.16,688.72L339.97,687.62L343.79,685.3L345.49,681.63L346.8,673.37L349.72,669.71L354.24,669.66L363.02,672.31L372.8,672.6L380.75,671.09L388.15,666.73L396.2,658.55L401.44,651.43L406.24,643.29L409.98,634.7L412.1,626.03L412.28,621.64L413.93,581.26L422.44,551.5L419.62,521.23L422.18,501.08L422.14,497.42L423.28,495.22L427.3,495.1L430.45,496.89L433.15,499.21L434.08,498.14L434.6,497.01L435.05,496.04L435.99,488.49L437.39,481.11L437.53,480.38L437.74,479.76L442.43,466.09L444.61,446.77L443.96,433.7L448.19,425.53L454.04,419.12L456.64,414.34L456.68,409.8L456.7,402.66L457.17,398.85L456.24,398.14L453.76,397.37L451.52,396.64L449.81,396.39L446.44,394.3L444.04,389.52L444.79,385.71L447.68,382.78L450.87,381.5L452.25,380L454.04,376.99L451.48,370.92L447.76,365.06L449.1,363.03L449.85,360.55L450.14,358.05L450.2,356.54L450.32,355.81L450.99,354.08L449.85,351.23L448.67,348.26L447.5,345.82L446.36,344.28L445.54,342.97L444.49,339.98L443.31,336.63L442.51,335.3L442.72,334.8L441.68,334.1L438.55,333.49L434.73,330.89L430.95,326.82L427.73,323.61L425.25,321.27L422.35,319.3L419.22,317.67L416.51,315.72L411.75,314.29L404.88,314.13L397.08,315.55L389.49,315.63L378.74,311.97L371.28,307.21L369.31,301.56L363.82,296.35L359.18,289.19L353.94,281.38L349.89,275.08L348.49,271.44L345.46,270.95L340.54,271.86L333.16,269.16L326.69,264.87L322.3,264.05L317.81,264.68L315.47,265.39L316.49,266.82L317.63,270.8L319.13,277.94L320.45,291.17L319.37,302.13L318.07,306.68L317.95,311.44L319.82,321.13L320.92,331.58L318.89,336.63L317.36,339.68L317.46,344.05L318.97,348.45L320.72,351.66L319.8,355.79L316.2,359.02L311.65,360.47L305.73,360.2L301.73,360.2L303.5,364.17L304.9,372.84L304.51,381.16L305.9,385.57L307.05,388.21L306.61,391.51L306.28,394.93L305.65,398.59L302.93,402.78L301,405.55L300.02,407.46L298.58,409.94L298.56,412.87L296.32,418.32L292.72,424.94L292.3,428.94L293.45,431.38L294.92,436.82L295.06,442.21L291.85,443.92L287.64,446.46L284.94,447.99L281.72,448.92L278.84,450.06L276.36,449.1L274.24,448.35L272.62,450.67L270.34,453.07L265.32,456.21L261.03,459.99L255.78,462.92L246,470.57L240.27,476.53L237.87,476.18L233.22,476.39L226.41,476.55L218.46,477.85L211.14,483.37L206.14,485.63L201.7,484.28L195.87,485.18L189.91,488.23L185.93,492.99L184.87,498.32L187.47,504.79L190.16,510.29L189.83,513.91L185.89,520.15L182.57,525.47L183.73,529.17L184.91,533.6L183.31,537.19L175.23,541.62L166.94,546.06L163.52,551.06L161.73,556.23L162.1,558.88L166.86,561.46L174.18,563.76L179.46,566.18L182.72,570.56L183.57,576.54L185.93,581.45L188.9,585.37L190.85,589.24L192.47,591.7L191.72,595.55L191.25,599.19L191.78,601.96L193.75,604.91L198.35,611.67L197.05,625.87L191.5,635.78L187.9,637.68L185.93,638.27L178.49,642.19L178.58,642.55L187.12,650.57L189.52,655.46L188.67,659.94L183.22,666.61L181.88,670.72L182.77,675.28L186.43,683.46L186.9,688.39L190.38,695.88L200.05,694.99L217.03,687.62L224.08,686.8L231.68,688.22L245.92,690.87L255.07,696.04z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Rwanda.tsx
+import { useState as useState2 } from "react";
 var Rwanda = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      RwandaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      RwandaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var RwandaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -41,27 +133,161 @@ var Rwanda = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -20 2000 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var RwandaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Rwanda_default = Rwanda;
 

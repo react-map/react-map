@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Benin: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: BeninProps) => React.JSX.Element;
+declare const Benin: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: BeninProps) => React.JSX.Element | null;
 interface BeninProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Benin as default };

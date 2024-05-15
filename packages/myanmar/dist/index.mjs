@@ -1,5 +1,5 @@
 // src/Myanmar.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Sagaing",
@@ -42,15 +43,106 @@ var drawPath = {
   Kayah: "M453.88,843.59L453.03,843.54L452.34,843.38L451.74,843.14L450.55,842.42L450.18,842.07L449.9,841.55L449.67,840.4L449.62,839.77L449.63,839.2L449.7,838.58L449.7,837.93L449.63,837.42L449.4,836.44L449,835.88L448.28,835.25L446.46,834.51L445.62,834.28L443.84,834.34L443.84,834.35L443.32,836.15L443.7,839.18L442.91,844.45L442.57,844.98L441.74,845.98L441.55,856.02L440.96,858.99L431.32,864.75L426.5,868.8L423.38,872.46L421.28,875.88L419.95,879.08L419.67,880L419.6,880.45L419.65,880.83L419.89,881.58L420.28,882.39L421.74,884.65L422.43,886.52L422.42,889.4L420.1,894.14L416.91,898.17L414.72,900.25L414.7,900.41L414.38,903.06L414.6,904.15L415.33,905.95L415.58,906.41L416.32,908.44L416.55,910.37L416.82,911.23L417.06,911.74L417.96,912.14L418.25,912.31L418.93,912.87L419.22,913.01L419.56,913.11L419.96,913.12L420.62,913.53L421.41,914.29L422.91,916.45L423.44,917.62L423.74,918.71L423.96,919.27L424.29,919.78L424.9,920.55L425.13,921.03L425.16,921.43L424.98,922.4L425.28,924.71L425.82,926.53L425.78,927.16L425.83,928.78L426.09,929.87L426.78,931.73L427.46,933.05L428.26,933.96L428.89,934.53L430.04,935.87L430.23,936.39L430.27,936.8L429.99,937.48L429.76,938.58L429.83,938.98L429.97,939.32L430.21,939.49L430.48,939.66L430.79,939.77L431.72,940.61L433.68,943.78L433.97,945.68L439.11,955.67L439.86,956.7L440.17,956.78L440.53,956.78L441.54,956.57L441.89,956.58L444.71,957.21L447.81,957.48L455.67,957.29L456.61,957.54L457.04,957.79L457.34,958.08L457.81,958.91L458.24,960.22L458.64,961.03L459.42,962.02L459.74,962.52L459.88,962.82L460.92,966.66L462.05,969.87L462.06,969.89L462.7,969.97L463.48,970.49L465.3,973.39L465.55,974.17L465.94,974.82L466.91,975.43L467.85,975.56L470.05,975.16L474.2,975.27L477.65,973.6L483.83,969.47L485.56,968.89L490.26,969.03L494.49,967.84L494.93,967.96L495.18,967.79L495.73,966.72L496.43,962.94L495.8,959.13L494.79,955.41L494.35,951.89L494.3,949.82L494.03,948.15L492.93,944.66L492.85,943.89L493.2,941.44L492.82,940.25L491.89,939.26L489.74,937.63L487.74,935.63L487.38,934.51L488.29,933.6L490.15,932.26L491.42,930.88L492.05,929.42L492.63,925.81L493.59,924.05L499.11,919.77L500.37,918.33L500.97,916.99L501.35,909.62L501.12,907.93L500.47,906.16L499.68,905.28L497.31,903.34L496.82,902.48L497.17,901.47L497.99,901.33L499,901.41L499.86,901.07L500.56,899.22L499.75,897.59L498.51,895.83L497.94,893.57L497.8,892.63L497.14,890.81L497.08,890.13L500.04,886.06L502.99,883.43L503.75,882.42L504.34,881.05L504.28,880.52L503.94,880.05L503.65,878.86L503.47,876.98L503.55,875.26L504.33,874.1L506.15,873.83L506.14,873.81L505.18,870.16L505.04,868.84L504.64,867.73L504.16,867.11L503.46,866.6L502.81,866.35L502.25,866.27L501.63,866.41L500.78,866.35L499.71,866.07L497.98,865.01L497.06,864.6L496.34,864.41L495.79,864.57L495.79,864.58L495.35,864.92L494.95,865.39L494.33,865.69L494.32,865.69L493.5,865.74L486.73,863.92L484.46,863.6L483.3,862.88L482.92,862.43L481.9,860.63L481.25,859.82L480.51,859.27L479.41,858.64L478.92,858.11L478.7,857.62L478.71,857.15L478.93,856.06L479.3,854.83L480.83,851.12L480.98,850.42L481,849.59L480.67,849.18L480.28,848.99L479.45,848.89L478.85,848.6L478.16,848.05L476.86,846.38L475.56,843.47L475.07,842.82L474.56,842.55L474.02,842.63L473.87,842.69L473.57,842.81L473.28,843L472.91,843.34L472.53,843.75L472.03,844.14L471.45,844.38L471.44,844.38L470.85,844.53L469.89,844.59L468.67,844.43L463.89,838.91L463.74,837.71L461.61,838.4L461.61,838.4L460.43,839.87L460.08,841.36L459.56,842.45L459.13,842.82L458.69,842.99L458.69,842.99L458.26,842.93L457.78,842.9L457.13,842.95L453.88,843.59z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Myanmar.tsx
+import { useState as useState2 } from "react";
 var Myanmar = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      MyanmarSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      MyanmarMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var MyanmarSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -59,36 +151,160 @@ var Myanmar = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement(
-    "svg",
-    {
-      version: "1.1",
-      id: "svg2",
-      x: "0px",
-      y: "0px",
-      viewBox: "-50 -20 2400 1900"
-    },
-    stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
-      "path",
-      {
-        key: index,
-        onClick: () => onSelect(stateCode2),
-        onMouseEnter: () => handleMouseEnter(stateCode2),
-        onMouseLeave: () => handleMouseLeave(stateCode2),
-        id: stateCode2,
-        d: drawPath[stateCode2]
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
       }
-    ))
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var MyanmarMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
   )));
 };
 var Myanmar_default = Myanmar;

@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Centralafricanrepublic.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Ouham",
@@ -84,15 +85,106 @@ var drawPath = {
   Vakaga: "M756.13,0.86L758.48,2.13L762.41,0.96L766.32,2.56L773.4,3.02L775.35,4.16L776.49,5.78L786.63,6.99L786.26,8.21L786.99,10.28L790.18,13.21L790.25,14.7L795.18,20.9L797.18,25.76L809.02,33.48L811.68,37.38L814.52,39.72L816.17,42.07L819.04,43.79L821.07,46.71L824.5,48.52L857.48,101.52L860.15,121.83L853.91,133.23L856.35,133.74L855.07,135.62L854.36,139.42L855.29,141.97L857.45,140.96L858.31,142.6L857.07,145.53L855.91,146.66L854.86,151.26L854.91,153.03L856.32,156.48L855.95,157.63L854.26,157.76L853.16,158.87L852.32,161.48L846.46,166.27L844.82,166.62L842.82,166.67L841.61,166.72L841.44,168.78L839.98,170.7L839.98,170.7L838.66,168.9L837.73,166.06L838.53,162.41L839.61,161.07L837.18,160.44L834.76,160.67L830.85,162.91L828.58,166.66L826.15,179.87L821.58,183.12L815.4,183.97L805.65,191.09L804.54,193.15L804.54,201.58L803.84,203.44L802.44,204.64L800.74,204.85L798.09,203.86L791.76,204.87L780.66,209.42L767.73,209.52L759.6,214.45L754.27,219.82L750.75,220.15L746.42,218.57L742.49,219.32L742.49,219.32L742.69,213.97L741.47,212.51L736.62,211.18L732.67,211.2L726.26,209.34L724.21,207.18L719.73,205.17L718.31,203.76L714.66,188.15L715.33,185.08L709.03,181.73L707.18,175.97L701.13,172.35L698.38,168.12L693.77,165.88L691.57,158.61L688.6,155.06L687.22,145.66L682.12,141.58L680.85,137.4L674.99,132.34L673.04,128.66L669.17,128.41L666.04,129.06L664.24,127.85L663.86,123.06L662.61,118.8L663.19,116.11L662.01,112.65L657.89,112.27L655.81,115.98L649.23,119.26L647.73,121.53L645.33,122.81L643.83,126.49L640.55,129.49L636.1,131.15L632.48,130.9L630.02,132.14L626.67,131.98L621.32,134.66L617.82,140.73L615.59,142.21L613.99,141.84L611.47,142.99L607.24,148.26L605.44,147.55L603.36,147.75L599.64,142.26L599.64,142.26L600.8,143.58L601.7,143.36L601.66,140.42L603.26,138.47L605.22,138.19L605,137.15L606.13,135.68L605.95,134.93L609.62,134.74L610.71,130.6L612.22,131.29L612.89,130.89L612.88,126.49L616.17,126.1L616.11,124.87L614.71,124.74L614.29,124.12L616.68,123.84L616.67,123.01L615.57,122.05L617.12,120.27L614.35,118.7L617.64,118.39L616.61,116.44L616.79,114.64L618.17,115.98L619.99,116.32L620.71,115.5L619.48,113.59L619.99,112.19L620.78,111.95L622.94,112.97L623.92,111.77L625.58,111.94L627.63,110.56L627.82,108.13L629.23,105.48L633.79,101.5L635.16,101.17L635.5,97.96L636.31,97.51L636.59,96.09L639.08,94.81L640.12,92.54L640.91,92.24L642.69,92.97L644.06,94.57L645.11,92.57L646.13,94.19L647.53,94.82L649.18,94.37L649.87,92.67L651.21,93.01L652.7,91.56L653.96,87.93L655.1,87.11L656.99,84.32L658.21,83.77L657.77,80.43L659.47,79.3L659.39,77.84L661.15,76.71L661.71,74.68L663.17,74.42L664.33,72.08L666.22,70.96L667.78,72.55L670.25,72.47L672.25,71.84L673.28,70.64L674.58,71.07L675.72,70.41L677.42,70.6L678.08,70.08L676.73,68.67L678.71,67.65L678.15,66.4L680.77,66.56L682.81,64.25L683.64,62.57L682.35,60.13L682.79,59.25L683.94,59.47L684.14,56.98L686.66,54.25L685.14,52.87L685.54,51.32L684.85,49.5L683.21,48.23L681.85,45.5L683.23,41.28L682.7,37.38L683.27,36.05L683.3,32.2L683.92,32.03L685.55,33.27L688.25,30.8L687.76,27.71L688.35,25.11L687.86,23.28L688.24,19.4L690.54,17.97L692.21,15.31L693.27,14.58L695.14,14.67L696.55,12.54L698.21,13.2L700.17,12.36L702.02,12.6L703.03,13.7L703.7,13.61L703.88,12.42L705.71,13.11L707.44,12.22L708.77,11.16L710.53,11.34L713.96,10.18L716.73,11.56L720.95,11.99L723.01,11.28L724.89,9.02L728.55,8.2L731.19,7.7L733.38,6.94L736.71,4.72L740.61,4.48L741.89,4.16L743.51,3.36L745.48,3.36L747.15,1.74L748.39,1.8L749.47,0.76L751.76,0.94L753.11,0.03z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Centralafricanrepublic.tsx
+var import_react3 = require("react");
 var Centralafricanrepublic = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      CentralafricanrepublicSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      CentralafricanrepublicMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var CentralafricanrepublicSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -101,27 +193,161 @@ var Centralafricanrepublic = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1800 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var CentralafricanrepublicMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Centralafricanrepublic_default = Centralafricanrepublic;
 

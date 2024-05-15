@@ -1,5 +1,5 @@
 // src/Morocco.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Tanger-T\xE9touan",
@@ -46,15 +47,106 @@ var drawPath = {
   "Oued ed Dahab-Lagouira": "M79.98,635.66l3.09,0.48l5.16,2.09l1.2,0.79l2.25,3.25l1.19,0.67l1.21,0.27l4.85,-0.79l8.02,-2.04l8.17,-0.45l10.02,2.31l2.9,1.18l1.75,0.42l6.7,-1.83l2.93,-1.35l5.36,-1.91l6.65,-0.6l11.24,2.21l8.22,2.82l3.35,0.01l8.93,-1.91l6.3,0l2.02,0.49l2.34,-0.51l0,0l0.15,41.23l-28.87,2.76l-3.44,2.41l-4.05,4.76l-3.36,5.34l-1.51,3.64l-2.01,8.54l-0.28,2.25l5.47,57.08l-74.43,-0.52l-74.4,0.54l-0.78,0.15l-2.41,9l-1.4,2.6l-0.34,2.43l-0.67,2.31l-0.01,3.36l0.56,2.65l0.22,0.1L2.04,792l-1.16,-2.28l-0.51,0.01L0,788.96l1.03,-1.63l-0.68,-1.5l1.2,-3.17l-0.03,-3.18l0.79,-3.35l-0.25,-0.91l0.88,-4.33l-0.17,-1.48l1.91,-9.41l-0.13,-2l0.43,-2.11l-0.31,-2.35l1.19,-1.67l-0.01,-0.38l-0.55,-0.15l0.24,-2.21l2.22,-2.92l0.26,-0.87l-0.14,-0.87l0.96,-1.9l2.47,-7.09l1.26,-0.58l0.18,-0.42l-0.24,-0.62l0.26,-0.63l1.96,-1.53l0.64,-1.06l0.71,-0.59l1.09,0.07l0.63,1.02l1.08,-0.1l2.3,-0.8l1.99,-1.35l-0.02,-1.02l0.68,-0.53l0.68,-1.23l0.29,-2.8l0.49,-0.89l-0.03,-0.77l0.48,-0.89l1.57,-1.02l1.01,-1.24l0.18,-1.91l0.47,-0.98l-0.04,-3.09l0.27,-1.33l1.85,-3.19l-0.08,-0.59l-0.54,-0.15l0.59,-2.14l0.58,0.36l2.25,-0.9l1.57,-1.52l0.99,-1.63l0.2,-1.6l-0.24,-1.03l-0.54,-0.83l-0.74,-0.49l-0.7,0.13l-0.4,0.43l0.42,-1.23l0.38,-0.83l0.97,-0.64l1.51,-1.91l0.38,-0.8l-0.06,-0.98l2.11,-3.21l-0.25,-0.74l2.18,-1.98l1.08,-1.5l1.11,-2.47l-0.9,-1.46l1.31,-0.74l0.72,-1.19l0.59,-0.35l1.17,-2.59l0.6,-0.21l0.44,-0.54l0.54,-1.17l1.21,-1.48l0.79,-1.72l1.31,-1.08l0.45,-1.26l0.77,-0.52l-0.13,-0.37l-1.08,0.81l0.39,-1.89l0.98,-1.53l-0.39,-1.09l0.83,-2.35l-0.6,0.31l-0.7,0.71l-0.62,0.15l0.11,0.98l-0.54,1.02l-0.12,-0.31l-0.02,-0.23l-0.14,-0.39l-0.58,0.4l-0.81,1.71l-0.93,0.6l-0.22,0.03l-0.08,-0.36l-0.54,0.39l-1.65,2.34l-1.11,4.06l-1.25,1.08l-0.09,0.1l-0.82,1.24l-0.08,0.55l-0.63,-0.18l-0.25,-0.73l0.81,-1.26l0.96,-0.88l0.11,-1.05l1.25,-1.26l-0.07,-0.54l0.8,-1.98l2.41,-2.89l1.29,-0.99l0.09,-0.41l2.13,-1.46l3.31,-1.7l2.61,-1.86l0.61,-0.88l-0.28,-0.43l0.41,-0.77l1.47,-1.02l0.54,-1.07l0.65,-0.4l3.26,-3.58l3.24,-2.53l3.33,-4.67l2.94,-3.08l1.63,-0.93l3.88,-1.55l0.59,-0.53L79.98,635.66z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Morocco.tsx
+import { useState as useState2 } from "react";
 var Morocco = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      MoroccoSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      MoroccoMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var MoroccoSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -63,27 +155,161 @@ var Morocco = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 50 1500 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var MoroccoMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Morocco_default = Morocco;
 

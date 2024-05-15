@@ -1,5 +1,5 @@
 // src/Lithuania.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Alytus",
@@ -34,15 +35,106 @@ var drawPath = {
   Vilnius: "M605.58,509.46l-1.9,-0.48l0.27,-1.23l3.66,-0.53L605.58,509.46zM494.21,221.37l-0.11,4.52l1.32,0.96l1.75,-1.22l1.16,0.61l1.83,-1.93l3.23,0.54l2.9,6.26l2.42,-0.16l-0.24,-0.85l0.92,-0.21l2.19,7.69l5.73,2.54l-1.51,5.59l-2.77,-1.9l-1.72,3.83l1.55,1.03l-0.49,7.37l0.58,-0.42l6.97,4.6l7.43,-0.87l-1.06,3.26l1.66,0.54l8.72,-3.82l1.35,3.59l0.5,7.31l2.11,1.1l3.35,-1.15l1.7,0.54l2.27,-0.7l0.37,1.5l2.46,-0.98l1.18,1.66l-0.41,2.48l2.15,0.49l1.2,2.46l-0.52,3.21l5.27,2.32l0.48,1.1l1.58,-2.55l4.5,-0.96l-1.18,6.29l-3.39,4.65l2.66,2.92l4.82,-1.75l1.75,1.47l0.36,3.22l2.27,-0.54l0.55,0.98l0.87,-0.75l1.66,1.59l-4.41,0.19l-1.18,2.13l1.3,2.19l-0.88,1.56l-5.73,2.64l-2.67,0.26l0.98,3.43l-1.9,1.52l0.27,2.19l-1.68,2.17l0.8,1.23l-0.87,2l1.27,1.61l1.28,-1.38l0.73,1.05l3.66,-0.28l1.75,1.44l1.18,-0.16l-0.12,2.89l2.11,3.98l-2.85,2.68l0.62,1.28l6.44,-1.05l6.43,0.21l2.95,2.88l5.85,0.77l1.79,-1.56l5.26,0.72l8.07,-1.93l4.14,0.72l1.19,-4.03l2.85,-0.81l0.53,1.49l1.98,0.42l0.36,-3.7l1.07,1.4l2.47,0.23l3.25,-1.75l5.12,2.51l-0.69,1l0.77,2.26l3.57,-0.16l1.39,-1.05l1.23,2.77l6.53,-0.91l-0.25,-1.09l-1.82,0.7l-1.5,-2.54l1.7,-1.33l-1.15,-0.98l1.39,-1.16l0.83,-2.75l-1.31,-0.37l-1.15,2.1l-0.9,-2.54l3.14,-1.58l-0.49,1.24h1.51l0.5,-2.31l-2.31,-1.12l2.21,-2.54l0.67,1.75l0.88,-0.12l0.66,-2.24l2.61,-0.16l-1.03,-1.77l-4.37,-1.52l-0.36,-1.4l-1.96,0.58l-2.82,-3.64l-1.44,-0.28l-0.08,-5.62l-3.23,-0.61l-1.04,-1.78l-2.75,-0.68l-1.02,-2.9l0.43,-2.55l1.11,0.19l1.55,-2.2l-1.83,-0.07l1.5,-5.87l2.85,-0.56l1,1.05l1.18,-0.26l-0.36,-1.73l-1.32,0.14l-0.55,-0.96l0.79,-0.51l-0.48,-1.52l-1.19,-0.33l-0.31,-2.57l3.78,2.32l-0.43,-1.29l1.27,-4.7l2.41,-1.8l-1.3,-0.44l1.59,-2.32l-0.09,1.85l4.72,-4.26l5.09,6.23l-0.52,1.24l1.62,2.46l3.67,-3.21l-1.91,-1.94l4.74,-1.05l3.62,2.51l-0.36,2.34l2.13,1.59l0.81,-1.92l1.94,0.98l-0.2,-2.41l1.26,-0.07l0.41,2.32l1.4,1.4l2.11,-1.36l3.62,1.97l0.72,-1.61l3.54,-0.63l0.88,0.77l1.76,-2.46l-3.02,0.3l2.83,-1.99l0.63,-2.79l0.37,2.9l1.5,0.42l-0.77,-0.21l0.32,-3.77l0.27,3.02l4.5,1.36l0.75,1.01l1.94,-1.9l4.36,1.97l0.24,1.12l-1.31,1.1l1.44,0.82l-0.07,2.39l4.41,2.27l-1.14,0.26l-3.17,4.79l0.15,1.15l3.45,0.72l1.38,-0.16l1.24,-4.14l0.29,0.82l2.75,0.3l1.31,-2.08l3.96,5.92l1.87,-0.58l-0.63,-0.7l0.84,-1.01l1.82,1.17l2.22,-0.91l7.78,1.92l1.46,-0.98l2.9,2.06l5.57,0.54l1.19,1.36l1.36,-2.52l3.59,1.68l1.18,-0.75l3.22,0.61l2.07,-2.52l2.78,1.38l2.17,-1.03l-0.15,-0.77h4.3l-0.16,-0.91l2.69,-1.85l-0.25,-1.82l1.4,0.16l-0.03,-0.94l-1.71,-0.98l2.19,-0.21l-0.35,-1.47l3.67,0.21l0.68,1.87l-0.88,0.79l1.87,-0.33l-0.08,-3.04l12.24,-0.47l-2.62,1.68l0.4,0.75l0,0l-2.07,3.02l0.32,5.45l-3.34,3.58l-1.4,-1.19l-2.35,1.64l1.47,4.88l2.18,1.17l-1.2,1.66l-2.14,-0.82l-0.75,2.78l-2.65,-0.98l-4.32,3.24l-4.98,-1.49l-5.67,2.38l-3.5,-3.85l-4.78,2.78l-0.28,2.57l-2.11,1.8l-4.48,-2.29l-1.55,0.68l-0.36,-1.03l-2.06,1.7l-0.84,-2.12l-4.72,-1.73l-1.74,1.19l-2.62,-0.05l0.36,2.17l-3.39,0.47l1.24,1.05l-1.28,1.03l-5.06,0.91l-4.48,2.98l-0.28,1.05l5.53,6.34l-1.22,0.54l0.35,1.28l-2.04,-0.4l-0.72,0.88l-0.66,6.12l-1.78,4.65l-1.92,1.6l-0.43,3.65l-3.03,2.07l-3.13,-0.7l-3.21,2.02l-2.07,-0.81l-1.52,3.81l-4.12,0.53l-0.6,1.42l0.97,1.95l-3.59,1.28l1.24,1.49l-8.74,-1.53l-2.1,-2.18l-0.63,1.02l-4.17,1.18l-2.33,2.72l-0.94,-0.32l-2.11,1.46l-2.66,-1.07l-1.12,1.65l-2.53,0.14l-1.07,7.4l-4.7,3.99l0.23,1.32l-1.91,2.34l-3.13,1.95l0.58,3.36l-1.35,3.87l-2.99,-0.02l-1.01,1.8l-1.18,3.72l1.74,7.91l-0.21,9.93l-1.48,4.75l0.76,4.08l-0.98,-0.14l-0.23,0.92l1.7,9.45l-0.78,1.66l1.94,3.06l1,9.87l-1.36,2.92l-9.27,6.6l-3.23,6.39l-2.63,8.61l-2.18,0.39l-2.22,2.04l0.24,0.71l2.75,-0.07l-1.1,1.86l1.4,5.98l-3.31,5.7l-1.46,-0.12l-0.28,-1.05l-0.95,2.27l0.79,3.85l-3.71,2.54l-1.06,4.9l-2.55,0.3l-0.21,2.08l1.99,0.34l0.35,3.91l4.85,-1.78l0.19,1.46l1.24,0.55l2.65,0.8l1.76,-1.69l1.39,1.44l2.69,-2.42l2.86,-0.05l3.41,5.44l-0.9,1.19l0.64,1.76l-0.76,1.55l1.36,1.42l1.26,-0.91l3.83,1.21l2.04,6.5l2.62,1.71l1.23,-0.87l-6.47,4.49l0.98,-0.25l2.78,3.97l0.83,2.17l-1.24,2.1l1,3.62l1.2,0.87l1.03,-0.43l0.05,1.75l-1.35,0.52l-0.45,-1.32l-2.15,0.02l-1.36,-2.19l-0.09,2.46l-1.55,0.02l-0.79,1.14l-0.19,-1.3l-4.12,-1.66l-0.23,2.64l-1.64,0.68l-0.68,-0.66l-0.2,3.73h-2.79l-1.94,2.62l-1.1,0.07l-2.3,-2.28l0.41,-1.18l-3.19,0.57l-0.6,-1.12l-4.32,-1.21l-1.72,0.87l-2.57,-1.91l-0.42,-1.87l-2.78,-2.48l0.59,-2.37l6.25,-2.6l0.05,-3.92l-2.25,-1.32l-0.24,-2.3l0.49,-0.43l0.94,1.23l1.32,-1.14l1.67,1.28l1.74,-0.39l-2.74,-4.45l0.44,-2.01l-2.17,-2.42l0.91,-1.62l-5.92,-2.35l-0.35,-5.23l-2.19,-0.94l-0.42,1.96l-2.12,0.07l0.21,1.51l-1.95,1.1l-1.99,-0.02l0.29,-1.55l-3.41,0.48l-0.92,-0.64l-1.76,3.61l-2.18,1.71l-1.36,-0.46l-2.65,1.12l-1.28,1.8l-2.39,-0.66l-1.8,1.21l-1.87,-1.37l-0.63,1.37l-4.69,-2.65l-2.21,4.86l-2.46,-2.6l-1.54,0.94l-2.66,5.04l0.17,3.83l-11.42,11.67l-5.83,7.88l-3.18,-1.11l-4.49,0.77l-3.03,-1.55l-2.42,-3.67l0.52,-1.34l-2.85,-1.59l-11.81,5.67l-5.06,-0.32l0,0l-1.03,-3.62l-1.83,-2.23l1.22,-1.32l-1.04,-0.02l-0.09,-2.71l-8.39,-3.69l1.1,-1.92l-0.8,-2.92l1.82,-1.19l1.36,0.62l1.26,-1.53l2.77,0.27l-0.31,-3.58l1.79,0.62l0.35,-1.69l3.59,0.18l1.92,-4.22l3.13,-0.32l-1.96,-2.21l1.46,-2.08l6.63,-0.46l-1.79,-6.17l1.14,-2.68l-2,-0.89l0.61,-0.69l-0.77,-3.8l2.36,-0.69l-0.33,-2.59l9.46,-1.83l-0.35,-2.77l3.02,-0.73l-1.03,-5.15l2.04,-0.76l-0.81,-3.3l-4.12,0.78l-1.8,1.51l-2.99,-0.48l-4.25,1.67l-1.58,3.55l-0.57,-1.9l-5.38,1.44l-2.03,-0.46l0.08,1.08l-1.02,0.23l0.37,1.99l-5.64,-0.09l-0.04,-1.08l-7.99,1.1l-1,-1.33l-0.27,2.18l-1.44,0.05l-0.75,1.6l-1.54,-4.65l1.18,-1.42l0.07,-3.25l-2.81,-0.78l-3.79,-3.76l-1.94,0.21l-0.95,1.35l-3.01,-1.05l-1.22,2.57l-1.07,-0.34l-1.55,1.28l-0.98,-0.73l-0.29,5.11l-0.82,0.34l-0.65,-1.26l-1.27,0.18l0.04,1.26l-2.34,-1.44l0.04,-2.15l-4.57,0.34l-1.32,1.08l-5.89,-0.23l-2.15,-2.89l-1.26,1.4l-0.94,-0.69l0.04,-1.83l2.55,-2.73l-0.74,-1.24l0.75,-1.26l-1.72,-2.41l-2.79,0.62l-1.14,-2.2l3.58,-1.7l-0.6,-3.92l-1.27,-0.14l-0.15,-3.44l0.87,-0.14l-1.1,-1.72l0.68,-1.59l0,0l1.83,-7.15l-0.41,-7.66l1.71,1.31l1.32,-1.61l1.31,0.35l1.42,-2.79l0.91,1.06l1.14,-0.62l-1.54,-5.2l-2.57,0.02l2.93,-1.87l-2.03,-5.92l-0.19,-4.26l2.19,-3.3l0.59,0.25l0.01,-1.25l3.92,-0.81l5.37,2.56l1.08,-2.79l-0.64,-3.35l1.19,-0.14l0.2,0.9l2.79,0.28l1.44,2.65l2.53,0.35l1.8,-0.81l0.47,-1.57l-1.27,-1.8l1.28,-1.18l-0.52,-1.64l1.15,-0.67l-0.25,-3.51l1.86,-0.35l-0.35,-2.33l-0.75,0.09l-0.76,-1.9l1.35,-2.01l0.32,-4.95l5.64,-3.7l5.56,-0.72l0.21,-1.57l1.51,1.37l1.04,-1.76l1.22,-0.21l-0.21,1.11l1.18,-0.35l-1.74,-12.67l1,-0.32l-0.4,-0.86l2.67,-0.12l0.67,-1l1.27,1.62l1.39,-0.6l1.28,-0.97l0.15,-3.29l-1.82,-1.86l-4.18,-1.72l-2.23,-3.13l0,0h-2.58l0,0l-5.35,1l-1.54,-4.39l-5.32,-2.32l-2.49,-4.11l-5.3,0.07l-3.66,-3.95l1.58,-1.58l0.16,-2.23l3.57,-1.3l-0.67,-3.63l5.49,-0.93l0.37,-0.98l-1.19,-0.7l0.61,-1.16l1.38,0.02l1.12,-1.44l-1.82,-0.47l-0.11,-2.96l-2.03,-2.3l-1.43,-0.07l-0.09,-0.75l-1.52,0.65l0.47,-1.51l-1.08,-0.23l0.61,-1.91l-1.24,-1.17l-0.01,-3.73l-1.56,-0.47l-1.3,1.07l-2.33,-2.77l0.31,-1.26l-1.14,-0.33l0.83,-0.65l-2.54,-2.92l1.92,-1.1l0.7,-1.73l-5.17,-1.07l-0.49,-1l-0.05,-2.24l-1.28,-1.8l0.25,-2.69l-1.44,-2.29l3.17,-4.16l-8.07,-2.6l-0.36,1.1l-1.78,-0.19l0.04,-1.26l-2.06,-0.21l2.08,-10.9l-1,0.09l-0.08,-2.62l-4.34,-0.4l1.12,-9.18l1.11,-0.4l-0.28,-4.1l1.96,-1.2l0.31,-3.24l2.89,-1.17l0.27,-5.42l0,0l5.85,0.47l-0.44,-2.37l4.38,-2.49l-1.04,-3.17l2.62,-1.27l-0.58,-4.21l0.98,-0.56l1.04,0.85l0.91,-0.54l1.51,1.46l4.22,0.68l6.13,-2.7l1.32,-3.36l-1.71,-2.56l-0.05,-3.13l-1.71,-3.06l2.22,-0.52v-1.15L494.21,221.37z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Lithuania.tsx
+import { useState as useState2 } from "react";
 var Lithuania = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      LithuaniaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      LithuaniaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var LithuaniaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -51,27 +143,161 @@ var Lithuania = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -50 1900 700" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var LithuaniaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Lithuania_default = Lithuania;
 

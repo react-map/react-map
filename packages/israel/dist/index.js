@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Israel.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Golan Heights",
@@ -66,15 +67,106 @@ var drawPath = {
   Palestine: "M54.66,384.71l0.02,3.87l-1.53,2.72l-4.99,1.19l-15.95,15.44l-1.38,1.33l-5.75,7.39l-0.68,2.26l-0.83,2.78l0.43,5.79l0.04,5.41l-1.9,3.49l-6.37,5.5l-1.31,1.13l-7.76,5.82L0,426.58l0.38,-0.29l5.12,-5.01l5.89,-6.31l1.87,-1.67l1.58,-1.45l3.21,-3.35l2.54,-2.79l4.07,-4.91l1.01,-1.4l1.34,-1.56l3.78,-4.19l7.85,-10.13l4.32,-6.24l1.86,-3l7.5,6.96L54.66,384.71zM231.9,248.38l-0.48,-1.61l-0.17,-3.25l-0.67,-2.9l0.62,-4.49l-1.18,-2.93l0.04,-1.44l0.84,-2.36l-1.35,-3.62l0.13,-1.63l0.55,-1.42l0.49,-3.04l-0.42,-1.19l-1.27,-1.58l0.33,-3.64l-4,-1.15l-5.08,-2.37l-2.17,-0.66l-3.92,-0.17l-2.58,0.75l-2.18,-0.35l-1.14,-1.01l0.05,-1.03l-1.23,-1.58l-1,-2.94l0.21,-4.06l-0.54,-4.36l-2.8,-4.74l-2.79,-2.08l-1.46,-0.36l-3.32,-0.05l-8.43,1.55l-2.01,-0.01l-1.37,-0.36l-2.71,-1.34l-2.65,-1.94l-3.07,-3.19l-2.39,-1.3l-1.67,0.26l-0.91,0.46l-3.17,3.58l-0.6,1.24l-2.06,2l-3.4,2.47l-4.29,2.19l-6.93,2.62l-1.31,0.99l-1.03,1.93l-0.57,1.08l-0.76,2.83l-0.8,5.21l-1.5,4.16l-0.71,5.15l-1.21,1.17l-4.48,2.01l-1.15,1.45l-1.83,3.44l-0.19,5.47l0.81,5.81l-0.57,1.51l-0.36,0.26l-1.09,0.78l-2.37,3.43l-3.12,7.05l-0.29,2.37l0.08,2.35l2.35,3.52l0.93,1.95l1.31,5.78l0.21,2.6l-0.55,2.12l-1.4,2.65l-0.1,0.81l-0.1,0.8l0.54,1.34l1.8,1.92l0.24,0.45l1.74,3.32l0.57,2.33l-0.4,2.98l-1.39,3.01l0.04,1.36l0.33,1.09l-0.76,0.62l0.76,2l-2.36,5.05l0.42,4.58l2.64,3.56l3.94,3.14l0.83,3.24l-1.53,4.72l-8.6,1.54l-2.13,3.15l1.44,5.41l3.33,1.43l4.76,0.69l4.39,-1.58l3.24,-3.52l2.35,-1.39l0.94,-0.55l3.79,3.51l3.47,1.66l7.44,3l8,-0.04l3.14,3.28l-0.52,7.3l-1.8,2.81l-0.24,0.37l-8.69,0.23l-7.35,3l-7.45,7.37l-1.56,1.54l-8.08,3.88l-2.86,2.5l-5.26,5.68l-1.57,2.62l-2.67,3.98l-1.52,7.56l0.75,8.2l-0.64,3.5l-3.45,6.55l-3.82,4.93l-3.35,6.73l0.47,4l1.94,3.13l2.76,2.29l4.28,1.14l7.82,-1.03l7.23,-1.8l7.04,0.59l9.94,0.64l3.64,-1.89l2.39,0.55l3.73,-0.64l3.22,-0.27l4.15,-0.78l2.53,-1.52l5.03,-5.15l4.29,-4.83l5.58,-2.48l5.72,-4.18l1.67,-1.47l4.43,-3.91l2.72,-0.96l11.39,0.16l0.12,-8.34l0.35,-8.99l3.64,-12.49l3.74,-11.77l1.59,-5.01l0.2,-0.36l4.17,-7.48l-2.13,-11.79l1.36,-3.83l-1.79,-2.87l1.68,-3.32l-3,-1.91l-1.68,-8.51l3.11,-3l1.09,-7.22l-2.88,-6.34l1.61,-2.34l-0.28,-1.38l-1.89,-2.18l-0.38,-8.72l0.49,-0.98l0.93,-1.86l0.56,-3.59l2.43,-3.29l0.66,-2.25l0.49,-5.4l1.11,-5.06l1.49,-2.94l0.42,-1.73L231.9,248.38z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Israel.tsx
+var import_react3 = require("react");
 var Israel = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      IsraelSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      IsraelMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var IsraelSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -83,27 +175,161 @@ var Israel = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -40 1500 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var IsraelMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Israel_default = Israel;
 

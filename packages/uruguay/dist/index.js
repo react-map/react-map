@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Uruguay.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "R\xEDo Negro",
@@ -88,15 +89,106 @@ var drawPath = {
   Salto: "M133.24,134.11L131.92,133.86L130.52,133.37L128.72,132.22L127.74,131.37L127,130.57L124.51,127.1L123.4,125.83L120.87,123.52L111.15,116.19L109.09,114.98L107.46,114.44L103.35,113.98L101.85,114.04L100.81,114.77L100.03,115.44L96.44,120.81L96.43,120.82L96.94,125.14L97.09,132.44L96.92,134.26L96.06,138.47L95.25,141.1L93.39,141.81L89.92,141.39L83.55,143.07L80.75,144.97L79.59,148.06L80.52,150.07L86.85,159.41L88.06,167.59L85.28,173.56L81.49,179.41L79.59,187.14L80.59,194.93L80.58,199.48L79.12,201.49L76,208.13L74.9,209.27L72.42,211.23L71.39,212.39L70.01,216L69.27,223.97L67.81,227.28L65.46,229.33L59.82,232.78L56.96,235.18L55.07,240.61L58.73,245.12L60.5,246.49L60.99,246.23L63.44,244.97L65.69,244.34L68.05,244.64L70.65,245.33L72.32,245.27L73.09,245.15L73.27,245.02L73.3,244.92L73.46,243.24L73.62,242.31L74.11,241.65L74.8,241.21L80.35,239.8L81.53,239.77L83.08,240.04L87.03,241.56L96.95,247.18L98.25,248.34L98.78,248.99L99.21,249.75L101.12,255.95L101.45,256.76L101.88,257.52L102.43,258.19L103.12,258.74L103.88,259.18L104.96,259.59L127.03,264.43L137.74,269.98L142.79,273.57L144.39,274.49L147.97,275.89L151.6,276.4L155.84,276.55L158.6,277.21L160.16,277.83L160.87,278.56L164.15,283.66L165.26,284.95L167.29,286.59L170.68,288.24L182.57,291.68L184.2,292.54L189.74,296.84L191.48,297.31L204.15,298.86L206.09,299.43L207.43,299.44L208.87,299.21L210.94,298.46L212.09,297.83L213.01,297.18L213.66,296.62L214.59,296.3L215.73,296.27L222.32,298.8L225.42,299.55L227.14,299.49L240.11,296.65L241.91,296.65L244.45,297.03L245.88,297.47L246.95,297.99L249.88,299.98L250.8,300.32L251.83,300.51L258.1,300.56L259.75,300.8L260.99,301.16L268.57,306L270.48,306.62L271.52,306.78L279.25,307.06L289.89,310.31L290.85,310.41L292.48,310.37L294.94,309.93L296.93,309.27L297.75,308.64L298.48,307.84L299.23,306.35L299.52,305.51L299.94,303.53L300.88,302.2L305.46,297.29L306.78,295.5L307.6,294.01L307.89,293.01L310.14,291.31L318.05,289.23L318.32,284.36L318.03,281.94L317.5,280.14L317.15,278.2L316.7,270.7L316.36,268.74L315.78,267L314.92,265.47L313.89,264.09L313.49,263.32L313.19,262.51L313.62,260.71L318.06,248.37L318.77,247.13L323.66,242.42L324.35,241.4L326.88,236.04L327.67,234.9L328.74,234.22L331.53,233.22L332.32,232.83L333.24,232.07L334.2,231.01L335.68,228.96L337.52,227.07L338.21,226.56L338.77,225.36L339.22,223.63L340.34,216.96L341.7,213.94L342.58,210.65L341.27,208.87L338.94,206.34L338.39,205.41L338.05,204.36L338.09,203.3L338.25,202.29L338.87,201.07L339.95,199.68L342.07,198.22L344.08,197.25L354.48,194.2L356.37,193.04L357.92,191.57L359.77,187.91L360.79,185.36L364.79,171.61L364.57,171.64L363.72,170.27L363.58,170.16L357.99,165.79L356.8,164.58L355.29,162.49L354.18,161.24L350.35,157.94L348.63,155.89L346.38,152.24L345.31,150.9L342.23,148.22L339.78,146.71L338.79,146.33L314.98,141.09L306.65,138.02L305.46,137.73L303.96,137.52L301.24,137.79L299.76,138.14L298.7,138.67L298.11,139.31L297.59,140.01L296.73,141.62L295.63,144.23L294.75,145.82L294.21,146.52L292.91,147.61L292.24,147.99L288.87,149.39L287.38,150.28L286.73,150.84L284.59,153.54L283.95,154.08L283.2,154.53L281.44,155.09L276.43,155.75L274.72,156.34L273.32,157.22L264.52,164.6L263.15,165.34L261.51,166.01L259.65,166.45L252.44,167.15L248.89,168.15L246.75,168.05L229.74,164.95L226.14,164.74L216.27,165.98L215.28,166.36L213.84,167.15L209.78,170.26L208.98,170.62L208.1,170.89L207.11,171.05L205.61,170.91L196.59,168.2L192.97,166.28L190.11,164.25L183.21,157.34L183.14,157.29L180.9,155.42L179.74,154.72L172.59,152.4L152.73,141.79L147.8,138.27L146.89,137.37L144.44,135.48L143.22,134.97L141.61,134.52L138.54,134.09L133.24,134.11z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Uruguay.tsx
+var import_react3 = require("react");
 var Uruguay = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      UruguaySingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      UruguayMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var UruguaySingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -105,27 +197,161 @@ var Uruguay = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -10 1600 950" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var UruguayMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Uruguay_default = Uruguay;
 

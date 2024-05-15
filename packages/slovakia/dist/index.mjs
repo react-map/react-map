@@ -1,5 +1,5 @@
 // src/Slovakia.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Banskobystrick\xFD",
@@ -30,15 +31,106 @@ var drawPath = {
   \u017Dilinsk\u00FD: "M280.98,488.53L282.01,489.99L281.43,491.4L282.27,492.59L284.51,493.82L285.89,493.91L286.62,495.03L287.85,495.41L287.79,501.02L290.16,505.79L290.39,508.83L291.67,510.38L291.99,511.82L293.43,513.49L293.68,514.58L295.18,514.23L296.8,515.79L299.83,514.18L299.5,516.66L300.7,517.8L298.69,522.22L301.84,522.27L303.95,523.22L304.68,523.12L308.04,525.79L309.34,524.92L310.61,522.71L311.46,522.07L313.33,521.39L315.82,522.01L316.01,526.91L317.17,528.96L317.02,530.93L316.34,532.6L316.77,534.4L317.74,535.66L316.32,539.82L316.56,540.41L317.95,540.77L319.23,543.62L315.93,545.39L315.62,547.91L313.24,550.41L313.5,551.97L312.66,553.85L313.46,555.05L314.49,555.3L315.34,556.26L316.44,556.23L317.47,555.2L318.77,556.37L319.77,555.85L320.89,556.67L324.41,556.68L324.41,556.68L325.03,558.73L328.26,563.7L327.88,564.9L328.16,565.44L327.22,567.75L327.86,567.98L330.13,567.04L330.43,568.21L332.13,568.09L333.79,570.71L334.38,570.4L334.53,569.25L335.52,571.18L336.7,570.94L339.34,571.4L340.68,570.57L342.09,571.43L341.95,573.66L340.5,577.56L340.68,580.28L339.6,583.03L339.61,586.11L336.34,587.54L334.49,586.91L334.16,587.79L337.81,590.4L338.96,593.15L340.41,594.11L339.89,595.46L341.5,600.04L343.31,600.19L343.73,600.6L341.44,602.59L338.16,603.23L337.73,604.32L337.73,604.32L335.82,602.34L333.28,603.77L325.17,603.4L320.4,604.06L319.27,603.62L318.66,602.77L316.3,602.68L314,604.13L312.78,604.17L310.96,605.28L309.44,603.48L304.66,605.23L301.62,605.23L298.5,602.7L297.02,602.15L294.27,600.16L293.48,599.12L291.24,598.28L289.68,598.23L288.27,597.4L286.76,598.44L283.67,598.03L280.03,599.98L278.38,600.4L271.64,600.4L266.57,606.25L264.49,610.76L257.57,611.86L257.36,611.25L258.97,609.89L258.9,607.66L258.27,606.09L256.23,605.15L252.56,606.18L250.59,608.09L249.18,607.57L247.85,608.3L246.75,607.87L241.83,608.64L239.72,608.24L239.03,608.56L237.71,608.48L236.84,607.59L236.24,607.56L234.39,608.38L233.6,611.25L232.25,612.96L231.12,613.08L230.44,612.67L229.98,613.16L230.82,616.86L229.92,618.48L230.05,619.92L230.56,620.87L233.01,622.99L232.54,626.62L230.91,627.93L230.04,629.56L227.2,629.93L224.79,629.28L223.34,630.38L222.34,630.32L221.22,629.25L219.38,628.98L219.45,627.73L218.74,627.67L218.63,626.17L217.83,625.98L215.87,627.01L214.54,628.83L212.9,629.58L212.46,630.48L212.46,630.48L212.25,628.07L211.26,627.78L210.68,625.99L207.36,622.5L207.46,619.16L206.13,618.95L205.27,617.93L204.64,618.04L204.47,616.78L203.37,616L202.35,616.13L201.18,614.73L198.84,613.51L199.15,608.87L198.63,608.22L200.03,605.39L198.33,602.98L199.41,601.18L199.42,600.13L200.02,600.32L200.85,598.52L200.54,597.55L198.48,595.51L196.05,596.07L191.49,594.65L189.35,595.49L187.59,595.55L186.76,594.47L186.96,593.4L185.58,593.85L184.41,595.65L184.1,597.01L181.92,597.53L180.44,598.89L175.22,598.41L173.81,596.87L173.81,595.73L174.44,595.85L176.34,594.74L177.56,594.61L178.69,592.81L178.74,591.73L180.98,590.28L184.21,589.8L184.89,589.31L186.82,586.99L187.15,585.67L188.36,584.98L188.52,582.36L188.02,581.11L188.77,579.91L188.44,579L188.8,578.11L187.23,575.62L183.88,574.48L184.82,573.05L186.57,571.92L187.42,570.08L185.98,568.71L185.71,565.93L182.46,564.82L182.36,563.18L181.11,562.98L179.08,561.85L175.68,558.62L174.34,558.05L174.03,555.77L172.21,554.45L172.1,553.26L171.41,552.28L171.75,551.34L171.49,550.15L169.93,548.5L170.03,546.77L168.4,545.12L166.32,541.21L165.39,540.7L164.56,539.46L164.63,537.29L162.5,537.18L160.06,537.8L159.28,537.4L159.28,537.4L163.51,536.11L164.86,534.89L166.1,532.52L167.56,531.72L167.05,530.84L168.6,529.24L168.83,528.42L167.68,524.07L168.38,523.5L170,524.69L171.21,524.93L172.25,524.64L172.97,523.36L175.24,522.15L175.35,520.57L176.01,519.23L176.92,518.67L176.93,517.74L178.1,517.57L178.43,516.48L180.04,515.61L180.31,514.38L181.13,514.17L182.75,512.61L181.53,509.6L181.59,508.63L182.65,508.01L182.8,507.07L185.06,505.91L188.12,505.58L188.7,505.92L188.73,507.56L190.47,507.86L191.77,507.42L192.45,507.73L193.37,506.81L197.02,505.94L198.12,507.14L200.37,506.91L203.68,508.91L205.16,508.91L208.14,506.04L209.88,505.66L210.76,504.68L213.52,503.89L215.74,504.35L217.07,503.96L217.73,504.58L220.33,504.86L224.92,504.09L225.67,505.04L227.33,505.88L227.38,506.73L228.15,506.55L228.32,506.91L227.23,509.91L227.92,510.92L227.45,511.48L227.03,514.61L228.43,515.07L229.14,517.38L230,518.42L229.6,520.01L227.94,521.53L228.34,523.45L229.08,524.35L231.07,523.79L232.34,524.38L235,524.28L236.24,523.18L236.06,522.69L236.85,521.24L238.79,521.5L239.17,520.75L240.95,520.96L242.98,522.92L244.25,523.09L245.25,522.74L246.03,521.75L247.36,522.79L250,521.32L251.61,521.84L252.4,521.03L251.84,520.3L251.93,518.93L251.34,518.37L251.34,517.6L253.31,515.15L254.71,515.51L255.41,514.48L255.71,513.05L254.79,511.41L256.12,509.33L255.65,508.51L256.44,507.83L256.4,505.25L259.1,502.79L259.38,501.94L260.58,501.97L261.6,501.41L263.08,501.76L264.38,501.19L265.18,501.5L265.35,502.3L269.84,501.27L270.43,500.2L270.24,498.48L271.16,497.59L270.98,496.08L274.1,494.92L274.87,493.83L274.99,492.29L275.61,491.76L278.6,490.98L278.48,489.58L278.95,488.69L279.87,488.95z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Slovakia.tsx
+import { useState as useState2 } from "react";
 var Slovakia = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      SlovakiaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      SlovakiaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var SlovakiaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -47,27 +139,161 @@ var Slovakia = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 400 1500 450" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var SlovakiaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Slovakia_default = Slovakia;
 

@@ -1,5 +1,5 @@
 // src/Southamerica.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Argentina",
@@ -46,15 +47,106 @@ var drawPath = {
   Venezuela: "M307.26,438.75l0.52,0.69l0.01,0.08l-0.06,0.09l-0.32,0.16l-0.07,0.08l-0.12,0.31l-0.41,0.17l-0.28,0.21l-0.19,0.18l-0.09,0.07l-0.37,0.04l-0.12,0.12l-0.15,0.35l-0.11,0.15l-0.19,0.17l0,0.1l0.27,0.38l0.05,0.12l-0.08,0.18l0.01,0.13l0.14,0.15l0.17,0.04l0.16,-0.06l0.2,0.01l0.13,0.04l0.06,0.04l0.01,0.12l-0.08,0.25l-0.12,0.16l-0.54,0.25l-0.24,0.14l-0.13,0.11l-0.29,-0.06l-0.15,0l-0.11,0.08l-0.07,0.07l-0.19,0.02l-0.27,0.04l-0.11,0.05l-0.09,0.12l-0.07,0.18l0.06,0.21l0.09,0.19l0,0.17l0.07,0.48l-0.09,0.11l-0.18,0.13l-0.22,0.22l-0.25,0.31l0.04,0.09l0.59,0.65l0.6,0.66l0.59,0.66l0.08,0.03l0.11,0.08l0.1,0.23l0.09,0.24l0,0.13l-0.07,0.16l-0.14,0.18l-0.18,0.15l-0.26,0.13l-0.2,0.12l-0.17,0.31l-0.1,0.11l-0.09,0.04l-0.19,0.04l-0.3,-0.01l-0.2,-0.02l-0.25,0.23l-0.31,0.09l-0.21,0.32l-0.75,0.25l-0.73,0.2l-0.2,0.08l-0.72,-0.16l-0.17,0.05l-0.2,0.15l-0.18,0.12l-0.16,0.01l-0.13,0.06l-0.08,0.22l-0.07,0.75l-0.26,0.22l-0.31,0l-0.22,-0.26l-0.25,-0.2l-0.44,-0.46l-0.12,-0.06l-0.12,0l-0.41,0.14l-0.2,-0.06l-0.16,-0.07l-0.26,0.02l-0.47,0.01l-0.3,0l-0.15,-0.13l-0.14,-0.26l-0.09,-0.09l-0.11,-0.07l-0.18,-0.04l-0.76,0l-0.14,0l-0.1,-0.05l-0.15,-0.22l-0.16,-0.1l-0.19,0l-0.08,0.12l0.32,0.4l0.09,0.22l0.28,0.31l0.82,0.66l0.15,0.21l-0.02,0.27l0,0.41l0.03,0.39l0.21,0.56l0.3,0.57l0.08,0.36l-0.06,0.27l-0.06,0.14l0.01,0.06l0.06,0.06l0.28,0.08l0.59,0.05l0.36,0l0.55,0.06l0.04,0.2l-0.05,0.33l-0.11,0.19l-0.09,0.05l-0.3,0.04l-0.31,0.2l-0.46,0.2l-0.26,0.03l-0.11,0.04l-0.09,0.06l-0.08,0.08l-0.09,0.37l-0.13,0.42l-0.25,0.25l-0.28,0.21l-0.28,0.02l-0.23,-0.02l-0.11,0.06l-0.16,0.17l-0.23,0.21l-0.18,0.11l-0.24,-0.01l-0.26,0.1l-0.33,0.17l-0.22,0.14l-0.19,0.24l-0.26,0.25l-0.27,0.18l-0.13,0.22l-0.19,0.28l-0.23,0.01l-0.02,-0.17l0.11,-0.27l-0.12,-0.23l-0.22,-0.12l-0.1,-0.04l-0.1,0.02l-0.26,0.11l-0.32,0.21l-0.2,0.15l-0.18,0.07l-0.37,0.06l-0.31,0.03l-0.13,-0.04l-0.23,-0.15l-0.53,-0.48l-0.72,-0.64l-0.05,-0.19l0.03,-0.19l-0.13,-0.28l-0.08,-0.3l-0.06,-0.1l-0.02,-0.22l-0.16,-0.4l-0.13,-0.33l-0.12,-0.17l0.05,-0.14l-0.05,-0.14l-0.1,-0.12l-0.14,-0.37l0.05,-0.16l-0.04,-0.16l-0.12,-0.11l-0.17,-0.12l-0.22,-0.25l-0.27,-0.23l-0.14,-0.09l-0.09,-0.04l-0.08,-0.22l-0.06,-0.07l-0.14,-0.02l-0.28,-0.09l-0.26,0.11l-0.01,-0.17l0.07,-0.1l0.9,-0.82l0.45,-0.38l0.05,-0.06l0.04,-0.09l0.03,-0.12l-0.1,-0.13l-0.42,-0.63l-0.15,-0.12l-0.14,-0.1l-0.17,-0.27l-0.2,-0.62l-0.14,-0.31l-0.04,-0.24l0.01,-0.27l-0.05,-0.21l-0.11,-0.15v-0.44l0.11,-0.74l0.03,-0.56l-0.06,-0.39l0.1,-0.29l0.26,-0.2l0.15,-0.31l0.03,-0.42l0.16,-0.35l0.28,-0.27l0.1,-0.27l-0.09,-0.26l-0.03,-0.17l-0.24,-0.17l-0.45,-0.12l-0.37,-0.01l-0.22,0.13l-0.57,0.12l-0.92,0.11l-0.74,0l-0.56,-0.12l-0.43,0.04l-0.29,0.19l-0.21,0.04l-0.12,-0.11l-0.13,-0.03l-0.2,0.07l-0.03,-0.03l-0.44,-0.52l-0.4,-0.49l-0.46,-0.58l-0.54,-0.67l-0.1,-0.04l-0.17,0l-0.22,0.01l-0.34,-0.07l-0.23,-0.1l-0.18,-0.09l-0.34,-0.12l-0.23,-0.02l-0.21,0.04l-0.57,0.23l-0.32,0.02l-0.25,0l-0.67,-0.12l-0.46,-0.02l-0.53,0.08l-0.23,0.04l-0.32,-0.12l-0.22,-0.18l-0.2,-0.43l-0.14,-0.34L272.8,442l-0.28,-0.06l-0.14,-0.11l-0.08,-0.19l-0.02,-0.25l0.03,-0.41l0.03,-0.15l0.04,-0.44l0.15,-0.23l0.1,-0.11l-0.02,-0.18l-0.07,-0.38l-0.07,-0.27l-0.31,-0.3l-0.39,-0.39l-0.17,-0.62l-0.2,-0.74l-0.16,-0.07l-0.15,0.04l-0.16,-0.04l-0.14,-0.3l-0.14,-0.06l-0.22,0.1l-0.16,0.08l-0.4,0.07l-0.08,-0.07l0.03,-0.09l0.17,-0.27l0.2,-0.34l0.23,-0.31l0.22,-0.32l0.16,-0.34l0.11,-0.68l0.08,-0.47l0.2,-0.84l0.37,-0.67l0.14,-0.31l0.33,-0.4l0.15,-0.22l0.2,-0.17l0.55,-0.23l0.66,-1.15l0.15,-0.18l0.67,-0.17l0.51,-0.13l0.38,-0.14l0.13,-0.07l0.1,-0.03l-0.08,0.13l-0.18,0.17l-0.21,0.1l-1.07,0.26l-0.11,0.05l-0.14,0.11l0,0.25l0.03,0.19l0.31,0.64l0.12,0.16l0.42,0.35l-0.1,0.05l-0.15,0.01l0.11,0.45l0.26,0.31l0.01,0.2l-0.2,0.61l-0.36,0.36l-0.26,0.42l-0.2,0.17l-0.44,0.83l0.34,0.49l0.05,0.25l0.29,0.35l0.19,0.12l0.13,0.14l-0.06,0.24l0.12,0.33l0.15,0.17l0.19,0.07l0.23,0l0.67,-0.22l0.16,-0.1l0.1,-0.18l0.34,-0.36l0.02,-0.46l0.07,-0.55l-0.08,-0.36l-0.35,-0.51l-0.15,-0.37l-0.35,-0.34l-0.21,-0.58l-0.09,-0.18l-0.07,-0.25l-0.08,-0.45l0.23,-0.16l-0.02,-0.36l0.58,-0.1l1.25,-0.59l0.77,-0.15l0.88,-0.32l0.2,-0.16l0.18,-0.26l0.14,-0.03l0.46,0.24l0.23,-0.08l0.09,-0.19l-0.12,-0.37h-0.26l-0.79,0.14l-0.08,-0.16v-0.14l-0.19,-0.44l0.12,-0.33l0.12,-0.27l0.23,-0.11l0.33,-0.12l0.25,0.18l0.15,0.17l0.08,0.17l0.06,0.45l0.13,0.46l0.14,0.32l0.23,0.24l0.17,-0.02l0.12,-0.04l0.82,-0.05l0.5,0.16l0.64,0.08l0.59,0.35l0.61,0.42l0.16,0.31l0.05,0.29l0.15,0.2l-0.15,0.2l0.08,0.34l0.17,0.34l0.26,0.22l0.75,0.06l0.81,-0.15l1.26,-0.13l0.4,-0.11l2.08,-0.06l0.4,0.16l0.04,0.16l0,0.13l0.67,0.61l0.55,0.08l0.47,0.2l0.48,0.1l0.53,0.15l0.3,-0.02l0.22,-0.05l0.26,-0.01l1.86,-1.02l1,0.03l0.15,-0.07l0.13,-0.09l-0.37,-0.15l-0.83,-0.06l-0.25,0.1l-0.14,-0.26l0.27,0.01l0.92,-0.09l1.06,0.06l0.86,-0.19l0.43,-0.03l0.25,0.04l0.69,-0.12l1.29,0.14l1.02,-0.12l-0.12,0.17l-0.33,0.1l-0.54,0.03l-0.41,0.25l-0.88,-0.05l-0.62,0.09l0.2,0.07v0.25l0.08,0.05l0.09,0l0.21,0.19l0.06,0.12l0.07,0.26l-0.09,0.28l-0.13,0.13l0.25,-0.04l0.14,-0.13l-0.02,-0.13l0.02,-0.15l0.14,0.05l0.1,0.07l0.32,0.73l0.23,0.38l0.06,-0.01l0.05,-0.01l0.07,-0.07l0.1,-0.18l0.09,0.11l0.05,0.04l0.05,0.01l-0.05,-0.16l0.06,-0.21l-0.02,-0.07l0.1,-0.02l0.12,0.03l0.17,0.06l0.3,0.24l0.2,0.25l0.02,0.14l0.07,0.08l0.13,0.08l0.06,0.13l0.01,-0.2l-0.08,-0.15l-0.02,-0.17l0.39,-0.01l0.1,-0.22l0.21,0.13l0.57,0.61l0.21,0.1l0.62,0.12l0.39,0.29l0.23,0.26l-0.14,0.27l-0.37,0.14l-0.15,0.17l-0.08,0.17l0,0.17l-0.11,0.2l-0.02,0.07l-0.07,0.28l-0.15,0.33l-0.2,0.35l-1.04,0.01l0.26,0.15l0.24,0.11l0.39,0.28l0.31,-0.22l0.44,-0.02l0.48,-0.24l0.18,-0.04l0.9,0.13l0.22,-0.18l0.18,-0.05l0.48,0.03L307.26,438.75zM296.51,431.44l0.09,0.37l-0.03,0.07l-0.25,0.25l-0.21,0.02l-0.17,-0.01l-0.13,-0.05l-0.17,-0.16l-0.16,0.05l-0.4,-0.06l-0.11,-0.06l0.15,-0.2l0.28,-0.08l0.1,-0.02l0.08,0.12l0.2,0.11l0.24,0.01l0.06,-0.19l0.32,-0.28L296.51,431.44zM292.68,432.08l-0.15,0.06l-0.28,-0.06l-0.14,-0.09l0.09,-0.1h0.23l0.21,0.12L292.68,432.08zM305.01,437.08l-0.34,0.09l0.01,-0.08l0.09,-0.13l0.17,-0.04l0.07,-0.04l0.11,-0.03l0.06,0.01l0.06,0.04l-0.15,0.07L305.01,437.08zM304.51,437.85l-0.17,0.06l-0.03,-0.28l0.05,-0.08l0.3,-0.23l0.08,-0.04l0.06,0.05l-0.02,0.06l0.14,0.1l-0.03,0.13l-0.15,0.14L304.51,437.85z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Southamerica.tsx
+import { useState as useState2 } from "react";
 var Southamerica = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      SouthamericaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      SouthamericaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var SouthamericaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -63,27 +155,161 @@ var Southamerica = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "120 400 800 300" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var SouthamericaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Southamerica_default = Southamerica;
 

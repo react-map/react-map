@@ -1,5 +1,5 @@
 // src/Bangladesh.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Barisal",
@@ -28,15 +29,106 @@ var drawPath = {
   Sylhet: "M307.06,149.11L308,149.6L307.75,150.09L310.69,150.45L312.19,151.49L313.84,151.71L314.6,151.14L315.28,152.01L317.9,152.32L319.45,151.71L320.42,153.16L321.9,153.87L324.27,153.76L324.54,155.44L327.21,155.27L328.15,154.28L332.48,153.85L333.24,152.88L334.39,152.69L334.49,151.43L337.97,151.11L338.11,151.71L336.65,152.76L336.86,154.21L338.76,154.29L338.99,156.01L340.51,156.59L343.74,154.99L345.32,154.9L346.39,152.87L349.83,153.65L350.66,150.71L353.38,151.9L358.33,150.44L361.4,150.91L366.53,149.96L372.77,151.14L375.13,149.64L376.68,150.48L380.82,149.75L386.91,152.5L387.43,152.85L386.89,154.24L389.53,155.15L391.39,156.67L392.87,156.01L395.59,156.91L393.71,157.23L395.7,159.23L403.33,161.77L404.74,160.8L406.41,161.16L407.23,162.24L406.35,163.85L408.45,163.95L408.99,164.65L414.38,166.02L413.51,169.61L413.97,172.03L415.6,172.61L416.97,171.66L418.21,173.62L416.81,173.38L416.18,174L417.73,175.13L418.72,175.12L419.66,173.9L419.86,177.19L421.11,179.04L420.22,179.49L420.68,181.29L419.9,182.16L417.89,182.49L415.91,181.83L415.7,183.3L414.41,183.65L414.33,184.41L412.17,184.49L410.84,184.08L409.85,182.87L408.55,182.4L408.06,181.37L407.13,181.5L405.26,180.2L403.77,180.04L401.78,177.43L400.35,179L398.9,178.9L397.97,178.79L397.72,178.06L396.8,178.44L396.36,179.57L397.3,181.56L396.36,182.5L396.69,184.69L397.93,185.52L400.02,186.88L400.52,190.25L401.31,190.85L400.68,192.9L401.39,193.61L400.53,195.54L401.77,196.27L398.44,201.19L397.33,204.42L395.91,212.33L395.45,220.56L390.55,218.11L390.06,217.04L388.42,218.04L388.95,219.26L388.1,220.49L389.14,223.73L388.59,224.53L389.45,225.96L389.1,226.74L390.01,227.59L389.45,228.49L386.86,228.25L385.41,232.05L382.16,233.47L374.77,232.6L373.82,231.57L372.52,232.24L371.39,231.92L370.5,232.61L373.66,236.96L373.39,238.81L371.43,237.75L371.39,236.34L369.8,235.23L366.36,237.33L368.37,244.3L365.57,254.09L365.37,257.1L363.35,257.63L362.44,256.53L361.82,253.85L358.99,251.43L359.76,250.97L359.68,249.77L359.07,248.98L356.54,250.29L355.8,249.22L354.25,249.06L349.78,246.39L351.54,256.98L348.68,257.08L346.65,256.11L345.97,255.02L345,255.36L344.3,254.33L342.74,250.2L342.67,248.1L340.84,249.73L341.98,252.47L341.63,253.63L340.66,253.75L340.68,255.76L339.71,257.4L340.3,259.75L339.53,261.15L337.46,261.96L336.36,261.57L335.8,261.96L335.98,263.43L335.16,263.77L331.2,263.85L326.63,262.57L326.08,261.64L321.73,261.62L318.56,260.28L315.54,260.44L315.45,263.33L317.27,266.38L316.74,268.65L315.19,270.81L315.55,273.97L308.83,271.76L308.83,271.76L307.92,271.3L308.05,269.73L309.06,269.85L309.55,267.44L308.61,265.46L307.14,265.27L307.46,261.69L306.27,261.97L305.34,261.27L305.61,259.94L307.46,259.27L305.54,258.61L305.56,256.99L304.71,256.76L306.05,254.79L306.38,252.97L308.68,251.87L309.71,252.21L309.54,250.62L306.69,251.52L306.02,250.9L306.78,249.14L307.9,249.72L308.1,248.51L308.92,248.84L309.85,247.79L310.64,247.82L310.61,244.78L309.33,244.13L308.3,244.6L307.05,246.3L306.71,247.93L307.17,248.48L306.08,248.69L298.73,247.29L296.74,244.72L296.74,244.72L298.63,242.06L297.93,241.71L295.11,242.74L296.33,239L302.24,239.28L302.4,237.79L300.27,234.69L300.63,233.83L301.92,234.08L304.07,232.62L302.45,229.84L301.47,230.05L300.65,229.42L300.47,228.07L302.54,228.13L302.83,227.29L301.49,222.51L300.06,222.43L300.87,223.77L299.24,223.14L297.6,225.39L297.43,223.88L298.45,223.35L295.96,222.67L294.94,223.45L294.3,223.13L296.3,220.7L297.06,222.13L297.74,221.51L300.23,218.53L302.12,213.95L298.76,212.17L299.4,211.26L299.1,210.02L296.94,209.16L296.71,207.68L298.49,208.58L298.48,207.72L299.37,207.74L299.56,206.05L300.98,206.03L301.79,205.14L300.78,203.64L302.56,203.33L302.62,201.76L300.77,200.95L301.61,199.96L301.15,198.35L299.62,199.9L297.15,198.33L295.45,199.19L295.1,198.45L293.48,198.43L294.51,197.66L294.1,196.3L294.79,196.66L295.17,195.92L294.49,195.97L294.51,195.24L293.31,195.1L293.13,194.5L294.05,193.89L295.42,194.18L295.3,193.25L296.6,192.32L295.21,191.48L296.61,189.21L296.44,187.33L294.9,186.42L293.89,187.82L294.19,188.63L292.86,189.68L294.11,191.18L292.62,191.4L291.11,189.05L291.7,187.05L292.53,186.41L292.12,185.6L291.15,185.56L289.99,181.74L287.87,180.1L284.4,179.56L283.15,181.82L282.25,181.6L281.81,180.53L280.51,180.92L279.43,178.73L276.06,178.65L275.96,176.1L275.32,176.15L277.28,175.28L277.65,174.03L276.6,172.59L275.03,172.2L275.36,169.2L274.12,167.52L274.64,166.66L276.99,165.67L274.06,164.81L273.86,161.44L275.25,161.11L276.43,162.17L277.93,161.69L277.67,159.83L275.71,158.02L276.3,156.89L276.05,154.01L277.69,153.29L277.17,151.84L277.17,151.84L287.85,148.89L292.49,149.32L299.19,148.66L303.69,149.19L305.77,148.19z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Bangladesh.tsx
+import { useState as useState2 } from "react";
 var Bangladesh = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      BangladeshSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      BangladeshMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var BangladeshSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -45,27 +137,161 @@ var Bangladesh = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 900 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var BangladeshMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Bangladesh_default = Bangladesh;
 
