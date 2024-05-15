@@ -1,5 +1,5 @@
 // src/Fiji.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Rotuma",
@@ -24,15 +25,106 @@ var drawPath = {
   Central: "M345.55,1506.93L348.06,1503.19L348.89,1497.72L347.44,1493L344.71,1490.65L341.95,1491.41L340.66,1495.96L340.48,1497.53L340.44,1498.83L340.18,1499.98L339.16,1501.24L340.3,1502.75L340.54,1503.65L339.64,1504.26L337.33,1504.77L341.79,1507.85L345.55,1506.93zM420.36,1285.4L420.45,1287.32L419.99,1298.63L417.76,1310.23L416.7,1312.81L415.13,1314.63L413.08,1315.03L410.35,1314.6L404.93,1312.38L402.85,1311.24L400.98,1310.59L398.93,1310.27L394.3,1310.43L391.84,1310.11L389.55,1309.31L383.49,1304.94L381.7,1304.05L379.85,1303.85L379.01,1304.68L378.52,1305.65L378.25,1307.1L378.18,1307.93L377.91,1309.03L377.19,1310.35L374.64,1312.4L370.7,1313.77L362.85,1315.67L349.21,1316.1L344.79,1315.67L341.06,1314.56L338.67,1313.05L336.55,1311.12L334.68,1309.01L328.36,1298.67L323.1,1292.63L320.91,1290.7L318.3,1289.84L317.01,1291.16L316.58,1293.27L317.11,1295.99L318.78,1300.91L319.06,1303.29L318.71,1305.69L317.72,1308.08L314.23,1313.41L312.97,1315.84L312.41,1318.42L312,1332.76L312.26,1334.14L312.72,1334.94L313.48,1335.3L314.36,1335.18L315.6,1334.54L316.74,1333.59L323.99,1325.4L326.23,1323.41L328.51,1321.86L330.71,1320.8L332.61,1320.47L334.05,1321.04L334.84,1322.22L335.11,1324.25L334.73,1326.56L333.14,1328.97L329.95,1332.05L325.13,1334.57L319.82,1338.99L308.51,1351.5L307.52,1353.13L307.03,1356.35L306.27,1358.26L305.06,1360.14L304.1,1362.04L303.54,1363.95L303.72,1365.67L304.93,1367.53L306.73,1369.13L308.43,1371.11L309.03,1373.3L307.79,1376.75L307.3,1378.89L307.45,1380.96L308.75,1382.48L310.33,1383.81L311.77,1385.33L312.54,1387.13L312.6,1388.89L310.1,1396.52L308.13,1398.23L305.97,1399.34L300.27,1400.75L297.31,1401.1L294.92,1401.01L276.02,1396L273.06,1395.66L269.99,1395.78L265.56,1397.13L263.2,1398.99L261.69,1401.38L259.94,1406.5L258.76,1408.86L255.31,1413.84L254.31,1415.74L254.06,1417.86L254.36,1420.31L255.88,1425.47L256.63,1427.33L257.52,1428.41L258.83,1428.99L260.63,1429.2L266.39,1429.43L267.68,1429.88L268.31,1430.92L268.21,1432.54L262.62,1440.9L261.71,1442.9L261.18,1444.68L260.5,1451.69L259.72,1454.98L257.77,1458.31L268.47,1461.22L269.51,1462.63L270.26,1464.37L274.96,1468.6L276.35,1469.29L277.83,1468.54L279.06,1467.43L281.01,1466.17L282.8,1465.65L283.6,1466.78L284.83,1471.18L287.78,1470.19L291.44,1467.97L294.62,1468.54L297.49,1470.05L300.91,1469.27L303.88,1467.47L305.45,1465.92L307.12,1467.13L308.65,1467.51L312.3,1467.66L320.26,1469.06L338.39,1462.5L343.88,1467.66L345.31,1465.92L347.36,1465.92L351.9,1464.83L356.08,1461.06L363.12,1452.63L365.25,1451.34L370.29,1449.43L372.42,1448.17L373.49,1446.6L374.79,1442.77L375.76,1441.14L377.21,1439.56L378.49,1438.52L380.24,1437.97L383.34,1437.81L386.39,1436.97L388.24,1435.08L389.71,1433.2L391.66,1432.34L393.01,1432.09L395.94,1430.96L397.61,1430.6L398.99,1431.1L400.26,1432.28L401.07,1433.47L400.96,1434.1L403.28,1433.62L405.07,1432.74L406.43,1431.27L407.62,1428.84L406.95,1428.32L406.75,1428.21L406.09,1427.08L409.31,1426.96L411.76,1427.5L413.85,1428.68L417.89,1432.53L418.33,1433.32L418.05,1434.75L417.79,1438.6L420.4,1438.85L425.73,1437.39L430.03,1434.1L429.49,1428.84L432.62,1427.75L439.64,1424.05L442.05,1424.36L444.18,1425.91L445.43,1426.04L446.47,1426.41L447.82,1428.84L447.52,1429.89L444.66,1434.1L447.62,1433.57L454.69,1430.6L454.69,1435.88L460.64,1429.81L473.02,1423.57L475.35,1421.85L478.15,1419L480.58,1415.53L481.54,1411.99L481.42,1409.58L481.54,1405.86L482.09,1404.21L484.12,1400.69L484.72,1398.83L483.23,1398.83L482.73,1400.12L481.73,1401.88L480.42,1403.45L478.91,1404.08L476.3,1403.83L475.7,1403.14L475.6,1402.01L474.69,1400.58L472.06,1397.55L470.75,1395.35L468.66,1394.01L463.86,1393.55L460.68,1389.83L456.22,1381.88L455.29,1374.56L463.03,1372.68L461.85,1368.46L461.36,1367.24L463.78,1368.41L464.7,1369L466.27,1365.86L466.03,1363.23L464.3,1361.26L461.36,1360.05L463.9,1358.25L464.12,1356.39L462.51,1355.53L459.52,1356.71L457.2,1354.49L457.38,1351.9L458.21,1349.1L458.03,1346.04L456.86,1344.83L452.32,1341.59L450.41,1339.9L449.57,1337.94L449.97,1335.76L450.75,1333.51L451.17,1331.06L452.72,1326.4L455.74,1322.14L458.27,1317.3L458.03,1310.99L455.23,1306.1L450.87,1302.76L445.71,1300.92L440.42,1300.3L438.63,1298.38L432.1,1289.21L427.82,1286.14L424.72,1285.58L422.15,1285.64L420.36,1285.4z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Fiji.tsx
+import { useState as useState2 } from "react";
 var Fiji = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      FijiSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      FijiMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var FijiSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -41,27 +133,161 @@ var Fiji = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "50 -20 500 100" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var FijiMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Fiji_default = Fiji;
 

@@ -1,5 +1,5 @@
 // src/Canada.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Alberta",
@@ -40,15 +41,106 @@ var drawPath = {
   Yukon: "M40.86,774.22l-0.01,6.8l0,7.11l0,7.02l0,6.93l0.1,1.04l0.3,0.86l1.22,1.17l0.28,0.37l0.23,0.55l0.35,1.47l-0.08,1.5l0,0.64l0.17,0.67l0.16,0.43l0.11,0.49l0.21,1.16l-0.02,0.39l-0.38,1.42l-0.61,1.04l-0.02,0.42l-0.03,0.65l0.01,1.07l0.26,1.2l0.23,0.48l0.39,0.24l2.57,0l2.57,0l2.57,0l2.57,0h2.57l2.57,0l2.57,0l0.56,0l0.02,0.73l0.2,0.66l0.96,0.94l0.68,0.94l0.48,0.98l0.1,0.75l-0.13,0.75l-0.07,0.43l0.06,0.5l0.25,0.61l0.02,0.34l0.04,0.42l0.34,0.44l0.66,1.02l0.15,0.46l-0.13,0.66l-0.08,0.61l0.06,0.83l-0.02,0.44l-0.18,0.16l-0.28,0.03l-0.3,0.1l-0.18,0.53l-0.27,1.52l-0.09,0.5l0.09,0.47l0.27,0.02l0.97,0.07l0.35,0.11l0.26,0.23l0.11,0.81l0.04,0.9l-0.02,0.71l-0.22,0.59l-0.59,0.85l-0.16,0.35l0.01,0.48l0.27,0.54l0.19,0.86l0.02,0.79l0.29,0.26l0.8,0.16l0.79,-0.01l1.64,-1.1l1.68,-0.47l0.93,-0.02l0.18,0.25l0.01,0.35l-0.21,0.55l-0.25,0.94l0.18,0.37l0.41,0.07l0.73,-0.32l0.49,-0.95l0.47,-0.58l0.89,-0.69l0.33,0.12l0.84,0.77l1.01,-0.1l0.25,0.32l0.02,0.52l-1.78,1.52l-0.14,0.64l0.19,0.51l0.4,0.31l1,1.16l0.74,1.1l0.89,1.92l0.01,0.65L78.3,852l-0.7,2.04l-1.76,2.21l-0.22,0.87l-0.27,0.43l-1.48,1.18l-0.1,0.46l0.05,0.4l0.15,0.25l0.39,0.13l0.88,-0.3l0.27,-0.07l0.35,0.31l0.02,1.3l0.2,0.32l1.21,0.41l0.26,0.38l-0.01,0.4l-0.24,0.36l-0.9,1.09l-0.14,0.27l0,0.95l-0.07,0.61l-0.71,0.88l-0.15,0.33l0.01,0.37l0.1,0.3l0.31,0.29l1.36,0.06l0.73,0.31l1.92,1.27l0.48,0.38l1.43,2.24l1.26,0.67l0.21,0.23l0.12,0.39l-0.13,0.54l-0.54,1.31l-0.11,0.4l0.05,0.39l0.3,0.15l1.59,0l0.66,-0.27l0.57,-0.47l0.45,-0.74l0.36,-0.15l0.84,0.24l1.42,0.96l0.76,1.58l-0.04,0.54l0.13,0.52l0.27,0.28l0.46,0.83l0.16,0.55l0,0.51l-0.25,0.56l0.1,0.31l0.52,0.92l0.23,0.65l0.49,0.37l0.31,0.77l0.87,0.87l1.32,0.62l1.34,1.42l0.73,0.56l1.28,0.3l0.19,0.29l-0.03,0.41l-0.22,0.23l-1.03,0.5l-0.35,0.33l-0.04,0.35l0.16,0.36l0.37,0.15l0.91,-0.39l0.28,0.05l0.12,0.32l0.14,0.58l0.17,0.29l0.78,0.4l0.27,0.59l0.52,0.63l0.29,0.67l0.09,0.72l-0.54,1.6l-0.39,0.6l-1.37,1.14l-0.34,0.51l0.06,0.34l0.66,0.3l0.73,0.9l0.65,0.56l0.32,0.61l0.38,1.29l0.83,0.43l0.94,0.04l0.16,0.19l-0.05,0.42l-0.86,2.1l0,0.7l-0.13,0.59l0.09,0.65l0.54,1.08l0.14,0.39l0.06,0.55l0.15,0.31l0.68,0.47l0.17,0.28l0.27,1.06l0.04,0.4l0.37,0.36l2.13,1.29l0.19,0.45l-0.09,0.39l-0.79,0.56l-0.08,0.31l0.02,0.27l0.4,0.44l0.09,0.3l-0.46,0.98l-0.02,0.54l0.44,1.11l0.1,0.32l-0.06,0.34l-0.2,0.35l-0.07,0.33l0.13,0.26l0.41,0.33l0.65,0.2l1.1,-0.12l0.95,0.24l0.25,0.15l0.35,0.73l0.24,0.17l0.34,-0.1l0.87,-0.83l0.56,-0.19l0.49,0.1l1.44,1.59l0.3,0.82l0.97,1.2l0.24,0.84l0.23,0.35l1.01,0.46l0.42,0.53l0.24,0.64l0.23,1.29l1.67,1.74l0.84,0.58l0.51,0.68l0.43,0.36l1.26,0.42l1.51,-0.03l0.63,0.33l0.56,0.56l0.45,1.13l0.39,0.64l0.46,2.48l0.06,0.72l-0.11,1.32l-0.5,0.61l-0.13,0.23l0.03,0.2l0.34,0.36l0.81,-0.23l0.18,0.2l0.32,1.89l-0.09,1.21l0.06,0.45l0.21,0.49l-0.01,0.69l0.27,0.48l0.24,0.1l0.58,-0.2l0.92,0.23l1.3,-0.7l1.52,0.36l0.48,-0.07l0.38,-0.17l0.18,-0.28l0,-0.64l0.11,-0.23l0.55,-0.18l0.42,0.05l0.14,0.63l0.31,0.24l0.55,0.13l0.41,-1.03l0.23,-0.32l0.29,-0.14l0.32,0l1.41,0.91l2.94,0.9l0.5,-0.01l0.83,-0.62l0.7,-0.33l2.43,-0.29l0.19,-1.17l0.2,-0.44l0.28,-0.24l1.71,0.01l0.3,0.14l0.68,2.4l0.01,0.62l-0.95,1.6l0,0.35l0.11,0.37l1.17,1.73l0.59,1.33l1.38,0.38l0.21,0.38l0.19,1.81l0.18,0.58l0.73,1.73l0.95,1.78l0.05,0.49l-0.19,0.7l0.02,0.25l0.15,0.1l1.02,0.01l0.34,0.35l0.21,0.34h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53l-8.62,-0.01l-1.15,-1.47l0.43,-1.6l0.52,-1.92v-1.16l-1.39,0.07l-2.09,0.11l-1.87,0.1l-1.38,1.36l-1.28,1.26l-2,-0.98l-2.29,-1.12l-0.65,1.47l-2.13,-0.74L0,955.3V950v-5.35v-5.4v-5.45v-5.5v-5.55v-5.61v-5.66v-5.72v-5.78v-5.84v-5.9v-5.96v-6.02v-6.08v-6.15v-6.22v-6.29v-6.36v-6.43v-6.51v-6.58v-6.66v-6.74v-6.83v-6.91v-7v-7.09v-7.18v-7.28v-7.38v-7.47l1.27,0.4l4.08,0.84l3.84,-0.5l7.13,2.72l4.41,5.06l3.58,2.47l1.46,1.69l2.32,1.49l5.46,3.22l1.7,0.33l3.17,1.54l1.96,-0.2L40.86,774.22zM17.56,756.99l-0.74,0.96l-1.18,-1.01l-0.31,-0.5l1.36,-1.33l0.6,0.05l1.27,0.79l0.47,0.7L17.56,756.99z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Canada.tsx
+import { useState as useState2 } from "react";
 var Canada = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      CanadaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      CanadaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var CanadaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -57,36 +149,160 @@ var Canada = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement(
-    "svg",
-    {
-      version: "1.1",
-      id: "svg2",
-      x: "0px",
-      y: "0px",
-      viewBox: "-40 100 1700 1200"
-    },
-    stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
-      "path",
-      {
-        key: index,
-        onClick: () => onSelect(stateCode2),
-        onMouseEnter: () => handleMouseEnter(stateCode2),
-        onMouseLeave: () => handleMouseLeave(stateCode2),
-        id: stateCode2,
-        d: drawPath[stateCode2]
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
       }
-    ))
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var CanadaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
   )));
 };
 var Canada_default = Canada;

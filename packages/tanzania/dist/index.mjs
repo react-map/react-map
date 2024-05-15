@@ -1,5 +1,5 @@
 // src/Tanzania.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Njombe",
@@ -74,15 +75,106 @@ var drawPath = {
   Mbeya: "M283.87,429.83L278.09,428.51L273.11,425.16L267.24,423.42L261.08,424.87L258.81,425.68L257.09,427.26L254.67,428.8L251.53,428.48L249.74,429.2L248.9,431.02L244.29,438.45L242.43,439.83L237.55,440.66L232.54,440.54L228.85,442.59L212.51,448.24L212.47,455.9L209.61,463.76L207,468.91L199.62,471.73L197.12,475.58L194.3,481.42L192.32,487.64L193.58,490.17L212.87,500.29L226.2,509.22L229.56,512.62L246.15,534.82L246.71,539.58L244.01,539.07L241.22,539.44L238.24,539.19L232.26,531.57L231.92,529.47L231.84,527.32L230.76,525.52L231.06,523.35L230.76,521.9L228.88,521.02L219.87,527.15L215.46,527.3L212.82,530.49L212.57,534.63L213.81,538.57L213.48,546.75L208.1,553.61L203.96,556.15L195.02,559.35L193.5,562.26L196.8,564.5L199.36,567.17L197.89,569.23L199.18,570.67L200.8,571.83L203.59,574.41L204.51,577.35L203.36,577.49L202.67,578.35L203.33,582.69L203.3,583.16L203.97,583.52L206.61,586.21L208.02,587.27L209.47,587.78L211,587.98L220.35,587.79L223.25,588.51L225.86,590.27L226.64,591.28L228.04,594.59L229.07,596.18L230.05,596.83L232.74,597.05L238.92,598.41L244.06,598.84L244.97,599.33L245.96,600.41L246.23,600.96L246.45,602.05L246.87,602.59L247.39,602.78L248.64,602.65L249.17,602.76L252.5,604.98L257.86,607.02L258.97,607.72L260.07,606.54L261.44,605.84L262.83,605.78L264.1,606.52L267.69,610.11L272.11,613.55L272.76,613.81L274.69,614.24L276.8,615.07L277.07,615.23L277.72,615.01L278.71,614.19L279.18,613.95L280.18,613.94L281.67,614.4L282.53,614.48L283.15,614.28L284.29,613.53L284.92,613.41L286.21,613.86L290.24,616.74L291.57,618L292.81,620.7L293.67,622.06L294.78,622.85L296.17,623.28L299.15,623.49L301.38,622.94L303.07,621.95L304.82,621.22L307.25,621.48L309.44,622.17L311.33,622.5L311.36,622.51L313.19,622.27L315.09,621.19L317.39,620.55L319.36,621.78L321.19,623.64L323.05,624.86L324.74,625.56L326.77,626.78L328.5,628.24L329.28,629.69L330.12,630.3L331.3,629.01L331.3,628.51L332.36,627.81L332.95,627.07L333.2,626.12L333.26,624.79L333.76,622.59L333.89,621.32L332.56,618.07L333.63,616.24L335.32,614.83L336.19,613.83L337.36,612.79L339.85,613.7L342.08,615.17L342.36,612.79L339.47,609.89L338.02,609.69L336.68,609.1L334.51,606.12L330.58,599.31L328.97,597.22L328.78,594.94L328,593.97L325.55,593.43L325.94,591.92L327.47,591.1L326.26,587.82L324.6,584.74L322.21,581.97L321.79,578.52L325.91,571.77L328.87,569.12L332.78,568.34L338.08,570.17L340.08,569.51L340.82,567.43L344.46,565.93L348.66,566.32L352.79,566.22L359.96,564.46L366.85,565.45L370.55,565.37L373.88,564.04L376.4,561.35L378.28,557.56L380.58,555.93L383.27,554.94L385.62,555.22L387.23,554.1L389.03,549.37L389.87,544.63L388.71,542.15L387.17,539.89L386.03,536.94L387.53,533.93L389.57,530.79L392.2,528.33L395.23,527.3L397.77,525.35L399.65,522.2L402.24,516.19L403.98,514.04L407.93,512.86L411.07,510.41L412.8,508.05L410.83,506.03L407.57,504.86L404.11,505.15L402.21,504.82L402.47,502.95L401.75,500.76L382.31,497.65L379.25,496.64L376.6,494.78L365.97,492.25L362.28,491.95L328.88,493.64L326.13,493.27L325.09,491.16L325.71,488.21L327.02,485.53L328.97,482.94L330.61,480.13L332.58,475.48L334.01,473.75L335.04,471.74L333.88,470.4L332.03,469.16L328.77,467.7L325.78,465.56L324.37,465.2L323.19,464.51L322.91,461.53L321.64,458.51L321.41,456.55L320.49,454.88L316.37,453.62L314.97,452.17L313.83,450.5L312.13,447.3L309.64,444.88L306.58,443.73L304.84,440.84L304.29,436.89L303.29,433.14L301.65,430.76L299.46,428.91L283.87,429.83z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Tanzania.tsx
+import { useState as useState2 } from "react";
 var Tanzania = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      TanzaniaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      TanzaniaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var TanzaniaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -91,27 +183,161 @@ var Tanzania = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -40 1600 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var TanzaniaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Tanzania_default = Tanzania;
 

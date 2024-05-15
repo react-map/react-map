@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Laos: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: LaosProps) => React.JSX.Element;
+declare const Laos: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: LaosProps) => React.JSX.Element | null;
 interface LaosProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Laos as default };

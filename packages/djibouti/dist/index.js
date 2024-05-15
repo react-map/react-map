@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Djibouti.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Arta",
@@ -62,15 +63,106 @@ var drawPath = {
   Tadjourah: "M272.48,134.61L277.03,134.98L287.35,139.4L304.14,151.72L325.23,175.31L344.2,189.83L344.2,189.83L343.29,194.42L338.21,196.64L335.31,199.09L333.62,202.29L331.93,204.25L331.21,206.71L332.66,210.39L335.07,212.6L337.97,220.71L343.29,232.01L347.88,237.66L353.67,242.08L358.99,247.73L368.41,252.89L372.27,253.38L376.86,254.85L380,257.06L383.39,258.04L388.46,262.46L388.7,265.41L390.39,267.86L416.69,296.07L450.35,333.4L462.67,345.67L467.74,355.72L468.71,361.12L475.23,374.12L479.34,377.31L481.75,380.25L489.6,384.97L489.6,384.97L488.05,386.96L484.23,387.8L483.4,389.36L481.55,391.05L481.55,393.04L479.28,393.77L477.94,396.8L477.12,397.33L474.85,397.95L473.2,397.44L470.33,397.73L469.28,398.48L467.11,398.9L464.23,398.37L463.4,399.31L461.24,399.94L459.48,399.63L457.5,397.34L456.6,397.33L454.53,399L453.41,399.31L448.24,399.21L446.7,400.89L444.94,401.72L443.71,403.29L442.79,406.65L441.54,408.63L438.89,409.99L435.87,412.4L434.73,411.98L434.12,411.04L434.01,408.53L433.29,409.57L432.4,409.89L433.19,411.36L431.95,411.88L429.99,411.25L429.48,409.47L428.55,408.63L425.08,408.21L423.39,408.94L421.43,408.84L419.58,407.58L417.51,408.63L415.97,408.73L414.32,407.79L411.22,406.12L409.15,406.53L406.78,409.46L403.69,411.46L396.79,411.88L393.9,416.17L389.98,419.31L387.61,420.04L385.75,420.25L381.63,419.93L380.28,420.45L376.47,420.35L375.23,421.11L372.76,423.91L368.63,432.91L366.98,434.48L366.16,436.15L364.61,437.3L364.21,444.01L363.48,446.09L362.24,447.77L360.18,449.23L353.27,452.58L351.82,455.3L350.28,456.35L348.22,458.96L345.23,463.25L343.16,468.9L342.96,473.08L342.77,478.42L342.23,481.45L340.77,482.91L339.55,484.07L338.83,486.68L337.08,487.1L337.28,488.67L339.14,492.33L338.93,493.16L335.43,492.33L333.47,490.65L330.48,489.71L330.79,492.22L330.17,492.43L329.03,490.55L327.07,489.19L326.25,488.88L325.5,488.96L323.88,488.88L320.99,487.1L320.58,488.04L324.68,490.45L324.19,491.07L326.56,492.75L322.23,492.85L320.48,492.22L316.76,489.71L316.25,488.88L312.12,487.31L310.78,486.05L310.16,486.16L309.75,487.1L308.1,487.31L305.52,488.56L304.39,489.71L302.12,490.45L298.51,486.78L298.1,487.94L297.58,487.83L295.21,484.27L292.94,482.29L291.92,481.65L289.13,481.77L284.9,479.57L283.76,479.88L281.08,479.67L280.57,481.77L279.23,482.5L278.3,484.27L277.58,483.33L276.45,483.44L276.55,484.07L278.19,484.8L277.27,485.64L277.07,486.79L277.14,487.41L278.41,488.04L278.41,488.04L278.42,491.04L277.7,492.76L273.59,494.23L265.86,489.57L260.54,488.35L252.33,483.45L238.32,473.65L231.8,466.29L231.8,466.29L231.8,466.29L231.8,466.29L225.21,458.93L220.05,455.52L154.62,389.4L140.29,383.69L85.53,373.13L85.53,373.13L99.83,352.17L113.57,334.73L116.67,326.8L118.46,324.89L124.97,313.28L127.21,306.44L131.69,297.33L134.87,294.29L141.4,292.51L144.96,292.39L149.05,276.89L154.01,270.67L161.2,257.5L170.94,246.42L180.25,232.29L196.24,217.1L203.41,209.37L212,181.95L232.1,154.69L241.13,143.83L254.94,129.98L259.18,129.9L262.36,131.07L265.83,133.13L269.59,133.43z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Djibouti.tsx
+var import_react3 = require("react");
 var Djibouti = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      DjiboutiSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      DjiboutiMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var DjiboutiSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -79,27 +171,161 @@ var Djibouti = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -50 1500 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var DjiboutiMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Djibouti_default = Djibouti;
 

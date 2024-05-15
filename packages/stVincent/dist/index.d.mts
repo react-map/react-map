@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Stvincent: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: StvincentProps) => React.JSX.Element;
+declare const Stvincent: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: StvincentProps) => React.JSX.Element | null;
 interface StvincentProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Stvincent as default };

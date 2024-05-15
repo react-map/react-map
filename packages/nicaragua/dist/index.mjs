@@ -1,5 +1,5 @@
 // src/Nicaragua.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Atl\xE1ntico Norte",
@@ -48,15 +49,106 @@ var drawPath = {
   "R\xEDo San Juan": "M330.65,476.35L330.65,476.35l-0.39,1.37l1.54,0.77l-0.36,0.68l-1.25,-0.06l-3.46,-2.82l-0.65,-1.28l2.05,1.29l0,0L330.65,476.35zM324.98,474.77l0.17,0.25l0,0L325,475.23l0,0l-1.33,-0.25l0,0l-0.59,0.31l-0.15,-0.25l0.37,-0.87l-0.33,-1.37l1.17,-0.29l0.45,-0.5l-0.02,2.32l0,0L324.98,474.77zM314.88,472.85l-0.48,1.35l0.01,1.56l-0.44,0.15l-0.9,-1.45l0.62,-1.04l0.07,-0.98l1.23,-0.79l0,0L314.88,472.85zM318.52,469.65l0.98,1.41l0.66,0.02l0.35,1.56l0.75,1.25l-0.64,0.39l-1.57,0.08l-2.7,1.93l-1.23,-2.53l0.93,-1.95l-0.52,-1.64l0.51,-0.27l1.88,0.38l0.15,-0.56L318.52,469.65zM309.68,416.41l0.55,-0.35l-0.09,-0.8l0.98,-0.71l0.26,-1.45l2.87,-0.48l2.01,-1.65l0,-1.01l0.61,-0.08l-0.01,-0.65l1.43,0.2l1.31,0.87l0.55,-1.05l1.14,-0.18l1.48,-2.65l2.01,-0.32l0.16,-0.57l0.98,-0.82l-0.55,-2.05l1.3,-0.67l0.63,-1.85l4.17,-1.26l0.92,-0.96l0.99,0.18l0.94,-0.56l1.08,-0.12l2.03,-2.65l7.15,-3.84l3.2,-1.1l3.05,0.02l3.63,-1.29l2.59,0.1l1.11,0.37l2.43,-0.38l5.12,1.24l4.07,0.13l0,0l1.02,4.66l2.18,6.07l0.58,0.7l1.48,-0.12l0.73,0.62l0.02,1.2l-1.19,3.58l-0.09,2.32l0.42,1.12l2.95,3.7l0.57,1.5l-0.25,2.56l-2.9,4.82l-0.85,3.5l0.03,3.67l0.96,4.46l0.06,4.26l0.54,1.42l1.72,1.22l6.85,1.77l3.85,2.88l4.24,2.57l6.76,2.81l0.74,1.31l0.04,0.71l-0.5,3.08l0.08,2.23l0.98,1.67l0.94,0.8l4.77,1.74l7.67,3.9l1.46,1.37l4.81,8.02l1.66,0.84l0.98,-0.03l0.6,0.74l0.57,-0.12l0.86,0.55l0.53,-0.29l1.26,0.77l1.34,-0.32l3.71,0.92l1.87,-0.48l1.13,-0.72l0.52,0.57l1.19,-0.22l0.12,0.69l-0.68,0.41l0.6,2.21l1.2,1.81l0.97,0.51l0.86,-0.58l2,-0.4l0.79,-0.68l1.04,0.12l1.33,-1.47l0.36,-0.04l0.33,0.61l1.15,-0.15l0.33,0.48l2.19,-0.65l-0.03,-0.88l1.27,-0.3l1.24,0.75l1.42,-1.24l0.91,0.07l0.91,1.37l-0.37,2.63l1.25,1.87l-0.05,1.72l0.54,0.86l0.67,0.4l1.03,-0.85l1.09,-0.36l3.47,0.68l0,0l1.02,0.09l2.83,2.35l5.06,7.81l2.1,2.05l1.66,1l0.14,0.67l-0.32,0.52l0.36,0.36l2.01,0.08l-0.14,-0.94l-1.56,-1.44l1.15,0.1l0.93,-0.35l2.01,0.35l-0.1,0.72l2.03,2.48l-0.45,1.85l1.08,1.37l0.15,0.85l-0.36,3.71l1.13,3.27l-0.28,1.26l-1.32,1.96l-1.01,0.51l-2.12,0.41l-1.79,-0.39l-0.82,0.69l-1.54,0.12l-1.27,0.57l-1.9,1.23l-3.33,-0.06l-2.72,2.82l-1.99,-0.16l-1.41,0.48l-0.4,0.87l-2.38,2.07l-4.13,-0.28l-0.79,0.73l-2.47,0.86l-0.9,-0.11l-0.87,-1.66l-3,-0.86l-0.6,-0.64l-0.39,-1.43l-3.78,-2.16l-2.04,-3.06l-1.25,0.17l-0.38,1.52l-1.11,-0.49l-1.05,0.03l-0.57,0.57l-0.34,1.13l-0.73,0.21l-1.2,-0.09l-2.71,-1.25l-1.76,0.8l-1.08,-0.24l-0.78,-2.18l-5.03,0.5l-1.98,-0.47l-1.3,1.02l-0.69,-1.77l-1.03,-0.66l-1.44,-0.34l-0.31,-0.65l-0.88,-0.41l-0.23,-0.74l2.18,-0.91l-0.02,-0.65l0.53,-0.87l-0.54,-1.69l0.32,-0.73l-0.29,-0.87l-0.51,-0.64l-2.04,-0.69l-0.87,-0.9l-4,-0.78l-1.81,-2.51l-2.08,-0.51l-1.2,0.06l-0.61,-0.61l-1.2,-2.7l-1.19,-0.82l-0.07,-0.64l0.89,-2.56l-1.63,-2.37l-0.65,0.02l-1.79,1.79l-3.03,0.89l-1.81,1.62l-0.85,0.29l-1.66,-0.19l-1.74,-0.96l-4.04,-4.42l-2.33,-1.29l-6.56,-2.47l-1.21,-2.22l-4.26,1.4l-8.43,-4.92l-0.37,-0.06l-27.98,16.77l-8.97,-3.74l-24.12,-8.69l0,0l0.38,-1.45l-0.77,-3.17l0,0l1.12,-0.52l0.49,-0.85l1.32,0.81l1.54,0.27l1.32,1.47l0.97,0.46l1.74,-0.18l0.76,-0.45l1.35,0.58l3.22,-0.08l0.48,0.43l0.4,1.18l1.48,-0.06l0.89,0.7l4.92,-0.62l0.68,0.5l0.1,1.69l0.74,0.58l1.57,-0.06l3.95,-1.09l1.77,1.96l0.48,1.03l0.78,0.33l1.98,-0.24l4.28,-2.02l3.87,0.13l1.75,-1.03l1.11,-1.42l1.73,-1.01l2.02,0.13l-1.25,-0.75l1.44,-3.53l-0.96,-1.84l-0.96,-0.58l-0.42,-1.78l0.18,-2.79l-0.45,-4l0.58,-1.31l-0.59,-0.91l0.82,-1.7l-1.19,-0.98l-1.05,-5.69l-2.16,-1.19l-1.56,-0.23l-1.7,-1.69l-2.28,-0.82l0.01,-0.52l1.02,-0.23l-0.45,-2.17l-2.25,-1.32l-1.14,-0.07l-0.78,-1.9l0.1,-1.15l-0.7,-4.42l0.56,-0.94l-0.82,-1.74l-0.63,-0.36l-1.09,1l-0.67,1.25l-0.63,-0.05l-1.46,-2.06l0,-1.09l-1.11,-1.39l0.17,-1.59l-0.82,-0.13l-0.98,-1.41l-2.68,-2.12l-3.11,-4.75l-0.96,-0.43l-0.99,-1.25l-1.6,-0.69l-1,-1.46l-0.44,-2.4l-2.33,-2.65l-0.7,-1.67l-1.72,-0.29L309.68,416.41z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Nicaragua.tsx
+import { useState as useState2 } from "react";
 var Nicaragua = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      NicaraguaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      NicaraguaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var NicaraguaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -65,27 +157,161 @@ var Nicaragua = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -40 1300 600" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var NicaraguaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Nicaragua_default = Nicaragua;
 

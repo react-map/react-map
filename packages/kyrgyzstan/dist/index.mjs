@@ -1,5 +1,5 @@
 // src/Kyrgyzstan.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Batken",
@@ -28,15 +29,106 @@ var drawPath = {
   "Ysyk-K\xF6l": "M644.05,203.98L642.2,203.54L640.26,201.99L639.41,200.67L638.94,198.5L639.87,195.94L638.63,195.86L638.17,195.24L633.83,195.86L633.13,196.71L629.56,198.03L626.23,200.28L623.75,199.82L618.32,197.57L615.84,197.88L610.95,197.18L610.1,197.72L605.45,198.27L602.81,195.86L602.81,192.53L604.05,191.06L601.73,190.28L600.41,189.19L590.33,191.21L582.89,194.78L582.19,194.47L582.03,192.92L584.13,191.68L585.83,189.89L586.53,188.5L586.61,185.94L588,182.91L587,181.13L585.76,180.59L584.05,181.05L582.81,180.74L580.17,179.35L578,171.21L576.92,169.5L575.68,169.11L579.71,169.27L580.25,168.18L582.19,162.6L580.79,158.34L580.17,158.34L578.86,160.82L576.68,162.45L571.96,163.38L562.14,162.14L558.34,164.69L556.48,164.23L555.16,162.76L554.15,162.45L547.1,163.61L541.05,163.53L538.73,160.43L538.03,160.28L536.4,161.83L535,161.59L535.08,159.81L536.71,154.96L536.4,154.11L534,152.72L533.76,151.86L534.46,150.24L536.24,149.07L536.87,147.99L536.63,145.66L535.93,144.34L534.85,143.33L533.07,142.71L531.52,143.65L530.66,144.96L525.47,145.51L519.73,144.65L518.33,145.2L518.02,143.65L518.49,142.09L517.87,139.23L519.27,136.28L520.04,135.81L521.82,136.28L526.71,136.12L527.79,135.5L528.34,134.42L528.41,132.25L530.35,131.01L530.74,129.92L530.27,128.06L529.81,127.75L528.34,128.84L527.41,128.53L526.79,127.13L523.22,126.12L521.98,124.65L518.96,123.64L517.95,122.71L517.25,122.56L515.93,123.41L513.22,123.02L511.82,122.17L511.28,120.93L506.86,120.31L505.7,120.77L501.12,118.53L499.04,118.02L497.18,118.02L495.87,119.49L493.39,119.42L490.13,120.73L487.11,119.96L487.03,119.11L489.04,115.62L490.44,115.54L491.14,114.61L491.45,112.83L493,109.65L493,108.33L492.61,107.71L488.35,106.08L488.35,103.37L484.39,100.81L484.63,98.72L482.92,94.3L482.53,91.58L482.84,89.88L482.14,89.49L483.07,84.22L482.38,83.52L477.26,82.9L476.48,83.21L475.63,86L469.58,86.78L469.35,85.54L467.65,85.23L467.49,83.05L465.71,83.29L464.31,81.66L459.89,80.19L458.15,78.31L458.15,78.31L461.83,75.64L463.31,72.23L464.22,71.43L465.7,71.43L467.06,70.3L470.58,70.18L470.7,68.14L470.13,65.86L470.7,64.61L472.97,64.96L475.47,66.09L478.08,65.52L481.94,65.64L482.74,64.73L487.28,63.93L488.42,63.02L490.35,62.57L493.65,62.57L495.24,63.25L496.71,62.8L497.74,62.12L498.08,59.5L500.58,58.37L502.39,56.32L508.98,52.12L510.92,50.07L513.42,50.41L515.01,49.62L517.73,49.28L517.85,47L519.78,47.12L520.8,48.03L522.84,47.57L526.37,48.14L528.18,47.35L530.57,47.69L533.18,46.55L538.07,47.23L539.77,47L544.32,44.96L547.27,45.3L547.95,44.5L549.43,44.05L560,42.69L562.72,43.14L563.86,42.57L565.34,37.8L568.52,34.96L571.25,34.28L572.1,32.97L572.95,33.68L577.92,33.68L581.87,34.3L584.09,33.05L589.81,31.68L591.86,32.13L594.83,31.51L596.72,32.02L597.69,33.05L603.35,33.28L609.4,34.36L612.31,33.85L616.83,36.53L618.69,36.36L621.43,37.5L622.57,37.45L624.25,39.56L625.26,39.79L628.57,38.47L632.19,39.85L633.51,40.02L636.08,39.39L638.08,39.79L640.46,38.87L640.85,37.67L644.92,37.85L651.71,39.65L653.37,38.79L654.62,36.79L655.36,36.62L657.26,37.62L663.49,35.73L666.8,38.65L668.56,38.9L669.65,40.27L671.42,40.16L673.37,41.22L675.03,43.56L677.93,43.42L678.79,42.9L680.63,43.67L682.57,43.56L684.05,45.16L686.96,44.56L693.92,47.24L700.36,47.47L702.76,48.67L706.76,46.84L712.24,45.19L713.33,45.3L713.36,46.53L711.88,49.39L712.64,53.41L714.16,56.5L717.63,60.94L720.27,62.21L721.47,64.1L724.29,64.32L724.92,64.84L725.04,66.04L729.69,70.67L730.83,72.89L732.71,74.78L734.71,75.81L735.9,78.04L744.14,78.55L746.88,76.38L760.75,80.09L765.61,79.92L767.49,80.38L768.26,81.12L769.06,85.06L771.29,87.12L772.23,89L776.29,89.86L777.46,91.97L780.03,93.34L780.22,94.99L779.57,96.32L782.37,100.37L782.77,101.91L783.63,102.26L784.86,100.89L785.72,100.77L788,101.4L789.74,102.88L790.54,108.88L789.57,113.22L791.85,116.42L791.54,117.4L789.39,117.4L787.49,116.65L786.4,117L785.58,118L781.97,119.02L773.29,118L770.2,118.4L765.74,118.17L761.86,119.14L759.8,120.45L759.47,124.11L758.13,125.37L756.35,130.64L755.06,131.88L754.09,134.45L752.43,135.93L751.63,138.33L748.21,141.76L743.29,142.96L736.66,142.43L734.3,142.9L733.01,141.69L734.39,141.25L733.98,140.65L734.9,140.24L734.66,139.6L735.44,138.71L734.2,136.95L730.61,136.56L727.64,138.05L725.36,140.9L723.76,141.13L722.45,140.5L721.41,141.02L717.24,145.24L717.08,145.99L716.04,146.39L715.7,147.24L714.39,148.1L711.46,147.82L708.62,148.44L706.05,150.96L701.48,152.56L700.73,154.27L696.56,154.78L694.39,155.98L692.57,158.04L692.62,158.52L691.77,158.73L690.62,160.15L688.97,160.73L687.6,162.44L686.45,162.44L686.51,162.84L684.82,163.7L682.17,163.64L681.94,164.15L679.08,164.44L677.66,165.24L676.74,168.67L675.37,169.29L673.77,172.09L670.17,172.44L667.6,171.69L666.69,172.21L665.49,174.61L663.49,175.98L659.49,177.75L655.55,178.26L654.92,179.81L654.86,182.72L656.23,184.32L656.52,188.26L655.03,189.17L654.63,191.63L651.61,191.97L647.95,195.92L646.46,196.72z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Kyrgyzstan.tsx
+import { useState as useState2 } from "react";
 var Kyrgyzstan = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      KyrgyzstanSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      KyrgyzstanMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var KyrgyzstanSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -45,27 +137,161 @@ var Kyrgyzstan = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -50 1400 500" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var KyrgyzstanMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Kyrgyzstan_default = Kyrgyzstan;
 

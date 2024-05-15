@@ -6,6 +6,7 @@ def run_npm_command(package_path):
     original_directory = Path.cwd()
     os.chdir(package_path)
     try:
+        subprocess.run(['npm', 'run', 'build'], check=True)
         subprocess.run(['npm', 'version', 'patch'], check=True)
         subprocess.run(['npm', 'publish'], check=True)
         print(f"npm commands executed successfully for {package_path.name}")

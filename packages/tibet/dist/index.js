@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Tibet.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Chamdo",
@@ -64,15 +65,106 @@ var drawPath = {
   Shigatse: "M407.8,416.48L408.45,411.45L409.55,407.08L413.45,403.89L416.82,400.81L418.53,397.55L421.45,394L425.4,390.76L428.41,385.2L432.16,381.22L435.37,379.6L439.39,378.3L443.85,378.23L447.61,379.49L453.12,379.78L456.56,375.28L453.83,371.51L452.29,365.92L452.11,359.08L454.7,354.43L454.54,348.67L456.22,342.9L457.52,339.39L458.96,334.89L460.12,329.57L456.14,328.21L450.94,327.98L447.1,328.25L443.58,326.75L440.25,322.9L439.8,316.74L441.44,313.16L443.27,309.22L442.03,303.42L443.31,298.85L441.48,294.54L438.73,291.4L435.7,289.42L431.82,288.7L427.63,287.72L423.07,287.87L418.43,286.34L413.75,286.97L409.01,288.63L404.88,289.35L400.64,289.16L395.92,290.01L391.3,294.88L389.33,291.89L385.57,287.95L380.24,288.47L376.06,285.86L374.28,282.41L370.66,282.27L364.85,281.98L360.63,283.4L357.11,282.42L353.46,280.77L352.05,276.21L347.39,274.82L340.21,273.7L338.55,268.08L336.94,262.13L335.5,257.73L331.62,261.43L328.94,258.2L324.12,259.37L323.42,263.82L324.69,268.57L328.54,270.82L329.62,275.14L325.57,274.02L320.99,275.2L320.6,278.49L315.6,279.38L310.83,275.87L309.76,269.54L307.47,263.11L305.19,256.41L301.27,252.18L298.61,253.84L296.61,257.38L295.42,262.38L291.33,264.33L289.69,259.63L287.56,264.84L286.64,268.54L284.1,270.55L288.17,272.62L289.58,277.69L289.44,283.52L286.66,288.09L286.13,293.93L285.12,298.2L282.09,301.49L278.68,303.53L276.71,307.09L272.26,306.08L270.21,309.96L266.99,312.51L262.48,311.64L258.13,308.9L254.73,306.15L251.01,301.85L245.67,297.3L244.98,291.84L243.69,287.99L241.01,284.6L239.53,280.97L238.76,276.38L236.34,272.3L237.19,267.91L239.73,264.31L241.87,261.32L245.08,258.11L242.79,252.31L241.13,246.3L238.43,244.55L236.19,240.29L231.16,238.38L232.75,233.56L238.84,231.14L240.95,225.31L238.23,222.95L234.93,221.9L231.66,218.13L229.86,224.15L224.24,223.85L220.92,225.38L217.3,226.04L213.29,227.58L208.31,228.03L203.08,227.21L197.47,227.39L193.6,226.39L188.88,224.81L184.77,223.59L180.13,227.29L176.65,231.97L175.82,236.71L176.17,241.5L174.91,245.18L170.51,247.17L166.56,248.53L169.04,254.4L172.96,257.47L176.55,258.51L179.22,261.88L183.11,263.17L184.64,267.2L183.22,271.81L179.71,275.39L176,274.05L174.58,269.77L170.02,265.18L165.36,265.95L164.76,271.54L163.49,276.27L163.07,281.81L156.31,281.35L151.62,280.71L149.39,285.81L145.81,288.92L146.61,293.96L150.54,296.51L154.61,298.31L158.62,300.47L162.05,302.54L164.36,305.64L167.43,307.89L171.56,312.26L175.53,312.92L178.83,314.11L181.86,315.88L185.39,316.67L188.71,319.59L192.53,323.59L194.83,328.2L197.16,331.67L199.48,334.39L202.92,335.32L206.98,332.39L211.17,329.7L215.66,329.5L220.68,331.24L223.76,333.8L224.05,338.62L226.06,343.15L226.64,347.83L231.33,349.97L234.76,353.91L239.41,354.94L243.92,358.54L251.24,361.5L254.72,360.65L258.34,357.68L262.15,359.84L262.13,363.94L260.03,367.01L260.46,371.88L264.29,373.33L269.6,374.05L274.29,372.66L277.58,374.06L281.89,372.28L284.35,376.01L287.49,379.32L290.09,383.78L292.14,387.56L294.79,391.07L297.87,388.3L298.01,383.28L300.88,380.84L302.58,386.18L306.11,388.94L309.27,390.55L312.69,389.52L315.35,384.72L320.34,382.87L323.25,384.6L326.32,386.47L330.02,388.48L333.3,389.58L337.19,393.27L341.77,394.4L345.2,394.41L350.12,394.05L355.55,394.28L359.52,395.17L363.92,391.53L370.07,391.34L375.26,391.34L378.95,389.2L382.5,388.76L387.19,387.34L391.96,384.76L395.24,382.7L400.06,384.43L403.52,388.42L405.05,392.72L404.14,398.56L402.98,402.76L401.41,407.01L401.55,410.92L403.78,414.1L407.8,416.48L407.8,416.48z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Tibet.tsx
+var import_react3 = require("react");
 var Tibet = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      TibetSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      TibetMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var TibetSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -81,27 +173,161 @@ var Tibet = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -40 1600 500" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var TibetMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Tibet_default = Tibet;
 

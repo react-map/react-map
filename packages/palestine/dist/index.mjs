@@ -1,5 +1,5 @@
 // src/Palestine.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Jericho",
@@ -48,15 +49,106 @@ var drawPath = {
   Israel: "M290.91,67.89l-0.32,0.86l0.39,1.11l1.95,2.21l0.19,0.89l-0.24,0.5L291.96,74l-1.94,0.23l-3.44,-0.91l-0.73,0.59l-0.41,1.07l0.87,3.58L285.81,85l0.9,2.92l1.48,13.61l3,4.16l0.59,1.43l0.02,1.12l-0.79,2.18l-0.66,1.14l-3.12,5.45l-2.52,5.56l-2.8,3l-4.23,7.59l-5.38,6.25l-0.16,-0.68l-1.09,-0.62l-3.76,1.55l-1.79,0.21l-0.86,0.73l-0.66,1.53l-0.71,2.77l-3.93,0.53l-2.48,2.51l-2.74,1.94l-1.72,0.52l-1.23,0.8l-4.27,0.3l-2.06,1.33l-4.86,2.12l-1.12,1.28l0.32,2.87l-1.95,0.77l0.08,1.25l-0.42,0.49l-1.52,0.42l-2.49,1.89l-0.23,2.09l0.54,0.63l-0.25,3.03l0.4,0.94l1.28,0.7l0.34,1.27l-0.82,1.9l-0.12,1.92l1.77,3.67l-0.17,0.43l-1.73,-0.03l-0.3,1.92l-0.79,-0.02l-1,-0.66l-0.37,0.2l0.11,1.21l1.16,1.88l-0.38,0.65l-1.74,0.37l-0.92,1.3l0.81,0.61l1.11,-0.03l1.1,2.51l1.29,0.52l0.33,0.55l-0.21,1.04l-2.13,3.83l-0.15,1.03l0.27,0.92l1.42,0.69l0.35,0.69l-0.43,0.99l-0.84,0.03l-0.59,0.53l0.43,2.69l-2.03,0.63l0.5,4.59l-0.3,0.76l-1.29,0.38l-0.17,0.33l1.64,2.78l-1.4,-0.13l-4,-1.15l-5.08,-2.37l-2.17,-0.66l-3.92,-0.17l-2.58,0.75l-2.18,-0.35l-1.14,-1.01l0.05,-1.03l-1.23,-1.58l-1,-2.94l0.21,-4.06l-0.54,-4.36l-2.8,-4.74l-2.79,-2.08l-1.46,-0.36l-3.32,-0.05l-8.43,1.55l-2.01,-0.01l-1.37,-0.36l-2.71,-1.34l-2.65,-1.94l-3.07,-3.19l-2.39,-1.3l-1.67,0.26l-0.91,0.46l-0.96,1.09l-2.21,2.5l-0.6,1.24l-2.06,2l-3.4,2.47l-4.29,2.19l-6.93,2.62l-1.31,0.99l-1.6,3l-0.76,2.83l-0.8,5.21l-1.5,4.16l-0.35,2.53l-0.36,2.62l-1.21,1.17l-4.48,2.01l-1.15,1.45l-1.83,3.44l-0.19,5.47l0.81,5.81l-0.57,1.51l-1.46,1.04l-2.37,3.43l-3.12,7.05l-0.29,2.37l0.08,2.35l2.35,3.52l0.93,1.95l1.31,5.78l0.21,2.6l-0.55,2.12l-1.4,2.65l-0.19,1.62l0.54,1.34l1.8,1.92l1.98,3.77l0.57,2.33l-0.4,2.98l-1.39,3.01l0.04,1.36l0.33,1.09l-0.76,0.62l0.76,2l-2.36,5.05l0.42,4.58l2.64,3.56l3.94,3.14l0.83,3.24l-1.53,4.72l-8.6,1.54l-0.16,0.23l-1.97,2.91l1.44,5.41l3.33,1.43l4.76,0.69l4.39,-1.58l3.24,-3.52l3.28,-1.94l3.79,3.51l3.47,1.66l7.44,3l8,-0.04l3.14,3.28l-0.52,7.3l-1.8,2.81l-0.24,0.37l-8.69,0.23l-7.35,3l-9.01,8.91l-8.08,3.88l-2.86,2.5l-5.26,5.68l-1.57,2.62l-2.67,3.98l-1.52,7.56l0.75,8.2l-0.64,3.5l-3.45,6.55l-3.82,4.93l-3.35,6.73l0.47,4l1.94,3.13l2.76,2.29l4.28,1.14l7.82,-1.03l7.23,-1.8l7.04,0.59l9.94,0.64l3.64,-1.89l2.39,0.55l3.73,-0.64l3.22,-0.27l4.15,-0.78l2.53,-1.52l5.03,-5.15l4.29,-4.83l5.58,-2.48l5.72,-4.18l6.1,-5.38l2.72,-0.96l11.39,0.16l-0.02,3.49l-0.07,10.28l-0.61,4.05l-2.83,8.09l-6.52,11.72l-1.99,4.04l-1.85,3.26l-0.88,4.04l1.97,4.28l7.69,10.35l1.37,2.94l0.86,4.18l0.17,3.12l-1.16,5.14l-1.07,3.67l-6.59,10.17l-0.7,4.08l0.4,3.26l1.41,3.9l-0.01,4.13l-2.99,2.74l-6.48,4.25l-4.61,10.16l-0.05,3.62l0.86,3.3l-0.88,4.03l-3.3,1.19l-2.57,3.11l-1.52,4.16l-0.01,8.14l-2.44,5.67l-4.23,7.72l-0.92,4.43l-2.56,2.37l-5.08,9.82l-0.41,3.29l-3.9,18.07l-1.19,3.56l-2.38,3.42l-0.69,2.69l5.97,11.21l0.91,3.1l-0.55,2.37l-3.83,4.24l-1.1,3.42l0.59,3.96l-3.29,7.29l5.4,23.89l-13.34,19.14l-3.59,14.26l0.54,15.48l-5.08,10.16l-0.77,3.72l0.5,2.95l-0.5,3.99l-2.94,12.24l0,6.66l0.45,4.17l0.05,3.85l-2.26,2.76l-3.08,2.27l-2.62,3.04l-1.85,3.71l-1.67,4.72l-0.34,-0.11l-0.72,0.05l-0.43,-0.44h-0.38l-0.14,0.55l-0.19,0.06l-0.1,0.55l-0.24,0.27l-0.05,0.27h-0.43l-0.1,0.27l-0.43,0.16l-0.19,0.38l-0.14,0.82l-0.43,0.71h-0.38v0.16l-0.53,0.6l-0.62,0.38l-0.14,0.55l-0.67,0.66v0.82l-0.43,0.27l-0.62,0.88l-0.34,0.27v0.49l-0.77,0.88L117.5,792l-4.35,-5.04l-2.27,-4.29l-0.82,-3.3l-0.69,-5.74l1.62,-5.39l0.81,-5.39l-0.78,-3.71l-3.09,-5.38l0.12,-9.51l-17.63,-49.49l0.36,-3l-5.59,-15.43l-14.84,-41.99l-3.51,-13.2l-12.03,-7.87l-0.44,-6.11l3.56,-10.05l-7.48,-8.77l0.5,-10.87l-4.99,-20.76l-15.18,-31.89L20.94,496L6.72,448.8l7.76,-5.82l7.67,-6.63l1.9,-3.49l-0.04,-5.41l-0.43,-5.79l1.51,-5.04l5.75,-7.39l17.29,-16.76l5.02,-1.19l1.53,-2.72l-0.02,-3.87l-2.35,-3.47l-7.5,-6.99l4.17,-6.77l0.72,-0.45l0.33,-0.5l-0.05,-0.11l-0.29,-0.06l0.05,-0.5l-0.14,-0.06v-0.17l0.58,-0.67v0.22l-0.43,0.5l0.48,0.11l0.1,0.17l0.14,-0.06l2.63,-4.37l0.34,-1.18l0.62,-0.45l0.96,-1.23l0.38,-0.78l-0.05,-0.28l0.53,-0.67l0.29,-0.73l0.24,-0.17l0.1,0.22h0.19l2.92,-5.21l0.53,-0.73l1.34,-2.69l0.77,-0.95l0.38,-1.12l1.92,-3.31l1.72,-3.7l0.86,-1.46l0.86,-2.07l0.29,-0.5l0.14,-0.06l-0.05,-0.17l0.48,-0.9l0.48,-1.35l0.62,-1.12l0.72,-1.68l-0.53,-0.56l-0.29,-0.95l0.05,-0.79l0.48,-1.18h0.14v0.39l-0.19,0.11l-0.29,0.67v0.95l0.62,1.07h0.38l0.1,-0.28l-0.48,-0.28v-0.17l0.19,-0.11l-0.05,-0.56l0.14,-0.17l0.05,-0.45v-0.17l-0.19,-0.11v-0.22h0.43l0.19,0.22h1.1l0.1,-0.28l0.38,-0.39l0.1,-0.22l-0.24,-0.11l-0.05,-0.28l0.05,-1.46l0.14,-0.11l0.05,0.22h0.14v-0.11l0.38,-0.22l1.42,-3.6l1.11,-2.38l1.58,-3.96l0.19,-0.84l0.53,-1.12v-0.22l0.19,-0.22l0.24,-1.23l0.29,-0.56l0.05,-0.67l0.19,-0.06l0.05,-0.22l0.14,-0.06v-0.39l0.1,-0.17h0.14l0,-0.28h0.1l0.38,-0.67l0.24,-0.11l0.05,-0.34l1.44,-2.13l1.24,-3.03l1.2,-3.15l2.11,-7.28l0.38,-1.49l0.38,-0.9l0.14,-1.29l0.38,-0.51l-0.24,-0.17l0.33,-1.12l0.29,-0.45v-0.34l0.19,-0.45l0.24,-0.28l0.14,-1.24l0.58,-0.45v-0.51l-0.19,-0.17l0.53,-0.51h0.33l0.43,-0.34l0.53,-0.84l0.34,-1.07l0.24,-0.34l0.05,-0.51l-0.1,-0.11l0.29,-0.11l-0.19,-0.28l0.14,-0.17l-0.1,-0.06l0.1,-0.39l0.72,-1.69l0.05,-0.51l0.2,-0.11l0.13,-0.34l-0.24,-0.68v-0.56l0.38,-0.28l0.19,0.06l0.29,-0.9l0.43,-0.84l-0.24,-0.45l0.05,-0.34h0.14l0.1,0.28h0.19l0.53,-1.63l0.33,-1.69l0.43,-0.56l0.14,-0.39l-0.05,-0.23l0.14,-0.11l0.48,-1.86v-0.84l0.57,-1.46l-0.1,-0.62l0.53,-0.28l-0.05,-0.45l-0.34,-0.23l0.1,-1.29l0.19,-0.17l0.29,0.11l0.1,-0.17l0.67,-2.25l0.48,-2.53l0.34,-0.58l0.29,-0.78v-0.28l-0.14,-0.17l0.05,-0.28l0.53,-1.24l0.24,-0.23l-0.05,-0.45l0.43,-0.79l0.05,-0.68l0.53,-0.79l0.1,-0.79l0.24,-0.56l-0.1,-0.56l0.38,-0.39v-0.9l0.34,-1.46l0.29,-0.45l0.48,-1.3l-0.05,-0.68l0.19,-0.28l0.24,-0.79l-0.05,-0.17l0.53,-1.41l0.04,-0.85h-0.14v-0.17l0.34,-0.56l0.1,-1.3l0.53,-1.01l0.1,-0.56l0.43,-0.96l-0.05,-0.68l0.19,0.11l0.14,-0.06l-0.1,-0.96l0.19,-1.02l0.19,-0.17l-0.05,-0.39l0.72,-3.21v-0.23l-0.24,-0.17l-0.05,-0.28l0.62,-0.34l0.05,-0.17l0.33,-1.92l0.19,-0.51v-0.68l0.29,-0.56l0.81,-3.72v-0.68l0.24,-1.24h-0.29v-0.11l0.53,-0.51l0.14,-0.34l0.1,-0.79l-0.1,-0.68l0.29,-1.13l-0.33,-0.23l0.24,-0.51l0.19,-0.11l0.38,-1.02l0.14,-0.06l0.14,-0.84l-0.1,-0.17l0.19,-0.45l0.34,-0.17l0.14,-0.45v-0.11h-0.48l0.29,-0.4v-0.28l0.24,-0.45l0.38,-0.17l-0.05,-0.17l0.1,-0.06l0.72,-3.5l0.1,-1.64l0.53,-1.58l0.29,-1.52l-0.38,-1.02h-2.11v-0.28l1.87,-0.06l0.14,-0.11l0.1,-0.45l0.19,0.17l0.05,0.4h0.57l0.05,-0.11h-0.33l-0.14,-0.17v-0.23l0.19,-0.06l0.1,-0.39v-0.23l-0.19,-0.06v-0.17l0.19,-0.06l0.05,0.17h0.14l0.24,-0.17l-0.1,-0.17l0.05,-0.62l0.53,-0.9l-0.1,-0.28l-0.29,0.11l-0.05,-0.79l0.19,-0.11v-0.45l0.19,-0.34l-0.1,-0.23l0.34,-0.4v-0.4l-0.19,-0.17l0.1,-0.68l0.38,-0.28l0.05,-0.79l0.48,-0.62l-0.48,-0.06l-0.05,-0.28h0.24l0.29,-0.62l0.38,-1.69l0.19,-0.28l0.05,-0.73l0.24,-0.45l-0.05,-0.74l-0.29,-0.06l-0.14,-0.17v-0.56l0.24,-0.74l0.38,-0.4l0.34,0.06l0.29,-0.56l-0.05,-0.23l-0.33,-0.06v-0.34l-0.24,-0.17l0.57,-1.07l-0.14,-0.28l0.05,-0.45l0.29,-0.34l0.38,-1.41l0.19,0.11l0.1,-0.23l-0.1,-0.4l0.38,-0.74l-0.1,-0.45l-0.34,-0.34v-0.34l0.34,-0.34l0.14,-0.79l-0.19,-0.11v-0.28l0.29,-0.85l0.29,-0.4l-0.14,-0.23l0.14,-0.4l-0.05,-0.96l0.19,-0.4v-0.51l-0.14,-0.11l0.19,-0.57l0.19,-1.81l0.24,-0.06l0.24,-0.57l0.1,-1.64l0.29,-1.25l0.33,-0.57l-0.29,-0.17l0.24,-1.25l-0.05,-0.91l0.43,-0.4l0.05,-0.23l0.05,-1.81l0.29,-1.87l-0.05,-1.7l0.19,-0.4v-0.17l-0.19,-0.17v-0.28l0.1,-0.11l-0.05,-0.4l0.29,-0.23l-0.05,-0.34l-0.24,-0.17v-0.45l0.29,-0.85v-0.45l0.53,-0.62v-0.28l0.38,-0.4l0.67,0.06l0.48,-0.62l0.34,-0.74l0.19,-0.85l-0.14,-0.51l0.33,-0.4l0.19,-2.1l0.38,-0.91l0.34,-3.97l0.19,-0.74v-1.76l0.1,-0.79l0.19,-0.45l0.24,-2.89l-0.19,-0.91h0.24l0.05,-0.11l0.14,-1.36l-0.05,-0.68l-0.24,-0.45h0.14l0.1,-0.17l0.14,0.17l0.14,-0.06v-0.17l-0.14,-0.06l0.14,-0.45l-0.19,-0.17l-0.14,-0.51v-1.81l0.24,-0.28l-0.19,-0.34l0.29,-0.34l0.43,0.11l1.05,-1.02l0.53,-0.11l0.62,0.06l0.86,-0.45l0.19,-0.34l0.14,-0.11l0.14,0.06l0.14,-0.23h0.43l0.62,0.28l0.43,0.79h0.43l0.24,0.23l0.86,0.34l0.53,0.06v0.17l0.24,0.28l1.29,0.06l1.25,-0.34v0.17l-0.58,0.23l-0.1,-0.11l-0.38,0.28h-0.19l-1.2,-0.11l-0.72,-0.23l-0.86,-0.62l-0.38,0.11l0.24,0.06l0.1,0.23l0.19,0.06l-0.05,0.23l1.01,0.51l0.14,0.28l0.19,0.06l0.29,0.34l0.1,0.4l0.19,-0.11v-0.57h0.19l0.09,0.51h0.24l0.1,-0.34l-0.24,-0.23v-0.23l0.05,-0.11l0.29,0.06l0.38,0.57l0.14,1.08l0.33,0.11l0.19,0.45h0.62l0.24,-0.17l0.53,-0.06l-0.14,-0.4l0.19,-0.06l0.77,0.51l0.14,0.91l0.96,-0.28l0.05,-0.17l-0.14,-0.23l-0.48,-0.06l-0.1,-0.57l-0.38,0.06l-0.29,-0.17l0.77,-0.23l1.53,-1.02l0.33,-0.06l0.19,-0.4l0.29,-0.06v-0.23l0.33,-0.17v-0.28l0.24,-0.23l0.29,-0.62l0.67,-0.62l1.01,-1.48l1.72,-4.03l0.29,-0.11l-0.1,-0.4l0.43,-1.42l0.19,-0.11l-0.05,-0.23l0.38,-1.08l0.24,-0.17l-0.1,-0.23l0.48,-1.65l-0.05,-0.23l0.43,-2.21l0.05,-2.5l-0.48,-0.98l-0.33,-0.5l-0.38,-0.28l-0.57,-0.06l-0.19,0.17v0.45l-0.34,-0.11l-0.43,0.06v-0.45l0.77,-2.04l0.1,-1.48l0.67,-2.78l0.05,-1.65l0.14,-0.34l-0.05,-0.68l0.1,-0.06v-0.57l0.19,-0.68l-0.05,-0.28l0.43,-1.08v-0.51l0.29,-0.11v-1.53l0.19,-0.17l0.14,-0.85l0.67,-1.25l-0.05,-0.8l-0.14,-0.28l0.14,-0.11v-0.74l0.24,-0.45l-0.05,-0.57l0.29,-0.63l-0.05,-0.17l0.24,-0.11l-0.1,-0.57l0.33,-0.68l0.14,-0.85l0.24,-0.45l0.1,-0.85l0.48,-0.85l-0.19,-0.11V80.4l0.48,-0.4l-0.1,-0.11l0.14,-0.46l-0.1,-0.28l0.33,-0.51l-0.1,-0.57h0.14l-0.05,-0.63l0.24,-0.17l0.05,-1.31l0.19,-0.4l0.1,-1.88l0.19,-0.34v-0.63l-0.14,-0.17v-1.94l7.69,-0.11l5.43,-0.46l6.1,1.06l0.6,-0.26l0.99,-1.07l1.99,-0.65l6.38,-0.21l6.64,-0.93l3.42,0.8l2.9,5.52l1.62,1.86l2.6,1.54l1,0.29l4.38,-1.96l4.73,-0.37l1.24,-0.66l2.94,-2.84l0.85,-1.16l1.42,-1.04l0.75,-0.08l3.04,0.73l2.92,-1.1l0.4,-0.49l0.23,-2.59l0.39,-0.86l3.28,-1.39l0.86,-2.05l0.35,-4.48l1.08,-4.98l1.1,-1.92l0.85,-2.29l-0.14,-2.49l-0.62,-2.8l0.08,-1.6l1.47,-3.35l1,-0.84l1.61,-2.13l1.65,-3.64l0.41,-0.44l1.21,0.99l4.08,5.82l0.67,0.21l0.64,-0.61l0.65,-1.62l0.81,-1.06l5,-2.35l5.28,-3.16l1.77,-1.71l2.56,-4.09l1.44,-1.3l1.07,-0.42l4.32,0.36l2.62,-0.45l3.46,-1.44l3.21,-2.61l1.01,-1.38l0.53,-1.62l0.81,-5.23l1.47,-2.36l2.62,-1.9L289.33,0l0.89,0.69l0.24,1.48l-0.62,2.61l-1.81,2.98l-3.42,3.91l-1.47,3.82l-0.53,3.72l0.83,8.33l-0.26,1.4l-1.98,3.39l1.28,1.53l2.55,2.17l1.11,1.56l0.58,0.99l1.15,4.17l0.22,2.41l-0.34,1.63l-0.65,1.67l-1.54,1.67l-0.55,1.1l0.33,2.22l1.43,0.52l2.36,0.25l1.31,0.61l3.63,5.26l-0.41,5.37L290.91,67.89z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Palestine.tsx
+import { useState as useState2 } from "react";
 var Palestine = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      PalestineSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      PalestineMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var PalestineSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -65,27 +157,161 @@ var Palestine = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -20 1400 850" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var PalestineMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Palestine_default = Palestine;
 

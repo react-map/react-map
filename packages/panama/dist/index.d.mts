@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Panama: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: PanamaProps) => React.JSX.Element;
+declare const Panama: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: PanamaProps) => React.JSX.Element | null;
 interface PanamaProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Panama as default };

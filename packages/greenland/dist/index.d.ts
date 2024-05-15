@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Greenland: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: GreenlandProps) => React.JSX.Element;
+declare const Greenland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: GreenlandProps) => React.JSX.Element | null;
 interface GreenlandProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Greenland as default };

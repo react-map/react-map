@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Egypt: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: EgyptProps) => React.JSX.Element;
+declare const Egypt: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: EgyptProps) => React.JSX.Element | null;
 interface EgyptProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Egypt as default };

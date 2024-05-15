@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Slovakia: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: SlovakiaProps) => React.JSX.Element;
+declare const Slovakia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: SlovakiaProps) => React.JSX.Element | null;
 interface SlovakiaProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Slovakia as default };

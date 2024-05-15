@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Cuba: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: CubaProps) => React.JSX.Element;
+declare const Cuba: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: CubaProps) => React.JSX.Element | null;
 interface CubaProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Cuba as default };

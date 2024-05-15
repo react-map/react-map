@@ -1,5 +1,5 @@
 // src/Solomonislands.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Capital Territory (Honiara)",
@@ -34,15 +35,106 @@ var drawPath = {
   Malaita: "M388.66,283.23L387.9,283.55L387.13,283.46L386.41,283.57L385.8,284.47L385.71,285.27L386.41,289.53L387,291.15L387.82,292.52L388.66,293.23L388.94,292.21L388.94,291.2L388.18,286.17L387.81,285.3L388.05,285.12L388.14,284.93L388.25,284.47L388.61,284.04L388.71,283.73L388.66,283.23zM355.61,266.53L355.37,265.56L354.95,264.96L352.89,263.7L352.09,262.86L351.59,262.13L351.3,262.08L350.86,262.41L352.14,264.57L352.54,265.73L352.54,267.01L352.79,266.89L353.46,266.71L353.72,266.59L353.93,267.85L354.4,268.85L354.59,269.82L353.61,271.58L353.58,272.35L353.72,273.68L353.72,277.23L353.72,280.95L354.08,282.22L354.94,283.72L355.99,285.14L356.97,286.17L357.59,285.13L358.02,283.43L358.67,283.23L359.33,283.56L359.71,284.23L360.27,285.72L362.74,288.44L362.98,289.68L363.54,289.46L364.12,288.37L364.4,287L364.25,285.65L363.38,283.62L363.18,282.61L363.26,280.42L363.14,279.36L362.74,278.25L361.95,276.84L361.48,276.17L360.91,275.55L360.43,274.9L359.99,273.55L359.66,273.04L358.93,272.17L357.41,269.08L355.61,266.53zM434.62,204.36L434.94,204.25L435.19,204.09L435.4,203.85L434.68,203.59L434.04,203.56L433.78,203.83L434.26,204.44L434.62,204.36zM318.1,202.65L317.48,202.31L316.75,201.72L315.62,200.1L314.87,199.68L313.48,199.65L313.48,199.27L312.96,199.21L312.43,199.47L312.01,199.88L311.84,200.31L313.69,201.53L313.89,202.06L313.52,202.54L312.87,202.87L312.25,203L311.8,202.82L310.62,201.72L308.39,200.89L306.17,200.63L304.95,201.54L305.7,204.24L306.35,205.15L308.39,207.17L309.17,207.55L309.47,208.14L311.84,211.27L313.28,214.44L313.27,214.99L312.17,215.28L310.41,216.81L309.35,217.52L311.29,221.79L311.41,222.34L311.44,225.61L311.67,226.44L314.14,231.44L314.97,232.74L315.9,235.79L315.94,236.67L316.26,237.14L316.36,237.48L316.26,237.83L315.94,238.29L316.74,239.73L317.79,242.7L322.15,250.76L323.46,252.15L326.85,253.68L328.25,254.91L328.36,255.35L328.26,256.34L328.45,256.79L328.87,257.02L329.84,256.93L330.3,257.02L331.11,257.6L332.78,259.5L332.46,260.54L335.26,260.93L336.7,262.61L340.8,264.71L343.63,267.66L344.28,268.7L344.48,269.38L344.58,270.56L344.72,271.16L345.03,271.72L347.41,274.84L347.84,275.76L348,276.8L348.58,276.85L351.68,279.04L352.58,279.48L353.22,279.29L353.59,278.52L353.62,277.22L352.9,272.44L351.75,270.36L350.9,269.21L350.27,268.7L349.73,268.16L347.84,263.4L347.16,262.44L344.8,259.98L344.3,259.25L344.17,258.6L344.72,258.26L345.29,258.55L345.59,259.15L345.96,259.53L346.77,259.09L346.06,258.4L345.7,256.21L345.32,255.74L345,255.41L344.75,254.7L344.7,253.99L344.91,253.66L345.51,253.63L347.14,253.25L347.14,252.83L346,252.47L345.54,252.42L345.75,251.6L345.39,251.05L344.68,250.87L343.9,251.18L343.67,250.74L343.29,250.43L342.2,249.93L343.7,248.75L343.9,248.48L343.77,247.82L343.42,247.46L343,247.24L342.65,246.99L342.22,246.76L341.83,246.75L341.52,246.59L341.42,245.95L341.43,245.31L341.36,244.81L341.12,244.43L340.6,244.13L340.9,243.2L340.56,242.23L339.87,241.49L339.14,241.19L338.62,240.84L338.8,240.15L339.41,239.68L340.19,239.98L339.12,238.47L337.74,237.12L336.24,236.06L334.83,235.39L334.74,235.49L334.48,235.64L334.09,235.67L333.6,235.39L333.24,234.84L333.39,234.46L333.64,234.13L333.6,233.7L333.08,233.11L331.44,231.87L330.9,231.63L329.47,232.3L328.62,232.44L328.25,231.85L327.98,231.29L326.86,230.23L326.61,229.33L326.48,228.45L326.27,227.68L326.29,226.9L327.24,225.25L327.27,224.45L327.01,223.65L326.61,222.86L327.74,222.25L329.09,221.76L330.22,221.05L330.7,219.79L330.46,218.65L329.87,217.5L328.45,215.63L326.04,213.59L322.93,210.24L320.92,207.14L320.65,206.92L319.82,206.41L319.65,206.11L319.61,205.48L319.51,204.98L319.24,204.24L318.66,203.17L318.1,202.65zM308.96,176.5L308.23,174.33L307.88,173.68L307.48,173.33L306.81,173.47L306.54,174.2L306.87,174.94L308.01,176.51L308.54,176.59L308.96,176.5z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Solomonislands.tsx
+import { useState as useState2 } from "react";
 var Solomonislands = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      SolomonislandsSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      SolomonislandsMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var SolomonislandsSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -51,27 +143,161 @@ var Solomonislands = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 1500 600" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var SolomonislandsMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Solomonislands_default = Solomonislands;
 

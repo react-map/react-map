@@ -1,5 +1,5 @@
 // src/China.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Anhui",
@@ -82,15 +83,106 @@ var drawPath = {
   Zhejiang: "M610.42,405.84l-0.32,-0.35l0.02,-0.86l0.47,-0.52l0.57,0.53l0.12,0.73L610.42,405.84zM612.48,405.48l0.5,-0.25l1.28,0.25l1.56,0.97l0.6,-1.39l-2.97,-1.97l-1.56,0.09l-0.36,-0.48l-0.18,0.34l0.53,0.76l0,0.75L612.48,405.48zM617.67,399.36l-0.09,-0.49l-0.73,-0.48l-1.19,0.06l0.02,0.76L617.67,399.36zM617.26,402.04l0.09,-0.53l-0.89,-0.04l-0.85,0.45l1.3,-0.17L617.26,402.04zM615.04,401.96l-0.1,-1.45l-0.55,-0.1l-1.06,0.7l-0.54,-0.12l1.11,0.71L615.04,401.96zM613.7,408.38l-0.66,0.22l-0.29,0.88l0.77,-0.05l0.35,0.79l0.55,0.18l0.35,-0.57l-0.97,-0.91L613.7,408.38zM616.31,406.27l0.97,1.5l0.2,-1.62l-0.94,-0.18L616.31,406.27zM614.94,407.79l1.18,0.93l-0.19,-1.01L614.94,407.79zM602.88,431.44l-0.36,-0.42l-0.41,0.67l-0.93,0.5l0.29,1.42l1.75,-0.75l-0.43,-0.75L602.88,431.44zM611.83,415.87l0.29,-0.1l0.03,0.28l-0.8,0.99l-1.59,0.53l-0.34,-0.56l0.51,-2.07l-0.22,-0.55l-0.48,0.31l0.21,1.3l-0.32,1.18l-0.96,0.2l-0.73,-0.25l-0.39,-0.9l-0.15,0.16l-0.58,0.26l-0.14,0.47l0.99,0.71l-1.8,-0.22l-0.05,0.73l2.41,-0.02l-0.13,0.75l0.92,0.57l-0.59,0.5l0.81,0.4l-1.11,0.63l-1.06,-0.65l-0.55,0.08l0.5,0.61l1.16,0.32l-0.07,0.45l0.49,0.36l-0.27,0.34l0.32,0.21l-0.39,0.02l-0.4,1.18l-2.06,0.29l0.69,0.27l0.55,1.83l0.5,0.28l0.09,-0.34l0.29,0.1l-0.63,1.38l0.56,1.29l-0.17,0.32l0.83,-0.35l-0.37,0.95l-0.69,0.51l-0.02,-0.89l-1.53,-0.28l-0.17,0.5l-0.41,-0.13l0.3,0.56l-0.95,0.58l0.35,0.59l-0.66,0.59l-0.77,-0.76l-0.08,-0.69l-0.58,-0.29l-0.53,-1.8l-0.82,1.54l0.17,0.51l-0.45,1.11l-0.96,0.36l-0.71,2.25l-1.98,-0.09l-1.2,-0.69l0.36,0.76l1.59,0.74l-0.04,0.96l-2.39,2.48l-0.21,1.07l-0.72,0.34l0.32,1.28l0.77,0.34l-0.64,0.72l0.11,0.88l-1.29,-0.55l0.21,0.35l-0.64,0.61l0.54,0.25l-0.04,0.49l-0.41,0.11l0.3,0.42l-0.29,0.72l-0.57,0.46l-0.36,-0.8l-0.17,0.6l-0.4,-0.95l0.28,-0.25l-0.89,-1.19l0,0l-0.07,-0.69l-0.92,0l0,0l-0.38,-0.55l-1.38,0.18l-1.3,1.1l-0.4,-0.54l0,0l-0.8,0.57l0,0v0.35l-0.83,0.17l-0.3,-0.28l-0.18,0.31l0,0l-0.86,-0.08l0,0l0.15,-0.31l0,0l-1.21,-1.54l0.26,-0.98l0,0l-0.97,-1.22l0.1,-1.1l-1.04,-0.08l-0.23,0.45l-0.56,-0.18l-0.54,2.04l-0.95,-0.3l-1.67,1.61l-1.43,-0.18l-0.09,-0.7l-0.84,0.18l-0.59,-0.37l-0.64,0.51l0,0l-0.56,0.03l-0.44,-0.82l0,0l-0.28,-0.09l0.63,-0.72l-0.46,-1.63l0.29,-0.37l-1.01,-2.77l-1.11,-0.95l-0.14,-1.11l1.02,-0.95l0.04,-0.63l-0.43,-0.21l0.46,-0.92l-0.54,-0.1l-0.65,-0.84l-1.28,0.79l-0.38,-0.5l-0.98,0.14l-0.12,0.58l-0.77,-0.73l0,0l0.72,-0.62l-0.53,-1.05l0.36,-0.92l-0.64,-0.34l0.2,-2.54l-0.67,-1.63l-1.04,-0.69l-0.49,-1.27l-0.81,0.18l0.27,-0.46l-0.44,-0.55l-1.07,-0.16l-0.71,-1.51l-0.15,-1.16l0.58,-0.72l-0.01,-0.94l1.17,-0.08l0.52,-0.8l-0.22,-0.59l0,0l0.64,-0.57l0.79,0.14l0.11,-1.03l1.08,0.24l0.23,-0.44l0.83,0l0.83,-1.5l1.26,-0.53l1.13,-1.21l0.2,-1.6l0.9,-0.56l0.17,-0.79l0.68,-0.17l0.08,-1.1l-0.41,-1.18l0.33,-0.69l-0.57,-0.1l0.94,-0.76l-0.39,-0.29l-0.13,-1.25l0.92,-0.64l1.13,0.78l0.54,-0.28l1.77,0.5l0.29,-0.74l0.94,-0.44l0.45,0.31l0.48,-0.24l-0.64,-0.71l-0.29,-1.66l-0.67,0.27l-0.39,-0.36l0.31,-0.62l-0.32,-0.52l0.92,-0.1l0.88,-0.93l0.37,0.58l0.37,-0.06l0.57,-0.88l0.01,-1.02l0.52,0.03l0.56,-0.85l-0.14,-1.14l0.86,-1.47l0.07,-1.8l0,0l0.45,-0.41l1.42,-0.23l0.19,0.27l1.45,-0.16l1.05,2.18l2.01,1.32l1.55,0.09l1.19,-0.36l-0.11,0.96l0.69,-0.13l0,0l0.2,-0.39l0,0l0.29,1.56l0.69,0.76l0.94,-1.35l0.83,0.02l0.73,-0.63l-0.28,-0.78l0.23,-0.28l0.48,0.11l1.03,-0.62l0.23,0.35l0.71,-0.41l0,0l0.79,-0.21l0.47,0.36l-0.17,1.5l0.38,0.37l-0.34,0.69l1.46,-0.35l0.33,0.98l1.07,-0.01l0.57,0.56l0.11,0.81l0,0l-1.23,0.61l-0.48,0.63l-1.78,0.68l-0.69,1.15l0.35,0.63l-0.7,0.38l0.02,0.54l-1.85,0.75l-0.43,-0.87l-1.04,-0.35l0.54,2.04l0.53,0.56l1.02,0l0.71,1l3.9,-2.49l1.96,-0.04l1.24,0.63l1.01,1.14l2.21,3.29l1.43,0.21l1.53,0.7l0.19,0.4l2.49,-0.19l0.11,0.36l-1.94,0.92l-0.98,0.93l-0.53,-0.04l-0.15,0.85l-0.97,0.63l-0.97,1.34l-1.64,0.18l-0.61,0.45l-0.1,-0.5l-0.33,0.1l-0.8,1.01l0.28,0.87l0.8,-1.09l0.14,0.48l-0.42,1.02l0.97,-1.28l1.96,-0.96l1.02,0.93l0.35,-1l-1.05,0.08l-0.04,-0.26l0.62,-0.67l1.55,-0.57l1.01,0.62l-0.91,0.89l0.78,1.19l-0.83,0.53l0.25,0.34l-0.31,0.73l0.48,0.1l-0.45,0.14l-0.14,0.46L611.83,415.87zM610.51,417.76l-1.11,-0.01l0.03,0.43l0.64,0.28l0.93,-0.26l0.28,0.81l0.29,-0.02l0.39,-0.43l-0.5,-1.41L610.51,417.76z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/China.tsx
+import { useState as useState2 } from "react";
 var China = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      ChinaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      ChinaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var ChinaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -99,27 +191,161 @@ var China = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-40 -50 1000 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var ChinaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var China_default = China;
 

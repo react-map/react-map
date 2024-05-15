@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Oceania: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: OceaniaProps) => React.JSX.Element;
+declare const Oceania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: OceaniaProps) => React.JSX.Element | null;
 interface OceaniaProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Oceania as default };

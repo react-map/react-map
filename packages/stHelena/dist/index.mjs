@@ -1,5 +1,5 @@
 // src/Sthelena.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Alarm Forest",
@@ -30,15 +31,106 @@ var drawPath = {
   "Saint Paul's": "M383.992,292.103L384.011,292.233L384.164,292.454L384.343,292.824L384.489,293.355L384.559,294.18L384.511,295.28L384.295,297.092L383.444,302.681L382.801,307.229L381.681,316.09L380.253,316.248L380.253,316.248L375.801,316.726L374.057,316.839L372.238,316.92L367.313,317.055L363.267,317.108L358.979,317.122L351.784,317.082L348.141,317.127L345.819,317.222L344.079,317.356L342.828,317.51L341.598,317.73L341.005,317.87L340.318,318.073L339.449,318.407L338.777,318.74L338.463,318.926L337.735,319.448L337.327,319.8L336.937,320.183L336.438,320.746L336.113,321.156L335.302,322.311L334.009,324.334L333.573,324.902L333.098,325.43L332.496,325.961L331.857,326.371L331.581,326.502L331.157,326.655L330.724,326.75L330.427,326.781L330.124,326.795L329.66,326.764L328.975,326.624L328.474,326.462L328.088,326.304L327.213,325.854L326.627,325.488L325.895,324.975L325.129,324.375L323.645,323.135L322.927,322.604L322.177,322.099L321.397,321.616L320.536,321.134L319.592,320.656L318.451,320.138L316.757,319.479L315.537,319.078L314.287,318.718L313.077,318.425L311.73,318.15L310.492,317.947L308.998,317.767L307.562,317.654L306.192,317.604L304.83,317.613L303.299,317.694L301.852,317.844L300.435,318.064L299.225,318.316L297.936,318.659L297.282,318.862L296.22,319.245L294.681,319.898L293.691,320.277L292.773,320.566L292.091,320.719L291.618,323.009L291.618,323.009L290.9,322.607L290.659,322.518L290.403,322.478L290.155,322.373L289.49,321.963L288.873,321.48L288.186,320.868L287,319.651L286.436,319.124L285.884,318.678L285.16,318.187L284.382,317.753L283.708,317.451L282.727,317.118L281.711,316.893L280.863,316.784L279.71,316.748L278.661,316.82L278.075,316.901L276.998,317.127L276.315,317.316L275.491,317.596L273.969,318.173L272.413,318.628L271.124,318.902L270.407,319.016L269.347,319.133L267.904,319.2L266.522,319.155L265.24,319.011L264.313,318.835L263.57,318.646L262.717,318.366L261.784,317.97L260.967,317.523L259.995,316.87L258.846,315.978L257.653,314.95L255.928,313.313L254.856,312.219L254.856,312.219L253.593,310.857L252.732,309.884L252.732,309.884L250.818,307.566L249.34,305.598L248.653,304.605L247.951,303.515L247.489,302.73L246.689,301.252L246.098,300.306L245.642,299.643L245.086,298.899L243.977,297.574L243.022,296.578L242.124,295.776L241.478,295.289L239.335,293.842L238.441,293.198L236.911,292.021L235.681,290.989L234.303,289.709L233.381,288.758L232.524,287.785L231.824,286.906L231.081,285.878L230.229,284.535L229.457,283.124L228.894,281.939L228.312,280.542L227.728,278.896L227.303,277.504L226.88,275.917L226.638,274.894L226.271,273.154L225.354,267.976L224.95,266.105L224.602,264.663L224.148,262.973L223.603,261.17L223.141,259.85L222.45,258.159L222.186,257.371L221.846,256.104L221.612,254.973L221.327,252.985L221.237,252.039L221.152,250.678L221.113,249.213L221.126,247.59L221.244,245.26L221.379,243.755L221.56,242.259L221.809,240.654L222.162,238.838L222.713,236.616L223.084,235.399L223.509,234.2L223.928,233.182L224.194,232.609L224.66,231.722L225.053,231.077L225.358,230.635L225.781,230.104L226.507,229.351L227.183,228.571L227.455,228.22L228.05,227.336L228.367,226.795L228.947,225.628L229.341,224.673L229.642,223.821L230.133,222.126L230.442,220.774L230.688,219.467L230.994,217.417L231.144,216.141L231.312,214.383L227.874,201.981L226.311,200.065L225.615,199.132L225.206,198.533L224.765,197.816L224.44,197.19L224.218,196.649L224.059,196.118L223.98,195.698L223.945,195.225L223.969,194.752L224.041,194.31L224.183,193.796L224.383,193.265L224.571,192.85L225.096,191.832L225.301,191.304L225.375,191.034L225.443,190.615L225.46,190.331L225.445,189.912L225.338,189.245L225.109,188.47L224.813,187.712L224.246,186.473L223.952,185.725L223.605,184.693L223.356,183.792L223.182,182.999L223.069,182.282L223.032,181.881L223.014,181.196L222.971,180.799L222.328,177.559L222.133,177.289L221.636,177.491L221.118,177.608L220.666,177.622L220.152,177.536L219.766,177.406L219.28,177.158L218.604,176.671L218.564,176.545L218.564,176.545L219.356,176.374L219.816,176.108L220.376,175.463L220.984,174.706L220.871,174.17L220.919,173.606L221.787,172.836L222.458,172.142L223.019,171.898L223.315,171.43L223.987,171.178L224.545,171.024L225.12,170.691L224.876,170.154L225.016,169.555L225.984,169.253L226.91,169.037L227.373,168.83L227.512,168.221L227.207,167.189L226.753,166.693L226.5,166.044L226.16,165.603L226.117,165.17L226.234,164.805L226.823,165.211L227.436,165.499L228.212,166.283L228.253,166.729L228.927,166.959L229.869,167.216L230.198,166.995L230.141,166.685L230.377,166.554L231.125,166.518L231.851,166.405L232.57,166.125L233.444,166.125L234.362,165.729L234.89,165.283L234.792,164.832L235.112,164.336L235.334,163.76L235.62,163.354L235.808,162.89L236.013,161.898L236.119,160.641L237.048,159.744L237.181,159.037L238.099,157.671L238.716,157.252L238.5,156.865L238.153,156.937L238.055,156.563L238.334,156.139L238.857,156.049L239.313,155.454L239.723,154.629L240.07,154.188L240.026,153.813L240.377,153.548L239.961,152.471L240.207,151.759L240.661,151.592L241.049,151.141L241.064,150.835L240.999,150.524L240.667,150.515L240.333,150.641L240.576,150.105L241.19,149.546L241.472,149.789L241.574,150.069L241.794,150.163L241.993,149.911L242.189,150.06L242.475,149.979L242.544,149.771L242.875,149.866L242.943,150.199L243.148,150.429L243.205,150.695L244.895,150.614L244.871,149.916L244.995,149.483L245.716,149.992L246.349,150.073L246.698,150.227L246.676,150.452L246.918,150.294L246.961,150.01L247.539,149.735L248.025,149.726L248.677,149.528L248.96,149.6L249.427,149.226L250.482,148.834L250.82,148.875L251.472,148.744L252.13,148.307L252.856,147.712L252.721,147.229L252.429,146.887L252.205,146.5L252.349,145.774L252.739,145.17L253.336,144.724L253.925,144.566L253.995,144.012L253.888,143.714L254.502,143.597L254.463,143.269L254.714,142.976L255.625,142.944L255.852,142.66L256.364,142.421L256.951,142.381L257.684,141.597L257.664,141.087L257.365,140.655L257.779,140.308L257.982,139.907L258.215,139.199L258.608,138.875L258.704,138.41L258.915,138.199L259.277,137.712L259.055,137.333L259.351,136.847L259.584,136.225L259.565,135.625L259.776,135.179L260.265,135.296L260.498,134.958L260.709,134.896L260.934,134.463L260.731,134.166L260.657,133.832L261.259,133.543L261.359,132.773L261.625,132.615L261.858,132.385L261.959,132.746L262.349,132.593L262.399,132.16L262.683,131.822L263.208,131.547L263.583,131.114L264.172,130.786L264.791,130.961L265.061,130.677L265.68,130.547L266.147,130.366L266.267,130.123L266.251,129.627L266.518,129.366L266.94,129.222L267.394,128.478L267.843,128.447L267.823,127.996L267.671,127.78L267.553,127.446L268.517,126.369L269.755,126.175L270.529,125.648L270.178,125.188L270.387,124.679L270.799,124.566L270.974,123.846L271.515,123.49L271.85,123.638L272.177,123.278L272.046,122.94L272.38,122.345L272.851,122.241L272.995,120.84L273.185,120.592L273.161,120.056L273.37,119.826L273.804,119.803L274.296,120.231L274.8,119.371L274.403,118.889L274.401,118.388L275.432,117.875L276.119,117.767L276.57,118.276L276.64,118.523L276.913,118.785L277.517,118.997L277.815,119.452L278.82,119.06L279.483,118.379L279.461,118.05L279.365,117.586L279.788,117.023L280.327,117.118L280.673,117.456L281.316,117.987L282.099,118.442L282.459,118.406L282.66,118.465L283.468,118.303L283.468,118.303L283.54,118.979L284.005,121.277L284.14,121.502L284.262,122.165L284.498,122.813L284.958,123.818L285.594,125.031L286.259,126.193L287.864,128.793L288.585,130.114L289.176,131.335L289.547,132.219L289.863,133.133L289.991,133.679L290.059,134.368L290.24,135.049L290.543,135.864L291.046,137.009L291.79,138.505L292.564,139.929L293.257,141.119L294.742,143.539L296.318,146.31L298.095,149.627L299.405,152.191L300.932,155.323L302.793,159.429L303.877,162.006L304.492,163.706L304.849,164.936L305.12,166.157L305.288,167.239L305.434,168.793L305.484,169.798L305.521,171.565L305.473,177.428L305.501,180.222L305.56,181.863L305.649,183.427L305.885,186.014L306.055,187.32L306.21,188.289L306.413,189.344L306.679,190.457L306.964,191.408L307.258,192.179L307.507,192.706L307.884,193.31L308.288,193.747L308.436,193.859L308.743,194.018L309.059,194.081L309.253,194.067L309.648,193.936L310.472,193.508L311.462,192.877L312.323,192.255L313.446,191.363L314.281,190.736L314.957,190.277L315.761,189.799L316.711,189.335L317.553,189.015L318.44,188.763L319.723,188.528L321.155,188.402L322.703,188.375L324.218,188.42L326.049,188.537L328.07,188.713L336.503,189.542L336.612,189.763L336.612,189.763L336.612,189.763L336.612,189.763L338.402,193.391L338.721,193.986L339.462,195.13L340.53,196.514L341.679,197.803L342.889,198.988L343.833,199.791L345.455,201.003L346.414,201.805L347.07,202.481L347.323,202.806L347.543,203.144L347.711,203.297L347.711,203.297L347.703,203.445L347.938,204.067L348.108,204.888L348.191,205.848L348.213,207.682L348.285,208.669L348.527,210.336L348.845,211.905L349.347,213.892L349.824,215.474L350.306,216.862L351.204,219.201L351.714,220.733L351.921,221.45L352.331,223.158L352.493,224.019L352.7,225.488L352.7,225.488L352.841,227.133L352.841,227.133L352.907,228.778L352.907,228.778L352.916,230.094L352.916,230.094L352.907,231.708L352.935,232.866L353.033,234.61L353.225,236.575L353.493,238.41L353.838,240.055L354.078,240.893L354.496,242.038L354.782,242.957L355.059,244.025L355.318,245.27L355.495,246.369L355.604,247.302L355.658,248.118L355.678,249.281L355.778,250.574L355.948,252.034L356.223,253.95L356.609,256.253L356.947,258.056L358.076,263.347L358.776,266.935L358.776,266.935L359.14,269.084L359.14,269.084L359.336,270.675L359.352,271.248L359.393,271.658L359.535,272.176L359.752,272.55L359.956,272.758L360.071,272.839L360.324,272.956L360.607,273.024L360.893,273.033L361.227,272.997L361.645,272.889L361.894,272.794L362.382,272.555L363.077,272.109L363.601,271.689L364.342,270.982L364.789,270.486L365.225,269.95L367.001,267.399L367.828,266.335L368.264,265.831L368.824,265.271L369.145,265.042L369.263,264.997L369.394,265.001L369.888,265.127L370.128,265.245L370.459,265.461L370.76,265.708L371.135,266.096L371.61,266.723L371.946,267.304L372.206,267.913L372.289,268.174L372.419,268.828L372.437,269.229L372.479,269.508L372.744,270.311L372.744,270.311L372.971,270.847L373.448,271.847L373.448,271.847L374.423,273.664L375.204,275.002L376.3,276.76L377.36,278.378L378.354,279.996L379.252,281.596L379.819,282.709L380.279,283.715L380.595,284.49L380.999,285.711L381.177,286.554L381.231,287.631L381.275,288.028L381.484,288.947L381.672,289.461L381.838,289.831L382.248,290.516L382.248,290.516L382.762,291.115L383.401,291.625L383.807,291.994L383.807,291.994z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Sthelena.tsx
+import { useState as useState2 } from "react";
 var Sthelena = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      SthelenaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      SthelenaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var SthelenaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -47,27 +139,161 @@ var Sthelena = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 1500 650" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var SthelenaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Sthelena_default = Sthelena;
 

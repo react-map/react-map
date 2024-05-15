@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Stpierre: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: StpierreProps) => React.JSX.Element;
+declare const Stpierre: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: StpierreProps) => React.JSX.Element | null;
 interface StpierreProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Stpierre as default };

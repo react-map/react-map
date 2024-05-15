@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const BosniaHerzegovina: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: BosniaHerzegovinaProps) => React.JSX.Element;
-interface BosniaHerzegovinaProps {
+declare const Bosniaherzegovina: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: BosniaherzegovinaProps) => React.JSX.Element | null;
+interface BosniaherzegovinaProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
-export { BosniaHerzegovina as default };
+export { Bosniaherzegovina as default };

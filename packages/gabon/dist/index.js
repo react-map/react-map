@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Gabon.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Ogoou\xE9-Lolo",
@@ -68,15 +69,106 @@ var drawPath = {
   Estuaire: "M95.27,208.39L94.26,208.34L94.65,208.76L95.27,208.39zM150.2,183.54L149.04,177.65L147.2,174.63L144.98,173.95L136.94,173.74L134.47,174.16L133.11,175.56L132.17,177.45L130.84,179.11L128.4,179.8L125.92,179.8L123.9,180.2L122.1,181.57L120.37,184.5L119.7,187.3L120.46,188.91L121.63,190.32L122.23,192.54L122.62,195.85L127.5,208.78L128.91,225.1L128.44,231.84L128.91,234.68L130.79,237.41L129.69,239.61L128.28,245.59L127.41,246.81L126.17,247.84L125.5,250.29L125.48,253.09L126.09,255.27L123.73,254.76L122.62,253.55L121.31,249.64L122.5,247.57L123.22,243.63L122.97,239.62L121.31,237.41L121.11,239.23L120.39,240.63L119.18,241.59L117.55,242.11L116.72,238.46L113.49,236.68L109.46,236.44L106.27,237.41L108.17,234.63L111.09,234.26L117.08,235.54L119.38,234.29L119.88,231.45L118.86,228.27L116.61,226.04L113.98,225.75L111.54,226.81L109.38,228.17L106.86,229.15L105,230.45L103.87,230.75L101.99,230.49L100.77,229.98L99.57,229.65L97.74,229.89L96.32,230.46L93.52,232.07L91.98,232.71L88.87,233.35L85.88,233.65L84.91,235.33L84.36,242.92L84.47,244.93L86.31,247.08L88.46,247.18L90.88,247L93.44,248.26L97.28,252.58L99.02,255.17L105.62,270.31L107.57,272.28L109.04,273.32L109.86,278.23L110.96,279.81L111.92,279.62L115.01,278.26L116.14,277.92L117.86,278.21L118.64,277.72L119.43,276.04L120.37,276.04L121.15,278.8L123.13,280.82L127.9,283.65L134.49,288.58L135.97,289.28L140.34,289.14L141.46,289.78L143.53,291.64L145.27,292.82L151.47,294.94L153.28,294.3L163.91,293.65L166.63,292.77L169.18,291.54L171.3,290.14L173.99,292.33L176.69,293.12L183.6,292.96L183.6,293.99L178.03,295.78L176,295.96L173.77,295.51L169.75,294.03L167.53,293.99L165.8,294.61L160.96,297.67L159.47,299.11L156.92,302.42L155.23,303.48L153.07,301.53L149.52,301.36L146.83,302.58L147.2,304.84L149.17,307.42L154.21,316.64L149.72,313.06L145.49,306.4L140.47,301.31L133.62,302.45L132.2,299.65L130.99,298.8L128.91,298.7L127.65,299.6L123.78,303.46L123.17,304.41L122.28,303.11L121.11,298.33L120.37,296.81L118.62,295.91L111.81,293.99L110.35,296.47L110.2,298.94L110.96,304.84L110.53,306.32L109.58,306.33L108.45,305.61L107.57,304.84L107.1,299.63L105.83,296.95L102.22,293.42L101.48,291.64L100.81,291.21L96.3,291.17L94.76,291.59L93.92,292.6L93.18,293.83L91.98,294.94L91.57,293.69L91.46,292.1L91.73,290.73L92.45,290.14L93.86,289.69L93.79,288.56L93.18,287.04L92.92,285.44L94.24,280.31L94.52,277.52L93.95,274.16L92.76,271.47L91.43,270.49L89.94,270.88L85.54,274.78L84.94,275.19L84.67,275.95L83.96,279.59L83.53,280.83L85.1,285.27L89.94,311.34L90.12,314.28L90.43,315.34L91.06,316.45L91.3,317.64L90.62,318.94L89.58,320.25L88.82,321.73L88.39,323.37L88.23,325.09L89.8,328.61L90.12,329.88L90.02,331.54L89.41,334.49L89.26,336L88.6,338.78L85.5,344.94L84.47,347.83L84.53,357.28L84.56,357.31L86.42,359.11L89.48,370.63L90.71,373.34L97.83,382.89L99.86,384.89L101.63,386.01L104.23,386.22L105.54,386.53L110.15,388.72L114.58,391.77L120.88,399.46L121.7,396.09L119.75,378.4L120.5,377.24L121.61,376.66L122.98,376.25L128.34,373.54L133.93,371.42L135.3,371.08L139.41,370.88L140.79,370.65L144.19,368.95L146.56,367.45L147.84,367.69L150.64,370.11L152.21,370.59L154.53,370.26L158.77,367.95L161.11,366.27L162.86,364.54L163.95,363.17L165.32,361.75L166.69,361.49L168.1,361.87L169.47,362.53L170.79,362.98L173.42,363.19L174.7,363.69L175.9,364.41L176.95,365.55L177.54,366.84L178.46,370.93L178.99,372.27L179.25,374.96L179.53,376.18L180.28,377.05L182.69,376.86L195.23,371.65L211.9,361.13L214.89,358.59L219.55,352.91L221.13,351.49L231,345.62L233.52,344.6L235.18,343.55L251.83,330.52L252.45,329.83L252.43,329.14L252.52,328.44L252.86,327.68L253.78,327.18L254.93,326.89L255.55,326.63L256.06,326.08L256.17,325.46L256.04,324.14L255.53,321.39L254.99,319.96L254.99,319.61L256.59,317.75L258.88,316.44L261.7,313.56L263.18,311.72L264.33,310.9L268.11,309.01L268.75,307.71L268.67,306.56L267.45,304.01L267.15,303.03L267.06,302.49L267.02,301.31L267.09,300.91L267.22,300.53L267.71,299.67L267.99,299.29L270.38,297.1L270.91,296.47L271.38,295.65L271.68,294.63L271.62,292.68L271.81,291.4L272.13,290.94L272.94,290.6L274.9,290.66L280.4,289.97L281.27,289.97L283.33,289.58L287.53,287.6L288.04,287.48L288.6,287.51L291.19,287.96L292.06,287.18L292.92,285.95L293.22,285.64L293.73,285.23L294.73,284L295.44,282.32L295.61,281.63L295.69,280.87L295.57,279.27L294.58,274.7L294.86,273.32L295.16,272.55L295.91,271.96L296.38,271.49L296.82,270.91L297.04,270.28L297.29,269.15L297.7,265.53L300.55,255.37L301.14,254.05L302.77,251.25L302.96,250.76L303.41,249.17L303.68,248.53L304.17,247.67L304.79,246.92L305.85,245.31L306.32,244.2L307.83,238.57L308.02,238.21L308.22,237.89L308.88,237.12L310.95,235.44L311.25,234.88L311.55,233.97L312.21,230.73L313.58,226.95L313.86,225.19L314.18,215.69L313.73,212.68L312.42,207.2L311.85,206.84L310.65,206.86L238.82,231.67L236.81,232.06L235.72,231.79L235.04,230.52L233.86,226.51L233.28,225.21L232.54,223.95L230.4,221.05L230.25,219.11L230.81,216.4L232.79,211.1L234.35,208.35L236.47,201.43L237.22,181.87L199.15,181.75L184.12,181.69L180.12,182.21L177.42,182.56L176.7,184.57L176.68,188.65L176.18,190.46L174.56,192.04L172.37,192.52L169.92,192.15L167.49,191.11L165.21,189.35L161.64,185.26L159.36,183.66L157.23,182.87L153.13,182.4L152.6,184.13L151.47,186.47L150.2,183.54z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Gabon.tsx
+var import_react3 = require("react");
 var Gabon = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      GabonSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      GabonMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var GabonSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -85,27 +177,161 @@ var Gabon = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -20 1400 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var GabonMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Gabon_default = Gabon;
 

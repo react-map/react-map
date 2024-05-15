@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Australia.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Northern Territory",
@@ -66,15 +67,106 @@ var drawPath = {
   Tasmania: "M369.2,414.49l-0.9,0.45l-0.2,-0.45l-1.4,-0.22l-0.94,-0.71l-0.92,-0.2l-2.37,-0.12l-0.23,-0.16l-0.16,-0.43l-0.31,-0.09l-1.31,0.4l-0.78,-0.26l-1.15,-1.81l0.64,-0.45l1.2,0.18l0.59,0.32l0.82,0.17l0.02,-0.98l-0.77,-0.64l-0.42,0.76l-2.89,-0.37l-0.24,-0.17l-1.19,-2.43l-1.43,-2.28l-0.23,-0.23l-0.68,0.03l-0.56,-0.9l-0.4,-0.85l-0.75,-2.77l-0.47,-0.51l-0.55,-0.16l-0.68,-4.38l0.08,-0.83l0.2,-0.26l0.29,0.52l1.91,1.46l0.47,2.18l0.9,-2.52l-0.57,-0.4l-0.45,0.04l-1.93,-2.12l-0.21,-0.6l0.02,-0.88l-0.16,-0.66l-0.69,-1.41l-1.41,-1.33l-1.09,-1.93l-2.92,-7.17l0.1,-0.51l-0.3,-1.52l-0.33,-0.62l-0.2,-1.44l0.88,-0.8l0.02,-1.66l0.66,-0.44l2.43,0.29l1.42,1.05l1.72,-0.28l0.66,0.56l2.21,0.72l3.62,2.15l3.48,1.64l2.3,0.21l1.02,-0.31l0.94,0.53l-0.05,-0.5l0.85,-0.9l0.77,-0.27l0.57,0.18l0.24,0.95l0.57,0.29l0.91,-0.02l-0.32,-0.46l-0.76,-0.17l-0.22,-0.21l-0.05,-0.69l0.49,-0.45l1.66,-0.75l1.41,0.47l2.27,-0.46l0.66,0.59l0.78,-0.47l1.09,-1.89l0.24,-0.15l0.69,-0.17l0.26,0.38l1.13,0.51l0.38,-0.02l0.69,-0.4l0.35,-0.59l0.19,-0.87l0.22,-0.24l0.46,0.02l0.71,0.33l1.54,1.14l0.57,0.75l0.6,1.35l-0.69,2.46l0.08,0.74l0.45,0.59l0.04,1.09l-0.47,1.72l0.07,1.23l0.37,1.07l-0.54,2.92l0.36,3.2l0.66,1.07l0.06,1.66l-0.57,0.81l-0.39,-0.33l-0.05,-0.35l0.29,-0.37l0.13,-0.96l-0.77,-2.07l-0.47,-0.77l-1.26,2.5l-0.82,5.93l-0.49,0.5l-0.16,0.84l0.12,1.52l-0.78,0.81l-0.44,1.48l0.15,0.24l0.47,-0.03l-0.2,-0.43l0.32,-0.24l0.69,0.42l0.28,0.55l0.06,1.03l-0.41,0.27l-0.17,1.29l0.58,1.31l-0.1,0.84l-0.27,0.02l-0.77,-0.68l-0.78,0.34l-0.41,0.61l-1,-1.24l-0.71,-1.45l-0.14,-0.71l0.6,-1.07l0.35,-0.1l0.26,0.24l0.05,0.36l-0.17,0.35l0.67,0.72l0.93,-0.07l0.34,-0.29l-0.8,-1.4l-2.54,-1.55l-0.37,0.06l-0.6,0.45l0.21,1.01l0.34,0.74l-0.29,0.58l-1.07,0.35l-0.25,-0.62l0.21,-0.13l-0.16,-1.5l-0.98,-0.63l0.34,0.86l-0.24,1.54l-0.63,0.77l-0.29,1.08l0.22,1.04l-0.16,0.97l-0.37,0.24l-0.38,-0.05l-0.87,-0.56l-0.79,-0.93l-0.15,-0.94l-0.23,-0.09l-0.23,0.37l-0.01,1l1.37,1.25l-0.44,1.1l-0.57,0.89l-0.54,1.57l-0.16,1.08L369.2,414.49zM382.36,365.85l-0.98,-0.54l-0.28,-1.06l0.06,-0.3l-1.24,-2.33l-1.55,-1.38l1.32,-1.74l0.93,-0.4l2.15,2.87l0.4,0.29l0.83,0.22l0.09,0.41l0.51,2.79l-0.04,0.38l-0.3,0.28l-1.37,0.25L382.36,365.85zM336.69,363.9l-0.38,-0.28l-0.14,-0.73l0.2,-0.15l0,-0.98l-0.62,-0.81l0.03,-0.77l0.19,-2.27l0.85,-0.63l0.13,-0.37l-0.11,-0.81l0.46,-0.13l0.97,0.59l0.45,0.65l0.15,2.29l0.26,1.47l-0.1,0.77l-0.33,0.74L336.69,363.9zM384.64,369.1l-0.03,-0.69l-0.19,-0.28l-2.52,0.32l-0.97,-0.42l0.02,-0.55l0.72,-0.59l0.74,-0.04l0.76,0.23l1.52,-0.77l1.48,1.76l-0.02,0.15l-0.75,0.29L384.64,369.1zM373.39,412.93l-0.69,-0.32l-0.69,0.15l-0.57,-1.19l1.92,-2.37l0.7,1.83l-0.48,1.74L373.39,412.93zM499.07,600l-0.48,-0.05l-0.01,-1.54l0.62,-2.78l0.21,-0.5l0.54,-0.32l-0.16,1.87l-0.62,2.08L499.07,600zM374.03,409.2l-0.75,-1.57l0.7,-1.22l0.43,0.66l0.39,1.81l-0.03,0.17L374.03,409.2zM381.12,401.66l0.05,-1.96l0.63,-0.48l0.56,0.05l0.49,0.96l-0.05,0.15l-0.76,0.01L381.12,401.66zM347.19,372.32l-0.19,-0.14l-0.05,-0.69l0.65,-0.77l0.98,1.12L347.19,372.32z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Australia.tsx
+var import_react3 = require("react");
 var Australia = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      AustraliaSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      AustraliaMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var AustraliaSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -83,27 +175,161 @@ var Australia = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -20 800 500" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var AustraliaMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Australia_default = Australia;
 

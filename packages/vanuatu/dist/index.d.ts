@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Vanuatu: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: VanuatuProps) => React.JSX.Element;
+declare const Vanuatu: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: VanuatuProps) => React.JSX.Element | null;
 interface VanuatuProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Vanuatu as default };

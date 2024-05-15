@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Togo: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: TogoProps) => React.JSX.Element;
+declare const Togo: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: TogoProps) => React.JSX.Element | null;
 interface TogoProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Togo as default };

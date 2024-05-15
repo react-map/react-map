@@ -1,5 +1,5 @@
 // src/Oman.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Ash Sh\u0101riqah",
@@ -47,15 +48,106 @@ var drawPath = {
   Z\u0327uf\u0101r: "M180.64,408.23L198.78,435l20.47,31.86l19.2,31.02l20.59,35.35l0,0l-0.13,0.42l0.27,0.44l0,0.72l-0.18,0.2l-0.5,0.13l-1.11,-0.03l-1.11,-0.17l-0.9,-0.4l-0.39,-0.08l-0.31,-0.34l-1.38,-0.13l-0.34,-0.24h-1.01l-0.53,-0.15l-1.8,0.13l-0.42,-0.07l-0.27,-0.25l-0.97,0.37l-0.03,0.18l-0.29,0.32l-0.39,0.17l-0.63,0.13l-0.43,-0.15l-0.34,0.1l-0.68,0.02l-0.26,0.32l-0.27,0.05l-1.4,-0.27l-2.41,-0.32l-1.27,-0.02l-0.61,0.08l-0.35,-0.1l-0.29,0.12l-0.5,-0.13l-0.43,0.05l-0.69,0.29l-0.24,0.24l-0.29,0.05l-0.6,0.3l-0.21,-0.02l-0.72,0.76l-0.63,0.17l-0.08,0.15l-0.42,0.1l-0.26,-0.18l-0.4,0.29l-0.19,-0.1l-0.53,0.1l-4.28,-0.33l-0.72,-0.12l-2.99,-0.02l-0.13,0.1l-5.94,0.76l-3.35,0.62l-2.88,0.76l-3.12,1.24l-1.45,0.81l-1.67,0.67l-0.31,0.25l-0.11,0.57l-0.19,0.08l0.11,0.4l-0.18,0.24l-0.29,1.02l0.16,0.17l0.1,0.29l-0.23,0.6l-0.58,0.47l-0.63,0.3l-0.72,1.19l-0.02,1.19l0.15,0.64l-0.06,0.34l-0.21,0.27l0.03,0.39l-0.06,0.1l-0.9,0.42l-0.34,0.25l-2.17,1.14l-0.43,0.62l-0.47,0.33l-0.02,0.39l-2.17,1.36l-0.4,0.49l0.11,0.59l-0.53,0.82l-0.48,0.38l-0.23,0.4l-0.35,0.72l-0.42,1.21l-0.1,0.67l0.06,0.96l0.24,0.13l0.1,0.22l-0.03,1.22l0.26,0.75l0.37,0.54l0.42,0.27l0.42,-0.07l0.34,0.2l0.43,-0.03l0.08,-0.12l0.11,0.05l0.39,0.44l0.03,0.23l0.21,0.29l0.58,1.42l0.23,0.18l0.02,0.45l0.51,0.17l-0.13,0.22l-0.16,0l-0.19,0.22l0.11,0.67l-0.24,0.18l-0.16,0.32l0.11,0.74l-0.24,0.15l-0.11,0.25l-0.45,0.18l-0.08,0.65l0.11,0.32l-0.82,0.97l-0.1,0.45l-0.14,0.22l0.05,0.25l-0.85,0.54l-0.42,0.84l-0.05,0.6l0.72,1.11l0.5,0.32l0.1,0.33l-0.51,0.39l-0.18,0.67l-0.84,0.59l-0.24,0.57l-0.21,0.15l-0.66,0.18l-0.55,0.47l-0.4,1.05l-0.52,0.62l0.03,0.69l0.18,0.25l-0.03,0.13l-0.34,0.22l-1.74,0.18l-0.39,0.12l-0.35,0.25l-0.76,1.21l-0.35,0.3l-0.24,0.67l-0.77,1l-0.6,0.59l0.06,0.2l-0.48,0.3l-0.1,-0.1l-0.24,0.12l0.08,0.33l-0.31,0.43l-0.19,0.07l-0.6,0.5l-0.6,0.17l-0.55,0.33l-0.16,0.25l-0.03,0.22l-0.97,0.3l-0.26,0.7l-0.35,0.28l-0.02,-0.43l0.08,-0.25l-0.18,-0.3l-0.66,-0.33l-0.8,0.07l-0.45,1.19l-0.27,0.37l-1.29,0.55l-0.18,-0.02l-0.4,-0.27l-0.27,0.07v0.54l-0.16,0.15l-0.8,0.17l-0.13,-0.47l-0.52,-0.37h-0.13l-0.02,0.69l-0.21,0.15l-0.23,0.35l-0.03,0.22l-1.05,0.13l-0.26,-0.15h-0.18l-0.23,0.08v0.2l-0.14,0.13l-0.45,-0.03l-0.23,-0.17l-0.27,-0.07l-0.92,0.08l-0.39,0.2l-0.1,-0.1l-0.34,-0.02l0.06,0.18l-0.69,0.13v0.12l0.19,0.2l-0.18,0.18l-0.76,0.05l-0.43,0.13l-0.32,-0.12l-0.39,-0.42l-0.32,-0.12h-0.21l-0.26,0.38l-0.23,0.07l-0.11,-0.35h-0.18l-0.05,-0.17l-0.27,-0.22h-0.34l-0.11,0.08l0.02,0.3l-0.55,-0.13l-0.53,0.22l-0.1,-0.07v-0.12l0.15,-0.1v-0.27l-0.52,0.12l-0.06,-0.45l-0.74,-0.1l-0.37,-0.03l-0.05,0.27l-0.26,-0.17v-0.47h-0.19l-0.06,0.12l-0.29,-0.1l-0.18,-0.2l-0.06,-0.13l0.51,-0.72v-0.25l-0.24,-0.17l-0.05,-0.2l0.11,-0.23l-0.29,-0.35l-0.63,-0.35l-1.67,-0.5l-0.76,-0.13h-0.53l-0.13,0.08l-2.01,-0.05l-0.08,-0.12l-3.28,-0.22l-4.44,0.05l-0.19,0.12l-0.02,0.18l-0.19,0.05l-0.39,-0.4l-0.08,0.38l-0.31,-0.07l-0.02,-0.17l-0.11,-0.05l-1.3,-0.08l-3.36,-0.02l-4.65,0.5l-2.24,0.44l-9.3,1.4l-2.66,0.65l-0.6,0.4l-0.53,0.55l-0.45,0.95l0.13,0.12l0.15,-0.05l0.06,0.1l-0.1,0.42l0.06,0.3l0.18,0.03l0.31,-0.23l0.24,0.08l-0.02,0.2l-0.32,0.4l-0.43,0.07l-0.26,-0.08l-0.21,0.07l-0.19,0.2l-0.23,0.03l-0.18,0.13l-0.19,0.54l-0.45,0.13l-0.02,0.22l-0.35,-0.25l-0.76,0.13l-0.11,0.65l-0.1,0.03l-1.82,-0.03l-0.76,0.29l-0.51,-0.18l-0.89,0.03l-0.79,0.15l-0.14,0.18l-0.66,0.23l-0.85,0.15l-0.1,-0.12h-1.08l-2.46,0.48l-1.06,0.45l-0.08,0.08l0.06,0.28l-0.79,0.65l-0.21,0.28l-1.27,0.92l-0.19,0.23v0.23l-0.55,0.02l-0.08,0.28l-0.31,0.15l-0.13,0.17l-0.11,0.03l-0.19,-0.1l-0.24,0.1l-0.02,0.25l-0.4,0.27l-0.23,0.55l0.19,0.79l-0.16,0.22l-4.17,1.34l-0.82,0.4l-0.18,0.2l-0.32,-0.2l-4.14,-0.6l-2.56,0.38l-0.92,0.3l-3.35,0.79l-2.33,0.28l-0.95,0.25l-0.45,0.35l-0.61,0.13l-0.69,0.02l-6.31,1.74l-1.06,0.72l-0.68,0.13l-1.92,0.97l-0.6,0.43L69.54,612l-21.42,-26.35l2.07,-15.38L0,495.01l6.88,-25.76l2.3,-0.8l0.21,-0.16l1.1,-0.32l0.24,-0.16l0.96,-0.28l0.31,-0.18l1.02,-0.29l0.28,-0.19l1.06,-0.29l0.21,-0.17l0.25,0.01l0.86,-0.32l0.21,-0.17l0.63,-0.13l0.65,-0.34l0.24,0.01l0.86,-0.32l0.18,-0.16l0.24,0.01l0.98,-0.4l0.33,0.08l1.08,-0.62l0.24,0.01l0.88,-0.33l0.18,-0.14l1.06,-0.3l0.22,-0.17l2.4,-0.79l0.21,-0.16l0.78,-0.2l6.98,-2.57l16.59,-5.82l0.33,-0.18l32.66,-11.41l1.06,-0.45l1.14,-0.33l0.18,-0.14l0.49,-0.03l1.57,-0.62l6.14,-2.11l0.18,-0.14l4.08,-1.37l1.08,-0.47l5.3,-1.78l1.08,-0.38l0.18,-0.14v0.06l0.77,-0.22l1.82,-0.72l1.09,-0.31l0.24,-0.18v0.07l0.63,-0.2l0.65,-0.34l0.2,0.04l0.95,-0.34l0.14,-0.14l0.2,0.03l0.94,-0.32l0.15,-0.16l0.24,0.01l1.12,-0.48l0.46,-0.07l0.77,-0.38l0.22,0.03l0.93,-0.32l0.18,-0.17l0.24,0.01l1.07,-0.45l2.4,-0.76l0.18,-0.17l0.22,0.04l1.08,-0.48l1.17,-0.34l0.18,-0.15l0.18,0.04l1.08,-0.46l0.17,0.03l1.25,-0.53l9.29,-3.16l1.07,-0.45l0.14,0.04l2.24,-0.78l0.24,-0.15l1.04,-0.29l0.3,-0.17l1.15,-0.33l14.27,-4.99l1.31,-0.53L180.64,408.23zM229.93,559.76l0.71,0.42l0.21,0.18l0.03,0.15l0.23,0.1l0.55,-0.07l0.15,0.12l0.02,0.54l-0.27,0.3l-0.05,0.17l-0.19,0.08l-0.27,-0.02l-0.29,0.3l-0.4,-0.47l-0.15,0.25l-0.26,-0.27l0.21,-0.18l-0.13,-0.27l-0.23,0.07l-0.14,0.17l-0.24,0.05l-0.21,-0.12l-0.21,0.05l-0.03,-0.15l-0.13,-0.1l-0.06,0.29h-0.08l-0.19,-0.57v-0.08h0.13l0.02,-0.18l0.15,-0.03l0.03,0.17l0.18,-0.02l0.32,-0.5l0.14,0.02l0.24,-0.32L229.93,559.76zM241.53,557.06l0.11,0.07l0.03,0.18l0.19,0.27l-0.05,0.76l0.16,0.2l-0.05,0.37l0.19,0.47l0.58,0.07l0.19,0.15h1.19l0.05,0.27l-0.06,0.1l-0.16,0.03l-0.19,0.39l-0.98,0.25l-1.27,0.75l-0.31,0.1l-0.69,-0.07l-0.24,-0.13h-0.19l-0.02,0.22l-0.18,-0.03l-0.48,0.13l-0.11,-0.03v-0.15l-0.1,-0.1l-0.65,0.08l-0.96,-0.38l-0.24,0l-0.11,0.1l-0.74,-0.47l-0.13,-0.37h0.16v-0.15l-0.05,-0.07l-0.31,0.03l-0.03,-0.13l0.37,-0.55l1.32,-0.52l0.36,-0.05l0.03,-0.07l-0.1,-0.12l0.15,-0.13l0.29,-0.03l0.16,0.13l0.45,-0.03l0.26,-0.05l0.39,-0.27l0.39,-0.08l0.39,-0.2l0.55,-0.49l0.26,-0.39L241.53,557.06z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Oman.tsx
+import { useState as useState2 } from "react";
 var Oman = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      OmanSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      OmanMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var OmanSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -64,27 +156,161 @@ var Oman = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 0 1200 650" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var OmanMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Oman_default = Oman;
 

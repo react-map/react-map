@@ -1,5 +1,5 @@
 // src/Sweden.tsx
-import React from "react";
+import React, { useEffect as useEffect2 } from "react";
 
 // src/constants.ts
 var constants = {
@@ -7,7 +7,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Sk\xE5ne",
@@ -56,15 +57,106 @@ var drawPath = {
   G\u00E4vleborg: "M385.29,1187.33L385.65,1186.88L385.57,1186.53L384.52,1186.35L384.32,1185.93L383.87,1185.34L382.95,1185.24L382.5,1185.53L382.28,1186.04L382.2,1186.66L382.3,1187.39L382.49,1188L383.42,1187.57L383.85,1187.81L384.3,1187.81L385.29,1187.33zM379.14,1157.96L379.02,1157.66L378.93,1157.25L378.98,1156.85L379.2,1156.72L379.45,1156.41L379.47,1155.68L379.18,1155.21L378.88,1154.95L378.49,1154.64L378.06,1154.56L377.58,1154.87L377.03,1155.76L376.66,1156.68L376.57,1157.27L377.24,1157.86L378.51,1158.15L379.14,1157.96zM383.46,1143.18L383.77,1142.28L383.87,1141.07L383.94,1140.66L384.16,1140.4L384.18,1140.03L383.57,1139.68L382.9,1139.93L382.52,1140.59L382.41,1141.44L382.55,1142.05L382.79,1142.61L383.22,1143.26L383.46,1143.18zM390.67,1091.39L389.79,1091.26L386.97,1090.56L386.06,1090.99L385.96,1091.94L386.18,1092.85L386.53,1093.65L386.97,1093.68L387.14,1093.25L387.23,1092.73L387.41,1092.3L387.47,1091.9L387.57,1092L387.59,1092.59L387.9,1093.29L391.27,1093.59L391.97,1092.96L391.59,1091.94L390.67,1091.39zM381.23,1091.67L382.19,1091.01L382.03,1090.64L381.98,1090.44L382.19,1090.1L382.18,1089.44L381.99,1088.99L380.51,1088.53L380.26,1088.91L380.2,1089.57L380.01,1089.92L379.89,1090.49L380.03,1091.23L380.57,1091.68L381.23,1091.67zM397.74,1069.77L397.09,1068.93L395.86,1069.21L395.62,1070.44L396.34,1071.06L396.68,1070.89L396.79,1070.37L397.02,1070.1L397.3,1070.02L397.59,1070.06L397.74,1069.77zM393.64,1041.29L393.77,1040.86L393.81,1040.17L393.61,1039.81L393.12,1039.62L392.86,1040.63L393.22,1041.53L393.64,1041.29zM396.04,1040.88L396.47,1040.18L396.22,1039.75L394.84,1039.6L394.02,1039.08L393.89,1039.31L394.19,1040.06L394.72,1040.7L395.25,1041.06L396.04,1040.88zM385.1,1050.54L385.96,1049.88L386.15,1049.03L385.98,1048.05L385.15,1045.78L384.91,1044.17L384.93,1042.56L385.15,1041.15L385.55,1040.16L386.15,1039.77L387.44,1039.3L387.6,1038.16L387.47,1036.71L387.81,1035.38L388.46,1034.97L391.36,1034.5L391.95,1033.97L391.47,1032.82L390.58,1031.62L389.87,1030.98L391.87,1028.13L392.46,1026.38L391.15,1025.6L392.38,1024.55L392.71,1023.47L392.67,1021.9L392.79,1019.34L393.23,1017.55L394.25,1015.33L394.25,1015.33L379.49,1012.49L376.76,1011.38L364.75,1011.08L333.07,1001.93L316.25,1000.67L281.01,988.38L278.25,987.98L275.15,989.15L264.77,997.89L266.06,1003.28L267.73,1006.43L269.09,1008.46L269.95,1010.74L270.59,1013.71L270.03,1016.32L268.28,1019.3L251.17,1033.72L250.63,1034.36L251.61,1039.5L251.85,1041.81L251.76,1043.98L251.43,1046.15L250.56,1047.14L250.3,1048.07L250.31,1049.19L250.59,1051.05L250.66,1053.52L249.83,1055.19L248.3,1055.13L246.55,1053.34L243.43,1052.78L240.67,1053.21L239.28,1055.88L237.12,1056.19L234.78,1054.18L233.24,1054.97L234,1058.38L233.71,1060.01L233.28,1060.57L232.41,1059.98L231.64,1059.13L227.32,1050.97L226.97,1049.75L225.81,1049.94L223.95,1051.29L218.96,1058.55L217.03,1063.33L215.55,1069.98L214.12,1081.62L211.69,1086.71L222.9,1090.33L223.7,1095.34L224.91,1097.41L225.1,1098.67L225.65,1099.3L249.21,1099.29L250.11,1098.67L250.89,1097.31L251.89,1096.28L254.29,1092.72L256.32,1096.28L257.19,1097.18L257.83,1098.86L270.33,1117.82L281.6,1130.39L283.97,1134.05L285.18,1138.27L285.55,1142.05L285.57,1143.85L285.49,1144.77L285.57,1145.24L289.46,1151.01L291.53,1153.31L298.62,1157.42L310.83,1160.31L313.01,1161.3L314.73,1163.95L316.3,1166.9L318.6,1172.28L319.39,1174.96L321.94,1178.43L325.24,1182.05L326.94,1184.43L328.02,1186.76L328.2,1188.52L328.09,1190.11L327.5,1192.32L327.18,1192.85L325.94,1194.07L324.94,1195.61L324.32,1197.72L319.43,1204.87L315.97,1207.79L315.69,1211.58L315.83,1213.31L318.88,1219.65L319.78,1221.09L320.51,1221.76L321.25,1222.11L321.68,1222.44L322.01,1222.87L327.71,1233.13L329.62,1235.49L331.06,1236.85L332.04,1237.07L332.96,1237.52L334.39,1238.58L336.44,1240.62L339.7,1245.26L340.87,1247.39L342.49,1251.27L343.5,1253.25L344.55,1254.53L345.77,1255.71L346.43,1256.54L346.98,1257.91L349.45,1259.11L350.91,1259.03L352.57,1258.56L358.98,1254.28L359.67,1253.09L359.8,1251.95L359.67,1251.11L359.77,1250.39L360.14,1249.73L361.13,1248.55L362.01,1248.18L362.96,1248.03L365.34,1248.35L365.59,1248.45L365.94,1248.76L366.39,1248.96L371.36,1249.58L372.52,1249.12L373.69,1247.99L377.77,1246.48L377.24,1237.3L377.63,1234.93L378.96,1231.93L380.04,1230.6L381.08,1229.77L383.2,1224.87L386.88,1207.9L386.87,1207.9L385.86,1208.19L384.63,1208.01L383.67,1207.3L383.67,1206.45L386.15,1204.77L382.86,1201.83L380.91,1200.98L379.69,1199.19L378.49,1198.78L377.85,1198.93L376.5,1199.57L375.78,1199.71L375.38,1199.44L375.36,1198.86L375.65,1198.28L377.07,1197.73L379.34,1196.02L380.97,1194.01L382.93,1192.9L383.67,1192.02L384.4,1190.22L384.1,1189.79L383.17,1189.87L382.02,1189.49L381.21,1188.45L381.16,1187.39L381.32,1186.11L381.16,1184.48L380.73,1183.98L380.22,1184.23L379.77,1184.17L379.55,1182.72L379.7,1182.05L380.13,1181.52L380.67,1181.18L381.16,1181.02L378.99,1173.94L378.71,1173.38L378.18,1173.12L377.2,1173.77L377.03,1173.38L376.49,1171.86L376.33,1171.01L376.49,1169.47L376.03,1169.18L374.96,1169.05L373.66,1167.66L373.61,1167.17L373.69,1165.65L374.23,1162.21L375.47,1160.66L379.08,1159.69L378.35,1158.45L376.88,1158.25L373.69,1158.75L374.1,1158.45L375.37,1157.13L374.81,1156.59L374.35,1155.93L374.14,1155.42L374.29,1153.82L374.6,1152.12L375.05,1150.77L375.58,1150.22L376.04,1149.93L376.18,1149.24L376.07,1148.39L375.78,1147.65L375.21,1147.28L373.57,1147.26L372.9,1146.88L374.45,1146.84L375.14,1145.82L374.91,1144.22L373.69,1142.52L374.63,1141.5L375.08,1140.46L375.37,1137.3L373.27,1135.66L374.43,1133.67L376.01,1132.88L376.96,1131.75L376.2,1128.72L375,1126.63L373.25,1124.38L371.43,1122.58L369.96,1121.84L369.96,1120.98L371.25,1121.13L372.26,1121.58L375.41,1124.71L376.49,1125.05L379.08,1125.21L377.6,1124.31L375.77,1123.7L374.14,1122.55L373.27,1120.04L377.02,1121.92L378.98,1122.31L380.79,1121.84L376.3,1118.93L376.2,1117.54L374.19,1116.57L372.44,1114.87L370.69,1111.79L370.38,1111.07L370.64,1109.8L371.81,1108.67L372.35,1106.3L372.99,1106.74L373.69,1107.93L374.14,1108.91L374.66,1108.1L375.25,1107.53L375.91,1107.21L376.61,1107.1L377.22,1106.7L377.48,1105.8L377.42,1104.92L377.01,1104.51L376.43,1104.88L376.11,1105.66L375.74,1106.31L374.96,1106.31L374.33,1105.79L373.85,1104.92L373.61,1103.86L373.27,1102.78L373.84,1101.55L374.46,1100.81L374.79,1099.99L374.51,1098.46L373.99,1097.81L371.62,1096.64L371.62,1095.85L374.14,1095.85L374.14,1094.91L373.49,1094.58L371.96,1094.18L370.84,1093.06L369.47,1092.57L368.93,1091.92L369.55,1091.21L375.37,1091.45L375.37,1090.58L369.07,1089.28L367.49,1087.89L370.31,1087.53L372.9,1086.23L372.25,1084.87L371.29,1084.39L369.14,1084.5L369.14,1083.63L373.2,1083.34L374.51,1083.63L376.7,1085.04L377.75,1085.26L379.08,1084.5L377.73,1082.82L369.96,1081.02L371.28,1079.79L374.06,1080.99L375.78,1080.24L374.6,1079.4L374.14,1079.28L374.14,1078.4L375.7,1078.31L377.92,1077.59L379.8,1076.18L380.33,1074.05L376.18,1071.44L374.11,1071.55L373.18,1071.05L372.44,1069.62L377.66,1069.4L380.22,1070.12L382.43,1072.23L382.23,1074.17L383.03,1075.18L385.32,1075.8L384.5,1073.5L384.19,1072.24L384.09,1070.57L386.01,1071.71L387.28,1073.81L389.49,1079.28L390.28,1080.61L391.08,1081.44L392.02,1081.85L393.22,1081.97L394.12,1081.16L394.49,1079.28L394.68,1077.08L395.07,1075.4L395.55,1074L395.57,1072.58L395.2,1071.12L394.46,1069.62L393.32,1068.47L392.26,1068.6L391.21,1069.24L388.24,1070.03L387.75,1069.34L387.44,1067L387.5,1064.94L387.72,1063.03L387.58,1061.59L386.57,1060.97L386.57,1060.02L387.26,1059.88L387.86,1059.42L388.33,1058.61L388.63,1057.39L385.49,1058.3L384.71,1057.78L384.5,1057.06L384.57,1056.38L384.82,1055.75L385.12,1055.16L385.49,1054.03L385.37,1053.36L385.08,1053.03L384.91,1052.94L384.82,1052.96L384.82,1051.92L384.87,1050.96L384.91,1051.18L385.1,1050.54z"
 };
 
+// src/hooks/mouseTrack.ts
+import { useState, useEffect } from "react";
+var useMousePosition = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Sweden.tsx
+import { useState as useState2 } from "react";
 var Sweden = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ React.createElement(
+      SwedenSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ React.createElement(
+      SwedenMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var SwedenSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  const [selectedState, setSelectedState] = useState2(null);
+  useEffect2(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -73,36 +165,160 @@ var Sweden = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement(
-    "svg",
-    {
-      version: "1.1",
-      id: "svg2",
-      x: "0px",
-      y: "0px",
-      viewBox: "-20 -20 2800 1850"
-    },
-    stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
-      "path",
-      {
-        key: index,
-        onClick: () => onSelect(stateCode2),
-        onMouseEnter: () => handleMouseEnter(stateCode2),
-        onMouseLeave: () => handleMouseLeave(stateCode2),
-        id: stateCode2,
-        d: drawPath[stateCode2]
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
       }
-    ))
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var SwedenMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = useState2([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = useState2(null);
+  useEffect2(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
   )));
 };
 var Sweden_default = Sweden;

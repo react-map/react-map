@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Taiwan.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "New Taipei",
@@ -92,15 +93,106 @@ var drawPath = {
   Nantou: "M505.892,393.15L506.053,394.087L506.73,394.766L506.788,396.309L506.222,396.988L503.788,397.297L502.938,397.79L502.146,398.407L501.354,399.642L499.259,401L497.787,401.493L497.051,402.912L496.315,404.825L496.315,407.046L496.824,408.402L498.297,408.835L499.315,409.636L500.165,411.117L500.617,412.042L501.863,412.104L502.656,413.091L502.656,415.298L502.316,416.533L501.636,417.765L499.599,419.492L498.637,420.6L497.277,421.402L496.654,422.82L496.541,425.842L496.315,427.319L495.522,428.491L493.428,432.805L493.542,434.715L494.446,435.331L494.843,436.626L494.73,443.77L495.014,444.584L495.579,445.507L495.409,446.493L494.617,447.046L493.599,448.155L493.258,449.017L494.277,450.986L494.164,452.525L493.484,453.327L492.013,453.942L491.447,454.927L490.541,457.389L489.522,458.559L489.238,461.204L488.899,463.358L487.031,465.205L487.597,466.805L487.54,468.219L487.087,468.773L486.182,469.449L485.106,469.634L484.313,470.68L484.2,471.972L484.71,472.648L486.012,473.201L487.427,474.801L488.105,475.846L488.164,477.322L488.56,478.306L489.408,479.474L489.466,483.495L489.069,485.094L488.39,487.121L488.051,489.887L487.483,492.283L487.087,495.235L486.69,497.63L485.729,499.412L484.881,500.64L483.635,500.765L482.333,500.765L481.087,501.809L479.757,502.668L478.851,502.976L477.719,502.729L476.36,502.851L475.793,503.221L475.793,503.834L476.191,504.449L476.87,506.107L476.926,506.721L476.021,507.336L475.681,508.072L475.342,509.178L475.342,513.364L474.04,513.734L472.851,514.776L471.662,515.146L470.698,514.716L469.001,513.673L467.756,513.795L466.228,514.164L465.435,514.471L464.245,514.471L463.51,514.654L462.718,515.33L462.321,516.497L461.925,517.294L460.962,517.908L460.226,519.013L459.604,520.24L459.377,521.283L458.697,521.713L458.642,522.388L459.264,522.94L459.943,523.8L459.999,525.026L459.717,525.948L458.811,526.255L458.528,526.623L457.792,526.868L457.056,527.419L456.094,527.911L455.018,528.033L454.396,528.401L453.976,528.941L453.413,528.005L453.111,526.247L451.714,525.225L450.091,524.488L448.657,523.752L444.913,523.548L444.938,523.477L444.031,522.986L442.711,522.986L440.823,522.576L439.313,522.412L436.144,522.25L433.351,522.495L432.144,523.231L430.559,523.231L425.803,522.66L424.596,521.513L423.765,519.631L423.388,516.849L423.01,514.721L421.878,513.493L421.048,512.265L420.896,510.381L421.651,509.318L422.481,508.663L423.086,507.435L422.859,502.931L422.406,501.538L421.048,500.964L418.481,500.883L416.67,500.31L414.857,499.899L413.65,499.079L412.594,498.753L408.451,498.9L408.226,497.332L407.518,496.36L406.196,496.104L405.536,496.36L405.064,497.23L404.311,497.69L402.753,497.742L401.857,498.562L400.819,499.176L399.45,499.688L397.8,498.971L396.479,498.51L395.866,497.23L395.724,495.848L395.299,495.13L394.686,495.541L394.214,496.308L393.365,497.127L392.752,496.871L392.658,495.744L393.034,492.314L393.459,491.033L394.073,490.276L394.403,488.995L395.017,487.766L395.299,486.947L395.299,485.154L395.063,484.028L394.214,483.362L394.026,482.132L394.12,479.313L394.733,477.981L395.535,477.622L396.29,475.367L396.102,473.983L395.582,472.497L394.827,470.807L394.45,469.473L394.073,468.96L394.034,468.297L396.86,468.007L398.785,467.575L400.144,466.407L400.54,464.438L399.804,463.455L398.672,463.7L397.483,464.377L395.897,464.069L394.936,463.392L392.841,461.115L391.879,460.193L391.313,458.593L391.652,458.224L391.539,457.115L391.086,455.454L392.219,453.484L392.559,451.698L393.012,450.221L393.294,448.496L393.407,447.399L393.407,442.474L392.841,441.488L392.898,440.687L393.464,439.396L394.482,438.717L395.332,437.608L395.672,435.329L395.05,433.787L394.482,433.172L393.917,431.632L394.144,430.399L395.672,430.522L398.106,430.337L398.898,430.153L398.997,428.826L399.893,429.43L401.591,430.106L403.289,430.908L404.704,431.155L408.554,431.155L410.309,431.462L411.668,431.832L412.856,431.278L414.215,430.785L415.178,430.045L416.252,428.566L417.498,427.581L417.895,426.349L418.518,424.744L418.744,423.635L419.763,421.416L421.574,419.998L422.763,419.875L423.612,419.32L424.064,417.717L424.121,416.175L424.461,414.51L425.253,413.894L425.706,412.783L425.933,411.797L426.556,410.934L427.744,410.626L428.594,411.304L429.33,412.104L430.405,412.29L431.424,412.721L432.047,413.586L432.217,415.436L432.556,416.423L433.123,416.237L433.858,415.251L434.198,414.633L434.198,412.97L434.481,411.982L435.443,411.92L435.727,412.721L436.688,413.4L437.991,413.647L439.236,413.586L440.255,413.092L441.274,411.982L442.916,410.934L444.161,410.377L445.181,410.439L446.256,411.242L447.331,411.427L449.087,411.181L450.332,410.501L451.237,409.761L451.747,408.651L452.37,406.183L452.766,405.259L453.445,404.938L456.39,404.814L459.786,404.999L461.314,404.629L462.334,403.58L463.521,402.593L465.164,400.804L465.957,399.692L466.466,398.458L467.032,397.779L469.013,397.779L472.239,397.718L473.372,397.347L474.051,396.174L474.335,395.495L475.014,394.57L475.862,394.446L476.826,394.076L477.363,393.397L478.213,393.273L479.854,394.508L481.325,394.94L481.949,394.508L482.458,393.952L483.024,393.706L485.119,393.026L486.591,393.212L488.175,393.767L489.931,393.644L490.667,392.718L491.119,391.668L491.289,390.558L492.138,389.507L493.101,389.446L493.95,390.249L494.969,391.483L496.157,391.792L497.8,392.039L498.818,391.606L500.233,391.236L501.252,391.545L502.441,392.347L503.348,392.347L504.876,393.15z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Taiwan.tsx
+var import_react3 = require("react");
 var Taiwan = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      TaiwanSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      TaiwanMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var TaiwanSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -109,27 +201,161 @@ var Taiwan = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -20 1600 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var TaiwanMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Taiwan_default = Taiwan;
 

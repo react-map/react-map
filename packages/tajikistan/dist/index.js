@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Tajikistan.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Gorno-Badakhshan",
@@ -58,15 +59,106 @@ var drawPath = {
   Sughd: "M333.31,158.14l3.17,0.55l2.27,-0.73l1.86,-0.1l1.05,0.69l0.89,2.96l-3.63,2.53l-3.75,-0.35l-0.31,3.15l-0.94,2.5l-1.81,1.03l-2.38,-2.12l-1.67,-4.41l-5.29,-3.09l-3,-1.21l0.08,-2.43l0.96,-1.44l0.42,-0.01l4.77,1.09l4.32,0.72L333.31,158.14zM336.89,18.33l-0.45,0.77l-3.88,-5.1l-3.14,-4.43l-2.69,-1.98l-2.24,-0.06l-0.43,-1.5l0.6,-1.04l1.61,-1.23l-0.6,0.83l2.66,1.13l3.33,3.91l3.82,5.2L336.89,18.33zM315.14,0.56l0.31,0.11l0.7,-0.16l1.61,0.89l0.2,0.85l0.4,0.65l1.41,1.31l1.02,0.66l0.15,1.36l0.71,0.52l1.95,2.64l0.67,-0.11l0.83,0.16l0.2,0.77l1.02,2.26l1.32,1.46l0.91,1.31l0.87,1.97l2.44,3.64l0.5,1.29l0.23,0.15l-0.03,0.35l0.32,0.81l0.59,0.01l0.27,0.81l1.29,0.9l0.85,0.94l1.24,3.03l1.84,0.69l1.17,1.04l0.67,1.17l0.94,1.02l-1.05,0.83l-0.38,-0.2l-0.65,0.39l0.17,0.72l-0.43,0.64l-0.82,0.23l-1.26,-0.55l-1.05,-2.68l-0.82,2.74l0.08,1.57l0.7,1.42l1.83,-0.53l1.56,0.02l0.57,0.2l0.59,0l1.89,0.99l-0.61,0.39l1.98,0.1l0.95,0.5l1.63,1.27l0.59,0.61l0.51,0.96l-0.15,0.71l-1.29,1.15l-0.66,2.23l-0.96,1.28l-1.46,0.09l-0.63,-0.56l-0.69,0.51l0.4,2.18l-0.1,1.47l-0.72,-0.07l-0.89,-0.62l-2.14,0.48l-0.91,1.09l-0.91,0.18l-0.33,0.63l-1.14,0.37l-1.49,1.62l-1.44,0.39l-0.79,0.84l-2.46,4.92l-1.93,2.44l-0.95,0.36l-1.58,0.04l-1.05,0.8l-1.71,-0.15l-1.31,0.18l-0.89,0.48l-0.43,0.88l-0.3,1.97l-0.98,0.98l-0.26,1.78l-1.04,0.92l-1.77,-0.01l-1.12,0.53l-3.42,1.06l-2.42,1.27l-2.65,0.49l-2.2,1.79l-1.8,0.48l-0.28,0.44l0.12,1.34l1.24,2.64l0.78,1.27l0.32,1.64l0.62,0.21l0.65,0.7l1,2.45l0.75,0.81l1,0.46l0.95,0.07l2,-0.94l0.7,-0.01l1.59,0.49l0.61,0.4l3.61,0.73l6.43,2.88l1.64,1.47l0.53,1.22l-0.32,1.94l0.81,2.03l0.41,1.84l-0.83,2.18l-0.15,2.82l-0.29,0.26l1.18,2.07l1.57,0.86l0.72,1.94l0.76,1l0.88,2.12l0.97,1.62l0.91,0.56l0.92,0.19l3.31,-0.79l3.24,-0.48l0.38,-0.26l3.09,-0.26l2.74,-0.72l0.76,-0.01l5.45,-2.42l3.76,-2.79l0.59,0.18l2.44,-0.58l1.88,-0.19l5.27,-0.15l1.23,0.85l0.41,0.86l0.07,0.73l-0.3,1.36l-0.03,1.74l-0.32,0.29l-0.69,2.69l-0.87,0.87l-0.72,0.16l-0.14,0.25l-2.47,0.64l-1.06,0.72l-0.97,0.08l-5.07,-2.6l-1.91,-0.36l-0.97,0.14l-0.84,0.74l-0.94,4.25l-0.67,1.19l-1.81,1.4l-1.39,1.41l-1.86,1.04l-3.96,0.46l-3.94,-0.22l-1.52,0.66l-0.77,0.89l-0.5,1.37l0.04,0.78l0.58,0l-0.05,0.7l0.17,0.53l0.08,1.75l-0.29,1.04l0.52,1.57l-0.47,0.67l-0.65,1.75l-0.98,2.05l0.03,0.9l-0.62,0.69l-1.39,0.23l-5.03,3.65l-0.82,0.08l-0.87,0.75l-0.65,0.25l-0.44,-0.75l-2.43,0.24l0.01,0.3l-0.83,0.67l-0.36,1.23l0.48,0.98l1.58,1.75l0.03,0.61l-0.41,0.22l-3.67,-4.01l-1.21,0.12l-1.95,-1.78l-0.62,-1.21l1.08,-1.47l1.42,-1.46l3.28,-1.37l3.22,-2.65l0.53,-0.96l1.57,-1.79l-0.07,-0.53l-1.06,-0.06l-0.06,-0.67l-0.66,-0.2l-0.39,0.26l-0.15,-0.14l0.46,-0.8l-0.27,-0.54l-0.47,-0.32l-0.16,0.04l0.02,-0.14l-1.45,-0.99l-1.84,-0.35l-0.47,-0.28l-7.26,-0.9l-1.33,-0.35l-1.51,-0.95l-1.32,-2.27l-2.51,-0.28l-1.49,-0.55l-1.48,-1.83l-0.98,-0.7l-2.7,-1.3l-2.01,-0.46l-1.12,-0.45l-2.29,0.47l-3.2,-0.02l-1.38,-0.68l-0.6,-0.88l-6.86,-4.61l-4.03,-3.44l-2.55,-1.68l-1.06,0.18l-1.27,-0.02l-1.49,-0.64l-1.7,-0.07l-1.45,-0.65l-1.94,0.56l-1.88,1.32l-1.74,0.54l-1.41,0.88l-2.26,0.88l-0.4,0.42l-4.07,1.69l-1.44,0.43l-1.95,0.95l-2.76,0.76l-3.1,1.57l-0.58,0.53l-1.87,0.7l-4.75,2.84l-0.81,0.21l-1.68,-0.01l-3,-0.29l-3.35,0.98l-3.34,0.68l-2,0.1l-3.74,1.84l-0.59,0.68l-0.27,0.99l-0.42,2.74l0.19,0.57l-0.46,0.88l-0.38,1.61l0.14,0.75l2.3,4.5l-0.5,3.29l0.9,3.47l-0.18,1.39l-1.04,0.73l-1.82,0.95l-2.76,2.57l-1.17,0.6l-1.65,-0.06l-2.5,-1.23l-0.56,-2.31l-0.51,-3.58l-2.3,-3.39l-1.13,-3.19h-2.95l0.27,2.93l-1.2,5.31l-1.57,5.16l-2.11,2.09l-0.49,3.29l-0.08,2.28l-0.58,2.01l-1.76,3.12l-0.3,1.51l1.34,5.63l1.19,2.32l1.94,2.86l0.68,2.56l-0.63,3.66l0.35,1.03l0.73,0.79l0.16,2.79l0.61,0.65l0.22,0.89l-0.04,1.27l0.21,1.4l1.62,0.81l-1.87,6.65l2.56,3l0.89,0.03l1.05,-0.98l1.51,-3.37l0.39,-0.37l0.76,0.03l0.46,1.41l1.36,0.93l2.13,0.71l1.67,-0.7l1.49,0.81l0.37,0.39l2.2,-1.31l1.66,-0.32l1.68,-0.95l0.88,0.16l1.82,-1.2l1.52,0.05l1.62,-2.85l3.22,-1.53l3.25,1.26l1.65,-0.07l2.23,-1.94l1.66,-0.32l1.89,0.32l2,0.71l0.85,0.92l3.52,0.77l1.86,0.96l4.43,3.46l0.45,1.54l0.36,0.52l0.51,0.02l0.93,-1.1l1.18,-1.09l1.14,-1.54l0.47,-2.32l0.66,-0.61l2.23,-0.42l3.39,0.71l1.66,1.33l0.69,1.8l1.04,0.86l1.51,0.25l1.87,-0.81l0.99,-2.62l0.9,-0.28l0.61,0.47l0.41,0.9l-0.27,3.41l0.32,1.41l0.6,-0.67l0.46,-3.53l0.83,-1.68l3.02,-2.47l1.73,-0.43l0.87,0.48l0.59,2.49l1.35,0.94l1.7,0.33l1.01,-0.02l1.27,-1.53l0.37,-1.25l0.26,-1.76l0.8,-0.98l0.57,0.02l0.69,3.13l0.84,1.18l1.49,0.82l2.21,3.01l1.03,1.06l1.13,0.24l2.12,-0.6l1.31,-1.02l1.26,-1.21l3.5,-4.72l1.13,-1.09l1.48,-0.44l0.89,-0.02l1.94,0.53l1.54,1.08l2,0.72l1.48,-0.5l0.74,-1.04l1.16,-3.18l1.11,-0.65l1.46,-0.06l1.94,0.53l1.55,0.71l0.6,0.79l0.64,1.3l1.41,1.08l2.45,0.49l2.66,0l1.45,0.26l2.71,1.71l4.32,7.74l1.04,0.65l0,0l-4.07,2.98l-1.63,3.08l-3.75,0.15l-1.85,4.3l-4.2,0.75l-3.75,-0.23l-1.4,4.8l-4.77,-1.67l-2.63,2.56l-2.73,-0.72l-3.2,0.31l-3.55,-1.77l-2.99,0.14l-4.2,3.27l-2.66,2.84l-3.61,0.11l-3.64,1.74l-2.92,-1.53l-1.25,-0.86l-2.48,-2.33l-2.32,0.33l-1.71,1.38l-2.58,4.24l-2.73,0.36l-0.6,-2.29l-1.22,-2.5l-2.95,1.42l-2.12,2.07l-2.31,1.05l-2.91,-2.69l-3.35,0.66l-0.22,4.59l-2.5,1.7l-4.37,3.61l5.59,8.91l-1.04,1.68l-1.45,3.15l0.61,3.13l0,3.97l-0.41,2.3l0.82,1.45l-0.21,0l-3.08,2.94l0.41,1.87l-0.82,1.46l-1.64,-0.61l-3.48,-3.09l-1.23,1.05l-1.43,2.1l-2.45,0.86l-1.02,-0.61l-1.45,-4.98l-2.65,-5.96l-0.83,-1.52l-0.75,-0.91l-0.75,-0.38l-0.84,0.05l-6.06,2.75l-2.62,0.87l-0.59,2.08l0.01,1.66l1.23,1.86l0.42,2.28l-1.21,1.46l-1.42,-0.2l-6.69,-2.88l-2.83,-1.44l-2.62,-0.41l-2,1.25l-1.79,2.28l-3.18,2.29l-4.18,2.7l-3.77,2.08l-3.18,0.01l-1.99,-0.41l-3.19,-3.52l-1.2,-1.86l-2.97,-1.24l-5.13,0.22l-1.18,0.62l-0.59,-0.21l-2.96,-1.65l-4.53,-4.09l-1.57,-0.99l-2.74,0.07l-2.75,1.25l-2.53,0.08l-2.31,-1.87l-3.33,1.25l-1.38,0.81l-1.75,0.24l-2.91,-0.33l-2.92,0.44l-2.55,1.42l-4.88,1.05l-3.5,0.43l-1.2,1.59l-0.28,3.94l-1.21,2.17l-1.78,1.2l-4.51,1.42l-1.96,0.41l-1.79,1.78l-1.79,1.38l-4.48,-0.2l-3.74,1.35l-6.21,-3.49l-1.33,-0.38l-0.79,0.04l-1.43,0.79l-1.85,1.67l-1.4,0.1l-5.48,5.07l-1.62,3.3l-2.63,0.57l-0.39,1.57l-0.94,0.11l0,0l-0.4,-2.78l0.76,-0.48l0.31,-2.75l-0.21,-1.76l-1.48,-1.04l-3.95,-3.35l-0.5,-0.26l-0.71,-2.27l-1.92,-4.06l-2.73,-1.82l-2.76,-0.31l-2.54,1.21l-1.53,0.97l-2.25,-0.55l-1.24,-1.03l-1.23,-1.53l-1.01,-0.02l-2.29,1.21l-1.51,0.22l-3.02,-0.06l-2.32,2.97l-1.26,-0.02l-2.01,-0.29l-2.98,-1.81l-4.53,0.42l-2.29,1.59l-1.37,-0.53l-1.01,0.49l-1.01,0.23l-1.5,-0.65l-1.72,-2.42l-0.3,-4.53l-0.96,-2.78l0.47,-5.53l0.77,-1.12l0.02,-1.26l-0.62,-0.64l-3.52,-0.18l-1.25,-0.52l-1.45,-3.67l-2.25,-1.04l-2.39,-0.42l-2.27,0.47l-1.76,-0.03l-1.88,-0.66l-1.37,-0.9l-3.89,-0.81l-2.13,-1.16l-1.62,-1.66l-3.08,-5.33L0,233.77l0.01,-1.01l0.51,-0.62l2.41,-0.72l4.95,-1.82l2.15,-0.47l0.88,0.27l2.64,0.42l0.39,-1l-0.48,-1.77l-2.08,-4.32l-1.82,-5.08l-4.41,-9.54l-1.24,-1.91l0.04,-2.91l0.78,-1.76l1.02,-0.24l4.29,1.2l0.63,0.01l0.9,-1.13l-0.45,-3.55l0.27,-1.51l8.79,-3.28l3.17,-0.08l1.27,-0.36l2.08,-3.39l1.41,-0.99l2.42,-0.85l1.17,-1.63l0.77,-0.62l0.89,0.02l4.28,1.85l0.51,0.01l2.17,-0.72l1.54,-0.86l1,0.52l4.38,3.12l3.04,0.18l2.12,1.94l4.15,1.85l2.03,-0.21l3.04,0.19l2.01,0.8l2.42,1.89l1.33,0.33l2.41,-0.19l1.64,0.41l2.13,1.06l4.93,0.36l1.65,-0.22l1.25,0.53l1,0.78l1.64,0.29l2.04,-0.59l2.79,-0.32l3.91,0.47l3.15,0.71l1.13,0.53l1.73,1.69l0.88,0.27l4.09,-1.8l6.56,1.05l2.55,-0.57l2.38,0.82l1.81,-1.6l0.69,-2.26l0.47,-3.41l1.41,-0.72l1.81,-1.47l5.23,-5.94l0.61,-3.79l-4.16,-5.94l-0.6,-1.41l0.92,-1.12l1.4,-0.09l1.41,-0.6l0.67,-1.25l0.56,-2.02l1.07,-1.88l0.71,-2.9l-0.35,-1.28l-0.32,-2.42l0.19,-2.54l1.4,0.04l1.26,0.29l1.13,0.67l1.57,-1.48l1.69,-1.22l1.01,0.28l1.73,1.95l0.68,2.81l1.25,0.92l1.02,-0.23l0.52,-0.49l0.28,-0.88l0.32,-2.28l0.66,-0.87l2.05,-0.45l0.78,-0.61l0.81,-1.76l-0.08,-1.53l-1.79,-4.25l-2.3,-4.39l-0.19,-2.42l0.28,-0.88l1.03,-0.48l0.89,0.15l1.6,1.95l1.92,4.13l1.06,2.96l0.14,3.95l1.34,2.07l1.38,0.68l1.79,-0.2l1.57,-1.61l0.43,-1.51l-0.08,-1.66l-1.2,-2.45l-5.78,-7.17l-3.3,-3.09l-0.08,-0.66l0.92,-2.98l-0.12,-1.4l-0.74,-0.94l-1.34,-1.14l-0.77,-1.27l0.07,-1.17l0.53,-0.63l1.29,-0.44l1.43,0.22l1.62,2.44l0.65,2.85l1.02,0.57l0.33,-0.26l0.39,-1.28l0.08,-1l1.08,-1l1.5,-0.96l3.35,-0.77l1.66,-0.05l2,0l3.39,0.81l1.65,-0.13l0.71,-1.47l-0.11,-1.4l-0.89,-3.84l-0.9,-2.84l-1.86,-1.43l-6.97,0.24l-3.71,0.47l-7.58,1.96l-2.73,1.23l-6.34,1.78l-2.89,1.24l-4.74,0.99l-2.74,0.07l-5.79,-3.41l-1.9,-1.75l0.52,-1.34l6.4,-1.86l0.19,-0.31l1.93,-0.17l3.95,-1.18l9.59,-3.1l2.16,-0.99l3.67,1.2l1.61,0.28l2.86,-0.74l2.15,-1.18l0.85,-0.82l4.33,-1.02l7.44,-0.77l5.67,0.04l3.16,1l2.33,-0.02l2.61,0.29l1.41,-0.11l2.31,0.82l2.4,-0.19l1.71,-0.55l2.89,0.69l4.34,0.08l1.23,0.82l1.24,0.55l1.07,-0.89l-0.79,-1.6l-1.07,-3.08l-0.9,-0.93l-3.05,-0.6l-0.91,-0.93l0.52,-1.87l-0.77,-1.27l0.39,-1.36l0.83,-0.06l1.03,0.42l2.02,0.18l1.82,-0.14l2.49,-2.36l0.01,-2l0.74,-1.22l-0.04,-2.67l-2.31,-1.83l-0.92,-1.1l0.03,-1.84l-0.64,-1.79l-0.89,-0.77l0.52,-1.88l-1.04,-0.42l-0.4,-0.8l-0.32,-1.98l-0.64,-1.79l-0.92,-1.1l0.02,-1.84l0.77,-0.9l0.09,-1.69l-1.46,-1.26l-2.96,-4.08l-0.14,-0.73l0.21,-0.91l0.39,-0.52l1.78,-1.35l1.68,-0.98l4.01,-0.53l1.93,0.39l0.66,-0.17l0.57,-0.59l-0.06,-0.4l0.89,-1.66l1.06,-0.51l0.57,-2.8l-1.25,-2.71l-0.76,-2.5l0.47,-7.75l0.14,-0.72l0.74,-0.85l-0.02,-0.71l0.46,-1.39l2.62,-3.42l1.44,-2.32l0.72,-0.27l2.91,-0.17l1.47,0.73l5.59,1.56l1.73,0.1l0.94,0.24l1.21,1.03l0.44,0.62l1.89,3.78l0.55,2.64l1.22,1.73l2.78,2l0.82,1.27l0.78,0.69l1.52,0.24l0.89,0.46l0.93,2.03l0.18,0.85l0.67,0.91l1.47,0.33l1.95,-0.25l1.63,0.02l2.06,-1.3l1.18,-2.14l1.92,-4.55l0.99,-0.89l0.71,-0.35l0.85,-0.12l3.16,0.9l0.67,-0.07l2.07,-2.22l1.47,-1.08l0.99,-0.37l0.95,-0.03l3.52,2.18l0.46,0.03l2.61,-2.47l1.69,-1.09l4.48,-0.65l0.62,-0.44l1.21,-0.35l2.34,-1.99l3.15,-1.24l5.26,-5.12l0.68,-0.97l0.62,-1.92l0.42,-0.7l0.67,-0.6l1.31,-0.23l0.78,0.14l1.49,0.77l2.52,0.4l3.23,-2.07l1.95,-0.85l0.55,-0.53l1.04,-1.73l0.63,-0.22l0.94,-0.79l0.58,-0.16l1.48,-1.01l1.47,-0.18l1.18,0.12l1.51,-0.52l0.82,-0.79l1.14,-2.22l0.01,-0.8l-0.64,-2.06l0.34,-1.59l0.59,-0.44l0.91,-1.38l0.06,-1.67l0.66,-1.17l-0.62,-2.83l0.02,-0.61l0.22,-0.41l0.84,-0.62l0.48,-0.68l0.39,-1.39l0.42,-0.67l0.8,-0.66l2.04,-1.01L312.86,0L315.14,0.56z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Tajikistan.tsx
+var import_react3 = require("react");
 var Tajikistan = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      TajikistanSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      TajikistanMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var TajikistanSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -75,27 +167,161 @@ var Tajikistan = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-20 -20 1600 700" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var TajikistanMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Tajikistan_default = Tajikistan;
 

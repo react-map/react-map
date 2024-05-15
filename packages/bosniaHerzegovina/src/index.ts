@@ -1,2 +1,2 @@
-import BosniaHerzegovina from "./Bosnia";
+import BosniaHerzegovina from "./Bosniaherzegovina";
 export default BosniaHerzegovina;

@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Iraq.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Babil",
@@ -86,15 +87,106 @@ var drawPath = {
   Dihok: "M327.62,0L326.89,0.06L322.86,1.7L322.32,2.08L321.82,2.91L321.65,3.63L321.55,4.34L321.24,5.15L311,20.14L309.99,22.93L309.72,23.48L308.41,24.07L301.38,25.26L296.7,26.81L293.06,27.24L293.58,28.45L294.19,29.49L294.66,30.64L294.68,32.12L294.65,32.15L295.22,34.33L296.35,36.75L297.74,38.94L300.85,42.02L302.31,43.11L303.74,43.08L305.33,41.24L305.36,42.8L304.98,44.84L305.04,46.49L306.4,46.82L305.79,49.06L305.98,50.01L306.67,50.77L307.56,52.46L305.42,52.61L305.04,53.68L305.93,54.49L307.56,53.86L310.1,55.18L311.48,56.21L312.59,59.32L313.9,60L317.34,60.06L317.74,59.86L318.1,59.4L318.54,58.94L319.27,58.73L320.26,58.95L320.98,59.49L323.46,62.3L324.9,63.61L325.67,63.99L326.32,64.05L326.97,64.25L327.68,65L325.85,65.7L325.1,66.31L324.9,67.09L325.46,67.93L326.31,67.87L329.19,66.42L329.86,66.47L331.03,67.09L331.64,67.62L332.06,68.28L332.76,69.87L333.43,68.63L334.21,68.04L335.15,67.85L336.35,67.85L337.34,68.07L344.03,64.33L354.72,62.86L358,62.57L360.72,61.16L361.95,60.29L362.31,58.68L363.05,56.86L363.77,54.56L366.17,50.59L368.68,47.54L369.27,46.51L370.42,45.62L371.73,45.18L374.84,45.54L376.09,46.21L377.36,47.24L378.46,48.41L380.92,50.19L382.37,51.54L384.98,52.81L396.82,56.01L397.99,56.24L398.53,56.21L398.75,55.74L398.83,55.25L398.83,54.67L398.97,54.15L399.24,53.78L399.83,53.46L400.59,53.33L401.98,53.8L402.27,53.99L402.57,53.97L402.84,53.69L403.2,52.54L403.3,51.9L403.32,51.37L403.25,51L403.18,50.71L403.15,50.2L403.1,49.95L403.09,49.7L403.09,49.38L403.05,49.02L402.89,48.42L402.95,48.19L403.4,48.01L403.77,47.76L404.16,47.33L404.84,45.92L404.98,45.42L405.01,44.95L404.94,44.44L404.84,43.93L404.64,43.46L404.38,43.15L403.93,42.95L403.42,42.85L402.04,42.4L401.35,42.03L400.72,41.9L399.58,41.86L399.09,41.72L398.68,41.51L397.84,40.9L397.63,40.57L397.53,40.28L397.49,40L397.26,39.51L397.23,39.21L397.21,38.85L397.26,38.46L397.46,37.7L397.76,36.88L397.87,36.04L397.86,35.67L397.94,35.39L398.32,34.55L398.57,34.19L398.92,33.81L399.22,33.6L399.48,33.52L399.83,33.54L400.21,33.66L401.66,34.46L402.59,34.73L408.32,35.75L410.6,36.66L413.17,37.28L414.79,35.46L415.9,34.91L416.57,34.74L416.95,34.37L417.27,33.86L417.63,32.75L417.9,32.14L418.38,31.73L419.8,30.9L422.86,29.67L423.23,29.42L423.26,29.21L423.08,28.99L422.93,28.67L423.29,28.43L423.99,28.18L425.46,27.48L426.12,27.07L426.59,26.63L426.89,26.07L428.12,24.33L428.57,23.92L430.27,23.01L431.32,22.59L431.75,22.26L431.92,21.97L431.55,21.26L431.6,20.86L431.86,20.29L432.83,18.97L433.47,18.33L434.35,17.62L435.25,17.23L435.32,16.95L435.32,16.55L435.1,15.38L434.97,15.23L434.82,15.16L434.31,15.15L434.01,15.04L433.8,14.86L433.64,14.57L433.57,13.96L433.42,13.37L433.4,12.99L433.45,12.57L433.68,11.9L434.41,10.41L434.41,10.07L434.3,9.8L434.06,9.67L433.91,9.53L433.72,9.44L433.55,9.34L433.42,9.21L433.37,9.05L433.19,8.61L432.99,8.44L432.73,8.31L432.45,7.82L432.84,6.34L430.11,5.88L426.42,6.47L423.43,9.04L421.01,12.57L418.52,15.46L414.14,16.26L412.67,17.77L411.64,18.04L411.04,17.65L409.28,15.92L408.47,15.36L406.54,14.87L404.4,14.67L396.03,15.25L394.07,14.99L392,14.15L390.5,13.01L389.84,12.65L388.78,12.48L387.77,12.65L385.75,13.42L384.71,13.57L383.37,13.02L379.58,9.89L376.25,8.21L375.14,7.35L372.99,5.68L372.01,5.47L370.5,5.7L369.78,6.04L369.02,6.82L368.3,6.96L367.62,6.86L367.05,6.66L356.32,0.85L354.92,0.45L352.38,0.68L349.09,1.57L345.96,2.9L343.88,4.49L340.4,5.69L337.11,5.2L330.36,2.95L329.66,2.43L329.3,0.66L328.59,0.12L327.62,0z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Iraq.tsx
+var import_react3 = require("react");
 var Iraq = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      IraqSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      IraqMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var IraqSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -103,27 +195,161 @@ var Iraq = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 -40 1500 900" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var IraqMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Iraq_default = Iraq;
 

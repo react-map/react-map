@@ -35,7 +35,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/Burundi.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
@@ -43,7 +43,8 @@ var constants = {
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
-  HOVERCOLOR: "#303030"
+  HOVERCOLOR: "#303030",
+  SELECTED_COLOR: "#ff0000"
 };
 var stateCode = [
   "Bubanza",
@@ -84,15 +85,106 @@ var drawPath = {
   Ruyigi: "M436.56,329.69L437.05,332.5L435.72,333.42L435.41,335.57L437.05,339.21L438.36,339.37L440.87,338.09L442.22,336.66L447.38,337.49L451.43,335.6L453.93,340.56L454.4,340.21L454.44,338.53L458.44,341.92L458.66,343.43L462.13,340.76L463.85,343.48L465.19,343.84L465.89,344.93L468.07,344.37L472.08,346.02L474.88,351.25L478.47,352.72L478.78,355.23L477.54,359.75L480.21,361.85L479.46,362.52L482.8,366.3L483.63,369.26L486.51,369.2L487.94,370.74L491.25,370.89L492.08,370.3L493.41,366.88L494.82,365.85L496.39,366.99L498.39,366.94L498.17,367.88L500.49,367.1L500.78,367.88L503.42,367.43L503.9,369.04L506.41,369.99L506.72,370.8L510.28,371.95L509.57,372.59L507.24,372.19L502.99,375.18L502.45,379.65L502.76,382.12L506.19,381.15L511.98,382.54L515.08,388.6L521.55,390.88L521.28,391.48L521.98,392.28L521.62,394.56L522.13,395.25L521.13,397.69L521.71,398.19L526.54,394.66L527.11,393.23L530.27,391.17L532.9,390.04L535.64,389.69L537.14,388.17L540.84,386.69L540.84,386.69L544.44,390.92L545.04,392.43L544.74,394.29L548.93,394.3L553.76,396.8L554.95,398.46L554.76,400.23L553.38,402.07L553.79,403.79L553.03,405.66L551.17,406.91L549.39,409.93L547.63,410.86L545.61,413.2L544.12,413.45L542.24,414.87L541.54,416.91L536.48,420.47L530.71,422.11L528.54,423.25L523.86,427.16L518.75,428.97L517.54,430.35L511.06,431.9L507.81,433.4L506.58,435.02L505.26,435.5L504.24,436.64L503.48,439.08L501.23,441.82L499.8,442.25L499.41,439.44L496.24,437.82L493.54,438.94L492.53,441.4L491.08,442.1L489.4,444.23L486.73,445.33L484.83,448.32L483.33,449.46L483.39,450.76L480.6,452.07L480.48,452.77L478.29,454.58L479.29,457.2L480.42,457.56L480.45,456.67L481.75,457.05L482,458.24L481.37,458.92L481.97,459.64L481.19,460.24L481.19,461.57L480.35,461.48L479.87,462.33L480.38,462.78L481.06,462.21L482.25,462.92L481.58,464.01L481.94,467.18L480.14,467.81L480.61,468.45L480.01,469.42L479.29,469.75L478.67,469.08L478.83,470.25L477.5,471.58L476.63,472.13L475.3,471.73L473.01,473.2L473.17,473.99L474.24,474.26L473.98,475.93L472.93,476.39L473.17,477.42L472.15,477.69L472.35,478.81L470.41,478.67L469.77,482.85L468.35,482.96L468.33,486.91L466.49,487.2L465.85,488.52L467.01,489.8L467,490.53L465.93,491.5L464.9,491.36L466.14,493L466.03,494.15L465.1,493.53L464.22,494.26L464.29,495.8L463.06,497.69L463.33,498.01L462.24,498.39L462.7,498.96L462.25,499.68L459.9,499.82L460.41,500.89L458.76,502.73L460.42,503.35L460.42,504.1L459.45,504.7L459.71,506.17L459.71,506.17L456.6,505.14L455.58,503.47L454.14,503L450.73,506.45L448.66,507.16L446.58,505.45L438.56,503.48L436.29,495.98L435.42,495.14L431.72,494.85L427.94,492.26L425.51,492.49L425.47,493.46L423.86,495.63L423.19,495.82L420.35,491.65L417,488.48L416.13,485.32L412.44,481.98L410.25,482.27L406.36,481.44L402.52,482.2L399.06,481.57L391.91,484.58L387.47,488.24L385.83,488.89L383.63,491.89L382.56,492.53L379.95,490.04L378.17,486.29L376.6,485.66L370.9,479.05L368.86,478.75L364.6,475.84L363.23,476.07L363.23,476.07L362.83,473.12L363.46,472.23L363.28,471.43L365.44,468.5L364.93,466.99L365.23,463.14L364.1,462.79L364.51,461.62L363.28,461.41L362.07,459.23L362.78,456.77L359.67,453.25L359.44,451.66L358.3,450.49L358.37,449.42L357.5,447.77L357.97,445.51L357.45,445.43L359,444.42L358.46,442.28L356.14,439.35L354.11,438L353.85,437.5L354.4,436.66L353.11,434.73L353.4,433.16L352.77,430.15L348.8,424.29L349.34,423.7L349.82,423.99L350.92,422.11L352.54,421.25L352.13,420.41L353.02,418.08L352.73,417.12L354.38,413.37L356.44,411.44L357.22,411.32L358.07,409.83L357.51,409.6L357.03,407.41L352.56,404.32L352.32,403.28L351.24,402.82L350.94,401.61L349.91,401.69L349.26,400.16L349.61,397.98L346.54,396.3L346.85,394.97L345.91,394.51L346.14,392.9L345.49,392.62L346.08,392.17L346.02,391.26L344.47,391.25L344.57,390.07L344.57,390.07L345.81,389.6L346.22,386.98L348.25,388.01L349.75,387.5L349.61,385.67L350.42,383.94L349.98,383.11L350.92,383.01L351.19,383.98L356.11,383.51L358.25,381.77L359.92,382.23L361.86,380.88L364.18,381.46L365.07,382.37L366.26,380.23L365.24,379.24L367.17,379.72L368.95,378.95L372.56,381.68L373.7,380.39L373.47,378.92L374.4,378.62L374.86,379.86L375.47,379.96L378.68,378.24L379.06,377.12L379.49,377.59L381.04,377.56L383.54,379.43L383.78,378.55L383.15,377.13L383.62,376.23L386.88,376.71L387.55,376.21L387.3,375.1L386.19,375.31L385.1,374.43L385.35,373L388.42,373.21L388.99,375.35L389.97,375.95L393.3,375.37L393.51,374.83L395.03,375.42L395.51,375.08L395.41,373.24L394.64,371.38L396.61,369.49L397.83,369.52L398.95,368.13L400.49,368.52L401.09,369.35L401.48,368.5L403.09,367.57L403.15,365.51L402.36,363.15L402.76,362.74L404.98,363.47L405.62,364.36L406.09,363.96L406.47,364.67L408.73,363.82L408.22,361L407.05,359.23L411.64,354.18L412.2,352.76L412.96,352.79L413.48,351.26L412.54,350.21L414.28,348.14L416.04,347.59L416.11,345.36L417.31,344.9L419.89,341.38L422.41,340.01L426.36,336.01L429.8,335.22L429.55,331.62L429.94,330.61L432.55,331.54L434.98,329.61z"
 };
 
+// src/hooks/mouseTrack.ts
+var import_react = require("react");
+var useMousePosition = () => {
+  const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
+  const updateMousePosition = (event) => {
+    console.log("x", event.clientX, "y", event.clientY);
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+  (0, import_react.useEffect)(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return position;
+};
+var mouseTrack_default = useMousePosition;
+
 // src/Burundi.tsx
+var import_react3 = require("react");
 var Burundi = ({
+  type,
   size,
   mapColor,
   strokeColor,
   strokeWidth,
   hoverColor,
-  onSelect
+  onSelect,
+  hints,
+  selectColor,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
 }) => {
+  if (type === "select-single") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      BurundiSingle,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        hoverColor,
+        hints,
+        onSelect,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else if (type === "select-multiple") {
+    return /* @__PURE__ */ import_react2.default.createElement(
+      BurundiMultiple,
+      {
+        size,
+        selectColor,
+        mapColor,
+        strokeColor,
+        strokeWidth,
+        onSelect,
+        hoverColor,
+        hints,
+        hintTextColor,
+        hintBackgroundColor,
+        hintPadding,
+        hintBorderRadius
+      }
+    );
+  } else {
+    return null;
+  }
+};
+var BurundiSingle = ({
+  size,
+  mapColor,
+  strokeColor,
+  selectColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  onSelect,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius
+}) => {
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    }
+  }, [selectedState, selectColor]);
   const mapStyle = {
     width: size || constants.WIDTH,
     fill: mapColor || constants.MAPCOLOR,
@@ -101,27 +193,161 @@ var Burundi = ({
   };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(hoverStateId);
     if (path) {
-      path.style.fill = hoverColor || constants.HOVERCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(hoverStateId);
+    setStateHovered(null);
     if (path) {
-      path.style.fill = mapColor || constants.MAPCOLOR;
+      if (selectedState === hoverStateId) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
     }
   };
-  return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "-50 10 1000 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (selectedState) {
+      const path = document.getElementById(selectedState);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setSelectedState(stateCode2);
+    if (onSelect) {
+      onSelect(stateCode2);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => onSelect(stateCode2),
+      onClick: () => handleClick(stateCode2),
       onMouseEnter: () => handleMouseEnter(stateCode2),
       onMouseLeave: () => handleMouseLeave(stateCode2),
       id: stateCode2,
       d: drawPath[stateCode2]
     }
-  )))));
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
+};
+var BurundiMultiple = ({
+  size,
+  selectColor,
+  mapColor,
+  strokeColor,
+  strokeWidth,
+  hoverColor,
+  hints,
+  hintTextColor,
+  hintBackgroundColor,
+  hintPadding,
+  hintBorderRadius,
+  onSelect
+}) => {
+  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
+  const { x, y } = mouseTrack_default();
+  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
+  (0, import_react2.useEffect)(() => {
+    selectedStates.forEach((stateCode2) => {
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      }
+    });
+  }, [selectedStates, selectColor]);
+  const mapStyle = {
+    width: size || constants.WIDTH,
+    fill: mapColor || constants.MAPCOLOR,
+    stroke: strokeColor || constants.STROKE_COLOR,
+    strokeWidth: strokeWidth || constants.STROKE_WIDTH
+  };
+  const handleClick = (stateCode2) => {
+    if (selectedStates.includes(stateCode2)) {
+      const remove_state_code = selectedStates.filter(
+        (state) => state !== stateCode2
+      );
+      setSelectedStates(remove_state_code);
+      const path = document.getElementById(stateCode2);
+      if (path) {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    } else {
+      setSelectedStates([...selectedStates, stateCode2]);
+    }
+    if (onSelect) {
+      onSelect(stateCode2, selectedStates);
+    }
+  };
+  const handleMouseEnter = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = hoverColor || constants.HOVERCOLOR;
+      }
+    }
+    setStateHovered(hoverStateId);
+  };
+  const handleMouseLeave = (hoverStateId) => {
+    const path = document.getElementById(hoverStateId);
+    if (path) {
+      if (selectedStates.includes(hoverStateId)) {
+        path.style.fill = selectColor || constants.SELECTED_COLOR;
+      } else {
+        path.style.fill = mapColor || constants.MAPCOLOR;
+      }
+    }
+    setStateHovered(null);
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+    "path",
+    {
+      key: index,
+      onClick: () => handleClick(stateCode2),
+      onMouseEnter: () => handleMouseEnter(stateCode2),
+      onMouseLeave: () => handleMouseLeave(stateCode2),
+      id: stateCode2,
+      d: drawPath[stateCode2]
+    }
+  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        top: y + 20,
+        left: x + 20,
+        backgroundColor: hintBackgroundColor || "white",
+        padding: hintPadding || "10px",
+        borderRadius: hintBorderRadius || "5px",
+        border: "1px solid #ccc",
+        color: hintTextColor || "black"
+      }
+    },
+    stateHovered
+  )));
 };
 var Burundi_default = Burundi;
 

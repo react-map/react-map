@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Burkinafaso: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: BurkinafasoProps) => React.JSX.Element;
+declare const Burkinafaso: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: BurkinafasoProps) => React.JSX.Element | null;
 interface BurkinafasoProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Burkinafaso as default };

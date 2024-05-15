@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Guineabissau: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: GuineabissauProps) => React.JSX.Element;
+declare const Guineabissau: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: GuineabissauProps) => React.JSX.Element | null;
 interface GuineabissauProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Guineabissau as default };

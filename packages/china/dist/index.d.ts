@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const China: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: ChinaProps) => React.JSX.Element;
+declare const China: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: ChinaProps) => React.JSX.Element | null;
 interface ChinaProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { China as default };

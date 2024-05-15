@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Equatorialguinea: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: EquatorialguineaProps) => React.JSX.Element;
+declare const Equatorialguinea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: EquatorialguineaProps) => React.JSX.Element | null;
 interface EquatorialguineaProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Equatorialguinea as default };

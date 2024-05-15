@@ -1,13 +1,20 @@
 import React from 'react';
 
-declare const Nicaragua: ({ size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, }: NicaraguaProps) => React.JSX.Element;
+declare const Nicaragua: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: NicaraguaProps) => React.JSX.Element | null;
 interface NicaraguaProps {
+    type?: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
     hoverColor?: string;
-    onSelect: (state: string) => void;
+    selectColor?: string;
+    hints?: boolean;
+    hintTextColor?: string;
+    hintBackgroundColor?: string;
+    hintPadding?: string;
+    hintBorderRadius?: string;
+    onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 
 export { Nicaragua as default };
