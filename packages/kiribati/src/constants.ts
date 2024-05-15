@@ -4,7 +4,8 @@ export const constants = {
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
   HOVERCOLOR: "#303030",
-};
+ SELECTED_COLOR: '#ff0000',
+ };
 export const stateCode = ["Gilbert Islands", "Line Islands", "Phoenix Islands"];
 export const drawPath = {
   "Gilbert Islands":

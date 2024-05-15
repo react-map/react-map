@@ -121,4 +121,5 @@ export const constants = {
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
   HOVERCOLOR: "#303030",
-};
+ SELECTED_COLOR: '#ff0000',
+ };

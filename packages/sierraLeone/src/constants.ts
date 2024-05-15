@@ -4,7 +4,8 @@ export const constants = {
   STROKE_COLOR: "#000000",
   STROKE_WIDTH: "0.5",
   HOVERCOLOR: "#303030",
-};
+ SELECTED_COLOR: '#ff0000',
+ };
 export const stateCode = ["Eastern", "Northern", "Western", "Southern"];
 export const drawPath = {
   Eastern:
