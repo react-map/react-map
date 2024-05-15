@@ -1,4 +1,2 @@
-
-        import Bahrain from './Bahrain';
-        export default Bahrain;
-    
+import Bahrain from './Bahrain';
+export default Bahrain;
