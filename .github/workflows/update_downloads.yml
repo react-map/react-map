@@ -35,4 +35,9 @@ jobs:
         git config --global user.email 'github-actions@github.com'
         git add README.md
         git commit -m "chore(workflow): update download stats"
+    - name: Push changes
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: |
+        git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
         git push
