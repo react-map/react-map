@@ -24,7 +24,7 @@ jobs:
     - name: Run download script
       id: run-script
       run: |
-        python3 scripts/v2/download_script.py # Update with the correct path to your script
+        python3 scripts/v2/count_downloads.py
         echo "total_downloads=$(cat total_downloads.txt)" >> $GITHUB_ENV
     - name: Update README
       run: |
