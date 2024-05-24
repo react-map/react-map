@@ -42,7 +42,7 @@ def sum_downloads(directory_path, start_date, end_date):
     return total_downloads
 
 if __name__ == "__main__":
-    directory_path = "/home/jerry/Desktop/react-maps/packages"
+    directory_path = "packages/"
     today = datetime.today().strftime('%Y-%m-%d')
     start_date = "2023-10-01"
     total_downloads = sum_downloads(directory_path, start_date, today)
