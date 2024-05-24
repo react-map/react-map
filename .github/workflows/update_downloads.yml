@@ -1,0 +1,37 @@
+name: Update Download Stats
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - main
+
+jobs:
+  update-downloads:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: pip install requests
+    - name: Run download script
+      id: run-script
+      run: |
+        python3 scripts/v2/download_script.py # Update with the correct path to your script
+        echo "total_downloads=$(cat total_downloads.txt)" >> $GITHUB_ENV
+    - name: Update README
+      run: |
+        sed -i "s/Total downloads: [0-9]\+/Total downloads: ${{ env.total_downloads }}/" README.md
+    - name: Commit changes
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add README.md
+        git commit -m "chore(workflow): update download stats"
+        git push
