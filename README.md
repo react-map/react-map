@@ -19,23 +19,37 @@ npm install @react-map/{your_country}
 That is it! you are now ready to use the map components.
 
 # Usage 
-Each component you add has a fixed 6 parameters that you can use to tweek around the map's behaviour.
+Each component you add has a fixed set of parameters that you can use to tweek around the map's behaviour.
 ```ts
 export interface props = {
+  type?: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;
   strokeWidth?: number;
   hoverColor?: string;
-  onSelect: (state: string) => void;
+  selectColor?: string;
+  hints?: boolean;
+  hintTextColor?: string;
+  hintBackgroundColor?: string;
+  hintPadding?: string;
+  hintBorderRadius?: string;
+  onSelect?: (state: string, selectedStates?: string[]) => void;
 }
 ```
-1) `size` - It helps you increase or decrease the map size according to your requirement.
-2) `mapColour` - It changes the default colour of the Map elements.
-3) `strokeColour` - It defines the colour with which the borders are represented.
-4) `strokeWidth` - It represents the width of the borders.
-5) `hoverColour` - It is the colour of the component that is hovered upon.
-6) `onSelect` - It helps you decide what to do upon clicking on a specific component in a map (say city).
+1) `type` - It takes value either `select-single` or `select-multiple` to alter the selection behaviour of the map. In `select-single`, only one state/region can be selected at one time, whereas in `select-multiple`, you can select multiple regions at once. 
+2) `size` - It helps you increase or decrease the map size according to your requirement.
+3) `mapColor` - It changes the default colour of the Map elements.
+4) `strokeColor` - It defines the colour with which the borders are represented.
+5) `strokeWidth` - It represents the width of the borders.
+6) `hoverColor` - It is the colour of the component that is hovered upon.
+7) `selectColor` - It is the coulour of the component(s) that is selected.
+8) `hints` - This is a boolean parameter that displays the name of the region/state when it is hovered on.
+9) `hintTextColor` - If hint is enabled, this parameter would decide the colour of the text in which hints are displayed.
+10) `hintBackgroundColor` - If hint is enabled, this parameter would decide the background colour of the hints that are displayed.
+11) `hintPadding` - If hint is enabled, this parameter would decide the Padding of the hints that are displayed.
+12) `hintBorderRadius` - If hint is enabled, this parameter would decide the Border Radius of the hints that are displayed.
+13) `onSelect` - It helps you decide what to do upon clicking on a specific component in a map (say city). If the state is `select-multiple`, then the function can have two parameters, `(state: string, selectedStates?: string[])` , `state` is the latest selected state and `selectedState` is an array of all the states that are selected. If the state is `select-single`, then the `onSelect` function takes in a single `state` parameter, that is the code of the latest selected state. 
 
 Each element in a map returns a string, that represents the name of the region. That could be used to add different functionality based on the region that is clicked.
 
