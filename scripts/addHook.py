@@ -1,7 +1,7 @@
 from pathlib import Path
 
 def addhook(country_name):
-    dir_path = Path(f'/home/jerry/Desktop/react-maps/packages/{country_name}/src')
+    dir_path = Path(f'/home/jerry/react-maps/packages/{country_name}/src')
     hook_folder_path = dir_path / 'hooks'
     hook_folder_path.mkdir(parents=True, exist_ok=True)
     hook_file_path = hook_folder_path / 'mouseTrack.ts'
@@ -13,7 +13,6 @@ const useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const updateMousePosition = (event: any) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
 
@@ -31,7 +30,7 @@ export default useMousePosition;
 ''')
 
 
-packages_folder = Path('/home/jerry/Desktop/react-maps/packages')
+packages_folder = Path('/home/jerry/react-maps/packages')
 for country_dir in packages_folder.iterdir():
     if country_dir.is_dir():
         addhook(country_dir.name)
