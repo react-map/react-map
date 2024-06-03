@@ -5,7 +5,7 @@ Create beautiful,interactive maps with a vivid collection of over 200+ maps rang
 Drop of a ✨ if you are here. It would mean a lot : )
 
 ### Download Stats
-Total downloads: 70150
+Total downloads: 70408
 
 ![image](https://github.com/reactmaps/react-maps/assets/110319892/913ca23e-4a3f-4285-9c98-f227e2f64c4c)
 
