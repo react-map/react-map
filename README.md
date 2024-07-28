@@ -23,9 +23,10 @@ That is it! you are now ready to use the map components.
 
 # Usage 
 Each component you add has a fixed set of parameters that you can use to tweek around the map's behaviour.
+IMPORTANT - 'type' is compulsary in the latest version of react maps because of the introduction of multiple type of map behaviours. 
 ```ts
 export interface props = {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;
