@@ -6,6 +6,7 @@ export const constants = {
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
+export const viewBox = '-50 -50 1600 950';
 export const stateCode = [
   'Sud-Comoé',
   'Lacs',

@@ -6,6 +6,7 @@ export const constants = {
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
+export const viewBox = '-50 150 1200 600';
 export const stateCode = [
   'Seoul',
   'Busan',

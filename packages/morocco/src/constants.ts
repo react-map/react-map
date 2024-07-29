@@ -6,6 +6,7 @@ export const constants = {
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
+export const viewBox = '-50 50 1500 900';
 export const stateCode = [
   'Tanger-Tétouan',
   'Gharb-Chrarda-Beni Hssen',
