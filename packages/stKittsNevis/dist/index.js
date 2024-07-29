@@ -62,6 +62,7 @@ var stateCode = [
   "Saint Thomas Middle Island",
   "Trinity Palmetto Point"
 ];
+var viewBox = "-50 100 1500 750";
 var drawPath = {
   "Christ Church Nichola Town": "M232.202,236.789L229.443,240.38L228.617,245.773L223.302,248.975L220.493,254.567L211.341,261.229L209.934,263.428L209.359,273.421L204.244,277.483L203.03,280.28L195.61,287.611L195.545,302.854L197.858,318.385L197.858,318.385L183.405,316.269L183.405,316.269L183.405,316.269L183.405,316.269L146.928,302.129L143.603,293.067L137.971,287.873L132.209,279.746L132.209,279.746L156.094,252.255L164.032,240.574L164.291,232.577L167.113,225.478L172.228,222.672L174.527,217.417L186.738,209.553L186.738,209.553L189.36,211.188L190.402,214.454L194.065,215.546L197.205,217.719L198.771,220.446L201.385,220.993L202.958,222.631L202.958,224.258L207.139,224.258L207.139,222.631L208.188,222.631L209.754,227.531L213.942,228.62L216.032,229.708L216.032,230.793L217.605,230.793L217.605,229.708L222.311,229.708L222.835,231.889L225.45,232.431L224.925,234.612L227.54,237.881L229.113,237.881L229.63,235.7z",
   "Saint Anne Sandy Point": "M102.061,246.899L98.713,251.081L81.079,264.542L74.146,263.255L70.928,264.542L65.677,271.813L54.78,283.216L44.329,290.902L42.094,294.563L41.11,298.887L41.11,298.887L39.76,297.252L38.187,297.252L30.867,292.895L30.867,280.916L24.588,270.563L21.45,268.929L20.925,265.114L17.786,263.483L17.262,260.761L15.696,259.123L13.081,257.492L10.466,258.034L4.712,252.588L2.098,252.042L0.524,249.869L0,246.596L2.098,237.335L1.049,234.066L2.098,223.169L0.524,222.077L0.524,216.088L1.049,214.454L2.622,214.454L2.622,212.819L4.188,212.277L4.188,209.415L4.188,209.415L25.113,219.59L26.384,218.89L26.607,213.979L28.108,210.47L34.768,211.487L36.039,213.979L34.394,221.149L34.394,223.955L35.292,224.576L42.332,224.737L43.754,226.3L46.972,225.593L52.884,228.638L58.652,234.092L63.213,234.402L80.209,240.174L101.472,244.928L101.472,244.928z",
@@ -84,7 +85,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -118,6 +118,7 @@ var Stkittsnevis = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       StkittsnevisSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -136,6 +137,7 @@ var Stkittsnevis = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       StkittsnevisMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -219,7 +221,7 @@ var StkittsnevisSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -316,7 +318,7 @@ var StkittsnevisMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

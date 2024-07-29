@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { drawPath, stateCode, constants } from './constants';
+import { drawPath, stateCode, constants, viewBox } from './constants';
 import useMousePosition from './hooks/mouseTrack';
 import { useState } from 'react';
 
@@ -21,6 +21,7 @@ const Pitcairnislands = ({
   if (type === 'select-single') {
     return (
       <PitcairnislandsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Pitcairnislands = ({
   } else if (type === 'select-multiple') {
     return (
       <PitcairnislandsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -131,7 +133,7 @@ const PitcairnislandsSingle = ({
   return (
     <>
       <div className="map" style={mapStyle}>
-        <svg version="1.1" id="svg2" x="0px" y="0px" viewBox="0 0 800 800">
+        <svg version="1.1" id="svg2" x="0px" y="0px" viewBox={viewBox}>
           {stateCode?.map((stateCode: string, index: number) => (
             <path
               key={index}
@@ -247,7 +249,7 @@ const PitcairnislandsMultiple = ({
   return (
     <>
       <div className="map" style={mapStyle}>
-        <svg version="1.1" id="svg2" x="0px" y="0px" viewBox="0 0 800 800">
+        <svg version="1.1" id="svg2" x="0px" y="0px" viewBox={viewBox}>
           {stateCode?.map((stateCode: string, index: number) => (
             <path
               key={index}
@@ -285,7 +287,7 @@ const PitcairnislandsMultiple = ({
 };
 
 export interface PitcairnislandsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

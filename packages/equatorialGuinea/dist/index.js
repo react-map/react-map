@@ -46,15 +46,8 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var stateCode = [
-  "Bioko Sur",
-  "Bioko Norte",
-  "Wele-Nz\xE1s",
-  "Litoral",
-  "Ki\xE9-Ntem",
-  "Centro Sur",
-  "Annob\xF3n"
-];
+var viewBox = "200 -20 1600 600";
+var stateCode = ["Bioko Sur", "Bioko Norte", "Wele-Nz\xE1s", "Litoral", "Ki\xE9-Ntem", "Centro Sur", "Annob\xF3n"];
 var drawPath = {
   "Bioko Sur": "M438.65,27.05L436.99,26.73L435.08,25.97L428.97,21.66L427.14,20.61L423.36,19.37L421.32,19.48L421.3,19.48L420.51,30.28L419.69,32.07L417.76,33.94L415.57,35.51L413.83,36.45L415.09,38.41L415.49,40.99L414.71,43.22L412.36,44.17L407.39,43.26L405.04,43.15L403.27,44.17L399.96,43.26L397.36,45.57L395.53,49.09L394.59,51.81L393.73,57.72L393.18,59.01L392.73,60.56L393.63,62.39L394.91,64.22L395.54,65.73L396.66,69.84L399.34,71.93L402.65,72.71L405.65,72.81L407.47,73.21L410.42,75.1L411.92,75.76L413.33,75.78L416.53,75.07L417.54,74.72L421.42,76.88L423.44,77.61L424.32,77.23L425.05,78.14L428.25,79.5L429.59,80.41L430.89,78.84L435.67,70.98L441.94,63.74L442.81,61.46L442.88,55.02L443.37,52.76L447.38,50.37L447.7,49.91L448.08,49.16L448.74,45.87L451.15,43.96L453.94,36.45L454.34,35.98L454.34,35.98L452.13,30.52L451.76,29.91L451.35,29.38L450.05,28.51L448.22,27.83L444.44,27.07L440.9,26.89L439.84,27.02L438.65,27.05z",
   "Bioko Norte": "M437.58,0L431.85,1.6L426.94,6.45L423.28,12.43L421.46,17.35L421.3,19.48L421.32,19.48L423.36,19.37L427.14,20.61L428.97,21.66L435.08,25.97L436.99,26.73L438.65,27.05L439.84,27.02L440.9,26.89L444.44,27.07L448.22,27.83L450.05,28.51L451.35,29.38L451.76,29.91L452.13,30.52L454.34,35.98L458.98,30.48L460.41,26.61L465.45,22.13L466.57,20.28L467.46,18.1L468.03,15.66L468.24,12.97L467.69,10.01L466.3,7.62L462.6,3.03L461.46,2.83L461.03,2.6L460.61,1.99L456.73,3.51L451.99,3.64L447.47,2.95L444.32,1.99L442.95,3L441.04,2.9L436.7,1.99L437.27,0.53L437.58,0z",
@@ -70,7 +63,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -104,6 +96,7 @@ var Equatorialguinea = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       EquatorialguineaSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -122,6 +115,7 @@ var Equatorialguinea = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       EquatorialguineaMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -205,7 +199,7 @@ var EquatorialguineaSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -302,7 +296,7 @@ var EquatorialguineaMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

@@ -46,6 +46,7 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
+var viewBox = "-20 -40 3100 2200";
 var stateCode = ["Savanes", "Centre", "Kara", "Maritime", "Plateaux"];
 var drawPath = {
   Savanes: "M0.19,0L3.25,6.92L10.05,13.24L18.4,17.9L25.95,19.84L33.47,19.06L47.4,15.36L55.12,15.23L68.82,20.49L75.01,30.28L76.33,43.22L75.16,58.03L74.18,63.27L71.31,66.14L67.71,68.44L64.43,71.91L62.43,75.84L53.55,117.83L53.87,121.88L55.97,130.09L55.2,134.53L51.66,137.93L43.28,143.64L37.49,151.03L34.38,158.32L32.19,175.78L30.78,181.69L28.27,192.24L28,200.94L32.19,209.58L35.8,212.6L40.3,214.77L45.19,216.04L54.67,217.27L57.6,219.23L60.17,221.75L63.88,224.28L76.71,228.55L80.44,230.85L83.68,234.75L88.48,244.03L91.86,248.14L113.58,261.86L120.08,268.8L140.99,308L142.17,309.46L145.31,309.14L147.05,306.68L148.15,303.95L149.24,302.75L160.13,307.05L164.07,307.61L168.72,306.39L172.57,304.49L176.3,303.31L180.49,304.28L184.55,308.36L184.73,312.97L183.36,317.39L182.79,320.96L187.39,328.52L194.37,334.87L198.69,341.52L195.09,349.96L200.81,349.9L218.81,346.88L222.74,348.77L231.12,355.75L221.04,363.29L219.09,369.68L217.91,376.52L214.95,382.12L215.62,396.15L213.47,425.68L217.49,436.45L222.7,439.82L227.21,440.92L230.52,443.67L231.75,452.1L230.29,459L232.66,461.06L235.66,464.95L240,471.79L241.02,474.02L241.53,476.42L241.47,478.75L240.83,483.5L240.96,485.92L241.53,488.09L242.67,489.74L244.39,490.84L251.52,492.04L253.43,492.94L256.48,495.62L258.83,496.56L262.04,497.01L267,496.88L273.55,498.17L277.37,497.98L279.72,498.17L281.63,498.86L282.71,500.18L282.46,501.8L280.55,505.19L280.17,507.13L280.55,509.16L281.31,511.11L282.52,512.76L283.92,514.24L287.7,516.25L289.35,517.44L290.82,518.89L294.25,524.04L295.84,525.26L298.2,525.91L301.44,525.72L306.28,524.07L312.53,522.54L317.81,522.61L330.75,521.28L333.1,522.03L336.79,524.26L339.15,524.81L343.28,523.72L347.04,524.52L347.54,524.23L348.05,521.28L347.54,516.25L342.65,502.38L342.26,500.22L342.45,497.75L343.15,495.17L344.36,492.33L345.57,486.93L346.65,483.95L348.88,480.53L350.09,477.88L350.73,475.54L350.79,473.86L350.47,469.86L350.73,457.12L351.87,451.94L353.48,447.22L357.43,439.13L369.51,422.16L371.42,417.99L372.44,412.87L371.36,407.12L370.66,404.91L370.79,403.01L372.7,401.29L377.17,399.48L389.7,400.29L392.31,401.2L394.35,402.36L395.43,404.07L396.32,406.05L397.34,407.86L398.95,408.8L401.18,408.64L407.73,404.14L415.36,399.9L418.23,398.87L427.41,399.68L429.57,400.48L432.75,402.97L434.66,403.59L436.83,403.1L441.66,398.35L444.21,396.8L448.36,396.48L451.61,396.64L462.55,398.38L465.03,398.35L468.04,396.54L470.21,394.89L477.54,383.57L477.56,383.55L453.92,367.72L414.9,341.59L383.85,320.76L380.54,314.48L380.2,304.88L385.93,261.9L391.95,238.65L392.25,222.33L388.98,184.71L394.88,170.74L417.19,149.35L422.49,141.66L423.76,137.37L424.4,127.82L425.2,123.35L431.61,111.04L431.02,106.51L427.58,98.02L426.6,93.52L427.79,85.22L438.31,59.48L385,60.47L345.51,61.24L319.76,66.24L268.48,84.35L273.45,66.61L266.83,64.93L268.27,63.27L268.87,61.56L269.16,59.82L269.71,57.97L269.5,56.65L268.95,55.7L268.06,55.1L222.16,45.65L186.37,38.28L92.81,19.06L42.46,8.71L21.14,4.32L0.19,0z",
@@ -60,7 +61,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -94,6 +94,7 @@ var Togo = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       TogoSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -112,6 +113,7 @@ var Togo = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       TogoMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -195,7 +197,7 @@ var TogoSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -292,7 +294,7 @@ var TogoMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

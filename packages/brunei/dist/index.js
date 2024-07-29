@@ -46,6 +46,7 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
+var viewBox = "-50 -50 2000 900";
 var stateCode = ["Belait", "Brunei-Muara", "Temburong", "Tutong"];
 var drawPath = {
   Belait: "M698.13,566.04L693.86,569.51L691.69,574.42L682.42,588.86L675.3,597.16L672.52,599.62L670.97,602.07L671.59,605.15L674.68,607.6L677.78,605.76L679.01,602.69L682.11,600.23L690.46,598.08L693.24,591.63L697.88,586.41L702.21,584.25L705.3,584.87L706.23,587.94L705.92,591.32L691.69,619.28L688.91,624.19L687.05,626.34L685.82,631.26L683.65,632.49L681.8,635.87L678.7,638.33L670.04,649.45L667.88,650.98L666.64,657.44L662,660.51L660.46,668.5L658.29,670.65L656.43,671.57L656.74,674.64L657.98,676.48L661.38,676.48L665.4,673.1L668.19,673.1L669.42,674.95L669.73,678.02L669.12,682.63L665.4,686.01L664.48,687.54L663.86,691.23L658.91,694.92L657.67,700.75L647.16,705.06L644.99,706.9L643.75,709.36L643.14,712.43L630.15,724.1L622.41,733.01L620.87,736.08L614.99,744.07L613.44,748.07L603.55,760.36L594.27,765.58L585.3,772.03L571.07,780.63L550.66,787.7L538.29,789.54L528.08,792L515.71,791.08L516.64,787.7L518.49,786.78L520.66,783.4L527.46,780.94L528.08,778.79L527.15,776.33L528.08,774.18L527.15,770.19L524.99,767.73L521.59,766.5L519.42,762.81L516.33,760.97L506.74,759.13L500.25,760.05L491.9,758.21L490.35,756.67L489.73,752.98L487.88,750.22L487.26,747.15L482.25,743.77L479.15,739.77L475.75,737.01L464.93,733.01L464.31,731.48L464.31,729.33L466.16,728.1L466.16,724.1L464.62,721.34L462.14,718.57L459.05,718.27L456.27,717.04L456.89,715.19L458.74,712.74L459.36,707.51L456.89,703.21L454.1,700.14L447.92,697.68L445.44,696.15L435.85,689.39L434,686.93L431.52,686.62L428.74,688.16L421.63,689.69L419.46,688.77L416.37,686.32L411.42,677.1L408.33,673.41L404.62,670.34L402.45,664.5L401.83,659.28L397.19,651.6L394.1,643.92L389.15,638.7L386.37,629.48L386.68,623.64L384.82,622.11L381.73,615.96L379.56,613.81L381.42,608.28L381.11,604.29L382.04,595.68L379.56,593.23L378.02,590.46L378.02,587.08L376.78,586.16L371.21,585.55L368.74,587.08L368.43,590.77L365.96,590.15L362.55,590.77L362.24,592.61L359.15,595.68L359.15,598.45L357.3,603.67L354.82,605.52L346.78,601.21L344,600.29L341.52,597.53L338.74,596.61L338.12,597.53L330.39,597.53L327.3,595.99L322.66,595.38L315.54,597.53L310.9,603.36L300.08,598.76L294.2,599.06L282.76,600.91L278.74,599.37L275.95,596.3L274.72,593.84L275.03,590.77L276.57,586.47L277.81,572.64L280.28,556.36L281.83,551.75L283.38,550.52L287.4,539.15L288.33,534.55L288.02,531.47L284.61,530.25L282.14,527.79L279.98,527.17L275.34,523.79L272.86,521.03L269.46,519.37L269.77,516.3L271.01,512.3L273.48,505.24L275.65,501.24L276.26,497.56L273.17,487.11L272.55,482.2L266.06,467.76L262.35,461L257.09,453.62L256.47,451.17L257.09,445.02L250.59,432.42L247.5,425.36L246.26,421.06L242.86,416.14L241.31,412.46L232.96,406.92L222.45,397.71L212.24,390.95L210.08,390.95L204.82,394.02L201.73,393.71L201.11,389.72L199.87,388.18L198.63,383.88L188.42,370.05L180.06,362.27L174.85,361.58L164.93,359.16L146.2,357.78L131.87,354.67L128.22,352.59L126.31,350.52L135.01,351.21L148.4,350.69L149.97,352.07L151.88,352.25L165.1,350.35L175.89,350.86L188.42,349.65L198.16,350L206.37,349.6L224.19,346.48L230.24,344.76L230.67,345.19L263.5,335.93L264.16,336.15L266.53,334.86L273.01,332.92L274.09,332.92L274.09,333.78L275.82,334.21L275.6,332.7L277.33,331.41L297.2,324.74L303.46,322.37L304.33,321.51L305.84,321.94L307.57,320.43L309.73,320L311.02,318.93L321.81,315.24L331.76,310.96L334.78,310.53L337.16,309.03L349.26,305.37L359.84,301.06L362,300.85L368.26,298.05L369.78,298.91L370.2,297.83L371.72,296.54L373.23,296.11L374.52,294.6L375.61,295.03L377.11,293.96L385.97,290.3L392.88,286.42L393.96,285.13L395.25,285.13L400.01,282.76L408.22,278.03L410.81,275.87L418.37,272L432.62,262.96L445.37,253.27L445.37,253.27L447.76,258.15L450.5,261.79L450.96,267.25L454.63,275.44L455.08,283.17L457.37,287.72L456.46,295.91L486.22,335.49L508.21,328.67L523.78,354.6L522.86,368.7L521.03,374.61L518.74,378.25L519.2,386.9L524.69,390.54L536.6,396.63L625.45,488.98L632.32,509L637.81,534.47L641.48,544.48L652.01,547.67L671.24,555.85z",
@@ -59,7 +60,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -93,6 +93,7 @@ var Brunei = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       BruneiSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -111,6 +112,7 @@ var Brunei = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       BruneiMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -194,7 +196,7 @@ var BruneiSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -291,7 +293,7 @@ var BruneiMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

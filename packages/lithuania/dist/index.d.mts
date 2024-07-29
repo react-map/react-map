@@ -2,7 +2,7 @@ import React from 'react';
 
 declare const Lithuania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: LithuaniaProps) => React.JSX.Element | null;
 interface LithuaniaProps {
-    type?: 'select-single' | 'select-multiple';
+    type: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;

@@ -17,13 +17,13 @@ var drawPath = {
   Tinian: "M616.59,4767.14L604.81,4758.56L586.63,4771.67L569.26,4794.26L559.63,4813.92L558.56,4823.89L560.78,4830.09L570.95,4843.68L575.73,4855.74L578.96,4879.33L582.8,4890.45L598.82,4901.45L615.32,4889.05L628.24,4865.74L633.56,4843.68L631.27,4834.9L619.96,4821.41L616.59,4813.92L617.13,4800.68L619.83,4789L620.97,4778.12L616.59,4767.14z",
   Rota: "M254.77,5589.07L270.53,5581.16L276.99,5573.35L281.97,5563.73L287.76,5555.47L296.52,5552L307.42,5550.54L314.43,5546.1L318.8,5538.81L321.43,5528.74L312.68,5510.47L289.92,5512.52L251.27,5528.74L235.25,5532.97L211.14,5543.77L189.2,5558.14L179.77,5572.93L185.49,5578.35L198.76,5578.8L223.06,5575.85L237.94,5579.6L246.09,5586.3L254.77,5589.07z"
 };
+var viewBox = "0 0 1500 800";
 
 // src/hooks/mouseTrack.ts
 import { useState, useEffect } from "react";
 var useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   useEffect(() => {
@@ -57,6 +57,7 @@ var Northernmarianaislands = ({
     return /* @__PURE__ */ React.createElement(
       NorthernmarianaislandsSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -75,6 +76,7 @@ var Northernmarianaislands = ({
     return /* @__PURE__ */ React.createElement(
       NorthernmarianaislandsMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -158,7 +160,7 @@ var NorthernmarianaislandsSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
@@ -255,7 +257,7 @@ var NorthernmarianaislandsMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,

@@ -10,16 +10,8 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var stateCode = [
-  "Saint John",
-  "Saint Mary",
-  "Saint Paul",
-  "Saint Philip",
-  "Saint Peter",
-  "Saint George",
-  "Redonda",
-  "Barbuda"
-];
+var viewBox = "-40 -30 2000 1100";
+var stateCode = ["Saint John", "Saint Mary", "Saint Paul", "Saint Philip", "Saint Peter", "Saint George", "Redonda", "Barbuda"];
 var drawPath = {
   "Saint John": "M651.92,692.59L614.46,687.89L597.55,698.84L586.85,711.59L584.89,726.14L594.4,742.39L567.36,750.49L546.53,759.48L533.58,771.73L557.99,785.23L566.4,788.52L580.96,778.65L591.74,788.68L612.11,793.69L613.31,797.45L607.32,811.24L602.52,842.57L620.5,822.52L626.49,836.3L636.07,826.28L662.43,818.76L674.41,821.26L674.41,807.48L666.02,803.72L649.25,792.44L651.65,778.65L648.05,752.32L638.47,743.55L637.27,718.47L654.04,717.22L651.92,692.59z",
   "Saint Mary": "M602.52,842.57L607.32,811.24L613.31,797.45L612.11,793.69L591.74,788.68L580.96,778.65L566.4,788.52L547.34,798.42L546.91,808.97L551.11,820.96L545.95,835L538.02,851.74L545.91,862.93L583.41,885.82L598.7,889.26L623.16,889.11L639.35,886.22L631.28,866.38L634.87,852.59L626.49,836.3L620.5,822.52L602.52,842.57z",
@@ -36,7 +28,6 @@ import { useState, useEffect } from "react";
 var useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   useEffect(() => {
@@ -70,6 +61,7 @@ var Antiguabarbuda = ({
     return /* @__PURE__ */ React.createElement(
       AntiguabarbudaSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -88,6 +80,7 @@ var Antiguabarbuda = ({
     return /* @__PURE__ */ React.createElement(
       AntiguabarbudaMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -171,7 +164,7 @@ var AntiguabarbudaSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
@@ -268,7 +261,7 @@ var AntiguabarbudaMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,

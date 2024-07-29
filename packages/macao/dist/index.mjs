@@ -10,6 +10,7 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
+var viewBox = "-20 -50 3000 1500";
 var stateCode = ["Macao", "Taipa, Cotai, and Coloane"];
 var drawPath = {
   Macao: "M188.78,0L160.98,45.54L147.09,75.56L74.82,75.56L74.82,85.07L22.94,101.08L57.22,162.62L120.22,142.61L110.95,123.1L129.48,123.1L147.09,162.62L91.5,236.68L86.06,246.01L80.92,286.76L57.08,325.38L19.16,372.19L11.57,401.45L0.3,431.89L8.32,455.28L39.74,505.6L57.4,539.92L74.82,517.34L120.22,517.34L155.43,468.82L186.43,468.82L183.79,455.72L162.12,452.06L151.28,449.87L143.16,425.73L138.42,411.1L143.16,398.67L149.25,389.89L158.73,392.09L177.02,387.7L191.92,390.62L194.63,416.95L195.98,446.94L201,468.22L235.1,449.81L256.24,433.62L256.26,421.64L266.42,413.59L274.54,404.81L286.73,395.31L298.25,387.26L306.01,397.64L332.39,383.77L332.39,364.76L332.39,355.25L332.39,326.73L323.12,306.22L340.72,287.21L358.33,306.22L358.33,296.71L396.31,225.17L323.12,268.2L305.52,258.69L297.18,230.17L323.79,208.24L327.71,205.01L336.17,189.77L344.98,189.77L353.78,184.65L357.17,183.92L365.29,190.5L371.24,207.93L392.61,211.66L378.71,162.62L358.33,114.09L323.12,85.07L252.71,57.05L252.71,38.03L188.78,0L188.78,0z",
@@ -21,7 +22,6 @@ import { useState, useEffect } from "react";
 var useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   useEffect(() => {
@@ -55,6 +55,7 @@ var Macao = ({
     return /* @__PURE__ */ React.createElement(
       MacaoSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -73,6 +74,7 @@ var Macao = ({
     return /* @__PURE__ */ React.createElement(
       MacaoMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -156,7 +158,7 @@ var MacaoSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
@@ -253,7 +255,7 @@ var MacaoMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,

@@ -8,6 +8,7 @@ def run_npm_command(package_path):
     try:
         subprocess.run(['npm', 'run', 'build'], check=True)
         subprocess.run(['npm', 'version', 'patch'], check=True)
+        subprocess.run(['npm', 'version', 'patch'], check=True)
         subprocess.run(['npm', 'publish'], check=True)
         print(f"npm commands executed successfully for {package_path.name}")
     except subprocess.CalledProcessError as e:
@@ -15,7 +16,7 @@ def run_npm_command(package_path):
     finally:
         os.chdir(original_directory)
 
-packages_directory = Path("/home/jerry/Desktop/react-maps/packages")
+packages_directory = Path("/home/jerry/react-maps/packages")
 
 for package_dir in packages_directory.iterdir():
     if package_dir.is_dir():

@@ -2,7 +2,7 @@ import React from 'react';
 
 declare const Puertorico: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: PuertoricoProps) => React.JSX.Element | null;
 interface PuertoricoProps {
-    type?: 'select-single' | 'select-multiple';
+    type: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;

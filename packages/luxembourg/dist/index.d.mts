@@ -2,7 +2,7 @@ import React from 'react';
 
 declare const Luxembourg: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: LuxembourgProps) => React.JSX.Element | null;
 interface LuxembourgProps {
-    type?: 'select-single' | 'select-multiple';
+    type: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;

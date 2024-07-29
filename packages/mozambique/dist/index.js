@@ -46,19 +46,8 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var stateCode = [
-  "Maputo City",
-  "Maputo",
-  "Inhambane",
-  "Zambezia",
-  "Sofala",
-  "Gaza",
-  "Nampula",
-  "Niassa",
-  "Cabo Delgado",
-  "Manica",
-  "Tete"
-];
+var viewBox = "-50 -20 2000 1400";
+var stateCode = ["Maputo City", "Maputo", "Inhambane", "Zambezia", "Sofala", "Gaza", "Nampula", "Niassa", "Cabo Delgado", "Manica", "Tete"];
 var drawPath = {
   "Maputo City": "M184.09,1226.35L181.95,1224.41L176.12,1222.61L174.18,1227.05L173.41,1229.64L174.69,1229.68L175.96,1230.09L177.5,1231.07L178.14,1231.3L179.04,1231.24L179.72,1230.82L181.7,1229.15L182.11,1228.65L182.68,1227.72L184.09,1226.35z",
   Maputo: "M207.88,1234.62L208.39,1232.17L208.44,1231.24L206.32,1232.2L203.61,1233.95L201.88,1236.21L202.74,1238.66L203.27,1236.72L203.25,1236.38L204.24,1236.19L204.51,1236.56L204.55,1237.13L204.84,1237.52L205.7,1238L205.94,1238.34L206.13,1238.26L206.84,1237.52L207.08,1237.01L207.88,1234.62zM161.05,1306.05L169.82,1305.8L179.53,1305.51L190.08,1305.2L201.71,1304.85L201.47,1304.05L200.82,1302.82L200.68,1301.97L201.54,1299.65L201.71,1298.81L202.17,1292.15L201.71,1288.7L201.89,1287.71L202.58,1285.81L203.6,1279.45L204.44,1256.1L206.37,1242.67L206.32,1240.43L203.38,1241.73L202.46,1242.42L201.84,1243.42L201.15,1247.29L200.29,1249.97L199.89,1252.2L199.98,1254.41L200.68,1257.07L199.56,1257.17L198.68,1257.66L197.9,1258L197.05,1257.59L195.59,1256.31L194.51,1254.63L193.54,1252.72L191.92,1250.72L190.81,1249.86L188.96,1248.75L187.05,1248.34L185.75,1249.58L185.29,1247.78L183.93,1244.2L183.49,1241.64L183.08,1241.16L182.5,1240.74L181.85,1240.13L181.31,1239.2L180.64,1237.29L180.11,1236.38L179.33,1235.7L177.72,1235.08L176.98,1234.62L176.63,1234.1L176.08,1232.71L175.7,1232.07L175.08,1231.76L173.94,1231.39L172.82,1231.2L172.31,1231.5L172.23,1234.21L172.31,1234.62L171.51,1235.01L170.72,1234.1L170.42,1232.54L171.05,1230.94L172.17,1230.05L173.41,1229.64L174.18,1227.05L176.12,1222.61L181.95,1224.41L184.09,1226.35L186.22,1224.29L186.66,1223.35L186.97,1222.33L187.17,1221.2L187.25,1220.01L187.52,1219.13L188.12,1218.6L188.81,1218.13L189.34,1217.45L189.8,1217.45L190.11,1218.21L190.26,1218.79L190.2,1219.27L190.55,1218.53L190,1214.39L191.05,1212.6L192.42,1207.25L194.14,1203.77L198.07,1198.15L200.18,1195.75L219.67,1182.04L219.54,1178.34L219.6,1177.88L219.93,1176.55L220.24,1174.66L220.25,1174.15L220.04,1172.61L219.91,1172.15L219.56,1171.31L218.92,1170.18L218.56,1169.76L218.03,1169.33L216.97,1168.76L215.7,1168.33L210.36,1167.73L210.04,1167.62L209.79,1166.89L209.67,1166.12L209.68,1165.73L209.73,1165.45L210.04,1164.37L210.1,1163.91L209.71,1161.38L209.74,1159.93L209.62,1159.17L209.5,1158.8L209.46,1158.48L209.54,1158.12L209.67,1157.24L209.6,1156.76L209.29,1156.28L208.76,1155.86L207.65,1155.35L206.91,1155.16L205.24,1154.99L204.8,1154.84L204.44,1154.51L204.26,1153.65L203.75,1144.92L203.86,1144.56L204.06,1144.22L204.31,1143.95L204.57,1143.62L204.78,1143.28L204.75,1142.71L204.52,1141.91L203.8,1140.52L203.74,1139.26L203.86,1138.01L205.11,1133.45L204.98,1132.46L204.34,1131.86L200.5,1130.26L199.49,1129.61L198.32,1128.64L197.75,1128.04L197.4,1127.5L197.05,1125.45L196.77,1124.54L196.39,1123.73L191.75,1116.59L188.87,1113.16L188.66,1112.78L188.49,1112.37L188.36,1111.9L187.99,1103.73L188.06,1102.47L188.02,1102.11L187.87,1101.7L187.61,1101.31L187.16,1100.91L186.72,1100.69L184.84,1100.06L183.93,1099.55L183.6,1099.31L183.24,1099.12L182.77,1098.98L182.16,1098.94L180.65,1099.26L178.84,1099.92L178.36,1100.04L177.84,1100.1L177.16,1100.05L176.41,1099.87L175.28,1099.38L173.18,1098.05L170.93,1097.17L170.51,1096.87L166.45,1092.29L165.84,1091.76L165.17,1091.32L163.98,1090.84L155.16,1089.56L153.33,1088.61L152.69,1088.44L150.26,1088.01L148.9,1087.54L148.57,1087.3L147.63,1086.73L143.24,1086.05L141.44,1085.49L140.75,1085.36L140.18,1085.33L139.62,1085.36L130.22,1089.98L129.04,1090.73L131.67,1096.47L133.56,1102.8L133.97,1109.19L133.35,1114.87L133.42,1126.39L133.49,1140.34L133.54,1150.24L133.61,1163.44L133.73,1181.49L132.44,1185.56L132.14,1187.67L132.05,1190.41L132.33,1193.01L133.11,1194.73L133.55,1196.47L134.25,1201.7L134.26,1203.51L133.94,1204.62L133.43,1205.13L132.7,1205.57L131.74,1206.5L131.15,1207.51L127.95,1215.89L127.5,1218.2L127.81,1220.7L130.76,1230.33L132.72,1232.19L134.88,1233.36L139.88,1234.65L138.89,1237.27L139.29,1240.28L140.18,1243.38L140.7,1246.28L140.42,1248.51L137.94,1255.14L137.57,1257.58L138.51,1266.23L139.07,1268.58L142.62,1275.76L143.4,1282.65L143.14,1304.34L145.34,1304.82L149.16,1304.37L151.34,1304.45L156.81,1305.35L161.05,1306.05z",
@@ -78,7 +67,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -112,6 +100,7 @@ var Mozambique = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       MozambiqueSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -130,6 +119,7 @@ var Mozambique = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       MozambiqueMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -213,7 +203,7 @@ var MozambiqueSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -310,7 +300,7 @@ var MozambiqueMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

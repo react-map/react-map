@@ -50,13 +50,13 @@ var stateCode = ["Christmas Island"];
 var drawPath = {
   "Christmas Island": "M583.24,826.57L678.66,819.6L710.46,749.42L698.72,600.11L749.12,510.03L749.12,387.61L779.94,238.83L787.28,122.89L799.52,38.81L735.91,0L622.39,58.21L526.49,155.23L437.92,238.83L273.03,232.86L153.15,168.67L75.35,141.8L75.35,219.42L107.64,304.01L63.6,413.49L0.48,452.3L19.57,522.97L139.93,484.15L279.39,477.69L406.12,503.07L495.17,535.91L514.25,626.49L551.93,723.04L583.24,826.57z"
 };
+var viewBox = "-30 -10 2000 900";
 
 // src/hooks/mouseTrack.ts
 var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -90,6 +90,7 @@ var Christmasisland = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       ChristmasislandSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -108,6 +109,7 @@ var Christmasisland = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       ChristmasislandMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -191,7 +193,7 @@ var ChristmasislandSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -288,7 +290,7 @@ var ChristmasislandMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

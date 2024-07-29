@@ -6,6 +6,7 @@ export const constants = {
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
+export const viewBox = '-50 -50 1500 520';
 export const stateCode = [
   'Ahuachapán',
   'Cabañas',
