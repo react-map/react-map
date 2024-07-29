@@ -21,6 +21,7 @@ const Southsudan = ({
   if (type === 'select-single') {
     return (
       <SouthsudanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Southsudan = ({
   } else if (type === 'select-multiple') {
     return (
       <SouthsudanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SouthsudanMultiple = ({
 };
 
 export interface SouthsudanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

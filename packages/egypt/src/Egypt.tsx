@@ -21,6 +21,7 @@ const Egypt = ({
   if (type === 'select-single') {
     return (
       <EgyptSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Egypt = ({
   } else if (type === 'select-multiple') {
     return (
       <EgyptMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const EgyptMultiple = ({
 };
 
 export interface EgyptProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

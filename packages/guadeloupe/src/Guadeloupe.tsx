@@ -21,6 +21,7 @@ const Guadeloupe = ({
   if (type === 'select-single') {
     return (
       <GuadeloupeSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Guadeloupe = ({
   } else if (type === 'select-multiple') {
     return (
       <GuadeloupeMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const GuadeloupeMultiple = ({
 };
 
 export interface GuadeloupeProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

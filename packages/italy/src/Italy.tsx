@@ -21,6 +21,7 @@ const Italy = ({
   if (type === 'select-single') {
     return (
       <ItalySingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Italy = ({
   } else if (type === 'select-multiple') {
     return (
       <ItalyMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ItalyMultiple = ({
 };
 
 export interface ItalyProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

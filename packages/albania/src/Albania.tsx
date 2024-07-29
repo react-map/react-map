@@ -21,6 +21,7 @@ const Albania = ({
   if (type === 'select-single') {
     return (
       <AlbaniaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Albania = ({
   } else if (type === 'select-multiple') {
     return (
       <AlbaniaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AlbaniaMultiple = ({
 };
 
 export interface AlbaniaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

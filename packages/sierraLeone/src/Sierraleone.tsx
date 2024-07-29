@@ -21,6 +21,7 @@ const Sierraleone = ({
   if (type === 'select-single') {
     return (
       <SierraleoneSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Sierraleone = ({
   } else if (type === 'select-multiple') {
     return (
       <SierraleoneMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SierraleoneMultiple = ({
 };
 
 export interface SierraleoneProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

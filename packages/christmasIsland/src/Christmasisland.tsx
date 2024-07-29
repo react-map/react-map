@@ -21,6 +21,7 @@ const Christmasisland = ({
   if (type === 'select-single') {
     return (
       <ChristmasislandSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Christmasisland = ({
   } else if (type === 'select-multiple') {
     return (
       <ChristmasislandMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ChristmasislandMultiple = ({
 };
 
 export interface ChristmasislandProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

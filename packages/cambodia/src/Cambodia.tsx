@@ -21,6 +21,7 @@ const Cambodia = ({
   if (type === 'select-single') {
     return (
       <CambodiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Cambodia = ({
   } else if (type === 'select-multiple') {
     return (
       <CambodiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CambodiaMultiple = ({
 };
 
 export interface CambodiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

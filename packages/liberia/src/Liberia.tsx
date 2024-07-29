@@ -21,6 +21,7 @@ const Liberia = ({
   if (type === 'select-single') {
     return (
       <LiberiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Liberia = ({
   } else if (type === 'select-multiple') {
     return (
       <LiberiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const LiberiaMultiple = ({
 };
 
 export interface LiberiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

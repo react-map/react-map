@@ -21,6 +21,7 @@ const Norway = ({
   if (type === 'select-single') {
     return (
       <NorwaySingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Norway = ({
   } else if (type === 'select-multiple') {
     return (
       <NorwayMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const NorwayMultiple = ({
 };
 
 export interface NorwayProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Bahamas = ({
   if (type === 'select-single') {
     return (
       <BahamasSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Bahamas = ({
   } else if (type === 'select-multiple') {
     return (
       <BahamasMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BahamasMultiple = ({
 };
 
 export interface BahamasProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

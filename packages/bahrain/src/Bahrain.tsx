@@ -21,6 +21,7 @@ const Bahrain = ({
   if (type === 'select-single') {
     return (
       <BahrainSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Bahrain = ({
   } else if (type === 'select-multiple') {
     return (
       <BahrainMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BahrainMultiple = ({
 };
 
 export interface BahrainProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

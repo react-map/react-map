@@ -21,6 +21,7 @@ const Britishvirginislands = ({
   if (type === 'select-single') {
     return (
       <BritishvirginislandsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Britishvirginislands = ({
   } else if (type === 'select-multiple') {
     return (
       <BritishvirginislandsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BritishvirginislandsMultiple = ({
 };
 
 export interface BritishvirginislandsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

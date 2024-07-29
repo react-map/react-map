@@ -21,6 +21,7 @@ const Fiji = ({
   if (type === 'select-single') {
     return (
       <FijiSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Fiji = ({
   } else if (type === 'select-multiple') {
     return (
       <FijiMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const FijiMultiple = ({
 };
 
 export interface FijiProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

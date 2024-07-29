@@ -21,6 +21,7 @@ const Seychelles = ({
   if (type === 'select-single') {
     return (
       <SeychellesSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Seychelles = ({
   } else if (type === 'select-multiple') {
     return (
       <SeychellesMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SeychellesMultiple = ({
 };
 
 export interface SeychellesProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

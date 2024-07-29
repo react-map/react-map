@@ -21,6 +21,7 @@ const Samoa = ({
   if (type === 'select-single') {
     return (
       <SamoaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Samoa = ({
   } else if (type === 'select-multiple') {
     return (
       <SamoaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SamoaMultiple = ({
 };
 
 export interface SamoaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

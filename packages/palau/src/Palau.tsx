@@ -21,6 +21,7 @@ const Palau = ({
   if (type === 'select-single') {
     return (
       <PalauSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Palau = ({
   } else if (type === 'select-multiple') {
     return (
       <PalauMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const PalauMultiple = ({
 };
 
 export interface PalauProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

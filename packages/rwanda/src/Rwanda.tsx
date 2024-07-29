@@ -21,6 +21,7 @@ const Rwanda = ({
   if (type === 'select-single') {
     return (
       <RwandaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Rwanda = ({
   } else if (type === 'select-multiple') {
     return (
       <RwandaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const RwandaMultiple = ({
 };
 
 export interface RwandaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

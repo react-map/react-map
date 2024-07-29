@@ -21,6 +21,7 @@ const Costarica = ({
   if (type === 'select-single') {
     return (
       <CostaricaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Costarica = ({
   } else if (type === 'select-multiple') {
     return (
       <CostaricaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CostaricaMultiple = ({
 };
 
 export interface CostaricaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

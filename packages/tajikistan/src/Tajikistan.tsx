@@ -21,6 +21,7 @@ const Tajikistan = ({
   if (type === 'select-single') {
     return (
       <TajikistanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Tajikistan = ({
   } else if (type === 'select-multiple') {
     return (
       <TajikistanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const TajikistanMultiple = ({
 };
 
 export interface TajikistanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

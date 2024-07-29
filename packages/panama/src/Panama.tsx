@@ -21,6 +21,7 @@ const Panama = ({
   if (type === 'select-single') {
     return (
       <PanamaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Panama = ({
   } else if (type === 'select-multiple') {
     return (
       <PanamaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const PanamaMultiple = ({
 };
 
 export interface PanamaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

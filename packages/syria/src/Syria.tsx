@@ -21,6 +21,7 @@ const Syria = ({
   if (type === 'select-single') {
     return (
       <SyriaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Syria = ({
   } else if (type === 'select-multiple') {
     return (
       <SyriaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SyriaMultiple = ({
 };
 
 export interface SyriaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

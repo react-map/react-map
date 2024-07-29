@@ -21,6 +21,7 @@ const Antiguabarbuda = ({
   if (type === 'select-single') {
     return (
       <AntiguabarbudaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Antiguabarbuda = ({
   } else if (type === 'select-multiple') {
     return (
       <AntiguabarbudaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AntiguabarbudaMultiple = ({
 };
 
 export interface AntiguabarbudaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

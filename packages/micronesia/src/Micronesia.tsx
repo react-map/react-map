@@ -21,6 +21,7 @@ const Micronesia = ({
   if (type === 'select-single') {
     return (
       <MicronesiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Micronesia = ({
   } else if (type === 'select-multiple') {
     return (
       <MicronesiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MicronesiaMultiple = ({
 };
 
 export interface MicronesiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

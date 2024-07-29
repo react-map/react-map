@@ -21,6 +21,7 @@ const Latvia = ({
   if (type === 'select-single') {
     return (
       <LatviaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Latvia = ({
   } else if (type === 'select-multiple') {
     return (
       <LatviaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const LatviaMultiple = ({
 };
 
 export interface LatviaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

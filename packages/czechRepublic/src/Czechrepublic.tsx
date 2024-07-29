@@ -21,6 +21,7 @@ const Czechrepublic = ({
   if (type === 'select-single') {
     return (
       <CzechrepublicSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Czechrepublic = ({
   } else if (type === 'select-multiple') {
     return (
       <CzechrepublicMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CzechrepublicMultiple = ({
 };
 
 export interface CzechrepublicProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Turkmenistan = ({
   if (type === 'select-single') {
     return (
       <TurkmenistanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Turkmenistan = ({
   } else if (type === 'select-multiple') {
     return (
       <TurkmenistanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const TurkmenistanMultiple = ({
 };
 
 export interface TurkmenistanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

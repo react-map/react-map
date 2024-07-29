@@ -21,6 +21,7 @@ const Germany = ({
   if (type === 'select-single') {
     return (
       <GermanySingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Germany = ({
   } else if (type === 'select-multiple') {
     return (
       <GermanyMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const GermanyMultiple = ({
 };
 
 export interface GermanyProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

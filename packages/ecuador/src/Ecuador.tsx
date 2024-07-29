@@ -21,6 +21,7 @@ const Ecuador = ({
   if (type === 'select-single') {
     return (
       <EcuadorSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Ecuador = ({
   } else if (type === 'select-multiple') {
     return (
       <EcuadorMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const EcuadorMultiple = ({
 };
 
 export interface EcuadorProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

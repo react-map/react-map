@@ -21,6 +21,7 @@ const Hongkong = ({
   if (type === 'select-single') {
     return (
       <HongkongSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Hongkong = ({
   } else if (type === 'select-multiple') {
     return (
       <HongkongMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const HongkongMultiple = ({
 };
 
 export interface HongkongProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

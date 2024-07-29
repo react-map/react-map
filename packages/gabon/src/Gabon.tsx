@@ -21,6 +21,7 @@ const Gabon = ({
   if (type === 'select-single') {
     return (
       <GabonSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Gabon = ({
   } else if (type === 'select-multiple') {
     return (
       <GabonMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const GabonMultiple = ({
 };
 
 export interface GabonProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

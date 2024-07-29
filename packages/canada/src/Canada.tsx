@@ -21,6 +21,7 @@ const Canada = ({
   if (type === 'select-single') {
     return (
       <CanadaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Canada = ({
   } else if (type === 'select-multiple') {
     return (
       <CanadaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CanadaMultiple = ({
 };
 
 export interface CanadaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

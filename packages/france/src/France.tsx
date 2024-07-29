@@ -21,6 +21,7 @@ const France = ({
   if (type === 'select-single') {
     return (
       <FranceSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const France = ({
   } else if (type === 'select-multiple') {
     return (
       <FranceMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const FranceMultiple = ({
 };
 
 export interface FranceProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

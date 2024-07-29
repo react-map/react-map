@@ -21,6 +21,7 @@ const Mongolia = ({
   if (type === 'select-single') {
     return (
       <MongoliaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Mongolia = ({
   } else if (type === 'select-multiple') {
     return (
       <MongoliaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MongoliaMultiple = ({
 };
 
 export interface MongoliaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

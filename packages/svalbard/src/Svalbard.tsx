@@ -21,6 +21,7 @@ const Svalbard = ({
   if (type === 'select-single') {
     return (
       <SvalbardSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Svalbard = ({
   } else if (type === 'select-multiple') {
     return (
       <SvalbardMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SvalbardMultiple = ({
 };
 
 export interface SvalbardProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

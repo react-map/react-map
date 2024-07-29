@@ -21,6 +21,7 @@ const Algeria = ({
   if (type === 'select-single') {
     return (
       <AlgeriaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Algeria = ({
   } else if (type === 'select-multiple') {
     return (
       <AlgeriaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AlgeriaMultiple = ({
 };
 
 export interface AlgeriaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

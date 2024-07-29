@@ -21,6 +21,7 @@ const Oman = ({
   if (type === 'select-single') {
     return (
       <OmanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Oman = ({
   } else if (type === 'select-multiple') {
     return (
       <OmanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const OmanMultiple = ({
 };
 
 export interface OmanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

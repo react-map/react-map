@@ -21,6 +21,7 @@ const Saudiarabia = ({
   if (type === 'select-single') {
     return (
       <SaudiarabiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Saudiarabia = ({
   } else if (type === 'select-multiple') {
     return (
       <SaudiarabiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SaudiarabiaMultiple = ({
 };
 
 export interface SaudiarabiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

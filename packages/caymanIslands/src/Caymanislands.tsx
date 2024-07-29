@@ -21,6 +21,7 @@ const Caymanislands = ({
   if (type === 'select-single') {
     return (
       <CaymanislandsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Caymanislands = ({
   } else if (type === 'select-multiple') {
     return (
       <CaymanislandsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CaymanislandsMultiple = ({
 };
 
 export interface CaymanislandsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

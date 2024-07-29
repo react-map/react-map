@@ -21,6 +21,7 @@ const Guyana = ({
   if (type === 'select-single') {
     return (
       <GuyanaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Guyana = ({
   } else if (type === 'select-multiple') {
     return (
       <GuyanaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const GuyanaMultiple = ({
 };
 
 export interface GuyanaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

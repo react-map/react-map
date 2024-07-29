@@ -21,6 +21,7 @@ const Vanuatu = ({
   if (type === 'select-single') {
     return (
       <VanuatuSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Vanuatu = ({
   } else if (type === 'select-multiple') {
     return (
       <VanuatuMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const VanuatuMultiple = ({
 };
 
 export interface VanuatuProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

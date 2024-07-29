@@ -21,6 +21,7 @@ const Anguilla = ({
   if (type === 'select-single') {
     return (
       <AnguillaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Anguilla = ({
   } else if (type === 'select-multiple') {
     return (
       <AnguillaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AnguillaMultiple = ({
 };
 
 export interface AnguillaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

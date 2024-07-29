@@ -21,6 +21,7 @@ const Bolivia = ({
   if (type === 'select-single') {
     return (
       <BoliviaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Bolivia = ({
   } else if (type === 'select-multiple') {
     return (
       <BoliviaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BoliviaMultiple = ({
 };
 
 export interface BoliviaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

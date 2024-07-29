@@ -21,6 +21,7 @@ const Equatorialguinea = ({
   if (type === 'select-single') {
     return (
       <EquatorialguineaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Equatorialguinea = ({
   } else if (type === 'select-multiple') {
     return (
       <EquatorialguineaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const EquatorialguineaMultiple = ({
 };
 
 export interface EquatorialguineaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

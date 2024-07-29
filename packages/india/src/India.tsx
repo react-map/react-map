@@ -21,6 +21,7 @@ const India = ({
   if (type === 'select-single') {
     return (
       <IndiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const India = ({
   } else if (type === 'select-multiple') {
     return (
       <IndiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const IndiaMultiple = ({
 };
 
 export interface IndiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

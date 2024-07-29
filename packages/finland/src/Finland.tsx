@@ -21,6 +21,7 @@ const Finland = ({
   if (type === 'select-single') {
     return (
       <FinlandSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Finland = ({
   } else if (type === 'select-multiple') {
     return (
       <FinlandMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const FinlandMultiple = ({
 };
 
 export interface FinlandProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

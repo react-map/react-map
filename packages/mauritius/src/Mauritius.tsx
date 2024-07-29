@@ -21,6 +21,7 @@ const Mauritius = ({
   if (type === 'select-single') {
     return (
       <MauritiusSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Mauritius = ({
   } else if (type === 'select-multiple') {
     return (
       <MauritiusMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MauritiusMultiple = ({
 };
 
 export interface MauritiusProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

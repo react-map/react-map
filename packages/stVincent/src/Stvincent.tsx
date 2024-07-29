@@ -21,6 +21,7 @@ const Stvincent = ({
   if (type === 'select-single') {
     return (
       <StvincentSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Stvincent = ({
   } else if (type === 'select-multiple') {
     return (
       <StvincentMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const StvincentMultiple = ({
 };
 
 export interface StvincentProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

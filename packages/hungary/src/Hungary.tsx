@@ -21,6 +21,7 @@ const Hungary = ({
   if (type === 'select-single') {
     return (
       <HungarySingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Hungary = ({
   } else if (type === 'select-multiple') {
     return (
       <HungaryMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const HungaryMultiple = ({
 };
 
 export interface HungaryProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

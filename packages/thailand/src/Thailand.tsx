@@ -21,6 +21,7 @@ const Thailand = ({
   if (type === 'select-single') {
     return (
       <ThailandSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Thailand = ({
   } else if (type === 'select-multiple') {
     return (
       <ThailandMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ThailandMultiple = ({
 };
 
 export interface ThailandProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

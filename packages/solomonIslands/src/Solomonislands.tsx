@@ -21,6 +21,7 @@ const Solomonislands = ({
   if (type === 'select-single') {
     return (
       <SolomonislandsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Solomonislands = ({
   } else if (type === 'select-multiple') {
     return (
       <SolomonislandsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SolomonislandsMultiple = ({
 };
 
 export interface SolomonislandsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

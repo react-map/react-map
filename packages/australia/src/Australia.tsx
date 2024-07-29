@@ -21,6 +21,7 @@ const Australia = ({
   if (type === 'select-single') {
     return (
       <AustraliaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Australia = ({
   } else if (type === 'select-multiple') {
     return (
       <AustraliaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AustraliaMultiple = ({
 };
 
 export interface AustraliaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

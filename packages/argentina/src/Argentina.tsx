@@ -21,6 +21,7 @@ const Argentina = ({
   if (type === 'select-single') {
     return (
       <ArgentinaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Argentina = ({
   } else if (type === 'select-multiple') {
     return (
       <ArgentinaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ArgentinaMultiple = ({
 };
 
 export interface ArgentinaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

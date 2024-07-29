@@ -21,6 +21,7 @@ const Slovenia = ({
   if (type === 'select-single') {
     return (
       <SloveniaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Slovenia = ({
   } else if (type === 'select-multiple') {
     return (
       <SloveniaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SloveniaMultiple = ({
 };
 
 export interface SloveniaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

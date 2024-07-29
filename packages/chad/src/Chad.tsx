@@ -21,6 +21,7 @@ const Chad = ({
   if (type === 'select-single') {
     return (
       <ChadSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Chad = ({
   } else if (type === 'select-multiple') {
     return (
       <ChadMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ChadMultiple = ({
 };
 
 export interface ChadProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

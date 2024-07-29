@@ -21,6 +21,7 @@ const Angola = ({
   if (type === 'select-single') {
     return (
       <AngolaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Angola = ({
   } else if (type === 'select-multiple') {
     return (
       <AngolaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AngolaMultiple = ({
 };
 
 export interface AngolaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Uzbekistan = ({
   if (type === 'select-single') {
     return (
       <UzbekistanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Uzbekistan = ({
   } else if (type === 'select-multiple') {
     return (
       <UzbekistanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const UzbekistanMultiple = ({
 };
 
 export interface UzbekistanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

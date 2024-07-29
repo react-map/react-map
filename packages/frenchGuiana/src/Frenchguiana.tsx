@@ -21,6 +21,7 @@ const Frenchguiana = ({
   if (type === 'select-single') {
     return (
       <FrenchguianaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Frenchguiana = ({
   } else if (type === 'select-multiple') {
     return (
       <FrenchguianaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const FrenchguianaMultiple = ({
 };
 
 export interface FrenchguianaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

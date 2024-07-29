@@ -21,6 +21,7 @@ const Nauru = ({
   if (type === 'select-single') {
     return (
       <NauruSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Nauru = ({
   } else if (type === 'select-multiple') {
     return (
       <NauruMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const NauruMultiple = ({
 };
 
 export interface NauruProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

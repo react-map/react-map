@@ -21,6 +21,7 @@ const Curacao = ({
   if (type === 'select-single') {
     return (
       <CuracaoSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Curacao = ({
   } else if (type === 'select-multiple') {
     return (
       <CuracaoMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CuracaoMultiple = ({
 };
 
 export interface CuracaoProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

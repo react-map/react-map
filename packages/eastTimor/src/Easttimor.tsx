@@ -21,6 +21,7 @@ const Easttimor = ({
   if (type === 'select-single') {
     return (
       <EasttimorSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Easttimor = ({
   } else if (type === 'select-multiple') {
     return (
       <EasttimorMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const EasttimorMultiple = ({
 };
 
 export interface EasttimorProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

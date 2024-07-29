@@ -21,6 +21,7 @@ const Iran = ({
   if (type === 'select-single') {
     return (
       <IranSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Iran = ({
   } else if (type === 'select-multiple') {
     return (
       <IranMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const IranMultiple = ({
 };
 
 export interface IranProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

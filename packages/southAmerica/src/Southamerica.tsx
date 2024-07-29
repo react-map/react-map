@@ -21,6 +21,7 @@ const Southamerica = ({
   if (type === 'select-single') {
     return (
       <SouthamericaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Southamerica = ({
   } else if (type === 'select-multiple') {
     return (
       <SouthamericaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SouthamericaMultiple = ({
 };
 
 export interface SouthamericaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Iceland = ({
   if (type === 'select-single') {
     return (
       <IcelandSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Iceland = ({
   } else if (type === 'select-multiple') {
     return (
       <IcelandMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const IcelandMultiple = ({
 };
 
 export interface IcelandProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

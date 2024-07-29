@@ -21,6 +21,7 @@ const Brunei = ({
   if (type === 'select-single') {
     return (
       <BruneiSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Brunei = ({
   } else if (type === 'select-multiple') {
     return (
       <BruneiMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BruneiMultiple = ({
 };
 
 export interface BruneiProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Madagascar = ({
   if (type === 'select-single') {
     return (
       <MadagascarSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Madagascar = ({
   } else if (type === 'select-multiple') {
     return (
       <MadagascarMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MadagascarMultiple = ({
 };
 
 export interface MadagascarProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

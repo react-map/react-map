@@ -21,6 +21,7 @@ const Haiti = ({
   if (type === 'select-single') {
     return (
       <HaitiSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Haiti = ({
   } else if (type === 'select-multiple') {
     return (
       <HaitiMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const HaitiMultiple = ({
 };
 
 export interface HaitiProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

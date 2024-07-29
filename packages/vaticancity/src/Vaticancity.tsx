@@ -21,6 +21,7 @@ const Vaticancity = ({
   if (type === 'select-single') {
     return (
       <VaticancitySingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Vaticancity = ({
   } else if (type === 'select-multiple') {
     return (
       <VaticancityMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const VaticancityMultiple = ({
 };
 
 export interface VaticancityProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

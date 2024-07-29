@@ -21,6 +21,7 @@ const Serbia = ({
   if (type === 'select-single') {
     return (
       <SerbiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Serbia = ({
   } else if (type === 'select-multiple') {
     return (
       <SerbiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SerbiaMultiple = ({
 };
 
 export interface SerbiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

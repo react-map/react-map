@@ -21,6 +21,7 @@ const Maldives = ({
   if (type === 'select-single') {
     return (
       <MaldivesSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Maldives = ({
   } else if (type === 'select-multiple') {
     return (
       <MaldivesMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MaldivesMultiple = ({
 };
 
 export interface MaldivesProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

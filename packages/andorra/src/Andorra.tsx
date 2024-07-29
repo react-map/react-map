@@ -21,6 +21,7 @@ const Andorra = ({
   if (type === 'select-single') {
     return (
       <AndorraSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Andorra = ({
   } else if (type === 'select-multiple') {
     return (
       <AndorraMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AndorraMultiple = ({
 };
 
 export interface AndorraProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

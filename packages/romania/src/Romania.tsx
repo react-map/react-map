@@ -21,6 +21,7 @@ const Romania = ({
   if (type === 'select-single') {
     return (
       <RomaniaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Romania = ({
   } else if (type === 'select-multiple') {
     return (
       <RomaniaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const RomaniaMultiple = ({
 };
 
 export interface RomaniaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

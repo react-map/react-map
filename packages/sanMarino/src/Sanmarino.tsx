@@ -21,6 +21,7 @@ const Sanmarino = ({
   if (type === 'select-single') {
     return (
       <SanmarinoSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Sanmarino = ({
   } else if (type === 'select-multiple') {
     return (
       <SanmarinoMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SanmarinoMultiple = ({
 };
 
 export interface SanmarinoProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

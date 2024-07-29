@@ -21,6 +21,7 @@ const Americansamoa = ({
   if (type === 'select-single') {
     return (
       <AmericansamoaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Americansamoa = ({
   } else if (type === 'select-multiple') {
     return (
       <AmericansamoaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AmericansamoaMultiple = ({
 };
 
 export interface AmericansamoaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

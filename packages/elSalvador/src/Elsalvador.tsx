@@ -21,6 +21,7 @@ const Elsalvador = ({
   if (type === 'select-single') {
     return (
       <ElsalvadorSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Elsalvador = ({
   } else if (type === 'select-multiple') {
     return (
       <ElsalvadorMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ElsalvadorMultiple = ({
 };
 
 export interface ElsalvadorProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

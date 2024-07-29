@@ -21,6 +21,7 @@ const Jordan = ({
   if (type === 'select-single') {
     return (
       <JordanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Jordan = ({
   } else if (type === 'select-multiple') {
     return (
       <JordanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const JordanMultiple = ({
 };
 
 export interface JordanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

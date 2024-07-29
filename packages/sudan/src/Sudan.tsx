@@ -21,6 +21,7 @@ const Sudan = ({
   if (type === 'select-single') {
     return (
       <SudanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Sudan = ({
   } else if (type === 'select-multiple') {
     return (
       <SudanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SudanMultiple = ({
 };
 
 export interface SudanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

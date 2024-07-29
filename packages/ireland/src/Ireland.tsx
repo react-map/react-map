@@ -21,6 +21,7 @@ const Ireland = ({
   if (type === 'select-single') {
     return (
       <IrelandSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Ireland = ({
   } else if (type === 'select-multiple') {
     return (
       <IrelandMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const IrelandMultiple = ({
 };
 
 export interface IrelandProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

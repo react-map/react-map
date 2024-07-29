@@ -21,6 +21,7 @@ const Belize = ({
   if (type === 'select-single') {
     return (
       <BelizeSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Belize = ({
   } else if (type === 'select-multiple') {
     return (
       <BelizeMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BelizeMultiple = ({
 };
 
 export interface BelizeProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

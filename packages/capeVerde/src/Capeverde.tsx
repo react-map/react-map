@@ -21,6 +21,7 @@ const Capeverde = ({
   if (type === 'select-single') {
     return (
       <CapeverdeSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Capeverde = ({
   } else if (type === 'select-multiple') {
     return (
       <CapeverdeMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CapeverdeMultiple = ({
 };
 
 export interface CapeverdeProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

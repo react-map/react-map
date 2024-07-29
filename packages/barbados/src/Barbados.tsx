@@ -21,6 +21,7 @@ const Barbados = ({
   if (type === 'select-single') {
     return (
       <BarbadosSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Barbados = ({
   } else if (type === 'select-multiple') {
     return (
       <BarbadosMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BarbadosMultiple = ({
 };
 
 export interface BarbadosProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Georgia = ({
   if (type === 'select-single') {
     return (
       <GeorgiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Georgia = ({
   } else if (type === 'select-multiple') {
     return (
       <GeorgiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const GeorgiaMultiple = ({
 };
 
 export interface GeorgiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

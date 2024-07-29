@@ -21,6 +21,7 @@ const Nepal = ({
   if (type === 'select-single') {
     return (
       <NepalSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Nepal = ({
   } else if (type === 'select-multiple') {
     return (
       <NepalMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const NepalMultiple = ({
 };
 
 export interface NepalProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

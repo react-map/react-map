@@ -21,6 +21,7 @@ const Newzealand = ({
   if (type === 'select-single') {
     return (
       <NewzealandSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Newzealand = ({
   } else if (type === 'select-multiple') {
     return (
       <NewzealandMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const NewzealandMultiple = ({
 };
 
 export interface NewzealandProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

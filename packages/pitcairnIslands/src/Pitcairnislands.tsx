@@ -21,6 +21,7 @@ const Pitcairnislands = ({
   if (type === 'select-single') {
     return (
       <PitcairnislandsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Pitcairnislands = ({
   } else if (type === 'select-multiple') {
     return (
       <PitcairnislandsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const PitcairnislandsMultiple = ({
 };
 
 export interface PitcairnislandsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

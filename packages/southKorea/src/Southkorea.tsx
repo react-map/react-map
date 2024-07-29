@@ -21,6 +21,7 @@ const Southkorea = ({
   if (type === 'select-single') {
     return (
       <SouthkoreaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Southkorea = ({
   } else if (type === 'select-multiple') {
     return (
       <SouthkoreaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SouthkoreaMultiple = ({
 };
 
 export interface SouthkoreaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

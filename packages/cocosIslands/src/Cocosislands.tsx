@@ -21,6 +21,7 @@ const Cocosislands = ({
   if (type === 'select-single') {
     return (
       <CocosislandsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Cocosislands = ({
   } else if (type === 'select-multiple') {
     return (
       <CocosislandsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CocosislandsMultiple = ({
 };
 
 export interface CocosislandsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

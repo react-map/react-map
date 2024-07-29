@@ -21,6 +21,7 @@ const Oceania = ({
   if (type === 'select-single') {
     return (
       <OceaniaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Oceania = ({
   } else if (type === 'select-multiple') {
     return (
       <OceaniaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const OceaniaMultiple = ({
 };
 
 export interface OceaniaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

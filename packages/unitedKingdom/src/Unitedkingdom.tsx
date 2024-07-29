@@ -21,6 +21,7 @@ const Unitedkingdom = ({
   if (type === 'select-single') {
     return (
       <UnitedkingdomSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Unitedkingdom = ({
   } else if (type === 'select-multiple') {
     return (
       <UnitedkingdomMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const UnitedkingdomMultiple = ({
 };
 
 export interface UnitedkingdomProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

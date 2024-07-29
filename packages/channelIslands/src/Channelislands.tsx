@@ -21,6 +21,7 @@ const Channelislands = ({
   if (type === 'select-single') {
     return (
       <ChannelislandsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Channelislands = ({
   } else if (type === 'select-multiple') {
     return (
       <ChannelislandsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ChannelislandsMultiple = ({
 };
 
 export interface ChannelislandsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

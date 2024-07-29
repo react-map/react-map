@@ -21,6 +21,7 @@ const Kazakhstan = ({
   if (type === 'select-single') {
     return (
       <KazakhstanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Kazakhstan = ({
   } else if (type === 'select-multiple') {
     return (
       <KazakhstanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const KazakhstanMultiple = ({
 };
 
 export interface KazakhstanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

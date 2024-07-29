@@ -21,6 +21,7 @@ const Azerbaijan = ({
   if (type === 'select-single') {
     return (
       <AzerbaijanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Azerbaijan = ({
   } else if (type === 'select-multiple') {
     return (
       <AzerbaijanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AzerbaijanMultiple = ({
 };
 
 export interface AzerbaijanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

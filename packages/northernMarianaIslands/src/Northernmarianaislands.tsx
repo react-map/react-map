@@ -21,6 +21,7 @@ const Northernmarianaislands = ({
   if (type === 'select-single') {
     return (
       <NorthernmarianaislandsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Northernmarianaislands = ({
   } else if (type === 'select-multiple') {
     return (
       <NorthernmarianaislandsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const NorthernmarianaislandsMultiple = ({
 };
 
 export interface NorthernmarianaislandsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

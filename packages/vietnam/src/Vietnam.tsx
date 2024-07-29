@@ -21,6 +21,7 @@ const Vietnam = ({
   if (type === 'select-single') {
     return (
       <VietnamSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Vietnam = ({
   } else if (type === 'select-multiple') {
     return (
       <VietnamMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const VietnamMultiple = ({
 };
 
 export interface VietnamProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

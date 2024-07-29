@@ -21,6 +21,7 @@ const Dominica = ({
   if (type === 'select-single') {
     return (
       <DominicaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Dominica = ({
   } else if (type === 'select-multiple') {
     return (
       <DominicaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const DominicaMultiple = ({
 };
 
 export interface DominicaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

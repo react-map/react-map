@@ -21,6 +21,7 @@ const Bhutan = ({
   if (type === 'select-single') {
     return (
       <BhutanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Bhutan = ({
   } else if (type === 'select-multiple') {
     return (
       <BhutanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BhutanMultiple = ({
 };
 
 export interface BhutanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

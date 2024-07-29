@@ -21,6 +21,7 @@ const Guineabissau = ({
   if (type === 'select-single') {
     return (
       <GuineabissauSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Guineabissau = ({
   } else if (type === 'select-multiple') {
     return (
       <GuineabissauMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const GuineabissauMultiple = ({
 };
 
 export interface GuineabissauProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

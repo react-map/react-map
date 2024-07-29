@@ -21,6 +21,7 @@ const Mexico = ({
   if (type === 'select-single') {
     return (
       <MexicoSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Mexico = ({
   } else if (type === 'select-multiple') {
     return (
       <MexicoMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MexicoMultiple = ({
 };
 
 export interface MexicoProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

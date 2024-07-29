@@ -21,6 +21,7 @@ const Ivorycoast = ({
   if (type === 'select-single') {
     return (
       <IvorycoastSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Ivorycoast = ({
   } else if (type === 'select-multiple') {
     return (
       <IvorycoastMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const IvorycoastMultiple = ({
 };
 
 export interface IvorycoastProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

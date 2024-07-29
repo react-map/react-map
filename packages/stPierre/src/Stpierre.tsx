@@ -21,6 +21,7 @@ const Stpierre = ({
   if (type === 'select-single') {
     return (
       <StpierreSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Stpierre = ({
   } else if (type === 'select-multiple') {
     return (
       <StpierreMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const StpierreMultiple = ({
 };
 
 export interface StpierreProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

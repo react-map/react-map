@@ -21,6 +21,7 @@ const Lebanon = ({
   if (type === 'select-single') {
     return (
       <LebanonSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Lebanon = ({
   } else if (type === 'select-multiple') {
     return (
       <LebanonMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const LebanonMultiple = ({
 };
 
 export interface LebanonProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

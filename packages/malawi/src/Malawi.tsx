@@ -21,6 +21,7 @@ const Malawi = ({
   if (type === 'select-single') {
     return (
       <MalawiSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Malawi = ({
   } else if (type === 'select-multiple') {
     return (
       <MalawiMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MalawiMultiple = ({
 };
 
 export interface MalawiProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

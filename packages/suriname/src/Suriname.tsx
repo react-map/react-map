@@ -21,6 +21,7 @@ const Suriname = ({
   if (type === 'select-single') {
     return (
       <SurinameSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Suriname = ({
   } else if (type === 'select-multiple') {
     return (
       <SurinameMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SurinameMultiple = ({
 };
 
 export interface SurinameProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

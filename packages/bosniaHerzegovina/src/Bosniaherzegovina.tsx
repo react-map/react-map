@@ -21,6 +21,7 @@ const Bosniaherzegovina = ({
   if (type === 'select-single') {
     return (
       <BosniaherzegovinaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Bosniaherzegovina = ({
   } else if (type === 'select-multiple') {
     return (
       <BosniaherzegovinaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BosniaherzegovinaMultiple = ({
 };
 
 export interface BosniaherzegovinaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

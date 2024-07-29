@@ -21,6 +21,7 @@ const Jamaica = ({
   if (type === 'select-single') {
     return (
       <JamaicaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Jamaica = ({
   } else if (type === 'select-multiple') {
     return (
       <JamaicaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const JamaicaMultiple = ({
 };
 
 export interface JamaicaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

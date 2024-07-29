@@ -21,6 +21,7 @@ const Uganda = ({
   if (type === 'select-single') {
     return (
       <UgandaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Uganda = ({
   } else if (type === 'select-multiple') {
     return (
       <UgandaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const UgandaMultiple = ({
 };
 
 export interface UgandaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

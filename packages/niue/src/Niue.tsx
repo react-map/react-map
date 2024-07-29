@@ -21,6 +21,7 @@ const Niue = ({
   if (type === 'select-single') {
     return (
       <NiueSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Niue = ({
   } else if (type === 'select-multiple') {
     return (
       <NiueMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const NiueMultiple = ({
 };
 
 export interface NiueProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

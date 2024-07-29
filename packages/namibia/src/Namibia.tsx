@@ -21,6 +21,7 @@ const Namibia = ({
   if (type === 'select-single') {
     return (
       <NamibiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Namibia = ({
   } else if (type === 'select-multiple') {
     return (
       <NamibiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const NamibiaMultiple = ({
 };
 
 export interface NamibiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

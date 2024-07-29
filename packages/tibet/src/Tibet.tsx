@@ -21,6 +21,7 @@ const Tibet = ({
   if (type === 'select-single') {
     return (
       <TibetSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Tibet = ({
   } else if (type === 'select-multiple') {
     return (
       <TibetMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const TibetMultiple = ({
 };
 
 export interface TibetProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

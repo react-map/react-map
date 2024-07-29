@@ -21,6 +21,7 @@ const Stkittsnevis = ({
   if (type === 'select-single') {
     return (
       <StkittsnevisSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Stkittsnevis = ({
   } else if (type === 'select-multiple') {
     return (
       <StkittsnevisMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const StkittsnevisMultiple = ({
 };
 
 export interface StkittsnevisProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

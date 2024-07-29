@@ -21,6 +21,7 @@ const Afganistan = ({
   if (type === 'select-single') {
     return (
       <AfganistanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Afganistan = ({
   } else if (type === 'select-multiple') {
     return (
       <AfganistanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AfganistanMultiple = ({
 };
 
 export interface AfganistanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

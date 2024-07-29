@@ -21,6 +21,7 @@ const Nigeria = ({
   if (type === 'select-single') {
     return (
       <NigeriaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Nigeria = ({
   } else if (type === 'select-multiple') {
     return (
       <NigeriaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const NigeriaMultiple = ({
 };
 
 export interface NigeriaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

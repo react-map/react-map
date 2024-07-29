@@ -21,6 +21,7 @@ const Usa = ({
   if (type === 'select-single') {
     return (
       <UsaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Usa = ({
   } else if (type === 'select-multiple') {
     return (
       <UsaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const UsaMultiple = ({
 };
 
 export interface UsaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

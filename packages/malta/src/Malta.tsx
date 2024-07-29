@@ -21,6 +21,7 @@ const Malta = ({
   if (type === 'select-single') {
     return (
       <MaltaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Malta = ({
   } else if (type === 'select-multiple') {
     return (
       <MaltaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MaltaMultiple = ({
 };
 
 export interface MaltaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

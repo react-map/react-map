@@ -21,6 +21,7 @@ const Guatemala = ({
   if (type === 'select-single') {
     return (
       <GuatemalaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Guatemala = ({
   } else if (type === 'select-multiple') {
     return (
       <GuatemalaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const GuatemalaMultiple = ({
 };
 
 export interface GuatemalaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

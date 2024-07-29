@@ -21,6 +21,7 @@ const Montserrat = ({
   if (type === 'select-single') {
     return (
       <MontserratSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Montserrat = ({
   } else if (type === 'select-multiple') {
     return (
       <MontserratMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MontserratMultiple = ({
 };
 
 export interface MontserratProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

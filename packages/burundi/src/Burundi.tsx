@@ -21,6 +21,7 @@ const Burundi = ({
   if (type === 'select-single') {
     return (
       <BurundiSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Burundi = ({
   } else if (type === 'select-multiple') {
     return (
       <BurundiMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BurundiMultiple = ({
 };
 
 export interface BurundiProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

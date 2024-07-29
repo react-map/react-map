@@ -21,6 +21,7 @@ const Southafrica = ({
   if (type === 'select-single') {
     return (
       <SouthafricaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Southafrica = ({
   } else if (type === 'select-multiple') {
     return (
       <SouthafricaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SouthafricaMultiple = ({
 };
 
 export interface SouthafricaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

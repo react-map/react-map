@@ -21,6 +21,7 @@ const Congodr = ({
   if (type === 'select-single') {
     return (
       <CongodrSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Congodr = ({
   } else if (type === 'select-multiple') {
     return (
       <CongodrMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CongodrMultiple = ({
 };
 
 export interface CongodrProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

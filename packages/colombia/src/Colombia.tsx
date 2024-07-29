@@ -21,6 +21,7 @@ const Colombia = ({
   if (type === 'select-single') {
     return (
       <ColombiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Colombia = ({
   } else if (type === 'select-multiple') {
     return (
       <ColombiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ColombiaMultiple = ({
 };
 
 export interface ColombiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

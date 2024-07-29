@@ -21,6 +21,7 @@ const Kenya = ({
   if (type === 'select-single') {
     return (
       <KenyaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Kenya = ({
   } else if (type === 'select-multiple') {
     return (
       <KenyaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const KenyaMultiple = ({
 };
 
 export interface KenyaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

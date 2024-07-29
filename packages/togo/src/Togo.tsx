@@ -21,6 +21,7 @@ const Togo = ({
   if (type === 'select-single') {
     return (
       <TogoSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Togo = ({
   } else if (type === 'select-multiple') {
     return (
       <TogoMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const TogoMultiple = ({
 };
 
 export interface TogoProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

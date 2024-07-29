@@ -21,6 +21,7 @@ const Srilanka = ({
   if (type === 'select-single') {
     return (
       <SrilankaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Srilanka = ({
   } else if (type === 'select-multiple') {
     return (
       <SrilankaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SrilankaMultiple = ({
 };
 
 export interface SrilankaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

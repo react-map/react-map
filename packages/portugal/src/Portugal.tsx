@@ -21,6 +21,7 @@ const Portugal = ({
   if (type === 'select-single') {
     return (
       <PortugalSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Portugal = ({
   } else if (type === 'select-multiple') {
     return (
       <PortugalMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const PortugalMultiple = ({
 };
 
 export interface PortugalProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

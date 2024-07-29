@@ -21,6 +21,7 @@ const Eritrea = ({
   if (type === 'select-single') {
     return (
       <EritreaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Eritrea = ({
   } else if (type === 'select-multiple') {
     return (
       <EritreaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const EritreaMultiple = ({
 };
 
 export interface EritreaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

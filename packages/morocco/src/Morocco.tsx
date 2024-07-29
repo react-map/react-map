@@ -21,6 +21,7 @@ const Morocco = ({
   if (type === 'select-single') {
     return (
       <MoroccoSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Morocco = ({
   } else if (type === 'select-multiple') {
     return (
       <MoroccoMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MoroccoMultiple = ({
 };
 
 export interface MoroccoProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

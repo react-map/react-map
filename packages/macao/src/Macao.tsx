@@ -21,6 +21,7 @@ const Macao = ({
   if (type === 'select-single') {
     return (
       <MacaoSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Macao = ({
   } else if (type === 'select-multiple') {
     return (
       <MacaoMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MacaoMultiple = ({
 };
 
 export interface MacaoProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

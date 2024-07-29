@@ -21,6 +21,7 @@ const Russia = ({
   if (type === 'select-single') {
     return (
       <RussiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Russia = ({
   } else if (type === 'select-multiple') {
     return (
       <RussiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const RussiaMultiple = ({
 };
 
 export interface RussiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

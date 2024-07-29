@@ -21,6 +21,7 @@ const Estonia = ({
   if (type === 'select-single') {
     return (
       <EstoniaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Estonia = ({
   } else if (type === 'select-multiple') {
     return (
       <EstoniaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const EstoniaMultiple = ({
 };
 
 export interface EstoniaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

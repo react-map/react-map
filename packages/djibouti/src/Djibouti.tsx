@@ -21,6 +21,7 @@ const Djibouti = ({
   if (type === 'select-single') {
     return (
       <DjiboutiSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Djibouti = ({
   } else if (type === 'select-multiple') {
     return (
       <DjiboutiMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const DjiboutiMultiple = ({
 };
 
 export interface DjiboutiProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

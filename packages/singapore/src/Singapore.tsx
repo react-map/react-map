@@ -21,6 +21,7 @@ const Singapore = ({
   if (type === 'select-single') {
     return (
       <SingaporeSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Singapore = ({
   } else if (type === 'select-multiple') {
     return (
       <SingaporeMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SingaporeMultiple = ({
 };
 
 export interface SingaporeProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

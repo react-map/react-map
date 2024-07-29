@@ -21,6 +21,7 @@ const Senegal = ({
   if (type === 'select-single') {
     return (
       <SenegalSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Senegal = ({
   } else if (type === 'select-multiple') {
     return (
       <SenegalMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SenegalMultiple = ({
 };
 
 export interface SenegalProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

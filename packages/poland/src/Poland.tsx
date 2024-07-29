@@ -21,6 +21,7 @@ const Poland = ({
   if (type === 'select-single') {
     return (
       <PolandSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Poland = ({
   } else if (type === 'select-multiple') {
     return (
       <PolandMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const PolandMultiple = ({
 };
 
 export interface PolandProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

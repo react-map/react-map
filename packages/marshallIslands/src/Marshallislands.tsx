@@ -21,6 +21,7 @@ const Marshallislands = ({
   if (type === 'select-single') {
     return (
       <MarshallislandsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Marshallislands = ({
   } else if (type === 'select-multiple') {
     return (
       <MarshallislandsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MarshallislandsMultiple = ({
 };
 
 export interface MarshallislandsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

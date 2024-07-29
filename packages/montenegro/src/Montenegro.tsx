@@ -21,6 +21,7 @@ const Montenegro = ({
   if (type === 'select-single') {
     return (
       <MontenegroSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Montenegro = ({
   } else if (type === 'select-multiple') {
     return (
       <MontenegroMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MontenegroMultiple = ({
 };
 
 export interface MontenegroProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

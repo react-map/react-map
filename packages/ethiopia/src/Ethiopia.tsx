@@ -21,6 +21,7 @@ const Ethiopia = ({
   if (type === 'select-single') {
     return (
       <EthiopiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Ethiopia = ({
   } else if (type === 'select-multiple') {
     return (
       <EthiopiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const EthiopiaMultiple = ({
 };
 
 export interface EthiopiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

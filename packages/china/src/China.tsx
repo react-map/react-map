@@ -21,6 +21,7 @@ const China = ({
   if (type === 'select-single') {
     return (
       <ChinaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const China = ({
   } else if (type === 'select-multiple') {
     return (
       <ChinaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ChinaMultiple = ({
 };
 
 export interface ChinaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

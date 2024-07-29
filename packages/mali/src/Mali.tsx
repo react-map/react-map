@@ -21,6 +21,7 @@ const Mali = ({
   if (type === 'select-single') {
     return (
       <MaliSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Mali = ({
   } else if (type === 'select-multiple') {
     return (
       <MaliMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MaliMultiple = ({
 };
 
 export interface MaliProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

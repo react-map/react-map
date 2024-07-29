@@ -21,6 +21,7 @@ const Northamerica = ({
   if (type === 'select-single') {
     return (
       <NorthamericaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Northamerica = ({
   } else if (type === 'select-multiple') {
     return (
       <NorthamericaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const NorthamericaMultiple = ({
 };
 
 export interface NorthamericaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

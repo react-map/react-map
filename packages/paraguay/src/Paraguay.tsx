@@ -21,6 +21,7 @@ const Paraguay = ({
   if (type === 'select-single') {
     return (
       <ParaguaySingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Paraguay = ({
   } else if (type === 'select-multiple') {
     return (
       <ParaguayMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ParaguayMultiple = ({
 };
 
 export interface ParaguayProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

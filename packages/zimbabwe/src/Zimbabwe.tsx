@@ -21,6 +21,7 @@ const Zimbabwe = ({
   if (type === 'select-single') {
     return (
       <ZimbabweSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Zimbabwe = ({
   } else if (type === 'select-multiple') {
     return (
       <ZimbabweMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ZimbabweMultiple = ({
 };
 
 export interface ZimbabweProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

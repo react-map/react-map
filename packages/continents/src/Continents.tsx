@@ -21,6 +21,7 @@ const Continents = ({
   if (type === 'select-single') {
     return (
       <ContinentsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Continents = ({
   } else if (type === 'select-multiple') {
     return (
       <ContinentsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const ContinentsMultiple = ({
 };
 
 export interface ContinentsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Centralafricanrepublic = ({
   if (type === 'select-single') {
     return (
       <CentralafricanrepublicSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Centralafricanrepublic = ({
   } else if (type === 'select-multiple') {
     return (
       <CentralafricanrepublicMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CentralafricanrepublicMultiple = ({
 };
 
 export interface CentralafricanrepublicProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

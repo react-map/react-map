@@ -21,6 +21,7 @@ const Cyprus = ({
   if (type === 'select-single') {
     return (
       <CyprusSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Cyprus = ({
   } else if (type === 'select-multiple') {
     return (
       <CyprusMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CyprusMultiple = ({
 };
 
 export interface CyprusProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

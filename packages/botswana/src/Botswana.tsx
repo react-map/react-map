@@ -21,6 +21,7 @@ const Botswana = ({
   if (type === 'select-single') {
     return (
       <BotswanaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Botswana = ({
   } else if (type === 'select-multiple') {
     return (
       <BotswanaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BotswanaMultiple = ({
 };
 
 export interface BotswanaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

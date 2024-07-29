@@ -21,6 +21,7 @@ const Dominicanrepublic = ({
   if (type === 'select-single') {
     return (
       <DominicanrepublicSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Dominicanrepublic = ({
   } else if (type === 'select-multiple') {
     return (
       <DominicanrepublicMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const DominicanrepublicMultiple = ({
 };
 
 export interface DominicanrepublicProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

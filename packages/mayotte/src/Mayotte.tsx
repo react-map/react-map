@@ -21,6 +21,7 @@ const Mayotte = ({
   if (type === 'select-single') {
     return (
       <MayotteSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Mayotte = ({
   } else if (type === 'select-multiple') {
     return (
       <MayotteMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MayotteMultiple = ({
 };
 
 export interface MayotteProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

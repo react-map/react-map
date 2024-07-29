@@ -21,6 +21,7 @@ const Africa = ({
   if (type === 'select-single') {
     return (
       <AfricaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Africa = ({
   } else if (type === 'select-multiple') {
     return (
       <AfricaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AfricaMultiple = ({
 };
 
 export interface AfricaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

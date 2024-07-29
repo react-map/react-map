@@ -21,6 +21,7 @@ const Switzerland = ({
   if (type === 'select-single') {
     return (
       <SwitzerlandSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Switzerland = ({
   } else if (type === 'select-multiple') {
     return (
       <SwitzerlandMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SwitzerlandMultiple = ({
 };
 
 export interface SwitzerlandProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Honduras = ({
   if (type === 'select-single') {
     return (
       <HondurasSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Honduras = ({
   } else if (type === 'select-multiple') {
     return (
       <HondurasMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const HondurasMultiple = ({
 };
 
 export interface HondurasProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

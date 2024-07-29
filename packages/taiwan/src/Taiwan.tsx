@@ -21,6 +21,7 @@ const Taiwan = ({
   if (type === 'select-single') {
     return (
       <TaiwanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Taiwan = ({
   } else if (type === 'select-multiple') {
     return (
       <TaiwanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const TaiwanMultiple = ({
 };
 
 export interface TaiwanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

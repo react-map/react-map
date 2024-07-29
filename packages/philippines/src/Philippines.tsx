@@ -21,6 +21,7 @@ const Philippines = ({
   if (type === 'select-single') {
     return (
       <PhilippinesSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Philippines = ({
   } else if (type === 'select-multiple') {
     return (
       <PhilippinesMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const PhilippinesMultiple = ({
 };
 
 export interface PhilippinesProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

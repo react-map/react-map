@@ -21,6 +21,7 @@ const Greenland = ({
   if (type === 'select-single') {
     return (
       <GreenlandSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Greenland = ({
   } else if (type === 'select-multiple') {
     return (
       <GreenlandMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const GreenlandMultiple = ({
 };
 
 export interface GreenlandProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

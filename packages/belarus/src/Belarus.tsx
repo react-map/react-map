@@ -21,6 +21,7 @@ const Belarus = ({
   if (type === 'select-single') {
     return (
       <BelarusSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Belarus = ({
   } else if (type === 'select-multiple') {
     return (
       <BelarusMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BelarusMultiple = ({
 };
 
 export interface BelarusProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

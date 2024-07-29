@@ -21,6 +21,7 @@ const Congo = ({
   if (type === 'select-single') {
     return (
       <CongoSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Congo = ({
   } else if (type === 'select-multiple') {
     return (
       <CongoMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CongoMultiple = ({
 };
 
 export interface CongoProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

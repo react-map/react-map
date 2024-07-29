@@ -21,6 +21,7 @@ const Lithuania = ({
   if (type === 'select-single') {
     return (
       <LithuaniaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Lithuania = ({
   } else if (type === 'select-multiple') {
     return (
       <LithuaniaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const LithuaniaMultiple = ({
 };
 
 export interface LithuaniaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

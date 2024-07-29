@@ -21,6 +21,7 @@ const Yemen = ({
   if (type === 'select-single') {
     return (
       <YemenSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Yemen = ({
   } else if (type === 'select-multiple') {
     return (
       <YemenMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const YemenMultiple = ({
 };
 
 export interface YemenProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

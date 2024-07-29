@@ -21,6 +21,7 @@ const Myanmar = ({
   if (type === 'select-single') {
     return (
       <MyanmarSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Myanmar = ({
   } else if (type === 'select-multiple') {
     return (
       <MyanmarMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MyanmarMultiple = ({
 };
 
 export interface MyanmarProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

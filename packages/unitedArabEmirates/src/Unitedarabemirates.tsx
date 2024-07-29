@@ -21,6 +21,7 @@ const Unitedarabemirates = ({
   if (type === 'select-single') {
     return (
       <UnitedarabemiratesSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Unitedarabemirates = ({
   } else if (type === 'select-multiple') {
     return (
       <UnitedarabemiratesMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const UnitedarabemiratesMultiple = ({
 };
 
 export interface UnitedarabemiratesProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

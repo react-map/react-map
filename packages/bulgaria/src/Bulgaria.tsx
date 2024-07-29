@@ -21,6 +21,7 @@ const Bulgaria = ({
   if (type === 'select-single') {
     return (
       <BulgariaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Bulgaria = ({
   } else if (type === 'select-multiple') {
     return (
       <BulgariaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BulgariaMultiple = ({
 };
 
 export interface BulgariaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

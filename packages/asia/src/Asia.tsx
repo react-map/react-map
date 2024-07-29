@@ -21,6 +21,7 @@ const Asia = ({
   if (type === 'select-single') {
     return (
       <AsiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Asia = ({
   } else if (type === 'select-multiple') {
     return (
       <AsiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const AsiaMultiple = ({
 };
 
 export interface AsiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

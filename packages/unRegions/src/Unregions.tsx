@@ -21,6 +21,7 @@ const Unregions = ({
   if (type === 'select-single') {
     return (
       <UnregionsSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Unregions = ({
   } else if (type === 'select-multiple') {
     return (
       <UnregionsMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const UnregionsMultiple = ({
 };
 
 export interface UnregionsProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

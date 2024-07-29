@@ -21,6 +21,7 @@ const Kosovo = ({
   if (type === 'select-single') {
     return (
       <KosovoSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Kosovo = ({
   } else if (type === 'select-multiple') {
     return (
       <KosovoMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const KosovoMultiple = ({
 };
 
 export interface KosovoProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

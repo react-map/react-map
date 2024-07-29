@@ -21,6 +21,7 @@ const Moldova = ({
   if (type === 'select-single') {
     return (
       <MoldovaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Moldova = ({
   } else if (type === 'select-multiple') {
     return (
       <MoldovaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MoldovaMultiple = ({
 };
 
 export interface MoldovaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

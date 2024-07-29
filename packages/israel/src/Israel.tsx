@@ -21,6 +21,7 @@ const Israel = ({
   if (type === 'select-single') {
     return (
       <IsraelSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Israel = ({
   } else if (type === 'select-multiple') {
     return (
       <IsraelMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const IsraelMultiple = ({
 };
 
 export interface IsraelProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

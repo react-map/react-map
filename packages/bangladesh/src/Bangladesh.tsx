@@ -21,6 +21,7 @@ const Bangladesh = ({
   if (type === 'select-single') {
     return (
       <BangladeshSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Bangladesh = ({
   } else if (type === 'select-multiple') {
     return (
       <BangladeshMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const BangladeshMultiple = ({
 };
 
 export interface BangladeshProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

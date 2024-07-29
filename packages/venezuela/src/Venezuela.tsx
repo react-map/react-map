@@ -21,6 +21,7 @@ const Venezuela = ({
   if (type === 'select-single') {
     return (
       <VenezuelaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Venezuela = ({
   } else if (type === 'select-multiple') {
     return (
       <VenezuelaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const VenezuelaMultiple = ({
 };
 
 export interface VenezuelaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

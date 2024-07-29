@@ -21,6 +21,7 @@ const Croatia = ({
   if (type === 'select-single') {
     return (
       <CroatiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Croatia = ({
   } else if (type === 'select-multiple') {
     return (
       <CroatiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CroatiaMultiple = ({
 };
 
 export interface CroatiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

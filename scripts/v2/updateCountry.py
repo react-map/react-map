@@ -1,7 +1,7 @@
 from pathlib import Path
 
 def update_country(country_name):
-    packages_folder = Path('/home/jerry/Desktop/react-maps/packages')
+    packages_folder = Path('/home/jerry/react-maps/packages')
     country_dir = packages_folder / country_name
     src_dir_path = country_dir / 'src'
     country_name_capitalized = country_name.capitalize()
@@ -30,6 +30,7 @@ const {country_name_capitalized} = ({{
   if (type === 'select-single') {{
     return (
       <{country_name_capitalized}Single
+        type="select-single"
         size={{size}}
         selectColor={{selectColor}}
         mapColor={{mapColor}}
@@ -47,6 +48,7 @@ const {country_name_capitalized} = ({{
   }} else if (type === 'select-multiple') {{
     return (
       <{country_name_capitalized}Multiple
+        type="select-multiple"
         size={{size}}
         selectColor={{selectColor}}
         mapColor={{mapColor}}
@@ -294,7 +296,7 @@ const {country_name_capitalized}Multiple = ({{
 }};
 
 export interface {country_name_capitalized}Props {{
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;
@@ -315,7 +317,7 @@ export default {country_name_capitalized};
     print(f'Updated {country_name_capitalized} file')
 
 
-packages_directory = Path("/home/jerry/Desktop/react-maps/packages")
+packages_directory = Path("/home/jerry/react-maps/packages")
 
 for package_dir in packages_directory.iterdir():
     if package_dir.is_dir():

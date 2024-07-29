@@ -21,6 +21,7 @@ const Gambia = ({
   if (type === 'select-single') {
     return (
       <GambiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Gambia = ({
   } else if (type === 'select-multiple') {
     return (
       <GambiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const GambiaMultiple = ({
 };
 
 export interface GambiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Martinique = ({
   if (type === 'select-single') {
     return (
       <MartiniqueSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Martinique = ({
   } else if (type === 'select-multiple') {
     return (
       <MartiniqueMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MartiniqueMultiple = ({
 };
 
 export interface MartiniqueProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

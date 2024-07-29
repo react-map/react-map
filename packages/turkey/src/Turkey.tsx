@@ -21,6 +21,7 @@ const Turkey = ({
   if (type === 'select-single') {
     return (
       <TurkeySingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Turkey = ({
   } else if (type === 'select-multiple') {
     return (
       <TurkeyMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const TurkeyMultiple = ({
 };
 
 export interface TurkeyProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

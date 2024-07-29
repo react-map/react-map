@@ -21,6 +21,7 @@ const Sweden = ({
   if (type === 'select-single') {
     return (
       <SwedenSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Sweden = ({
   } else if (type === 'select-multiple') {
     return (
       <SwedenMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const SwedenMultiple = ({
 };
 
 export interface SwedenProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Tunisia = ({
   if (type === 'select-single') {
     return (
       <TunisiaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Tunisia = ({
   } else if (type === 'select-multiple') {
     return (
       <TunisiaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const TunisiaMultiple = ({
 };
 
 export interface TunisiaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

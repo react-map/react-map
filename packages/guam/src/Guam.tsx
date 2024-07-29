@@ -21,6 +21,7 @@ const Guam = ({
   if (type === 'select-single') {
     return (
       <GuamSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Guam = ({
   } else if (type === 'select-multiple') {
     return (
       <GuamMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const GuamMultiple = ({
 };
 
 export interface GuamProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

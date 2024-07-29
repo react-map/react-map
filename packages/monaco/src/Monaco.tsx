@@ -21,6 +21,7 @@ const Monaco = ({
   if (type === 'select-single') {
     return (
       <MonacoSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Monaco = ({
   } else if (type === 'select-multiple') {
     return (
       <MonacoMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MonacoMultiple = ({
 };
 
 export interface MonacoProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

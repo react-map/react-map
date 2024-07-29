@@ -21,6 +21,7 @@ const Libya = ({
   if (type === 'select-single') {
     return (
       <LibyaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Libya = ({
   } else if (type === 'select-multiple') {
     return (
       <LibyaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const LibyaMultiple = ({
 };
 
 export interface LibyaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

@@ -21,6 +21,7 @@ const Middleeast = ({
   if (type === 'select-single') {
     return (
       <MiddleeastSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Middleeast = ({
   } else if (type === 'select-multiple') {
     return (
       <MiddleeastMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const MiddleeastMultiple = ({
 };
 
 export interface MiddleeastProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

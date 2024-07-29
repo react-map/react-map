@@ -21,6 +21,7 @@ const Stlucia = ({
   if (type === 'select-single') {
     return (
       <StluciaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Stlucia = ({
   } else if (type === 'select-multiple') {
     return (
       <StluciaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const StluciaMultiple = ({
 };
 
 export interface StluciaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

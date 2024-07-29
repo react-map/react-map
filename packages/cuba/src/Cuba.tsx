@@ -21,6 +21,7 @@ const Cuba = ({
   if (type === 'select-single') {
     return (
       <CubaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Cuba = ({
   } else if (type === 'select-multiple') {
     return (
       <CubaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CubaMultiple = ({
 };
 
 export interface CubaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

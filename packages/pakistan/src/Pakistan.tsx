@@ -21,6 +21,7 @@ const Pakistan = ({
   if (type === 'select-single') {
     return (
       <PakistanSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Pakistan = ({
   } else if (type === 'select-multiple') {
     return (
       <PakistanMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const PakistanMultiple = ({
 };
 
 export interface PakistanProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

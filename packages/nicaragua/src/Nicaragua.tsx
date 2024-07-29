@@ -21,6 +21,7 @@ const Nicaragua = ({
   if (type === 'select-single') {
     return (
       <NicaraguaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Nicaragua = ({
   } else if (type === 'select-multiple') {
     return (
       <NicaraguaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const NicaraguaMultiple = ({
 };
 
 export interface NicaraguaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

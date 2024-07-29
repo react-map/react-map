@@ -21,6 +21,7 @@ const Cameroon = ({
   if (type === 'select-single') {
     return (
       <CameroonSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Cameroon = ({
   } else if (type === 'select-multiple') {
     return (
       <CameroonMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const CameroonMultiple = ({
 };
 
 export interface CameroonProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

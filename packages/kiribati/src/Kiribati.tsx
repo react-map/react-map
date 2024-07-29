@@ -21,6 +21,7 @@ const Kiribati = ({
   if (type === 'select-single') {
     return (
       <KiribatiSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Kiribati = ({
   } else if (type === 'select-multiple') {
     return (
       <KiribatiMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const KiribatiMultiple = ({
 };
 
 export interface KiribatiProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;

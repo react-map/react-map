@@ -21,6 +21,7 @@ const Tonga = ({
   if (type === 'select-single') {
     return (
       <TongaSingle
+        type="select-single"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -38,6 +39,7 @@ const Tonga = ({
   } else if (type === 'select-multiple') {
     return (
       <TongaMultiple
+        type="select-multiple"
         size={size}
         selectColor={selectColor}
         mapColor={mapColor}
@@ -285,7 +287,7 @@ const TongaMultiple = ({
 };
 
 export interface TongaProps {
-  type?: 'select-single' | 'select-multiple';
+  type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
   strokeColor?: string;
