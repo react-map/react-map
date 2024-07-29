@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "lerna": "^8.1.7",
+    "@types/react": "^18.2.45",
+    "typescript": "^5.3.3",
+    "tsup": "^8.0.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
