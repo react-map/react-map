@@ -10,6 +10,7 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
+var viewBox = "-50 -20 1500 600";
 var stateCode = [
   "Aral Sea",
   "Sarvan (Sughd Province, Tajikistan)",
@@ -52,7 +53,6 @@ import { useState, useEffect } from "react";
 var useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   useEffect(() => {
@@ -86,6 +86,7 @@ var Uzbekistan = ({
     return /* @__PURE__ */ React.createElement(
       UzbekistanSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -104,6 +105,7 @@ var Uzbekistan = ({
     return /* @__PURE__ */ React.createElement(
       UzbekistanMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -187,7 +189,7 @@ var UzbekistanSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
@@ -284,7 +286,7 @@ var UzbekistanMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,

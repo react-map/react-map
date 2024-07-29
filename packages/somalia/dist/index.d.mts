@@ -2,7 +2,7 @@ import React from 'react';
 
 declare const Somalia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: SomaliaProps) => React.JSX.Element | null;
 interface SomaliaProps {
-    type?: 'select-single' | 'select-multiple';
+    type: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;

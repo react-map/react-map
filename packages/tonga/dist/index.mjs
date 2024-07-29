@@ -18,13 +18,13 @@ var drawPath = {
   "Vava'u": "M504.02,1088.17L507.28,1085.62L508.37,1081.75L506.13,1077.64L501.1,1075.69L497.39,1078.16L496.47,1083.04L499.76,1088.47L504.02,1088.17zM735.77,1017.27L735.41,1013.62L731.39,1010.72L729.38,1008.22L727.15,1006.06L722.33,1004.2L718.03,1003.81L712.2,1004.2L707.09,1005.43L704.9,1007.76L700.28,1016.85L691.31,1021.62L685.27,1026.64L689.44,1036.59L691.31,1036.48L692.75,1036.59L693.68,1036.2L694,1034.34L698.79,1036.53L700.23,1033.3L701.28,1028.28L704.9,1025.13L706.35,1026.78L708.29,1030.59L708.03,1034.53L702.92,1036.59L705.23,1044.54L707.44,1048.38L711.42,1050.62L711.41,1044.87L712.89,1039.11L715.86,1035.6L720.34,1036.59L722.06,1033.05L724.69,1029.74L721.93,1026.72L721.62,1024.2L723.42,1022.17L726.89,1020.53L732.99,1027.65L735.48,1024.25L735.77,1017.27z",
   Tongatapu: "M3.08,2289.04L4.1,2289.04L5.75,2288.11L6.94,2286.68L4.99,2284.94L2.03,2283.9L0.51,2284.24L0.17,2285.95L1.27,2287.78L3.08,2289.04zM288.63,1870.79L285.17,1869.34L280.52,1864.39L282.68,1859.94L287.73,1855.57L291.7,1850.7L283.29,1853.65L275.9,1859.94L272.86,1868.26L277.45,1877.53L285.33,1888.67L288.35,1890.4L292.34,1891.12L296.86,1892.9L304.77,1897.58L307.17,1895.02L322.37,1902.65L326.57,1906.72L331.69,1916.56L334.92,1919.4L341.81,1920.99L345.31,1920.37L348.9,1919.2L351.75,1916.86L352.92,1912.79L352.29,1909.2L351.2,1905.35L350.68,1901.7L351.83,1898.75L369.98,1885.3L372.73,1882.29L373.04,1876.95L371.85,1874.27L368.37,1871.68L364.59,1870.85L360.3,1871.27L356.19,1872.46L352.92,1874.02L348.31,1878.59L346.45,1883.29L344.57,1886.89L339.83,1888.06L337.24,1887.22L331.59,1884.05L327.66,1883.38L324.32,1884.55L321.13,1886.89L317.93,1888.31L314.58,1886.97L313.26,1883.46L315.47,1880.62L320.23,1877.53L319.44,1873.77L317.41,1871.63L314.9,1870.1L312.51,1868.18L309.56,1867.34L291.47,1870.9L288.63,1870.79z"
 };
+var viewBox = "130 -10 800 200";
 
 // src/hooks/mouseTrack.ts
 import { useState, useEffect } from "react";
 var useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   useEffect(() => {
@@ -58,6 +58,7 @@ var Tonga = ({
     return /* @__PURE__ */ React.createElement(
       TongaSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -76,6 +77,7 @@ var Tonga = ({
     return /* @__PURE__ */ React.createElement(
       TongaMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -159,7 +161,7 @@ var TongaSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
@@ -256,7 +258,7 @@ var TongaMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,

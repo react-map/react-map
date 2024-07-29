@@ -2,7 +2,7 @@ import React from 'react';
 
 declare const Burundi: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: BurundiProps) => React.JSX.Element | null;
 interface BurundiProps {
-    type?: 'select-single' | 'select-multiple';
+    type: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;

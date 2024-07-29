@@ -46,6 +46,7 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
+var viewBox = "-20 150 1400 720";
 var stateCode = ["Jan Mayen", "Svalbard"];
 var drawPath = {
   "Jan Mayen": "M9.468,785.72h-0.5l-0.695,-0.085l-0.278,0.17l-0.304,0.255l-0.418,0.171l-0.473,0.171l-0.572,0.057l-0.13,0.348l-0.222,0.255l-0.597,0.383l-0.681,1.231l-0.5,0.679l-0.319,0.128l-0.257,0.826l-0.5,0.084H2.688l-0.396,0.657l-0.493,0.697L1.16,792l-0.604,-0.19l0.014,-0.55l-0.542,-0.805l0.028,-0.381l0.243,-0.19h0.694l0.257,-0.912l0.604,-0.7l0.833,-0.765l0.806,-0.255l0.639,-0.255l1.139,-0.511l0.25,-0.426l0.472,-0.256l0.59,-0.49l0.465,-0.532l0.908,-0.053l0.017,-0.438l0.194,-0.598l0.167,-0.513l0.431,-0.47l0.014,-0.728l0.521,-0.706l0.34,-0.493l0.708,-0.386l0.202,-0.665l0.306,-0.257l0.854,-0.365l-0.625,-0.859l-0.027,-0.302l0.632,-0.021l0.167,-0.603l0.639,-0.258l0.723,0.086l0.222,-0.345l0.327,0.194l0.285,0.409l0.604,0.623l0.285,0.323l0.271,0.451v0.815l-0.25,0.687l-0.215,-0.064l-0.243,0.279l0.181,0.214l-0.319,0.729l-0.056,0.899l0.208,0.384l0.167,0.685l-0.167,0.555l-0.799,0.704l-1.639,0.427l-0.945,0.085l-0.778,0.512H9.468z",
@@ -57,7 +58,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -91,6 +91,7 @@ var Svalbard = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       SvalbardSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -109,6 +110,7 @@ var Svalbard = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       SvalbardMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -192,7 +194,7 @@ var SvalbardSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -289,7 +291,7 @@ var SvalbardMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

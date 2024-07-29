@@ -46,14 +46,8 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var stateCode = [
-  "North Bank",
-  "West Coast",
-  "Lower River",
-  "Banjul",
-  "Upper River",
-  "Central River"
-];
+var viewBox = "-50 -20 1400 300";
+var stateCode = ["North Bank", "West Coast", "Lower River", "Banjul", "Upper River", "Central River"];
 var drawPath = {
   "North Bank": "M374.27,50.68L369.65,50.55L357.73,48.74L354.04,48.57L353.4,52.26L352.86,63.06L348.71,64.47L335.77,64.43L319.36,64.36L302.92,64.3L286.51,64.23L270.07,64.17L253.65,64.1L237.24,64.05L220.8,63.98L204.38,63.92L198.74,63.91L187.97,63.88L171.55,63.81L155.14,63.75L138.7,63.68L122.28,63.62L105.87,63.55L89.44,63.5L72.88,63.43L72.88,63.43L74.63,66.11L76.12,69.7L76.42,73.99L74.16,85.41L74.16,90.99L74.72,92.01L77.35,93.62L79.01,96.63L83.89,100.3L84.96,102.21L85.57,104.26L88.18,109.65L88.76,113.42L88.18,116.28L84.94,122.99L83.34,125.39L91.89,125.91L112.39,130.96L118.06,131.41L127.2,131.12L136.21,129.79L141.44,127.09L140.15,126.6L138.92,125.78L137.66,125.39L137.66,123.53L138.79,123.24L141.44,121.86L139.85,118.78L140.4,116.52L144.87,112.4L145.99,115.52L145.5,118.71L144.72,121.53L144.87,123.53L147.13,125.19L149.13,124.41L151.09,122.76L153.11,121.86L155.63,119.97L166.71,108.69L174.13,103.11L178.91,100.5L183.88,99.42L189.09,100.23L197.46,103.25L282.16,96.56L291.6,93.67L303.24,87.35L308.01,86.25L312.63,86.81L319.74,90.19L324.26,89.97L326.89,88.29L330.78,82.98L333.47,80.84L338.68,79.37L342.14,80.12L345.13,81.69L348.79,82.54L349.93,83.11L351.52,84.39L353.55,85.68L355.94,86.25L358.06,85.7L360.36,84.75L362.71,84.31L365.03,85.41L371.44,91.21L375.79,94.35L379.57,95.7L383.67,96.28L392.74,98.83L397.71,99.42L400.62,98.42L403.39,95.81L405.33,92.19L405.83,88.11L405.9,88.11L390.32,76.74L387.21,69.1L387.66,56.53L388.46,52.7L385.43,51L376.28,50.49L374.27,50.68z",
   "West Coast": "M22.05,205.24L22.45,198.99L23.41,195.96L25.09,193.74L29.27,189.6L30.1,186.99L34.01,180.35L43.23,178.28L54.74,178.4L98.31,178.8L138.48,179.16L196.98,179.69L231.43,180L248.43,180.16L255.48,180.23L265.39,180.31L267.16,179L267.66,159.65L267.76,155.42L267.62,155.39L229.03,147.02L226.93,146.92L219.79,148.7L214.39,149.31L212.46,149.82L210.6,150.05L209,149.9L206.51,148.99L204.53,148.8L201.8,150.02L199.97,153.07L199.13,154.05L197.49,154.1L195.54,153.27L192.85,150.76L191.93,148.8L191.61,147.04L191.16,145.67L190.06,144.47L185.01,143.95L181.32,145.81L181.32,147.83L172.28,152.76L165.87,154.7L161.14,153.38L160.45,148.59L161.59,142.36L160.47,136.98L153.11,134.66L147.83,136.14L138.08,142.64L133.16,144.12L128.86,146.27L125.27,150.04L122.23,151.25L119.62,145.81L116.4,147.43L112.78,147.99L105,147.83L105,149.69L108.68,149.38L111.52,150.39L113.37,152.64L114.03,156.09L115.05,156.82L119.88,161.76L121.43,164.51L117.97,161.86L115.62,161.99L110.42,166.37L111.99,162.6L111.87,157.74L110.35,153.5L107.79,151.7L102.41,151.19L99.7,149.89L97.64,147.99L94.18,145.81L90.39,144.71L77.01,144.12L74.87,142.57L65.13,130.96L65.75,126.41L63.86,118.31L57.56,123.46L45.9,132.02L35.07,131.16L26.74,122.6L19.59,112.9L16.58,115.29L13.14,117.2L9.91,117.98L7.16,119.73L4.32,128.09L1.94,130.96L4.42,137.13L5.39,138.55L3.33,142.9L4.49,146.51L9.01,151.7L10.49,155.3L11.11,158.84L10.46,171.55L10.65,174.78L15.79,188.19L16.27,192.29L14.41,196.2L13.3,198.44L13.94,200.36L18.02,201.76L22.05,205.24z",
@@ -68,7 +62,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -102,6 +95,7 @@ var Gambia = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       GambiaSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -120,6 +114,7 @@ var Gambia = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       GambiaMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -203,7 +198,7 @@ var GambiaSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -300,7 +295,7 @@ var GambiaMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

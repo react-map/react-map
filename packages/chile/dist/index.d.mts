@@ -2,7 +2,7 @@ import React from 'react';
 
 declare const Chile: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: ChileProps) => React.JSX.Element | null;
 interface ChileProps {
-    type?: 'select-single' | 'select-multiple';
+    type: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;

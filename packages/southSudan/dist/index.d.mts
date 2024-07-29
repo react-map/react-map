@@ -2,7 +2,7 @@ import React from 'react';
 
 declare const Southsudan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: SouthsudanProps) => React.JSX.Element | null;
 interface SouthsudanProps {
-    type?: 'select-single' | 'select-multiple';
+    type: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;

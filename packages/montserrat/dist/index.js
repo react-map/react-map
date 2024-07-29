@@ -46,6 +46,7 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
+var viewBox = "-50 -20 2500 1400";
 var stateCode = ["Montserrat"];
 var drawPath = {
   Montserrat: "M555.74,1341.31L645.41,1323.12L717.29,1281.43L768.48,1221.55L799.7,1144.61L793.89,1094.58L769.57,1028.25L736.9,963.81L708.22,922.12L699.5,883.45L735.81,766.7L738.71,699.22L658.84,549.84L536.5,394.39L453.73,231.33L495.12,57.65L421.42,61.44L363.33,45.51L251.16,0L100.86,400.83L0.3,854.64L100.86,1217L555.74,1341.31z"
@@ -56,7 +57,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -90,6 +90,7 @@ var Montserrat = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       MontserratSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -108,6 +109,7 @@ var Montserrat = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       MontserratMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -191,7 +193,7 @@ var MontserratSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -288,7 +290,7 @@ var MontserratMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

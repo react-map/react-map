@@ -2,7 +2,7 @@ import React from 'react';
 
 declare const Southafrica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: SouthafricaProps) => React.JSX.Element | null;
 interface SouthafricaProps {
-    type?: 'select-single' | 'select-multiple';
+    type: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;

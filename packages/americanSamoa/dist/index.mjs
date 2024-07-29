@@ -10,13 +10,8 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var stateCode = [
-  "Western",
-  "Swain's Island",
-  "Rose Atoll",
-  "Manu's",
-  "Eastern"
-];
+var viewBox = "-30 -20 200 50";
+var stateCode = ["Western", "Swain's Island", "Rose Atoll", "Manu's", "Eastern"];
 var drawPath = {
   Western: "M102.2,913.65L101.93,909.82L100.11,906.55L95.64,907.35L86.16,907.17L81.77,908.04L70.14,915.06L72.44,917.12L79.64,920.84L90.83,928.5L92.7,930.64L100.03,924.65L107.99,913.76L105.64,913.1L102.2,913.65z",
   "Swain's Island": "M0.65,0L0.41,2.49L1.78,4.1L3.98,2.99L4.15,0.32L0.65,0z",
@@ -30,7 +25,6 @@ import { useState, useEffect } from "react";
 var useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   useEffect(() => {
@@ -64,6 +58,7 @@ var Americansamoa = ({
     return /* @__PURE__ */ React.createElement(
       AmericansamoaSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -82,6 +77,7 @@ var Americansamoa = ({
     return /* @__PURE__ */ React.createElement(
       AmericansamoaMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -165,7 +161,7 @@ var AmericansamoaSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
@@ -262,7 +258,7 @@ var AmericansamoaMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,

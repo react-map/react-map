@@ -58,6 +58,7 @@ var stateCode = [
   "Trebinje",
   "Vlasenica"
 ];
+var viewBox = "-50 -50 1200 800";
 var drawPath = {
   "Unsko-sanski kanton": "M86.11,58.63L87.16,62.12L71.08,65.73L81.91,91.33L87.49,90.02L93.4,99.53L97.66,100.52L105.54,89.03L118.99,94.28L128.18,92.31L132.12,94.61L136.06,92.64L140.65,100.85L152.8,99.86L158.38,103.14L161.66,107.08L165.92,120.87L163.96,129.07L172.49,133.01L172.49,142.2L174.46,146.46L177.74,148.76L175.44,155.65L178.72,159.26L177.41,163.2L175.11,165.83L170.19,167.47L163.3,168.13L121.62,163.53L109.48,166.81L109.15,173.05L112.6,181.11L112.6,181.11L109.41,178.79L109.41,178.79L104.82,177.15L93.66,176.82L88.74,171.9L84.8,178.46L88.41,188.96L88.08,191.92L86.11,192.25L89.39,200.45L89.06,210.95L82.17,215.22L82.83,223.42L79.1,225.18L79.1,225.18L76.91,207L78.12,203.77L76.79,201.03L69.43,197.47L63.96,196.84L62.7,193.02L66.52,193.41L70.32,191.47L67.1,187.41L66.99,181.64L65.41,180.55L67.35,174.43L64.74,167.13L49.53,158.92L46.15,152L46.93,150.71L50.97,150.82L50.56,146.79L53.5,146.44L49.78,137.3L40.95,132.9L37.93,124.34L32.53,122.06L28.67,116.64L22.69,118.94L21.39,121.36L16.04,122.17L14.4,118.79L9.76,116.42L0.08,101.25L1.1,98.75L6.48,98.59L10.95,94.61L5.68,89.57L3.8,76.69L6.01,67.99L11.27,67.02L10.99,59.96L4.93,47.01L10.63,35.92L7.46,23.89L14.79,14.58L17.6,15.08L19.98,11.01L28,12.67L27.78,10.32L32.46,9.77L32.67,13.62L34.66,15.81L40.97,11.63L47.71,15.37L48.42,18.74L46.32,22.23L51.17,22.61L52.17,27.14L54.32,27.39L56.8,33.07L57.65,38.97L67.96,43.85L79.2,54.67L80.46,58.91z",
   "Posavski kanton": "M456.33,42.79l-3.6,2.45l0.05,1.57l7.86,1.52l-0.25,-5.85l3.19,-2.19l1.8,3.47l-2.91,3.2l10.58,9.95l-1.27,4.85l4.58,-1.04l5.71,1.26l-1.31,6.12l-3.25,0.41l0,0l-0.33,1.31l0,0l-6.56,2.3l0,0l-1.97,-0.33l0,0l-4.27,-1.64l0,0l-21.66,-12.8l0,0l-8.69,-10.31l5.59,0.46l1.38,3.55l0.55,-4.02l2.14,-2.36l-3.11,-2.74l0.61,-1.48l4.77,2.39l1.41,3.4l1.33,-2.41l-1.64,-3.73l5.93,2.92l3.16,-3.18L456.33,42.79zM402.09,35.61l3.44,-0.38l2.85,3.12l14.8,-1.77l7.79,9.64l0,0l-4.67,0.97l-1.97,3.28h-1.64l0.33,4.27l-5.25,-2.3l-1.31,3.28l-4.92,-1.31l0,0l-2.95,5.25l-4.59,0.98l1.31,-5.58l-12.14,-7.22l0,0l-4.3,-4.48l0,0l3.45,-3.98l-1.88,-3.93l2.41,-3.6l6.2,-1.66L402.09,35.61z",
@@ -92,7 +93,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -126,6 +126,7 @@ var Bosniaherzegovina = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       BosniaherzegovinaSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -144,6 +145,7 @@ var Bosniaherzegovina = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       BosniaherzegovinaMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -227,7 +229,7 @@ var BosniaherzegovinaSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -324,7 +326,7 @@ var BosniaherzegovinaMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

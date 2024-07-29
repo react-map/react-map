@@ -46,18 +46,8 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var stateCode = [
-  "Anse la Raye",
-  "Castries",
-  "Choiseul",
-  "Dennery",
-  "Islet",
-  "Laborie",
-  "Micoud",
-  "Soufri\xE8re",
-  "Vieux Fort",
-  "Canaries"
-];
+var viewBox = "-20 -30 1800 900";
+var stateCode = ["Anse la Raye", "Castries", "Choiseul", "Dennery", "Islet", "Laborie", "Micoud", "Soufri\xE8re", "Vieux Fort", "Canaries"];
 var drawPath = {
   "Anse la Raye": "M174.098,460.718L171.068,461.863L158.768,475.251L143.819,498.523L136.188,502.989L131.043,503.623L127.465,502.671L123.88,498.044L122.636,493.428L115.626,480.831L105.814,469.041L106.75,462.82L108.462,459.475L108.309,450.229L105.192,445.605L97.875,438.908L97.875,438.908L101.028,427.765L111.536,421.853L115.97,417.793L118.765,413.368L118.187,404.292L112.582,396.41L111.302,378.072L104.182,367.796L102.404,359.85L99.418,357.174L83.453,355.168L78.228,352.398L63.433,337.807L63.433,337.807L68.204,336.715L69.799,335.08L69.799,332.351L65.54,331.259L65.006,329.624L67.135,328.532L67.135,324.715L69.265,323.076L69.799,320.896L74.599,318.712L74.599,316.534L77.262,314.895L77.262,307.804L78.857,305.62L78.857,302.893L82.055,300.167L86.848,299.62L90.045,295.252L90.045,295.252L95.855,300.65L99.433,301.958L104.292,300.386L109.918,301.175L137.021,311.649L157.985,313.217L164.125,318.193L171.537,321.595L172.561,324.998L172.049,339.919L169.239,348.559L168.983,358.243L170.256,361.386L182.791,371.331L184.576,375.259L184.576,378.922L181.51,388.871L179.974,407.582L176.139,420.407L175.883,425.648L177.164,434.021L184.832,442.917L184.576,448.677L176.139,456.007z",
   Castries: "M174.098,460.718L176.139,456.007L184.576,448.677L184.832,442.917L177.164,434.021L175.883,425.648L176.139,420.407L179.974,407.582L181.51,388.871L184.576,378.922L184.576,375.259L182.791,371.331L170.256,361.386L168.983,358.243L169.239,348.559L172.049,339.919L172.561,324.998L171.537,321.595L164.125,318.193L157.985,313.217L137.021,311.649L109.918,301.175L104.292,300.386L99.433,301.958L95.855,300.65L90.045,295.252L90.045,295.252L92.708,293.619L91.114,289.249L93.243,287.616L93.243,284.885L95.372,282.165L96.975,282.165L98.043,284.341L101.233,284.341L102.835,285.982L104.431,284.89L103.904,282.705L101.233,279.977L96.44,278.34L95.906,276.16L95.906,272.342L98.57,271.25L98.57,265.793L100.172,263.613L100.172,259.249L102.302,254.335L101.233,243.421L102.835,242.329L105.499,242.876L111.36,246.694L114.558,246.694L115.626,244.513L121.487,245.057L122.548,243.421L123.083,245.061L120.953,246.148L120.953,249.97L122.548,251.605L130.539,249.425L131.607,246.694L131.607,243.968L130.012,240.692L124.15,241.241L122.014,234.146L123.083,228.148L126.28,226.507L126.28,225.415L124.15,224.322L124.677,215.047L122.014,209.047L125.746,206.86L125.746,204.682L124.677,204.682L123.617,202.495L124.15,200.858L126.814,200.314L127.348,196.493L128.943,196.493L131.073,199.222L135.338,199.222L136.934,198.13L137.468,195.4L139.07,195.404L138.536,186.67L139.597,186.128L139.597,183.4L141.734,183.4L142.795,186.673L144.397,185.036L145.992,185.036L146.526,186.673L148.656,186.67L150.258,189.946L151.319,189.946L151.319,193.767L156.646,194.859L158.783,196.493L164.11,195.4L165.705,193.22L170.505,191.586L170.505,189.401L166.773,188.854L160.378,190.494L160.378,189.401L159.317,189.401L159.317,186.128L157.18,184.489L153.456,183.4L149.19,183.944L148.122,181.763L148.656,180.122L147.061,180.122L148.122,176.303L141.734,174.119L143.329,169.21L146.526,168.665L147.595,169.757L148.656,167.025L151.319,167.025L153.983,167.572L153.983,168.665L157.18,168.665L158.783,171.391L160.378,171.391L160.378,174.664L161.446,175.211L167.307,175.211L167.841,174.119L173.168,173.575L176.9,171.391L176.9,170.298L180.09,169.757L182.227,166.48L188.622,164.844L191.286,159.93L191.813,155.022L197.147,155.022L200.871,150.104L204.603,147.382L206.206,141.718L206.206,141.718L209.842,143.016L229.679,162.92L233.367,171.93L235.818,182.196L239.499,186.177L258.114,190.153L268.958,190.784L271.409,192.459L289.409,219.481L291.663,224.722L290.434,235.613L287.777,240.01L276.319,244.616L271.819,249.541L265.277,252.896L263.638,255.406L262.409,262.738L252.589,269.025L251.367,271.743L251.975,276.146L253.818,281.59L258.523,286.617L260.667,292.979L260.667,292.979L262.05,300.78L261.794,308.897L259.497,318.059L244.665,339.001L238.525,344.502L233.162,358.633L231.625,366.491L233.162,381.28L233.162,388.086L231.881,392.429L208.562,418.183L208.562,422.793L214.701,435.775L214.701,439.754L212.652,448.336L208.306,459.263L208.306,459.263L206.922,466.137L204.881,470.428L195.062,476.29L186.793,477.923L186.793,477.923L182.022,475.373L177.164,470.66L174.098,463.332z",
@@ -76,7 +66,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -110,6 +99,7 @@ var Stlucia = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       StluciaSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -128,6 +118,7 @@ var Stlucia = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       StluciaMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -211,7 +202,7 @@ var StluciaSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -308,7 +299,7 @@ var StluciaMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

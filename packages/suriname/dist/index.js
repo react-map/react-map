@@ -46,18 +46,8 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var stateCode = [
-  "Wanica",
-  "Saramacca",
-  "Paramaribo",
-  "Coronie",
-  "Commewijne",
-  "Sipaliwini",
-  "Para",
-  "Marowijne",
-  "Brokopondo",
-  "Nickerie"
-];
+var viewBox = "-20 -20 1600 850";
+var stateCode = ["Wanica", "Saramacca", "Paramaribo", "Coronie", "Commewijne", "Sipaliwini", "Para", "Marowijne", "Brokopondo", "Nickerie"];
 var drawPath = {
   Wanica: "M556.09,21.49L556.08,21.49L555.47,21.32L553.51,20.12L551.5,18.46L551.49,18.46L551.37,18.82L538.76,45.49L533.25,51.43L531.6,52.6L531.1,54.88L530.91,59.57L532.12,66.69L551.08,68.89L557.67,68.71L578.59,64.65L583.55,64.89L593.39,67.84L594.45,67.32L595.71,65.87L594.02,63.22L590.16,61.51L582.35,59.03L578.79,56.43L575.86,53.21L573.5,49.55L572.91,48.3L564.53,45.56L561.14,43.37L559.74,41.81L558.58,39.93L557.72,37.91L556.26,32.44L555.78,25.23L555.94,22.32L556.09,21.49z",
   Saramacca: "M551.49,18.46L549.42,16.76L548.05,16.06L543.89,14.73L540.79,13.43L535.29,9.62L523.74,7.42L476.29,5.05L468.22,5.18L458.33,5.98L440.51,6.75L435.76,7.01L431.13,8.22L427.6,9.57L424.74,11.74L422.83,13.77L420.25,16.48L418.91,18.5L415.73,22.65L414.85,25.6L415.5,29.54L418.22,31.84L420.51,31.73L422.91,31.62L424.88,33.38L421.86,37.36L423.98,42.2L427.36,49.62L428,53.07L428.14,59.73L427.81,62.8L426.78,65.9L425.41,65.9L425.41,65.9L424.99,66.82L422.29,69.67L419.33,70.39L413.98,71L412.35,71.59L411.21,72.39L410.69,73.4L410.31,74.82L410.42,76.07L410.83,77.39L411.53,78.85L413.04,81.23L418.25,86.88L419,87.48L420.45,89.1L421.57,92.82L424.12,95.82L424.9,98.26L426.91,100.35L426.76,102.33L425.6,104.35L423.68,106.29L422.23,109.55L422.19,112.25L423.01,114.69L423.44,117.86L424.87,118.92L426.56,119.29L435.38,116.99L437.8,117.13L445.51,119.18L505,114.51L507.38,113.88L508.58,113.07L510.15,112.46L511.35,113.09L512.46,114.12L513.82,115.14L514.87,114.75L515.5,113.69L515.9,112.53L516.97,111.42L518.65,111.43L521.57,110.12L523.04,109.21L523.61,108.15L523.89,105.69L524.37,104.49L525.3,103.27L526.19,101.87L526.56,100.46L526.42,99.19L525.52,97.96L522.6,95.65L521.74,94.3L521.67,93.01L522.99,90.4L523.52,87.61L524.09,86.2L525.73,84.74L526.87,83.43L527.47,81.99L527.25,80.58L526.53,79.3L525.48,78.25L524.79,77.09L525.26,75.78L527.51,74.2L530.81,73.4L532.73,72.49L533.63,71.37L533.68,70.03L533.21,68.71L532.12,66.69L530.91,59.57L531.1,54.88L531.6,52.6L533.25,51.43L538.76,45.49L551.37,18.82L551.49,18.46z",
@@ -76,7 +66,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -110,6 +99,7 @@ var Suriname = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       SurinameSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -128,6 +118,7 @@ var Suriname = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       SurinameMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -211,7 +202,7 @@ var SurinameSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -308,7 +299,7 @@ var SurinameMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

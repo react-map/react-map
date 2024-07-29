@@ -10,14 +10,8 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var stateCode = [
-  "Hawalli",
-  "Al Jahrah",
-  "Mubarak Al-Kabeer",
-  "Al Ahmadi",
-  "Al Farwaniyah",
-  "Al Asimah"
-];
+var viewBox = "-20 -50 1500 900";
+var stateCode = ["Hawalli", "Al Jahrah", "Mubarak Al-Kabeer", "Al Ahmadi", "Al Farwaniyah", "Al Asimah"];
 var drawPath = {
   Hawalli: "M656.97,381.32L659.68,362.25L644.12,365.43L632.41,361.36L628.13,359.87L621.94,354.26L621.05,352.98L621.05,352.98L621.04,352.99L608.98,361.61L614.06,371.7L621.19,388.57L638.53,388.57L656.97,381.32z",
   "Al Jahrah": "M696.87,55.69L691.43,51.64L685.68,49.8L679.73,50.16L673.67,52.71L668.33,56.74L666.59,60.29L668.09,61.57L669.12,62.42L676.54,62.33L676.54,62.36L676.13,65.74L676.13,65.76L676.54,70.89L677.57,75.99L679.42,79.19L683.42,81.12L688.96,78.54L693.75,79.19L693.79,79.21L700.53,83.92L698.95,88.25L692.73,92.1L685.13,95.47L687.53,103.05L684.24,106.3L678.43,106.74L673.67,105.99L663.44,99.32L657.49,98.78L653.31,105.99L653.38,105.97L657.42,105.77L660.94,106.34L667.61,109.02L665.15,125.75L663.58,128.55L658.92,129.81L649.82,136.18L644.93,138.79L636.89,144.46L636.89,144.48L640.11,149.53L648.52,154.54L650.85,157.33L653.31,160.29L670.8,191.99L685.47,227.13L695.64,239.59L711,241.24L713.8,241.54L729.47,233.78L744.94,219.63L757.87,203.16L765.81,188.39L768.68,166.75L762.35,149.25L696.87,55.69zM630.6,61.77L642.06,55.69L643.9,53.79L647.98,48.32L650.68,45.73L662.14,39.14L663.44,34.12L656.97,33.49L656.94,33.49L640.52,35.82L635.86,38.46L627.24,50.04L621.43,54.07L622.04,57.19L624.37,60.47L627.48,62.33L630.6,61.77zM371.91,0L347.71,2.96L279.97,31.08L257.94,46.08L243.55,66.68L207.79,158.19L192.41,186.99L190.24,193.95L188.63,208.58L187.59,213.45L179.38,231.61L147.96,283.78L135.49,316.6L129.23,326.05L102.29,355.7L75.96,400.13L12.74,471.03L0.53,484.71L47.5,490.54L94.43,496.36L141.33,502.19L188.37,508.05L230.21,513.57L272.1,519.11L313.99,524.65L355.83,530.18L379.3,533.3L379.34,533.3L379.56,533.34L379.6,533.36L384.74,542.17L396.5,535.02L417.03,520.65L511.06,507.21L520.8,503.93L522.43,497.51L526.75,432.76L550.95,402.61L552.73,382.7L560.71,381.53L558.47,376.76L558.03,375.15L557.78,375.24L550.64,375.28L540.35,368.23L542.98,361.54L542.94,355.75L554.94,347.66L549.12,344.14L539.32,347.76L529.97,351.38L518.36,353.69L502.75,356.48L493.38,355.65L497.37,348.49L499.13,340.91L518.25,331.86L527.11,320.22L536.4,305.46L554.15,288.87L579.94,274.47L590.6,263.72L603.03,252.96L627.55,248.84L635.15,250.16L645.42,252.35L653.66,253.58L656.43,258.02L665.25,263.43L682.48,270.94L691.83,269.57L693.58,259.76L685.34,240.71L667.61,215.13L657.9,193.53L650.68,171.84L639.56,172.31L626.66,154.52L615.68,131.27L610.24,115.3L608.9,103.82L609.01,85.82L607.12,75.57L603.02,66.12L598.64,58.73L595.66,50.59L504.61,4.7L480.54,0L371.91,0z",
@@ -32,7 +26,6 @@ import { useState, useEffect } from "react";
 var useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   useEffect(() => {
@@ -66,6 +59,7 @@ var Kuwait = ({
     return /* @__PURE__ */ React.createElement(
       KuwaitSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -84,6 +78,7 @@ var Kuwait = ({
     return /* @__PURE__ */ React.createElement(
       KuwaitMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -167,7 +162,7 @@ var KuwaitSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
@@ -264,7 +259,7 @@ var KuwaitMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,

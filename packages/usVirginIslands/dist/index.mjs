@@ -10,6 +10,7 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
+var viewBox = "0 -20 1800 200";
 var stateCode = ["St. Thomas", "St. John", "St. Croix"];
 var drawPath = {
   "St. Thomas": "M151.98,0L164.88,14.85L191.79,35.72L176.93,40.67L152.02,22.79L91.27,20.57L49.44,31.45L0.33,57.55L27.16,83.28L79.7,67.39L99.56,89.17L125.34,94.1L161.01,87.15L176.86,98.03L183.81,82.19L198.69,111.88L217.53,123.75L270.02,143.52L281.96,125.73L300.74,118.8L315.5,123.71L334.28,120.73L309.57,81.18L249.13,46.53L187.67,10.88L151.98,0z",
@@ -22,7 +23,6 @@ import { useState, useEffect } from "react";
 var useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   useEffect(() => {
@@ -56,6 +56,7 @@ var Usvirginislands = ({
     return /* @__PURE__ */ React.createElement(
       UsvirginislandsSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -74,6 +75,7 @@ var Usvirginislands = ({
     return /* @__PURE__ */ React.createElement(
       UsvirginislandsMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -157,7 +159,7 @@ var UsvirginislandsSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
@@ -254,7 +256,7 @@ var UsvirginislandsMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,

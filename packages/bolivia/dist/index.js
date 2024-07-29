@@ -46,17 +46,8 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var stateCode = [
-  "El Beni",
-  "Cochabamba",
-  "Chuquisaca",
-  "La Paz",
-  "Pando",
-  "Oruro",
-  "Potos\xED",
-  "Santa Cruz",
-  "Tarija"
-];
+var viewBox = "-50 -50 1200 800";
+var stateCode = ["El Beni", "Cochabamba", "Chuquisaca", "La Paz", "Pando", "Oruro", "Potos\xED", "Santa Cruz", "Tarija"];
 var drawPath = {
   "El Beni": "M144.82,309.4L130.84,295.27L129.15,294.65L128.41,293.8L127.87,292.43L127.5,286.83L120.47,274.88L119.49,273.89L115.84,273.85L113.09,271.91L112.13,269.4L112.06,267.47L113.04,262.67L112.66,260.24L107.92,255.43L106.48,250.99L106.6,244.96L105.66,237.15L107.57,231.87L106.78,221.65L108.8,209.69L110.23,206.03L111.82,205.28L116.35,199.07L116.22,197.88L114.82,197.09L113.7,191.06L114.16,189.54L117.33,184.84L119.54,183.65L126.23,175.25L131.29,171.18L135.91,156.07L137.09,150.65L136.31,146.86L136.84,138.74L137.46,137.94L137.46,137.94L138.26,137.19L138.95,135.71L138.27,132.59L138.96,127.9L140.49,122.93L140.62,121.31L139.1,116.6L137.46,113.63L138.3,105.55L138.95,104.44L145.81,102.23L148.34,100.05L147.92,96.83L149.06,91.53L150.09,89.96L153.51,89.2L161.16,89.28L168.15,85.44L169.32,84.47L170.69,82.25L170.57,80.9L176.19,72.76L180.38,65.61L181.97,60.6L181.11,59.88L179.36,59.77L183.22,56.76L184.71,56.65L187.72,57.36L196.25,51.42L201.62,45.21L208.14,41.24L210.79,37.65L211.76,36.86L214.86,36.35L214.86,36.35L215.09,37.38L214.53,38.83L212.53,40.42L212.73,47.83L215.15,54.82L218.89,61.19L219.56,66.54L214.55,75.94L215.12,81.3L217.26,87.95L219.17,92.52L220.21,93.07L222.64,93.12L223.58,93.78L226.28,98.69L224.27,103.65L225.15,105.71L227.28,106.74L228.85,103L231.68,105.86L232.64,108.67L233.97,116.87L234.4,117.87L235.61,118.98L244.43,119.88L245.36,120.54L248.01,126.1L254.11,129.22L259.21,130.82L260.19,137.19L264,141.03L266.44,142.42L270.46,143.13L273.21,142.98L276.36,143.31L283.26,144.97L284.25,145.95L288.89,146.48L290.37,145.52L291.78,143.73L295.47,142L301.8,142.54L311.91,147.66L312.27,148.97L314.73,151.95L319.3,154.53L323.23,154.62L324.79,153.34L328.96,151.02L332.3,152.26L333.21,156.76L335.98,161.48L340.9,164.61L347.3,170.04L351.41,168.12L353.55,170.12L353.57,171.4L366.72,177.24L372.58,176.99L373.78,176.25L375.34,175.96L380.39,177.65L381.81,183.7L385.99,188.38L387.48,189.06L392.47,193.11L392.75,194.49L394.17,197.48L395.7,197.99L406.62,195.85L406.62,195.85L306.07,253.79L286.81,259.15L287.44,260.58L288.53,265.36L287.49,276.89L288.62,280.94L291.97,288.38L301.56,303.1L304.17,305.68L311.16,309.44L313.34,312.76L316.83,319.71L315.4,320.56L259.93,318.29L254.81,317.96L250.78,317.04L250.78,317.04L245.78,317.94L225.35,320.32L220.88,329.3L221.35,331.25L218.82,338.89L217.94,340.87L216.96,341.82L212.51,344.13L204.87,346.51L194.29,349.41L190.67,349.47L184.61,348.25L179.7,346.5L172.29,341.63L162.38,330.67L160.94,328.65L159.31,324.03L156.99,321.11z",
   Cochabamba: "M152.87,429.43L148.91,420.43L143.83,413.68L141.06,411L134.46,406.27L134.46,406.27L142.43,402.08L139.35,386.53L132.66,376.51L136.63,368.72L138.96,368.28L142.83,368.17L144.69,367.49L145.52,366.69L146.54,364.81L147.65,357.56L147.79,355.39L146.2,352.42L145.1,345.86L144.69,340.7L139.98,331.76L138.33,329.93L138.08,316.29L138.66,314.88L140.74,312.52L144.82,309.4L144.82,309.4L156.99,321.11L159.31,324.03L160.94,328.65L162.38,330.67L172.29,341.63L179.7,346.5L184.61,348.25L190.67,349.47L194.29,349.41L204.87,346.51L212.51,344.13L216.96,341.82L217.94,340.87L218.82,338.89L221.35,331.25L220.88,329.3L225.35,320.32L245.78,317.94L250.78,317.04L250.78,317.04L249.62,320.49L249.95,324.88L251.02,327.87L251.98,333.27L253.02,344.36L249.99,352.96L247.58,357.02L245.67,361.85L245.86,366.28L246.46,368.21L250.1,375.48L265.64,385.63L268.14,387.63L273.86,394.58L274.38,395.64L274.15,399.38L267.99,399.41L265,401.67L264.96,404.24L264.23,405.72L256.13,417.49L252.78,420.99L249.81,423.43L249.41,424.59L249.55,426.37L253.2,430.41L261.01,443.12L263.75,451.87L264.5,452.64L266,453.19L269.92,456.27L270.5,461.36L267.93,465.04L267.93,465.04L266.3,462.14L264.24,462.25L262.31,464.32L259.1,465.4L257.32,465.41L253.62,463.4L250.34,458.2L244.5,456.07L241.17,456.01L238.58,457.18L233.66,460.8L231.89,462.82L232.33,464.28L232.24,465.61L225.66,462.53L222.57,460.6L222.02,458.1L217.29,452.23L217.29,452.23L210.73,447.12L206.33,442.27L202.43,437.06L199.17,433.96L194.1,430.27L190.57,428.6L187.81,429.22L184.85,425.82L183.43,423.11L182.42,422.55L179.44,422.14L175.09,423.06L167.12,429.19L165.5,429.45L161.4,428.99z",
@@ -74,7 +65,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -108,6 +98,7 @@ var Bolivia = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       BoliviaSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -126,6 +117,7 @@ var Bolivia = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       BoliviaMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -209,7 +201,7 @@ var BoliviaSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -306,7 +298,7 @@ var BoliviaMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,

@@ -2,7 +2,7 @@ import React from 'react';
 
 declare const Venezuela: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: VenezuelaProps) => React.JSX.Element | null;
 interface VenezuelaProps {
-    type?: 'select-single' | 'select-multiple';
+    type: 'select-single' | 'select-multiple';
     size?: number;
     mapColor?: string;
     strokeColor?: string;

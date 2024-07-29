@@ -46,13 +46,8 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var stateCode = [
-  "Kigali City",
-  "Northern",
-  "Eastern",
-  "Western",
-  "Southern"
-];
+var stateCode = ["Kigali City", "Northern", "Eastern", "Western", "Southern"];
+var viewBox = "-20 -20 2000 800";
 var drawPath = {
   "Kigali City": "M538.03,306.18L525.75,297.45L512.78,288.83L506.27,285L503.2,283.62L501.21,288.76L498.48,295.46L496.33,298.22L492.59,297.65L482.95,299.36L474.98,302.94L472.79,305.83L468.52,310.75L463.35,313.8L458.51,310.55L453.27,307.13L449.49,308.43L446.5,313.19L443.27,318.56L441.52,322.55L443.67,328.53L445.22,333.25L443.75,334.39L442.72,334.8L442.51,335.3L443.31,336.63L444.49,339.98L445.54,342.97L446.36,344.28L447.5,345.82L448.67,348.26L449.85,351.23L450.99,354.08L450.32,355.81L450.2,356.54L450.14,358.05L449.85,360.55L449.1,363.03L447.76,365.06L451.48,370.92L454.04,376.99L452.25,380L450.87,381.5L447.68,382.78L444.79,385.71L444.04,389.52L446.44,394.3L449.81,396.39L451.52,396.64L453.76,397.37L456.24,398.14L457.17,398.85L458.96,397.33L462.74,395.66L465.18,394.32L467.24,392.16L470.06,391.39L471.48,393.08L473.31,395.5L476.69,395.86L479.11,395.56L480.21,395.21L481.53,394.89L483.87,394.44L486.45,393.87L488.72,393.16L492.26,392.41L495.43,392.12L496.57,392.08L497.91,391.84L498.87,390.37L501.23,388.36L503.97,386.34L506.23,385.16L510.44,383.33L515.22,381.64L520.03,383.01L524.18,388.46L526.84,392.55L529.83,396.29L532.39,399.85L535.06,396.07L538.17,388.95L540.77,374.75L541.95,360.55L542.19,355.99L544.33,353.55L550,351.15L555.37,348.59L557.22,345.27L557.36,337.54L556.55,331.09L554.23,328.75L551.79,325.76L552.05,320.33L550.55,314.66L547.87,310.83L547.36,308.74L544.47,308.31L538.03,306.18z",
   Northern: "M381.31,104.35L377.82,103.83L374.4,104.84L370.77,107.12L367.21,111.35L364.85,119.12L361.6,121.03L358.87,120.06L350.5,114.97L345.82,113.91L336.27,115.62L329.68,119.04L323.6,123.43L315.49,127.99L308.17,129.98L299.91,130.59L284.1,129.74L268.65,135.23L252.95,146.53L239.41,160.65L231.83,172.59L231.83,172.59L233.54,175.03L240.58,184.61L250.07,195.76L258.55,198.68L265.99,201.04L269.2,200.96L271.8,199.92L273.37,200.88L275.46,201.53L281.85,204.52L289.14,208.14L297.09,207.69L304.82,208.24L306.44,220.16L306.99,236.29L306.83,247.7L306.34,256.28L311.24,262.18L315.47,265.39L317.81,264.68L322.3,264.05L326.69,264.87L333.16,269.16L340.54,271.86L345.46,270.95L348.49,271.44L349.89,275.08L353.94,281.38L359.18,289.19L363.82,296.35L369.31,301.56L371.28,307.21L378.74,311.97L389.49,315.63L397.08,315.55L404.88,314.13L411.75,314.29L416.51,315.72L419.22,317.67L422.35,319.3L425.25,321.27L427.73,323.61L430.95,326.82L434.73,330.89L438.55,333.49L441.68,334.1L442.72,334.8L443.75,334.39L445.22,333.25L443.67,328.53L441.52,322.55L443.27,318.56L446.5,313.19L449.49,308.43L453.27,307.13L458.51,310.55L463.35,313.8L468.52,310.75L472.79,305.83L474.98,302.94L482.95,299.36L492.59,297.65L496.33,298.22L498.48,295.46L501.21,288.76L503.2,283.62L506.27,285L512.78,288.83L525.75,297.45L538.03,306.18L544.47,308.31L547.36,308.74L548.92,307.6L551.71,304.65L555.08,302.33L557.32,300.99L557.2,294.99L554.15,282.91L550.08,269.4L548.68,261.14L550.18,256.77L551.5,252.26L549.19,246.97L543.58,240.89L535.93,231.39L528.8,222.11L523.67,216.7L519.79,209.71L516.76,201.69L515.11,192.89L517.19,186.28L520.32,183.47L520.48,181.66L518.33,180.5L514.48,180.5L509.79,182.15L506.23,183.23L505.94,179.61L504.95,173.55L503.28,169.85L499.89,162.44L496.45,156.04L492.06,149.41L487.1,141.11L484.54,139.06L482.36,136.09L481.12,132.08L478.91,130.33L477.77,130.03L476.12,129.17L476.11,129.17L474.06,130.26L468.94,135.55L465.36,144.13L461.3,144.99L434.58,159.79L425.94,163.01L417.67,163.9L409.98,161.7L403.23,155.4L399.41,147.06L398.48,130.87L396.73,122.62L385.67,106.55L381.36,104.36L381.31,104.35z",
@@ -66,7 +61,6 @@ var import_react = require("react");
 var useMousePosition = () => {
   const [position, setPosition] = (0, import_react.useState)({ x: 0, y: 0 });
   const updateMousePosition = (event) => {
-    console.log("x", event.clientX, "y", event.clientY);
     setPosition({ x: event.clientX, y: event.clientY });
   };
   (0, import_react.useEffect)(() => {
@@ -100,6 +94,7 @@ var Rwanda = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       RwandaSingle,
       {
+        type: "select-single",
         size,
         selectColor,
         mapColor,
@@ -118,6 +113,7 @@ var Rwanda = ({
     return /* @__PURE__ */ import_react2.default.createElement(
       RwandaMultiple,
       {
+        type: "select-multiple",
         size,
         selectColor,
         mapColor,
@@ -201,7 +197,7 @@ var RwandaSingle = ({
       onSelect(stateCode2);
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
@@ -298,7 +294,7 @@ var RwandaMultiple = ({
     }
     setStateHovered(null);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox: "0 0 800 800" }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: "svg2", x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
