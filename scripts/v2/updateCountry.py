@@ -8,7 +8,7 @@ def update_country(country_name):
     country_file_path = src_dir_path / f'{country_name_capitalized}.tsx'
 
     country_file_path.write_text(f'''import React, {{ useEffect }} from 'react';
-import {{ drawPath, stateCode, constants }} from './constants';
+import {{ drawPath, stateCode, constants, viewBox }} from './constants';
 import useMousePosition from './hooks/mouseTrack';
 import {{ useState }} from 'react';
 
@@ -142,7 +142,7 @@ const {country_name_capitalized}Single = ({{
   return (
     <>
       <div className="map" style={{mapStyle}}>
-        <svg version="1.1" id="svg2" x="0px" y="0px" viewBox="0 0 800 800">
+        <svg version="1.1" id="svg2" x="0px" y="0px" viewBox={{viewBox}}>
           {{stateCode?.map((stateCode: string, index: number) => (
             <path
               key={{index}}
@@ -258,7 +258,7 @@ const {country_name_capitalized}Multiple = ({{
   return (
     <>
       <div className="map" style={{mapStyle}}>
-        <svg version="1.1" id="svg2" x="0px" y="0px" viewBox="0 0 800 800">
+        <svg version="1.1" id="svg2" x="0px" y="0px" viewBox={{viewBox}}>
           {{stateCode?.map((stateCode: string, index: number) => (
             <path
               key={{index}}
