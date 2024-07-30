@@ -23,7 +23,8 @@ That is it! you are now ready to use the map components.
 
 # Usage 
 Each component you add has a fixed set of parameters that you can use to tweek around the map's behaviour.
-IMPORTANT - 'type' is compulsary in the latest version of react maps because of the introduction of multiple type of map behaviours. 
+> [!IMPORTANT]
+> The 'type' component is mandatory for every component in the latest version of react-map due to the introduction of different types of map behaviours.
 ```ts
 export interface props = {
   type: 'select-single' | 'select-multiple';
@@ -72,7 +73,7 @@ import "react-toastify/dist/ReactToastify.css";
   };
 
 // Call that within the component
-<World onSelect={toast} size={1600} hoverColor="orange" />
+<World onSelect={toast} size={1600} hoverColor="orange"  type = 'select-single'/>
 <ToastContainer />
 ``` 
 ### Preview 
@@ -93,7 +94,7 @@ const a = useNavigate();
   };
 
 // Call that within the component
-<World onSelect={redirect} size={1600} hoverColor="orange" />
+<World onSelect={redirect} size={1600} hoverColor="orange" type = 'select-single'/>
 ```
 
 [router-dom.webm](https://github.com/reactmaps/react-maps/assets/110319892/07cafb16-efbc-4616-87d0-9e736a003ef3)
