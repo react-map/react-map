@@ -103,5 +103,16 @@ const a = useNavigate();
 1) I did not intend to take sides in disputed territories. So, I have tried my best to include both sides of such territories so that the user is free to choose the map they are comfortable in. 
 2) If you are facing problems in using any component, such that map is not displaying completely.. Feel free to post an issue and I would get it corrected. It most probably would be an SVG Viewport issue.
 
+
+## Support
+
+If you find this project helpful, consider buying me a coffee!
+
+<p align="center">
+  <a href="https://www.buymeacoffee.com/shubh622005" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
+  </a>
+</p>
+
 # Thanks 
 If you read till here, thanks for taking interest in this. Hope I could be useful for you :)
