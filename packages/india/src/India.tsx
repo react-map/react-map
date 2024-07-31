@@ -145,7 +145,7 @@ const IndiaSingle = ({
         </svg>
       </div>
       {hints && (
-        <div>
+        <div style={{position:'fixed',top:0}}>
           {stateHovered && (
             <div
               style={{
