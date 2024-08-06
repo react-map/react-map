@@ -6,7 +6,7 @@ export const constants = {
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
-export const viewBox = '0 -20 1500 700';
+export const viewBox = '0 -20 1010 690';
 export const stateCode = [
   'Andorra',
   'United Arab Emirates',
