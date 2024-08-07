@@ -6,7 +6,7 @@ export const constants = {
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
-export const viewBox = '50 -20 1700 900';
+export const viewBox = '100 -20 1150 800';
 export const stateCode = [
   'Alaska',
   'Alabama',
