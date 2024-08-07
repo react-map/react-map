@@ -10,7 +10,7 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var viewBox = "0 -20 1500 700";
+var viewBox = "0 -20 1010 690";
 var stateCode = [
   "Andorra",
   "United Arab Emirates",

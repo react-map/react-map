@@ -46,7 +46,7 @@ var constants = {
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var viewBox = "50 -20 1700 900";
+var viewBox = "100 -20 1150 800";
 var stateCode = [
   "Alaska",
   "Alabama",
