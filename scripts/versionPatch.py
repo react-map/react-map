@@ -16,7 +16,7 @@ def run_npm_command(package_path):
     finally:
         os.chdir(original_directory)
 
-packages_directory = Path("/home/jerry/react-maps/packages")
+packages_directory = Path("/home/jerry/react-map/packages")
 
 for package_dir in packages_directory.iterdir():
     if package_dir.is_dir():
