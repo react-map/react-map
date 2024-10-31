@@ -1,6 +1,9 @@
 import React from 'react';
 
-declare const Guineabissau: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, }: GuineabissauProps) => React.JSX.Element | null;
+interface CityColorMap {
+    [key: string]: string;
+}
+type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'dash-dot' | 'dash-double-dot';
 interface GuineabissauProps {
     type: 'select-single' | 'select-multiple';
     size?: number;
@@ -13,8 +16,13 @@ interface GuineabissauProps {
     hintTextColor?: string;
     hintBackgroundColor?: string;
     hintPadding?: string;
-    hintBorderRadius?: string;
-    onSelect?: (state: string, selectedStates?: string[]) => void;
+    hintBorderRadius?: number;
+    onSelect?: (state: string | null, selectedStates?: string[]) => void;
+    cityColors?: CityColorMap;
+    disableClick?: boolean;
+    disableHover?: boolean;
+    borderStyle?: BorderStyle;
 }
+declare const Guineabissau: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: GuineabissauProps) => React.JSX.Element | null;
 
 export { Guineabissau as default };
