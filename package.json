@@ -1,12 +1,28 @@
 {
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write ."
+  },
   "devDependencies": {
     "lerna": "^8.1.7",
     "@types/react": "^18.2.45",
     "typescript": "^5.3.3",
-    "tsup": "^8.0.1"
+    "tsup": "^8.0.1",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.8",
+    "prettier": "^3.3.3"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
+  },
+  "type": "module",
+  "lint-staged": {
+    "*.{js,ts,json,md}": [
+      "prettier --write"
+    ]
   }
 }
