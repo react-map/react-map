@@ -7,8 +7,6 @@ export const constants = {
   SELECTED_COLOR: '#ff0000',
 };
 
-export const viewBox = '0 0 800 800';
-
 export const stateCode = [
   'Paktya',
   'Wardak',

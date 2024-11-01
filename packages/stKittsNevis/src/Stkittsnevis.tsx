@@ -1,5 +1,5 @@
 import React,{ useEffect, useState, useMemo } from 'react';
-import { drawPath, stateCode, constants, viewBox } from './constants';
+import { drawPath, stateCode, constants } from './constants';
 import useMousePosition from './hooks/mouseTrack';
 import { useId } from 'react';
 
@@ -144,8 +144,16 @@ const StkittsnevisSingle = ({
   const { x, y } = useMousePosition();
   const [stateHovered, setStateHovered] = useState<string | null>(null);
   const [selectedState, setSelectedState] = useState<string | null>(null);
-
+  const [viewBox, setViewBox] = useState<string>('0 0 100 100');
   const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+
+  useEffect(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`) as SVGGraphicsElement | null;
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
 
   const mapStyle = useMemo(
     () => ({
@@ -275,8 +283,16 @@ const StkittsnevisMultiple = ({
   const { x, y } = useMousePosition();
   const [selectedStates, setSelectedStates] = useState<string[]>([]);
   const [stateHovered, setStateHovered] = useState<string | null>(null);
-
+  const [viewBox, setViewBox] = useState<string>('0 0 100 100');
   const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+
+  useEffect(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`) as SVGGraphicsElement | null;
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
 
   const mapStyle = useMemo(
     () => ({
