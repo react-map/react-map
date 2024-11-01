@@ -1,12 +1,12 @@
 export const constants = {
-  WIDTH: '500px',
+  WIDTH: 500,
   MAPCOLOR: '#ffffff',
   STROKE_COLOR: '#000000',
-  STROKE_WIDTH: '0.5',
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
-export const viewBox = '-20 -40 3100 2200';
+
 export const stateCode = ['Savanes', 'Centre', 'Kara', 'Maritime', 'Plateaux'];
 export const drawPath = {
   Savanes:

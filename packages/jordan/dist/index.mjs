@@ -1,16 +1,15 @@
 // src/Jordan.tsx
-import React, { useEffect as useEffect2 } from "react";
+import React, { useEffect as useEffect2, useState as useState2, useMemo } from "react";
 
 // src/constants.ts
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var viewBox = "-50 -20 1600 1000";
 var stateCode = ["Zarqa", "Karak", "Madaba", "Balqa", "Jarash", "Ajlun", "Irbid", "Ma`an", "Tafilah", "Amman", "Mafraq", "Aqaba"];
 var drawPath = {
   Zarqa: "M201.26,271.21L199.29,270.86L197.4,269.53L196.49,268.03L196.34,265.97L196.88,264.4L197.71,263.07L198,261.66L197.34,260.16L195.77,258.46L192.06,257.2L191.44,261.77L190.52,263.69L188.95,265.31L186.55,266.44L183.64,268.18L181.5,269.87L174.61,279.15L175.67,284.75L176.61,285.88L178.1,287.28L179.36,287.83L182.95,289.97L187.18,295.54L191.61,299.64L197.81,307.22L201.37,309.79L203.8,310.55L207.39,308.49L209.66,308.01L212.62,307.75L221.65,304.86L233.5,304.94L237.29,304.23L239.67,302.76L243.18,298.48L245.37,296.57L249.29,295.72L268.76,297.43L272.62,299.16L276.41,302.37L286.86,313.88L292.15,320.78L292.46,324.2L290.77,326.85L285.61,330.09L281.47,333.49L280.06,335.42L279.81,337.45L280.96,339.82L285.92,345.51L294.17,353.22L302.17,358.72L306.45,360.34L309.9,360.23L318.64,354.82L321.79,353.96L325.21,354.76L376.75,407.59L377.32,407.9L377.41,407.94L415.93,396.38L461.52,382.7L507.11,368.99L517.9,365.75L517.8,365.71L517.53,365.61L289.09,286.15L282.61,282.38L276.75,276.84L273.53,275.14L263.59,274.06L260.19,274.41L257.82,275.48L255.88,276.98L253.51,278.07L250.75,278.14L247.91,277.3L244.69,274.94L237.26,271.26L229.82,270.54L227.52,270.84L225.61,271.3L221.79,272.86L219.24,273.07L216.42,272.31L211.94,268.89L209.63,267.45L207.79,267.21L205.28,269.71L203.43,270.74L201.26,271.21z",
@@ -45,48 +44,47 @@ var useMousePosition = () => {
 var mouseTrack_default = useMousePosition;
 
 // src/Jordan.tsx
-import { useState as useState2, useId } from "react";
+import { useId } from "react";
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Jordan = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -95,17 +93,17 @@ var Jordan = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -118,17 +116,17 @@ var Jordan = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -152,27 +150,47 @@ var JordanSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
   const [stateHovered, setStateHovered] = useState2(null);
   const [selectedState, setSelectedState] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -188,22 +206,14 @@ var JordanSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -211,7 +221,7 @@ var JordanSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -221,7 +231,7 @@ var JordanSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -230,43 +240,28 @@ var JordanSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var JordanMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -275,107 +270,114 @@ var JordanMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = useState2([]);
   const { x, y } = mouseTrack_default();
+  const [selectedStates, setSelectedStates] = useState2([]);
   const [stateHovered, setStateHovered] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   useEffect2(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Jordan_default = Jordan;
 

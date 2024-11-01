@@ -23,6 +23,6 @@ interface KazakhstanProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Kazakhstan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: KazakhstanProps) => React.JSX.Element | null;
+declare const Kazakhstan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: KazakhstanProps) => React.JSX.Element | null;
 
 export { Kazakhstan as default };

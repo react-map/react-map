@@ -23,6 +23,6 @@ interface LebanonProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Lebanon: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: LebanonProps) => React.JSX.Element | null;
+declare const Lebanon: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LebanonProps) => React.JSX.Element | null;
 
 export { Lebanon as default };

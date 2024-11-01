@@ -23,6 +23,6 @@ interface LuxembourgProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Luxembourg: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: LuxembourgProps) => React.JSX.Element | null;
+declare const Luxembourg: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LuxembourgProps) => React.JSX.Element | null;
 
 export { Luxembourg as default };

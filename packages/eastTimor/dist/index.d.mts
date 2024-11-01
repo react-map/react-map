@@ -23,6 +23,6 @@ interface EasttimorProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Easttimor: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: EasttimorProps) => React.JSX.Element | null;
+declare const Easttimor: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EasttimorProps) => React.JSX.Element | null;
 
 export { Easttimor as default };

@@ -1,12 +1,12 @@
 export const constants = {
-  WIDTH: '500px',
+  WIDTH: 500,
   MAPCOLOR: '#ffffff',
   STROKE_COLOR: '#000000',
-  STROKE_WIDTH: '0.5',
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
-export const viewBox = '-50 -40 2000 800';
+
 export const stateCode = ['Sud-Est', 'Ouest', 'Nord', 'Nord-Est', 'Centre', "L'Artibonite", 'Sud', 'Nord-Ouest', 'Nippes', "Grand'Anse"];
 export const drawPath = {
   'Sud-Est':

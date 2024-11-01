@@ -1,16 +1,15 @@
 // src/Lithuania.tsx
-import React, { useEffect as useEffect2 } from "react";
+import React, { useEffect as useEffect2, useState as useState2, useMemo } from "react";
 
 // src/constants.ts
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var viewBox = "-20 -50 1900 700";
 var stateCode = ["Alytus", "Kaunas", "Klaip\u0117da", "Marijampol\u0117", "Panev\u0117\u017Eys", "\u0160iauliai", "Taurag\u0117", "Tel\u0161iai", "Utena", "Vilnius"];
 var drawPath = {
   Alytus: "M374.13,466.22L375.32,466L376.8,467.85L379.26,467.51L380.57,464.57L381.69,465.67L389.89,465.95L389.87,467.65L388.32,467.62L388.26,468.68L394.31,466.48L393.63,462.05L394.32,460.76L403.11,461.59L403.6,460.12L405.23,460.51L408.02,458.86L408.54,455.92L406.11,454.66L408.62,448.5L414.03,446.06L418.76,446.96L421.39,451.49L424.05,449.17L433.19,449.21L434.25,445.12L438.82,445.17L441.26,442.96L441.69,443.9L443.2,443.49L441.97,444.36L441.87,447.9L443.33,449.42L444.43,453.03L449.66,454.24L452.88,453.19L455.59,454.2L459.29,452.8L461.04,453.39L461.15,451.53L462.36,451.12L462.36,451.12L461.68,452.7L462.78,454.43L461.91,454.56L462.06,458.01L463.33,458.15L463.93,462.07L460.34,463.77L461.48,465.97L464.27,465.35L466,467.76L465.25,469.02L465.98,470.26L463.43,472.99L463.39,474.82L464.33,475.51L465.58,474.11L467.73,477L473.63,477.23L474.95,476.15L479.52,475.81L479.48,477.96L481.82,479.41L481.78,478.15L483.05,477.96L483.7,479.22L484.52,478.88L484.81,473.77L485.79,474.5L487.34,473.22L488.41,473.56L489.62,471L492.63,472.05L493.58,470.7L495.51,470.49L499.31,474.25L502.12,475.03L502.05,478.28L500.87,479.7L502.41,484.35L503.16,482.75L504.6,482.7L504.87,480.53L505.87,481.86L513.86,480.76L513.9,481.83L519.54,481.92L519.17,479.93L520.18,479.7L520.1,478.63L522.13,479.08L527.52,477.64L528.09,479.54L529.67,475.99L533.92,474.32L536.91,474.8L538.71,473.29L542.83,472.51L543.65,475.81L541.6,476.56L542.63,481.72L539.61,482.45L539.96,485.22L530.5,487.05L530.83,489.64L528.47,490.33L529.24,494.12L528.63,494.81L530.63,495.7L529.5,498.38L531.29,504.55L524.66,505L523.2,507.08L525.17,509.3L522.04,509.62L520.12,513.84L516.52,513.66L516.17,515.35L514.38,514.73L514.69,518.31L511.92,518.04L510.67,519.57L509.3,518.95L507.49,520.14L508.29,523.05L507.19,524.97L515.58,528.66L515.68,531.37L516.72,531.4L515.5,532.72L517.34,534.95L518.36,538.57L518.36,538.57L516.33,539.3L518.08,542.32L513.09,546.21L510.56,545.62L510.23,546.87L511.28,549.56L514.16,551.58L516.64,556.17L516.95,562.05L519.69,564.64L522.57,563.6L523.67,565.09L522.8,566.16L518.97,565.93L519.43,570.72L517.59,570.36L517.46,572.61L515.97,573.51L513.19,572.7L509.87,573.9L505.27,578.21L505.63,579.95L499,580.68L501.22,570.43L500.29,568.2L497.59,567.91L494.86,570.81L490.09,570.04L487.34,574.08L483.23,575.58L476.43,581.47L474.35,585L470.38,588.26L467.96,593.02L465.01,594.49L464.93,593.08L463.77,593.04L463.87,595.03L462.72,594.29L463.18,593.22L458.21,594.83L454.77,594.51L453.34,591.98L452.66,593.76L451.27,594.44L449,593.85L441.75,585.8L441.81,584.1L440.84,583.15L438.12,584.93L435.25,583.8L435.72,581.97L434.02,579.23L432.87,580.18L427.96,580.79L426.06,582.85L422.3,582.15L420.54,586.2L405.8,589.1L403.15,588.78L403.33,586.02L402.29,583.3L395.86,579.54L394.99,580.38L394.92,583.21L392.44,585.41L390.51,585.32L387.56,582.78L384.9,583.37L380.22,587.56L380.43,589.1L382.68,591.12L382.64,593.11L380.28,595.1L377.35,595.24L377.99,592.59L376.19,591.3L375.95,589.76L371.39,588.26L369.98,586.79L368.15,586.18L367.38,587.36L363.54,587.25L362.52,588.04L359.95,587.2L354.68,589.15L353.29,586.84L351.7,586.61L350.96,585.41L349.4,584.91L348.24,585.91L346.34,584.8L344.98,585.18L343.92,582.53L342.21,582.53L339.72,579.72L337.77,572.88L339.74,570.84L340.54,571.11L342.37,566.37L343.5,565.66L343.96,557.85L342.53,552.26L340.45,547.17L339.24,546.24L339.56,542.8L338.39,538.07L336.82,537.04L336.94,535.68L335.06,534.65L334.77,532.92L330.21,532.42L324.33,520.77L321.75,520.32L319.69,516.65L316.59,515.19L316.59,515.19L318.18,510L315.31,504.91L319.73,502.58L318.88,498.67L320.4,494.26L322.86,493.5L322.63,491.35L327.47,489.16L332.08,489.78L332.49,488.98L334.94,488.79L334.06,487.01L332.43,486.69L332.79,482.5L331.68,481.6L334.67,482.04L338.88,478.26L342.2,478.65L342.17,466.52L349.97,464.34L355.62,460.81L357.07,456.52L359.65,455.07L363.01,458.15L363.27,460.9L364.88,463.68L368.88,461.61L370.63,463.95z",
@@ -43,48 +42,47 @@ var useMousePosition = () => {
 var mouseTrack_default = useMousePosition;
 
 // src/Lithuania.tsx
-import { useState as useState2, useId } from "react";
+import { useId } from "react";
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Lithuania = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -93,17 +91,17 @@ var Lithuania = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -116,17 +114,17 @@ var Lithuania = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -150,27 +148,47 @@ var LithuaniaSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
   const [stateHovered, setStateHovered] = useState2(null);
   const [selectedState, setSelectedState] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -186,22 +204,14 @@ var LithuaniaSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -209,7 +219,7 @@ var LithuaniaSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -219,7 +229,7 @@ var LithuaniaSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -228,43 +238,28 @@ var LithuaniaSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var LithuaniaMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -273,107 +268,114 @@ var LithuaniaMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = useState2([]);
   const { x, y } = mouseTrack_default();
+  const [selectedStates, setSelectedStates] = useState2([]);
   const [stateHovered, setStateHovered] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   useEffect2(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Lithuania_default = Lithuania;
 

@@ -39,14 +39,13 @@ var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var viewBox = "-40 -30 2000 1100";
 var stateCode = ["Saint John", "Saint Mary", "Saint Paul", "Saint Philip", "Saint Peter", "Saint George", "Redonda", "Barbuda"];
 var drawPath = {
   "Saint John": "M651.92,692.59L614.46,687.89L597.55,698.84L586.85,711.59L584.89,726.14L594.4,742.39L567.36,750.49L546.53,759.48L533.58,771.73L557.99,785.23L566.4,788.52L580.96,778.65L591.74,788.68L612.11,793.69L613.31,797.45L607.32,811.24L602.52,842.57L620.5,822.52L626.49,836.3L636.07,826.28L662.43,818.76L674.41,821.26L674.41,807.48L666.02,803.72L649.25,792.44L651.65,778.65L648.05,752.32L638.47,743.55L637.27,718.47L654.04,717.22L651.92,692.59z",
@@ -78,47 +77,46 @@ var mouseTrack_default = useMousePosition;
 
 // src/Antiguabarbuda.tsx
 var import_react3 = require("react");
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Antiguabarbuda = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -127,17 +125,17 @@ var Antiguabarbuda = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -150,17 +148,17 @@ var Antiguabarbuda = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -184,27 +182,47 @@ var AntiguabarbudaSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = (0, import_react3.useId)().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
-  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
-  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [stateHovered, setStateHovered] = (0, import_react2.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react2.useState)(null);
+  const [viewBox, setViewBox] = (0, import_react2.useState)("0 0 100 100");
+  const strokeProps = (0, import_react2.useMemo)(() => getStrokeProperties(borderStyle), [borderStyle]);
+  (0, import_react2.useEffect)(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = (0, import_react2.useMemo)(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   (0, import_react2.useEffect)(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -220,22 +238,14 @@ var AntiguabarbudaSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -243,7 +253,7 @@ var AntiguabarbudaSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -253,7 +263,7 @@ var AntiguabarbudaSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -262,43 +272,28 @@ var AntiguabarbudaSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ import_react2.default.createElement("div", { style: hintStyle }, stateHovered));
 };
 var AntiguabarbudaMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -307,107 +302,114 @@ var AntiguabarbudaMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = (0, import_react3.useId)().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
   const { x, y } = mouseTrack_default();
-  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [selectedStates, setSelectedStates] = (0, import_react2.useState)([]);
+  const [stateHovered, setStateHovered] = (0, import_react2.useState)(null);
+  const [viewBox, setViewBox] = (0, import_react2.useState)("0 0 100 100");
+  const strokeProps = (0, import_react2.useMemo)(() => getStrokeProperties(borderStyle), [borderStyle]);
+  (0, import_react2.useEffect)(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = (0, import_react2.useMemo)(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   (0, import_react2.useEffect)(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   (0, import_react2.useEffect)(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ import_react2.default.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Antiguabarbuda_default = Antiguabarbuda;
 

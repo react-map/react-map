@@ -23,6 +23,6 @@ interface UruguayProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Uruguay: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: UruguayProps) => React.JSX.Element | null;
+declare const Uruguay: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UruguayProps) => React.JSX.Element | null;
 
 export { Uruguay as default };

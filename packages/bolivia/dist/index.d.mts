@@ -23,6 +23,6 @@ interface BoliviaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Bolivia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: BoliviaProps) => React.JSX.Element | null;
+declare const Bolivia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BoliviaProps) => React.JSX.Element | null;
 
 export { Bolivia as default };

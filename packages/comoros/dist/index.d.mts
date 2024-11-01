@@ -23,6 +23,6 @@ interface ComorosProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Comoros: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: ComorosProps) => React.JSX.Element | null;
+declare const Comoros: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ComorosProps) => React.JSX.Element | null;
 
 export { Comoros as default };

@@ -23,6 +23,6 @@ interface SanmarinoProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Sanmarino: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SanmarinoProps) => React.JSX.Element | null;
+declare const Sanmarino: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SanmarinoProps) => React.JSX.Element | null;
 
 export { Sanmarino as default };

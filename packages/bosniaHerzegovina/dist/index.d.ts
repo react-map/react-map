@@ -23,6 +23,6 @@ interface BosniaherzegovinaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Bosniaherzegovina: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: BosniaherzegovinaProps) => React.JSX.Element | null;
+declare const Bosniaherzegovina: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BosniaherzegovinaProps) => React.JSX.Element | null;
 
 export { Bosniaherzegovina as default };

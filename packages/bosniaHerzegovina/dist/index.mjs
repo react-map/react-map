@@ -1,5 +1,5 @@
 // src/Bosniaherzegovina.tsx
-import React, { useEffect as useEffect2 } from "react";
+import React, { useEffect as useEffect2, useState as useState2, useMemo } from "react";
 
 // src/constants.ts
 var stateCode = [
@@ -22,7 +22,6 @@ var stateCode = [
   "Trebinje",
   "Vlasenica"
 ];
-var viewBox = "-50 -50 1200 800";
 var drawPath = {
   "Unsko-sanski kanton": "M86.11,58.63L87.16,62.12L71.08,65.73L81.91,91.33L87.49,90.02L93.4,99.53L97.66,100.52L105.54,89.03L118.99,94.28L128.18,92.31L132.12,94.61L136.06,92.64L140.65,100.85L152.8,99.86L158.38,103.14L161.66,107.08L165.92,120.87L163.96,129.07L172.49,133.01L172.49,142.2L174.46,146.46L177.74,148.76L175.44,155.65L178.72,159.26L177.41,163.2L175.11,165.83L170.19,167.47L163.3,168.13L121.62,163.53L109.48,166.81L109.15,173.05L112.6,181.11L112.6,181.11L109.41,178.79L109.41,178.79L104.82,177.15L93.66,176.82L88.74,171.9L84.8,178.46L88.41,188.96L88.08,191.92L86.11,192.25L89.39,200.45L89.06,210.95L82.17,215.22L82.83,223.42L79.1,225.18L79.1,225.18L76.91,207L78.12,203.77L76.79,201.03L69.43,197.47L63.96,196.84L62.7,193.02L66.52,193.41L70.32,191.47L67.1,187.41L66.99,181.64L65.41,180.55L67.35,174.43L64.74,167.13L49.53,158.92L46.15,152L46.93,150.71L50.97,150.82L50.56,146.79L53.5,146.44L49.78,137.3L40.95,132.9L37.93,124.34L32.53,122.06L28.67,116.64L22.69,118.94L21.39,121.36L16.04,122.17L14.4,118.79L9.76,116.42L0.08,101.25L1.1,98.75L6.48,98.59L10.95,94.61L5.68,89.57L3.8,76.69L6.01,67.99L11.27,67.02L10.99,59.96L4.93,47.01L10.63,35.92L7.46,23.89L14.79,14.58L17.6,15.08L19.98,11.01L28,12.67L27.78,10.32L32.46,9.77L32.67,13.62L34.66,15.81L40.97,11.63L47.71,15.37L48.42,18.74L46.32,22.23L51.17,22.61L52.17,27.14L54.32,27.39L56.8,33.07L57.65,38.97L67.96,43.85L79.2,54.67L80.46,58.91z",
   "Posavski kanton": "M456.33,42.79l-3.6,2.45l0.05,1.57l7.86,1.52l-0.25,-5.85l3.19,-2.19l1.8,3.47l-2.91,3.2l10.58,9.95l-1.27,4.85l4.58,-1.04l5.71,1.26l-1.31,6.12l-3.25,0.41l0,0l-0.33,1.31l0,0l-6.56,2.3l0,0l-1.97,-0.33l0,0l-4.27,-1.64l0,0l-21.66,-12.8l0,0l-8.69,-10.31l5.59,0.46l1.38,3.55l0.55,-4.02l2.14,-2.36l-3.11,-2.74l0.61,-1.48l4.77,2.39l1.41,3.4l1.33,-2.41l-1.64,-3.73l5.93,2.92l3.16,-3.18L456.33,42.79zM402.09,35.61l3.44,-0.38l2.85,3.12l14.8,-1.77l7.79,9.64l0,0l-4.67,0.97l-1.97,3.28h-1.64l0.33,4.27l-5.25,-2.3l-1.31,3.28l-4.92,-1.31l0,0l-2.95,5.25l-4.59,0.98l1.31,-5.58l-12.14,-7.22l0,0l-4.3,-4.48l0,0l3.45,-3.98l-1.88,-3.93l2.41,-3.6l6.2,-1.66L402.09,35.61z",
@@ -44,10 +43,10 @@ var drawPath = {
   Vlasenica: "M555.6,288.89L549.64,289.8L548.31,291.95L548.31,291.95L545.83,288.81L545.83,288.81L541.36,283.01L539.2,275.89L532.91,271.58L529.93,265.95L519.99,261.15L520.65,258.83L518,258.5L515.68,254.35L513.36,256.51L505.58,248.06L505.41,250.05L502.27,252.37L499.28,251.37L485.54,242.59L485.54,242.59L483.71,242.59L483.71,242.59L483.05,239.45L485.04,236.96L485.04,236.96L482.55,235.31L482.55,235.31L477.75,225.53L478.08,218.91L475.76,209.96L478.08,206.32L485.54,202.84L485.7,200.02L490.51,198.37L493.49,195.22L494.65,189.92L498.62,188.26L503.59,189.92L508.89,177.33L513.2,176.5L513.2,170.71L516.18,171.37L517.84,165.41L515.68,163.58L519.66,157.29L519.44,153.66L519.44,153.66L519.51,153.85L519.51,153.85L523.45,153.85L527.39,148.6L531.98,146.63L539.53,149.91L538.87,152.54L543.1,154.6L543.1,154.6L545.06,159.16L541.35,165.05L534.93,164.81L532.9,169.51L534.87,171.85L537.58,183.89L537.12,189.5L531.36,193.3L530.41,197.82L530.82,199.72L532.57,199.85L531.3,202.27L532.22,204.89L535.29,206L534.74,210.71L540.39,217.72L547.59,216.59L548.87,220.97L551.35,222.65L558.14,219.55L565.1,220.66L565.73,224.78L568.92,228.94L568.17,231.79L570.63,234.7L570.77,239.81L578.21,242.84L579.95,248.23L583.94,250.64L588.79,247.1L589.72,248.92L588.01,253.46L591.34,254.33L593.99,261.19L600.95,264L603.94,268.99L605.38,268.57L606.35,264.06L608.42,264.52L608.96,268.31L612,268.75L610.54,271.94L611.5,276.04L602.69,279.7L603,282.8L598.93,285.16L596.68,289.02L581.41,288.65L577.43,286.79L575.1,288.19L569.44,283.45L567.2,283.64L562.66,280.44L556.32,279.85L551.5,275.8L551.39,282.6z"
 };
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
@@ -70,48 +69,47 @@ var useMousePosition = () => {
 var mouseTrack_default = useMousePosition;
 
 // src/Bosniaherzegovina.tsx
-import { useState as useState2, useId } from "react";
+import { useId } from "react";
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Bosniaherzegovina = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -120,17 +118,17 @@ var Bosniaherzegovina = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -143,17 +141,17 @@ var Bosniaherzegovina = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -177,27 +175,47 @@ var BosniaherzegovinaSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
   const [stateHovered, setStateHovered] = useState2(null);
   const [selectedState, setSelectedState] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -213,22 +231,14 @@ var BosniaherzegovinaSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -236,7 +246,7 @@ var BosniaherzegovinaSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -246,7 +256,7 @@ var BosniaherzegovinaSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -255,43 +265,28 @@ var BosniaherzegovinaSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var BosniaherzegovinaMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -300,107 +295,114 @@ var BosniaherzegovinaMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = useState2([]);
   const { x, y } = mouseTrack_default();
+  const [selectedStates, setSelectedStates] = useState2([]);
   const [stateHovered, setStateHovered] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   useEffect2(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Bosniaherzegovina_default = Bosniaherzegovina;
 

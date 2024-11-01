@@ -39,14 +39,13 @@ var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var viewBox = "-20 -30 1800 900";
 var stateCode = ["Charlotte", "Saint Andrew", "Saint David", "Saint George", "Saint Patrick", "Grenadines"];
 var drawPath = {
   Charlotte: "M246.935,170.885L249.745,169.113L252.841,165.815L252.841,161.641L250.731,156.394L250.864,154.44L251.722,152.825L251.788,151.007L250.488,146.933L250.488,146.933L253.36,144.64L254.129,142.288L254.384,139.414L256.048,135.761L260.525,132.235L262.057,130.407L263.209,126.752L263.209,125.595L263.209,125.595L279.582,121.528L280.73,118.919L280.73,117.612L279.965,115.784L278.046,113.825L277.535,112.519L276.894,105.86L275.105,103.769L273.312,102.465L273.312,101.159L276,96.979L282.012,92.933L282.907,89.406L282.012,84.835L278.172,81.573L277.406,80.135L277.789,77.653L278.941,75.304L278.684,71.646L274.847,62.896L274.081,58.715L274.847,54.277L277.148,51.795L277.406,48.528L277.023,46.833L275.105,44.221L272.546,38.995L272.546,37.035L272.675,35.729L273.698,35.075L274.718,35.075L277.917,36.513L279.836,36.645L283.801,35.729L286.231,34.032L286.743,31.681L285.591,26.716L284.696,25.149L283.418,24.104L281.625,23.712L278.558,20.708L278.558,17.051L280.09,11.434L280.348,7.516L278.941,4.935L275.609,2.283L275.609,2.283L275.874,0.548L276.681,0.548L276.949,1.917L277.752,1.919L279.898,0L280.701,0L282.31,1.096L283.113,1.096L283.65,0.548L284.457,0.823L284.722,0.274L286.062,0.274L286.331,1.096L287.406,1.096L290.62,1.096L290.889,1.645L294.106,1.917L294.644,2.739L295.178,2.739L295.447,3.562L296.787,3.56L297.056,6.025L297.858,7.12L298.396,7.12L299.467,8.491L301.076,9.037L302.417,8.491L302.685,7.668L304.832,7.394L306.44,5.752L306.706,4.656L307.512,4.107L308.853,4.107L309.121,4.656L309.924,4.656L310.192,5.752L309.924,6.846L310.192,9.037L309.39,9.584L308.853,9.31L307.781,9.584L307.781,10.407L308.583,11.227L308.583,11.776L310.192,12.598L310.999,12.05L312.07,12.324L312.339,14.24L313.679,13.694L313.948,12.05L315.288,12.05L315.553,12.598L318.237,12.324L318.771,12.872L318.237,13.42L318.502,15.063L320.111,15.611L319.846,16.431L318.771,16.979L317.699,18.346L315.288,17.801L315.02,18.895L315.288,19.717L316.091,19.715L316.628,20.541L316.897,23.275L319.309,23.551L319.577,24.099L319.309,26.015L319.04,26.289L317.969,26.015L317.699,27.383L320.38,32.86L320.111,35.322L321.451,36.692L322.526,39.705L323.061,39.431L323.329,40.251L325.74,41.072L326.278,41.621L326.278,42.991L327.085,44.633L327.085,46.275L327.35,46.821L328.156,46.821L328.689,49.014L330.567,50.656L330.567,52.026L331.105,52.298L331.105,53.395L331.105,55.037L330.567,56.679L331.105,57.5L331.105,58.871L331.639,60.236L331.105,62.974L331.639,63.522L331.639,64.893L332.177,65.986L332.177,67.083L331.639,68.725L331.639,70.641L331.639,72.285L332.445,73.104L332.445,74.473L331.908,75.021L331.908,75.843L332.445,76.388L332.445,77.759L333.785,80.223L334.055,90.075L333.517,90.625L333.517,92.542L333.517,102.12L332.982,103.216L331.639,103.488L330.836,104.31L331.105,105.129L331.105,108.963L331.639,109.511L331.639,110.879L332.445,111.427L332.177,114.164L332.982,115.806L332.982,117.996L333.248,118.818L334.323,119.364L334.856,120.186L334.856,121.279L332.445,121.008L331.374,121.279L331.105,122.375L331.639,122.923L331.105,123.744L331.105,125.385L331.908,127.027L331.639,128.124L333.248,133.87L332.714,135.785L332.714,138.522L334.588,140.986L334.588,142.079L332.714,143.723L331.639,143.995L331.105,145.364L329.765,147.006L328.425,146.732L327.35,147.826L324.938,152.479L324.669,155.217L324.938,155.762L325.476,155.762L325.74,156.859L323.329,157.679L323.598,161.511L323.329,163.972L323.061,167.256L321.72,168.078L321.72,168.626L322.258,168.9L321.989,170.268L319.846,170.268L320.111,170.815L319.309,172.183L318.771,174.919L318.502,175.739L318.237,176.834L318.502,177.656L319.577,178.204L319.577,179.297L316.359,179.845L316.091,180.394L315.02,180.664L315.288,184.224L314.751,184.769L313.41,184.495L312.873,186.138L312.339,192.978L312.07,193.525L311.532,193.525L311.264,192.978L309.924,192.978L309.655,194.894L309.121,195.167L308.583,196.535L308.853,200.091L308.05,201.46L308.05,204.196L308.583,204.744L308.05,205.563L307.512,205.563L306.975,207.205L306.975,209.942L306.975,213.169L306.975,213.169L301.54,212.862L296.26,210.577L293.444,208.02L286.062,205.647L284.81,204.733L283.916,203.501L283.823,202.039L282.708,201.172L281.813,201.354L280.874,203.819L280.2,204.688L279.442,204.78L277.384,204.414L275.907,202.268L275.057,201.902L272.642,201.902L271.703,201.262L270.583,199.529L268.345,193.913L266.692,191.539L265.171,189.941L263.783,189.348L260.249,188.983L259.579,185.376L258.864,184.463L253.761,182.135L252.51,180.719L251.615,176.973L250.319,173.778z",
@@ -76,47 +75,46 @@ var mouseTrack_default = useMousePosition;
 
 // src/Stvincent.tsx
 var import_react3 = require("react");
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Stvincent = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -125,17 +123,17 @@ var Stvincent = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -148,17 +146,17 @@ var Stvincent = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -182,27 +180,47 @@ var StvincentSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = (0, import_react3.useId)().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
-  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
-  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [stateHovered, setStateHovered] = (0, import_react2.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react2.useState)(null);
+  const [viewBox, setViewBox] = (0, import_react2.useState)("0 0 100 100");
+  const strokeProps = (0, import_react2.useMemo)(() => getStrokeProperties(borderStyle), [borderStyle]);
+  (0, import_react2.useEffect)(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = (0, import_react2.useMemo)(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   (0, import_react2.useEffect)(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -218,22 +236,14 @@ var StvincentSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -241,7 +251,7 @@ var StvincentSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -251,7 +261,7 @@ var StvincentSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -260,43 +270,28 @@ var StvincentSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ import_react2.default.createElement("div", { style: hintStyle }, stateHovered));
 };
 var StvincentMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -305,107 +300,114 @@ var StvincentMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = (0, import_react3.useId)().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
   const { x, y } = mouseTrack_default();
-  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [selectedStates, setSelectedStates] = (0, import_react2.useState)([]);
+  const [stateHovered, setStateHovered] = (0, import_react2.useState)(null);
+  const [viewBox, setViewBox] = (0, import_react2.useState)("0 0 100 100");
+  const strokeProps = (0, import_react2.useMemo)(() => getStrokeProperties(borderStyle), [borderStyle]);
+  (0, import_react2.useEffect)(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = (0, import_react2.useMemo)(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   (0, import_react2.useEffect)(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   (0, import_react2.useEffect)(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ import_react2.default.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Stvincent_default = Stvincent;
 

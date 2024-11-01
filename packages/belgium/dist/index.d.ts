@@ -23,6 +23,6 @@ interface BelgiumProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Belgium: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: BelgiumProps) => React.JSX.Element | null;
+declare const Belgium: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BelgiumProps) => React.JSX.Element | null;
 
 export { Belgium as default };

@@ -23,6 +23,6 @@ interface BeninProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Benin: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: BeninProps) => React.JSX.Element | null;
+declare const Benin: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BeninProps) => React.JSX.Element | null;
 
 export { Benin as default };

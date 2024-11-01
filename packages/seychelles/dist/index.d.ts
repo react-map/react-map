@@ -23,6 +23,6 @@ interface SeychellesProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Seychelles: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SeychellesProps) => React.JSX.Element | null;
+declare const Seychelles: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SeychellesProps) => React.JSX.Element | null;
 
 export { Seychelles as default };

@@ -23,6 +23,6 @@ interface IndonesiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Indonesia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: IndonesiaProps) => React.JSX.Element | null;
+declare const Indonesia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: IndonesiaProps) => React.JSX.Element | null;
 
 export { Indonesia as default };

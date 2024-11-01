@@ -23,6 +23,6 @@ interface PalestineProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Palestine: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: PalestineProps) => React.JSX.Element | null;
+declare const Palestine: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: PalestineProps) => React.JSX.Element | null;
 
 export { Palestine as default };

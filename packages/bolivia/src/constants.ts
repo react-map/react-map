@@ -1,12 +1,12 @@
 export const constants = {
-  WIDTH: '500px',
+  WIDTH: 500,
   MAPCOLOR: '#ffffff',
   STROKE_COLOR: '#000000',
-  STROKE_WIDTH: '0.5',
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
-export const viewBox = '-50 -50 1200 800';
+
 export const stateCode = ['El Beni', 'Cochabamba', 'Chuquisaca', 'La Paz', 'Pando', 'Oruro', 'Potosí', 'Santa Cruz', 'Tarija'];
 export const drawPath = {
   'El Beni':

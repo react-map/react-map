@@ -23,6 +23,6 @@ interface IcelandProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Iceland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: IcelandProps) => React.JSX.Element | null;
+declare const Iceland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: IcelandProps) => React.JSX.Element | null;
 
 export { Iceland as default };

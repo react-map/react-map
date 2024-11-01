@@ -23,6 +23,6 @@ interface SrilankaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Srilanka: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SrilankaProps) => React.JSX.Element | null;
+declare const Srilanka: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SrilankaProps) => React.JSX.Element | null;
 
 export { Srilanka as default };

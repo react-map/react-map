@@ -23,6 +23,6 @@ interface StvincentProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Stvincent: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: StvincentProps) => React.JSX.Element | null;
+declare const Stvincent: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: StvincentProps) => React.JSX.Element | null;
 
 export { Stvincent as default };

@@ -23,6 +23,6 @@ interface HaitiProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Haiti: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: HaitiProps) => React.JSX.Element | null;
+declare const Haiti: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: HaitiProps) => React.JSX.Element | null;
 
 export { Haiti as default };

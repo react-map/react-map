@@ -23,6 +23,6 @@ interface MaltaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Malta: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MaltaProps) => React.JSX.Element | null;
+declare const Malta: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MaltaProps) => React.JSX.Element | null;
 
 export { Malta as default };

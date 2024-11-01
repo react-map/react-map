@@ -23,6 +23,6 @@ interface UsvirginislandsProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Usvirginislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: UsvirginislandsProps) => React.JSX.Element | null;
+declare const Usvirginislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UsvirginislandsProps) => React.JSX.Element | null;
 
 export { Usvirginislands as default };

@@ -23,6 +23,6 @@ interface JamaicaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Jamaica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: JamaicaProps) => React.JSX.Element | null;
+declare const Jamaica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: JamaicaProps) => React.JSX.Element | null;
 
 export { Jamaica as default };

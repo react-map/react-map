@@ -23,6 +23,6 @@ interface NorwayProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Norway: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: NorwayProps) => React.JSX.Element | null;
+declare const Norway: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NorwayProps) => React.JSX.Element | null;
 
 export { Norway as default };

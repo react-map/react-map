@@ -23,6 +23,6 @@ interface GreenlandProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Greenland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: GreenlandProps) => React.JSX.Element | null;
+declare const Greenland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GreenlandProps) => React.JSX.Element | null;
 
 export { Greenland as default };

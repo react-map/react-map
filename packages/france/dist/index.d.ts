@@ -23,6 +23,6 @@ interface FranceProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const France: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: FranceProps) => React.JSX.Element | null;
+declare const France: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: FranceProps) => React.JSX.Element | null;
 
 export { France as default };

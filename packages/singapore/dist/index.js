@@ -39,14 +39,13 @@ var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var viewBox = "-20 -20 1500 550";
 var stateCode = ["Central Singapore", "North East", "North West", "South East", "South West"];
 var drawPath = {
   "Central Singapore": "M430.84,77.29l1.18,0.42l1.92,0.51l1.44,1.59l1.85,1.34l1.09,1.59l0.75,1.37l0.09,1.28l0.99,1.55l2.04,2.04l1.27,1.2l1.42,0.7l1.26,0.99l1.68,0.52l0.92,0.08l0.33,0.75l0.92,0.42l1.13,0.09l0.67,-1.26l1.43,-1.34h1.01l2.01,0.08l1.34,0.33l2.27,1.51l1.59,1.01l1.62,0.55l1.58,0.47l1.91,0.47l2.79,0.03l1.96,0.44l1.26,0.09l1.11,0.62l0.88,0.79l1.03,0.91l1.06,0.65l1.58,1.34l-0.3,0.29l-1.6,2.44l-3.55,5.42l-2.9,2.15l-3.09,1.5l-2.53,1.69l-1.5,1.78l-0.37,4.87l-0.66,1.12l-0.66,1.59l-0.4,1.84l-0.17,0.78l-2.43,3.84l-2.53,1.03l-2.43,1.22l-0.09,6.18l-1.31,1.78l-1.59,0.84l-0.13,1.68l-1.74,2.93l-1.9,3.42l-0.95,3.61l-0.95,4.18l-1.33,5.13l-1.71,4.36l-1.84,3.15l-3.48,-0.21l-4.58,-0.86l-3.29,-0.57l-3.58,-0.29l-3.29,1.57l-2.57,4.14l-1.72,4.44l-1.57,6.15l-2.57,4.57l-2.72,4.44l-0.14,5.87l2.15,2.28l2,4.29l1,3.86l0.14,3.01l-1.86,1.86l-5.15,0.29l-3.29,1.42v3.72l4.15,0.14l5.15,0.86l3.72,0.86l0.72,2.86l0.14,4.44l1.86,4.57l2.28,3.86l1.72,0.86l4.58,1.43l3.29,1.43l2.57,3.86l4.29,3l0.57,4.87l1.71,2.58l-0.38,1.35l-0.48,1.66l-2.43,1l-1.43,0.86l-1.29,2.29l-3.72,3l-1,3.43l0.43,1.43l1,1.72l0.71,1.57l0.71,2.72l-0.5,1.08l0.09,0.75l0.14,1.55l-0.2,1.09l-0.54,1.56l-0.75,1.43l-1.5,1.38l-1.78,1.39l-1.06,0.62l-0.77,0.46l-0.14,0.59l-0.71,1.59l-1.18,0.64l-1.7,1.87l-1.64,1.58l-0.33,2l-0.39,3.26l0.36,3.02l0.48,2.17l0.83,2.68l-0.07,1.77l-0.07,2.24l-2.24,0.61l-1.63,-0.05l-2.38,-0.07l-2.58,-0.14l-2.04,-0.34l-1.97,0.14l-3.6,-0.27l-0.95,3.4l-0.49,1.07l-0.33,2.4l-0.2,1.49l0.26,3.35l0.65,0.59l1.26,3.18l2.04,0.2l1.14,-2.67l1.72,-2.57l1.28,-2.43l0.88,-1.43l0.34,-1.83l1.49,-0.07l1.97,0.14l1.43,0.54l1.29,0.75l2.06,0.58l3.26,1.45l3.38,2.17l2.54,2.29l2.42,2.78l1.21,1.69l-0.24,1.93l-17,13.37h-1.9l-1.51,-0.47l-2.38,-0.72l-2.62,-0.95l-0.76,-0.64l-0.68,-0.27l0.07,-0.95l0.61,-0.41v-1.02l-0.88,-0.54l-1.54,0.14l-0.3,-0.19l-1.35,-0.72l-1.43,-0.4l-1.43,-0.64l-2.53,2.03l0.19,0.99l0.03,15.49l-1.09,0.88l0.2,1.29l1.84,1.93l-0.56,0.4l-0.87,-0.79l-1.43,-1.67l-1.67,-1.75l-1.58,-1.58l-1.83,-2.06l-1.91,-1.75l-1.11,0.08l-0.63,0.56l-0.59,1.3l-1.08,0.99l1.43,1.63l1.15,1.43l0.95,1.22l0.14,1.02h-0.68l-2.83,-3.23l-1.51,-1.18l-1.43,-0.95l-0.82,-1.29l-1.02,-1.02l-0.88,-0.68l-1.07,-1.17l-3.89,-0.25l-9.5,-0.12l-0.67,0.49l-1.75,0.96l-2.06,1.19l-3.73,2.3l-1.68,1.17l-1.48,0.24l-1.76,1.05h-8.09l-0.24,-1.19l-0.88,-0.08l-0.63,-0.47l-1.44,-0.13l-0.29,0.63l-0.57,-0.12l-0.03,-0.57l1.17,-0.86l-2.12,-1.4l-0.43,1.23l-1.15,1.69l-1.01,-0.39l-1.19,-1.11l-0.95,-0.95l0.41,-0.7l1.26,-1.4l-1.09,-0.73l-0.78,-0.07l-1.7,-0.83l-2.47,-2.09l-1.71,-3.23l-0.95,-3.04l0.76,-3.04l2.28,-3.23l1.9,-1.9l3.04,-2.66l-0.38,-3.42l-1.52,-2.28l-4.56,0.19l-3.99,-0.19l-2.85,-1.14l-4.18,-0.19l-2.28,1.52l-4.18,-1.33l-4.18,-3.6l-1.71,-3.23l-0.76,-5.5l-0.76,-4.94l-0.76,-3.42l-1.33,-3.42l-2.66,-1.9l-1.52,-3.99l1.33,-3.04l1.9,-3.42l0.57,-3.41l2.3,1.78l1.95,1.71l1.47,1.47l1.71,-0.24l0.73,-3.42l0.49,-1.95l0.73,-2.69v-2.69l-0.24,-2.69l0.73,-2.69l2.44,-3.91l2.69,-3.91l2.2,-2.44l1.71,-2.2l2.2,-0.49l3.18,-1.22l2.44,-3.18v-2.93l1.22,-3.91l-0.49,-3.67l1.22,-2.44l2.2,-1.47l1.71,-2.2l-0.49,-3.18l-2.44,-0.49h-2.93l-3.18,-1.95l-3.91,-4.15l-3.91,-3.42l-2.44,-2.69l-3.91,-2.69l-0.98,-4.15l1.47,-4.4l2.93,-3.67l2.93,-1.71l2.44,-3.42l1.22,-4.15l5.13,-4.4l3.91,-2.93l3.18,-2.44l1.96,-4.64l1.95,-5.86l2.81,-4.53l1.45,-5.8v0l-1.57,-2.62l-1.71,-2.2l-0.98,-3.42l-0.73,-4.4l0.49,-5.62v-6.6l-1.47,-5.86l-2.93,-3.91l-2.44,-4.4l-1.22,-2.2l1.71,-2.2l3.91,-0.73l4.4,-0.49l3.42,-2.69l3.42,-4.64l2.93,-5.86l2.44,-6.11l1.47,-4.89l1.71,-5.62l2.93,-3.91l3.91,-1.71l6.35,0.73l2.93,1.22l3.18,3.42l1.95,3.18l3.18,3.67l4.64,0.49l4.15,-2.2l5,-0.12l0,0l1.54,-0.7l2.1,-0.85l1.4,-0.14l1.58,0.02l-0.47,1.31l-0.38,1.03l-0.84,1.41l-1.41,2.06l-1.5,1.31l-2.44,2.16l-2.53,1.31l-1.6,0.56l-2.25,1.41l-3.47,0.84l-3.47,1.31l-2.82,0.56l-3.08,0.66l-4.33,0.47l-1.5,1.13l-1.78,0.85l-0.47,2.16l-1.88,1.22l-0.66,1.13l0.84,1.69l0.56,1.31l0.09,1.88l0.19,0.94l0.84,0.47l1.13,-0.47l1.52,-1.66l1.16,-1.37l1.48,-2.16l0.74,-2.53l0.55,-1.19H375l5.63,0.19l5.73,-0.47l3.1,-1.31l2.06,-1.69l0.38,-0.16l3.23,-1.38l3.48,-0.73l1.31,-1.59l2.32,-0.84l0.92,-1.13l1.12,-1.74l0.77,-1.3l1.14,-0.97l0.75,-0.67l1.15,-1.44l1.48,-1.34l0.49,-1.55l0.21,-2.18l0.63,-1.69l0.92,-1.2l1.2,-1.34l1.2,-0.63l0.56,-0.28v-1.2l1.06,-1.76l1.06,-2.99l1.76,-1.97l0.92,-0.42l1.72,-0.57l0.59,-0.32h1.26l0.05,-0.09l0.81,-0.57l1.56,-0.31l1.17,-0.16l1.7,0.19l1.32,-0.45L430.84,77.29zM477.52,91.76l-1.15,0.99l-0.66,0.08l-0.82,-0.41l-1.65,-0.08l-2.47,0.17l-3.3,-0.33l-2.8,-0.41l-1.73,-0.74l-1.65,-0.99l-1.15,-0.74l-1.9,-0.41l-1.73,-0.49l-0.17,-0.66l0.66,-1.24l1.48,-1.07l1.15,-1.48l1.48,-2.31l1.81,-1.9l1.57,-2.47l1.57,-0.08l1.4,0.91l3.13,1.81l1.98,1.15l2.06,1.4l2.39,1.57l1.48,1.24l0.82,1.4l-0.17,0.91l-0.5,0.91l-0.33,1.65L477.52,91.76zM454.77,85.74l-1.57,1.81l-5.03,-0.08l-1.73,-1.15l-2.14,-1.65l-1.57,-1.73l-0.99,-1.24l-0.74,-1.24l-1.32,-0.99l-2.14,-1.57l-2.97,-2.39l-1.98,-1.15l-0.99,-0.66l0.08,-1.81l0.99,-1.57l2.39,-1.4l2.72,-2.23l1.81,-1.15l1.4,-0.66l4.86,-0.25l2.06,0.99l4.86,2.64l3.87,2.89l4.12,2.8l0.91,0.82l-0.08,1.15l-3.3,4.7l-2.14,2.72L454.77,85.74z",
@@ -75,47 +74,46 @@ var mouseTrack_default = useMousePosition;
 
 // src/Singapore.tsx
 var import_react3 = require("react");
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Singapore = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -124,17 +122,17 @@ var Singapore = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -147,17 +145,17 @@ var Singapore = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -181,27 +179,47 @@ var SingaporeSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = (0, import_react3.useId)().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
-  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
-  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [stateHovered, setStateHovered] = (0, import_react2.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react2.useState)(null);
+  const [viewBox, setViewBox] = (0, import_react2.useState)("0 0 100 100");
+  const strokeProps = (0, import_react2.useMemo)(() => getStrokeProperties(borderStyle), [borderStyle]);
+  (0, import_react2.useEffect)(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = (0, import_react2.useMemo)(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   (0, import_react2.useEffect)(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -217,22 +235,14 @@ var SingaporeSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -240,7 +250,7 @@ var SingaporeSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -250,7 +260,7 @@ var SingaporeSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -259,43 +269,28 @@ var SingaporeSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ import_react2.default.createElement("div", { style: hintStyle }, stateHovered));
 };
 var SingaporeMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -304,107 +299,114 @@ var SingaporeMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = (0, import_react3.useId)().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
   const { x, y } = mouseTrack_default();
-  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [selectedStates, setSelectedStates] = (0, import_react2.useState)([]);
+  const [stateHovered, setStateHovered] = (0, import_react2.useState)(null);
+  const [viewBox, setViewBox] = (0, import_react2.useState)("0 0 100 100");
+  const strokeProps = (0, import_react2.useMemo)(() => getStrokeProperties(borderStyle), [borderStyle]);
+  (0, import_react2.useEffect)(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = (0, import_react2.useMemo)(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   (0, import_react2.useEffect)(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   (0, import_react2.useEffect)(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ import_react2.default.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Singapore_default = Singapore;
 

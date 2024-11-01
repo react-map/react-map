@@ -23,6 +23,6 @@ interface TogoProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Togo: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: TogoProps) => React.JSX.Element | null;
+declare const Togo: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TogoProps) => React.JSX.Element | null;
 
 export { Togo as default };

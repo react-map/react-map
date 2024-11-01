@@ -23,6 +23,6 @@ interface HongkongProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Hongkong: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: HongkongProps) => React.JSX.Element | null;
+declare const Hongkong: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: HongkongProps) => React.JSX.Element | null;
 
 export { Hongkong as default };

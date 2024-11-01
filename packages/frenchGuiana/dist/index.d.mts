@@ -23,6 +23,6 @@ interface FrenchguianaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Frenchguiana: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: FrenchguianaProps) => React.JSX.Element | null;
+declare const Frenchguiana: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: FrenchguianaProps) => React.JSX.Element | null;
 
 export { Frenchguiana as default };

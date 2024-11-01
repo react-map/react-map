@@ -23,6 +23,6 @@ interface MauritiusProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Mauritius: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MauritiusProps) => React.JSX.Element | null;
+declare const Mauritius: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MauritiusProps) => React.JSX.Element | null;
 
 export { Mauritius as default };

@@ -1,12 +1,12 @@
 export const constants = {
-  WIDTH: '500px',
+  WIDTH: 500,
   MAPCOLOR: '#ffffff',
   STROKE_COLOR: '#000000',
-  STROKE_WIDTH: '0.5',
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
-export const viewBox = '-20 -20 1500 550';
+
 export const stateCode = ['Central Singapore', 'North East', 'North West', 'South East', 'South West'];
 export const drawPath = {
   'Central Singapore':

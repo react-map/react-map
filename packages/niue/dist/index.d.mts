@@ -23,6 +23,6 @@ interface NiueProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Niue: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: NiueProps) => React.JSX.Element | null;
+declare const Niue: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NiueProps) => React.JSX.Element | null;
 
 export { Niue as default };

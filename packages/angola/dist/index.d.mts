@@ -23,6 +23,6 @@ interface AngolaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Angola: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: AngolaProps) => React.JSX.Element | null;
+declare const Angola: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AngolaProps) => React.JSX.Element | null;
 
 export { Angola as default };

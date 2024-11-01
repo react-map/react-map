@@ -23,6 +23,6 @@ interface ItalyProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Italy: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: ItalyProps) => React.JSX.Element | null;
+declare const Italy: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ItalyProps) => React.JSX.Element | null;
 
 export { Italy as default };

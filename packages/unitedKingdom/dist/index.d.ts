@@ -23,6 +23,6 @@ interface UnitedkingdomProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Unitedkingdom: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: UnitedkingdomProps) => React.JSX.Element | null;
+declare const Unitedkingdom: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UnitedkingdomProps) => React.JSX.Element | null;
 
 export { Unitedkingdom as default };

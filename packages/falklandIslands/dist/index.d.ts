@@ -23,6 +23,6 @@ interface FalklandislandsProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Falklandislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: FalklandislandsProps) => React.JSX.Element | null;
+declare const Falklandislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: FalklandislandsProps) => React.JSX.Element | null;
 
 export { Falklandislands as default };

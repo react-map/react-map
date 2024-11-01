@@ -23,6 +23,6 @@ interface PalauProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Palau: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: PalauProps) => React.JSX.Element | null;
+declare const Palau: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: PalauProps) => React.JSX.Element | null;
 
 export { Palau as default };

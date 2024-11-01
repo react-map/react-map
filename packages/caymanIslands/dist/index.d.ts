@@ -23,6 +23,6 @@ interface CaymanislandsProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Caymanislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: CaymanislandsProps) => React.JSX.Element | null;
+declare const Caymanislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CaymanislandsProps) => React.JSX.Element | null;
 
 export { Caymanislands as default };

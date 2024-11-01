@@ -1,12 +1,11 @@
 export const constants = {
-  WIDTH: '500px',
+  WIDTH: 500,
   MAPCOLOR: '#ffffff',
   STROKE_COLOR: '#000000',
-  STROKE_WIDTH: '0.5',
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
-export const viewBox = '-50 100 1200 800';
 
 export const stateCode = ['Central', 'Ghanzi', 'Kgalagadi', 'Kgatleng', 'Kweneng', 'North-East', 'North-West', 'South-East', 'Southern'];
 export const drawPath = {

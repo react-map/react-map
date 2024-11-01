@@ -23,6 +23,6 @@ interface SlovakiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Slovakia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SlovakiaProps) => React.JSX.Element | null;
+declare const Slovakia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SlovakiaProps) => React.JSX.Element | null;
 
 export { Slovakia as default };

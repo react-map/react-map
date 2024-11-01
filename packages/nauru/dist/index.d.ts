@@ -23,6 +23,6 @@ interface NauruProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Nauru: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: NauruProps) => React.JSX.Element | null;
+declare const Nauru: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NauruProps) => React.JSX.Element | null;
 
 export { Nauru as default };

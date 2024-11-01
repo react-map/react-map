@@ -23,6 +23,6 @@ interface TrinidadandtobagoProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Trinidadandtobago: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: TrinidadandtobagoProps) => React.JSX.Element | null;
+declare const Trinidadandtobago: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TrinidadandtobagoProps) => React.JSX.Element | null;
 
 export { Trinidadandtobago as default };

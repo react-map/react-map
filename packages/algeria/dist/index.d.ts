@@ -23,6 +23,6 @@ interface AlgeriaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Algeria: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: AlgeriaProps) => React.JSX.Element | null;
+declare const Algeria: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AlgeriaProps) => React.JSX.Element | null;
 
 export { Algeria as default };

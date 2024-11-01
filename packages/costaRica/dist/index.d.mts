@@ -23,6 +23,6 @@ interface CostaricaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Costarica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: CostaricaProps) => React.JSX.Element | null;
+declare const Costarica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CostaricaProps) => React.JSX.Element | null;
 
 export { Costarica as default };

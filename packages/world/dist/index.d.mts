@@ -23,6 +23,6 @@ interface WorldProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const World: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: WorldProps) => React.JSX.Element | null;
+declare const World: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: WorldProps) => React.JSX.Element | null;
 
 export { World as default };

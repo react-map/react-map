@@ -23,6 +23,6 @@ interface HondurasProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Honduras: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: HondurasProps) => React.JSX.Element | null;
+declare const Honduras: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: HondurasProps) => React.JSX.Element | null;
 
 export { Honduras as default };

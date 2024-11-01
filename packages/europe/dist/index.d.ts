@@ -23,6 +23,6 @@ interface EuropeProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Europe: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: EuropeProps) => React.JSX.Element | null;
+declare const Europe: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EuropeProps) => React.JSX.Element | null;
 
 export { Europe as default };

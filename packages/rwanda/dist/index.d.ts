@@ -23,6 +23,6 @@ interface RwandaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Rwanda: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: RwandaProps) => React.JSX.Element | null;
+declare const Rwanda: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: RwandaProps) => React.JSX.Element | null;
 
 export { Rwanda as default };

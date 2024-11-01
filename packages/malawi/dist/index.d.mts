@@ -23,6 +23,6 @@ interface MalawiProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Malawi: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MalawiProps) => React.JSX.Element | null;
+declare const Malawi: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MalawiProps) => React.JSX.Element | null;
 
 export { Malawi as default };

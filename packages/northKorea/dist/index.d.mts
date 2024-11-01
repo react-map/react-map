@@ -23,6 +23,6 @@ interface NorthkoreaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Northkorea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: NorthkoreaProps) => React.JSX.Element | null;
+declare const Northkorea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NorthkoreaProps) => React.JSX.Element | null;
 
 export { Northkorea as default };

@@ -23,6 +23,6 @@ interface CocosislandsProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Cocosislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: CocosislandsProps) => React.JSX.Element | null;
+declare const Cocosislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CocosislandsProps) => React.JSX.Element | null;
 
 export { Cocosislands as default };

@@ -23,6 +23,6 @@ interface SurinameProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Suriname: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SurinameProps) => React.JSX.Element | null;
+declare const Suriname: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SurinameProps) => React.JSX.Element | null;
 
 export { Suriname as default };

@@ -23,6 +23,6 @@ interface SwitzerlandProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Switzerland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SwitzerlandProps) => React.JSX.Element | null;
+declare const Switzerland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SwitzerlandProps) => React.JSX.Element | null;
 
 export { Switzerland as default };

@@ -1,13 +1,11 @@
 export const constants = {
-  WIDTH: '500px',
+  WIDTH: 500,
   MAPCOLOR: '#ffffff',
   STROKE_COLOR: '#000000',
-  STROKE_WIDTH: '0.5',
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
-
-export const viewBox = '-40 -30 2000 1100';
 
 export const stateCode = ['Saint John', 'Saint Mary', 'Saint Paul', 'Saint Philip', 'Saint Peter', 'Saint George', 'Redonda', 'Barbuda'];
 export const drawPath = {

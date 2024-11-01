@@ -23,6 +23,6 @@ interface VanuatuProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Vanuatu: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: VanuatuProps) => React.JSX.Element | null;
+declare const Vanuatu: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: VanuatuProps) => React.JSX.Element | null;
 
 export { Vanuatu as default };

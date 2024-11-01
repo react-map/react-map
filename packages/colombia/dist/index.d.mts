@@ -23,6 +23,6 @@ interface ColombiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Colombia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: ColombiaProps) => React.JSX.Element | null;
+declare const Colombia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ColombiaProps) => React.JSX.Element | null;
 
 export { Colombia as default };

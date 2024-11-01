@@ -23,6 +23,6 @@ interface SolomonislandsProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Solomonislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SolomonislandsProps) => React.JSX.Element | null;
+declare const Solomonislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SolomonislandsProps) => React.JSX.Element | null;
 
 export { Solomonislands as default };

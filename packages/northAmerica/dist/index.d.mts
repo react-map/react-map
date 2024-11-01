@@ -23,6 +23,6 @@ interface NorthamericaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Northamerica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: NorthamericaProps) => React.JSX.Element | null;
+declare const Northamerica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NorthamericaProps) => React.JSX.Element | null;
 
 export { Northamerica as default };

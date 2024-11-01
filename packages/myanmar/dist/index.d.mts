@@ -23,6 +23,6 @@ interface MyanmarProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Myanmar: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MyanmarProps) => React.JSX.Element | null;
+declare const Myanmar: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MyanmarProps) => React.JSX.Element | null;
 
 export { Myanmar as default };

@@ -23,6 +23,6 @@ interface CzechrepublicProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Czechrepublic: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: CzechrepublicProps) => React.JSX.Element | null;
+declare const Czechrepublic: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CzechrepublicProps) => React.JSX.Element | null;
 
 export { Czechrepublic as default };

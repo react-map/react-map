@@ -23,6 +23,6 @@ interface StpierreProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Stpierre: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: StpierreProps) => React.JSX.Element | null;
+declare const Stpierre: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: StpierreProps) => React.JSX.Element | null;
 
 export { Stpierre as default };

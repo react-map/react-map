@@ -23,6 +23,6 @@ interface AfganistanProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Afganistan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: AfganistanProps) => React.JSX.Element | null;
+declare const Afganistan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AfganistanProps) => React.JSX.Element | null;
 
 export { Afganistan as default };
