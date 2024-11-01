@@ -1,36 +1,36 @@
-import React, { useEffect } from 'react';
+import React,{ useEffect, useState, useMemo } from 'react';
 import { drawPath, stateCode, constants, viewBox } from './constants';
 import useMousePosition from './hooks/mouseTrack';
-import { useState, useId } from 'react';
+import { useId } from 'react';
 
 interface CityColorMap {
   [key: string]: string;
 }
+
+const hintStyleBase = {
+  position: 'fixed' as React.CSSProperties['position'],
+  backgroundColor: 'white',
+  padding: '10px',
+  borderRadius: 5,
+  border: '1px solid #ccc',
+  pointerEvents: 'none' as React.CSSProperties['pointerEvents'],
+  zIndex: 1000,
+};
 
 type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'dash-dot' | 'dash-double-dot';
 
 const getStrokeProperties = (borderStyle?: BorderStyle) => {
   switch (borderStyle) {
     case 'dashed':
-      return {
-        strokeDasharray: '8 4',
-      };
+      return { strokeDasharray: '8 4' };
     case 'dotted':
-      return {
-        strokeDasharray: '2 2',
-      };
+      return { strokeDasharray: '2 2' };
     case 'dash-dot':
-      return {
-        strokeDasharray: '8 4 2 4',
-      };
+      return { strokeDasharray: '8 4 2 4' };
     case 'dash-double-dot':
-      return {
-        strokeDasharray: '8 4 2 4 2 4',
-      };
+      return { strokeDasharray: '8 4 2 4 2 4' };
     default:
-      return {
-        strokeDasharray: 'none',
-      };
+      return { strokeDasharray: 'none' };
   }
 };
 
@@ -56,21 +56,21 @@ export interface UnitedkingdomProps {
 
 const Unitedkingdom = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle,
 }: UnitedkingdomProps) => {
   if (type === 'select-single') {
@@ -78,17 +78,17 @@ const Unitedkingdom = ({
       <UnitedkingdomSingle
         type="select-single"
         size={size}
-        selectColor={selectColor}
         mapColor={mapColor}
         strokeColor={strokeColor}
         strokeWidth={strokeWidth}
         hoverColor={hoverColor}
+        selectColor={selectColor}
         hints={hints}
-        onSelect={onSelect}
         hintTextColor={hintTextColor}
         hintBackgroundColor={hintBackgroundColor}
         hintPadding={hintPadding}
         hintBorderRadius={hintBorderRadius}
+        onSelect={onSelect}
         cityColors={cityColors}
         disableClick={disableClick}
         disableHover={disableHover}
@@ -100,17 +100,17 @@ const Unitedkingdom = ({
       <UnitedkingdomMultiple
         type="select-multiple"
         size={size}
-        selectColor={selectColor}
         mapColor={mapColor}
         strokeColor={strokeColor}
         strokeWidth={strokeWidth}
-        onSelect={onSelect}
         hoverColor={hoverColor}
+        selectColor={selectColor}
         hints={hints}
         hintTextColor={hintTextColor}
         hintBackgroundColor={hintBackgroundColor}
         hintPadding={hintPadding}
         hintBorderRadius={hintBorderRadius}
+        onSelect={onSelect}
         cityColors={cityColors}
         disableClick={disableClick}
         disableHover={disableHover}
@@ -135,9 +135,9 @@ const UnitedkingdomSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle,
 }: UnitedkingdomProps) => {
   const instanceId = useId().replace(/:/g, '');
@@ -145,22 +145,35 @@ const UnitedkingdomSingle = ({
   const [stateHovered, setStateHovered] = useState<string | null>(null);
   const [selectedState, setSelectedState] = useState<string | null>(null);
 
-  const strokeProps = getStrokeProperties(borderStyle);
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
 
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps,
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps,
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || 'black',
+    top: y + 20,
+    left: x + 20,
   };
 
   useEffect(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors![state] || (mapColor as string);
       }
-  });
+    });
   }, [cityColors, mapColor, instanceId]);
 
   useEffect(() => {
@@ -176,11 +189,7 @@ const UnitedkingdomSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
 
@@ -188,11 +197,7 @@ const UnitedkingdomSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors![hoverStateId] || (mapColor as string);
     }
   };
 
@@ -202,7 +207,7 @@ const UnitedkingdomSingle = ({
     if (selectedState === stateCode) {
       const path = document.getElementById(`${stateCode}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors![stateCode] || (mapColor as string);
       }
       setSelectedState(null);
       if (onSelect) {
@@ -212,7 +217,7 @@ const UnitedkingdomSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors![selectedState] || (mapColor as string);
         }
       }
       setSelectedState(stateCode);
@@ -226,16 +231,16 @@ const UnitedkingdomSingle = ({
     <>
       <div className="map" style={mapStyle}>
         <svg version="1.1" id={`svg2-${instanceId}`} x="0px" y="0px" viewBox={viewBox}>
-          {stateCode?.map((stateCode: string, index: number) => (
+          {stateCode?.map((code, index) => (
             <path
               key={index}
-              onClick={() => handleClick(stateCode)}
-              onMouseEnter={() => handleMouseEnter(stateCode)}
-              onMouseLeave={() => handleMouseLeave(stateCode)}
-              id={`${stateCode}-${instanceId}`}
-              d={drawPath[stateCode as keyof typeof drawPath]}
+              onClick={() => handleClick(code)}
+              onMouseEnter={() => handleMouseEnter(code)}
+              onMouseLeave={() => handleMouseLeave(code)}
+              id={`${code}-${instanceId}`}
+              d={drawPath[code as keyof typeof drawPath]}
               style={{
-                fill: cityColors[stateCode] || mapColor || constants.MAPCOLOR,
+                fill: cityColors![code] || mapColor,
                 cursor: disableClick ? 'default' : 'pointer',
                 ...strokeProps,
               }}
@@ -243,35 +248,16 @@ const UnitedkingdomSingle = ({
           ))}
         </svg>
       </div>
-      {hints && (
-        <div>
-          {stateHovered && (
-            <div
-              style={{
-                position: 'absolute',
-                top: y + 20,
-                left: x + 20,
-                backgroundColor: hintBackgroundColor || 'white',
-                padding: hintPadding || '10px',
-                borderRadius: hintBorderRadius || '5px',
-                border: '1px solid #ccc',
-                color: hintTextColor || 'black',
-              }}
-            >
-              {stateHovered}
-            </div>
-          )}
-        </div>
-      )}
+      {hints && stateHovered && <div style={hintStyle}>{stateHovered}</div>}
     </>
   );
 };
 
 const UnitedkingdomMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -280,70 +266,61 @@ const UnitedkingdomMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle,
 }: UnitedkingdomProps) => {
   const instanceId = useId().replace(/:/g, '');
-  const [selectedStates, setSelectedStates] = useState<string[]>([]);
   const { x, y } = useMousePosition();
+  const [selectedStates, setSelectedStates] = useState<string[]>([]);
   const [stateHovered, setStateHovered] = useState<string | null>(null);
 
-  const strokeProps = getStrokeProperties(borderStyle);
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
 
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps,
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps,
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || 'black',
+    top: y + 20,
+    left: x + 20,
   };
 
   useEffect(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors![state] || (mapColor as string);
       }
     });
   }, [cityColors, mapColor, instanceId]);
 
   useEffect(() => {
-    selectedStates.forEach((stateCode) => {
-      const path = document.getElementById(`${stateCode}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
 
-  const handleClick = (stateCode: string) => {
-    if (disableClick) return;
-
-    if (selectedStates.includes(stateCode)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode]);
-    }
-    if (onSelect) {
-      onSelect(stateCode, selectedStates);
-    }
-  };
-
   const handleMouseEnter = (hoverStateId: string) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
 
@@ -351,11 +328,37 @@ const UnitedkingdomMultiple = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
+      path.style.fill = selectedStates.includes(hoverStateId)
+        ? selectColor || constants.SELECTED_COLOR
+        : cityColors![hoverStateId] || (mapColor as string);
+    }
+  };
+
+  const handleClick = (stateCode: string) => {
+    if (disableClick) return;
+
+    if (selectedStates.includes(stateCode)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode);
+      const path = document.getElementById(`${stateCode}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors![stateCode] || (mapColor as string);
       }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode];
+        const path = document.getElementById(`${stateCode}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode, updatedStates);
+        }
+        return updatedStates;
+      });
     }
   };
 
@@ -363,16 +366,16 @@ const UnitedkingdomMultiple = ({
     <>
       <div className="map" style={mapStyle}>
         <svg version="1.1" id={`svg2-${instanceId}`} x="0px" y="0px" viewBox={viewBox}>
-          {stateCode?.map((stateCode: string, index: number) => (
+          {stateCode?.map((code, index) => (
             <path
               key={index}
-              onClick={() => handleClick(stateCode)}
-              onMouseEnter={() => handleMouseEnter(stateCode)}
-              onMouseLeave={() => handleMouseLeave(stateCode)}
-              id={`${stateCode}-${instanceId}`}
-              d={drawPath[stateCode as keyof typeof drawPath]}
+              onClick={() => handleClick(code)}
+              onMouseEnter={() => handleMouseEnter(code)}
+              onMouseLeave={() => handleMouseLeave(code)}
+              id={`${code}-${instanceId}`}
+              d={drawPath[code as keyof typeof drawPath]}
               style={{
-                fill: cityColors[stateCode] || mapColor || constants.MAPCOLOR,
+                fill: cityColors![code] || mapColor,
                 cursor: disableClick ? 'default' : 'pointer',
                 ...strokeProps,
               }}
@@ -380,26 +383,7 @@ const UnitedkingdomMultiple = ({
           ))}
         </svg>
       </div>
-      {hints && (
-        <div>
-          {stateHovered && (
-            <div
-              style={{
-                position: 'absolute',
-                top: y + 20,
-                left: x + 20,
-                backgroundColor: hintBackgroundColor || 'white',
-                padding: hintPadding || '10px',
-                borderRadius: hintBorderRadius || '5px',
-                border: '1px solid #ccc',
-                color: hintTextColor || 'black',
-              }}
-            >
-              {stateHovered}
-            </div>
-          )}
-        </div>
-      )}
+      {hints && stateHovered && <div style={hintStyle}>{stateHovered}</div>}
     </>
   );
 };
