@@ -1,17 +1,16 @@
 // src/Sthelena.tsx
-import React, { useEffect as useEffect2 } from "react";
+import React, { useEffect as useEffect2, useState as useState2, useMemo } from "react";
 
 // src/constants.ts
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
 var stateCode = ["Alarm Forest", "Blue Hill", "Half Tree Hollow", "Jamestown", "Levelwood", "Longwood", "Sandy Bay", "Saint Paul's"];
-var viewBox = "0 0 1500 650";
 var drawPath = {
   "Alarm Forest": "M383.992,292.103L383.807,291.994L383.807,291.994L383.501,291.71L382.762,291.115L382.49,290.827L382.248,290.516L382.248,290.516L381.838,289.831L381.672,289.461L381.484,288.947L381.275,288.028L381.231,287.631L381.177,286.554L380.999,285.711L380.595,284.49L380.279,283.715L379.819,282.709L379.252,281.596L378.354,279.996L377.36,278.378L376.3,276.76L375.204,275.002L374.423,273.664L373.448,271.847L373.448,271.847L372.971,270.847L372.744,270.311L372.744,270.311L372.479,269.508L372.437,269.229L372.419,268.828L372.289,268.174L372.206,267.913L371.946,267.304L371.61,266.723L371.135,266.096L370.76,265.708L370.459,265.461L370.128,265.245L369.888,265.127L369.394,265.001L369.263,264.997L369.145,265.042L368.824,265.271L368.264,265.831L367.828,266.335L367.001,267.399L365.225,269.95L364.789,270.486L364.342,270.982L363.601,271.689L363.077,272.109L362.382,272.555L361.894,272.794L361.645,272.889L361.227,272.997L360.893,273.033L360.607,273.024L360.324,272.956L360.071,272.839L359.956,272.758L359.752,272.55L359.535,272.176L359.393,271.658L359.352,271.248L359.336,270.675L359.14,269.084L359.14,269.084L358.776,266.935L358.776,266.935L358.076,263.347L356.947,258.056L356.609,256.253L356.223,253.95L355.948,252.034L355.778,250.574L355.678,249.281L355.658,248.118L355.604,247.302L355.495,246.369L355.318,245.27L355.059,244.025L354.782,242.957L354.496,242.038L354.078,240.893L353.838,240.055L353.493,238.41L353.225,236.575L353.033,234.61L352.935,232.866L352.907,231.708L352.916,230.094L352.916,230.094L352.907,228.778L352.907,228.778L352.841,227.133L352.841,227.133L352.7,225.488L352.7,225.488L352.493,224.019L352.331,223.158L351.921,221.45L351.714,220.733L351.204,219.201L350.306,216.862L349.824,215.474L349.347,213.892L348.845,211.905L348.527,210.336L348.285,208.669L348.213,207.682L348.191,205.848L348.108,204.888L347.938,204.067L347.703,203.445L347.711,203.297L347.711,203.297L348.651,200.358L349.314,199.182L349.964,197.934L350.801,196.226L351.453,194.806L352.872,191.439L354.791,186.559L356.343,182.39L358.246,177.022L360.21,171.696L362.125,166.748L363.943,162.354L364.935,159.762L365.576,157.906L366.123,156.162L366.622,154.399L367.106,152.479L367.512,150.65L367.8,149.186L368.083,147.554L368.415,145.31L368.628,143.575L368.842,141.488L369.005,139.479L369.156,137.067L369.297,133.517L369.365,129.542L369.295,111.795L373.636,111.962L374.711,111.94L375.192,111.886L375.616,111.795L375.742,111.805L375.742,111.805L375.581,113.184L377.839,113.783L377.948,114.17L378.134,114.526L378.387,114.842L378.801,115.185L379.141,115.387L379.625,115.604L380.011,115.739L380.807,115.95L381.192,116.09L381.718,116.329L382.444,116.712L383.946,117.631L385.836,118.947L387.705,120.38L388.847,121.322L391.823,123.882L391.823,123.882L393.281,125.063L394.736,126.185L394.736,126.185L396.199,127.252L397.326,128.019L398.292,128.609L399.02,128.974L399.434,129.222L400.365,129.92L401.361,130.794L402.322,131.718L403.236,132.646L404.811,134.341L406.031,135.72L407.697,137.68L409.64,140.087L411.561,142.602L413.315,145.062L414.503,146.869L415.323,148.244L415.957,149.474L416.187,150.01L416.625,151.317L417.159,153.205L417.752,155.517L418.875,160.353L420.006,165.833L420.568,168.424L421.403,171.817L421.985,173.958L422.521,175.801L423.655,179.366L424.396,181.484L425.374,184.053L426.167,185.959L427.229,188.267L428.105,189.948L428.879,191.255L429.385,192.007L430.166,193.008L430.547,193.598L431.077,194.608L431.348,195.18L432.075,196.879L432.819,198.817L433.545,200.895L434.226,203.058L434.868,205.352L435.383,207.447L435.738,209.156L436.061,211.103L436.244,212.621L436.345,213.892L436.381,214.726L436.375,216.628L436.287,217.958L436.287,217.958L436.094,219.526L435.933,220.432L435.705,221.464L435.47,222.361L435.47,222.361L434.981,223.893L434.648,224.785L433.929,226.458L433.488,227.363L432.568,229.063L431.601,230.662L431.072,231.474L431.072,231.474L430.322,232.573L430.322,232.573L428.445,235.12L426.671,237.337L424.977,239.343L418.698,246.612L416.871,262.685L416.219,267.944L415.927,269.855L415.647,271.266L415.397,272.154L415.143,272.726L414.861,273.083L414.58,273.245L414.425,273.281L413.993,273.271L412.81,272.983L412.288,272.907L411.736,272.893L411.229,272.952L410.675,273.091L410.319,273.222L409.851,273.452L409.282,273.817L408.637,274.358L408.168,274.84L407.645,275.489L407.158,276.201L406.801,276.805L406.362,277.657L405.842,278.87L405.523,279.744L405.523,279.744L404.987,281.384L404.8,281.894L404.529,282.516L404.529,282.516L404.185,283.093L403.808,283.516L403.472,283.773L403.228,283.913L402.739,284.116L402.109,284.292L401.172,284.463L397.605,284.904L396.543,285.08L395.376,285.314L394.59,285.508L393.696,285.774L392.588,286.18L392.069,286.41L391.452,286.721L390.644,287.208L389.797,287.839L389.152,288.429L388.562,289.083L387.92,289.957L387.347,290.931L386.902,291.873z",
   "Blue Hill": "M291.618,323.009l1.208,0.812l1.304,0.965l2.475,2.001l1.236,0.938l2.339,1.623l1.646,1.059l2.045,1.24l1.883,1.063l2.237,1.153l1.84,1.032l1.374,0.861l0.874,0.595l1.097,0.825l0.43,0.352l0.715,0.662l0.369,0.41l0.238,0.334l0.32,0.64l0.371,0.875l0.238,0.662l0.412,1.429l0.205,0.929l0.275,1.687l0.14,1.289l0.137,2.227l0.028,1.1l-0.009,2.506l-0.091,2.574l-0.125,2.154l-0.253,3.295l-0.401,4.184l-1.869,16.723l-1.11,10.593l-1.153,11.648l0,0l-0.892,9.228l0,0l-0.222,2.06l0,0l-0.456,3.836l-0.242,1.831l0,0l-0.46,3.064l-0.397,2.241l-0.478,2.244l-0.418,1.628l-0.591,1.866l-1.923,5.233l-0.939,2.723l-0.517,1.582l-0.933,3.07l-0.508,1.794l-0.833,3.124l-0.78,3.093l-0.813,3.354l-1.604,6.853l-6.081,26.724l-4.157,17.862l-1.328,5.526l-0.717,2.867l-2.062,7.619l-0.297,1.173l0,0l-0.353,0.026l-0.096,-0.604l-0.536,0.162l-0.396,0.46l-0.452,0.441l-0.512,-0.027l0.408,-0.478l0.567,-0.604l0.639,-0.389l0.229,-0.811l-0.674,-0.082l-0.128,-0.126l0.359,-0.522l-0.061,-0.767l-0.437,-0.514l-0.623,-0.37l-0.419,-0.514l-0.503,0.919l-0.072,0.487l-0.211,0.433l-0.179,-0.522l0.063,-0.424l0.063,-0.784l-1.048,0.099l-0.559,0.884l-0.685,0.054l-0.493,0.848l-0.58,0.379l-0.02,-1.361l-0.652,-0.153l-0.902,0.081l-1.158,0.694l-0.124,0.532l0.578,0.757l0.244,0.613l-0.12,0.641l-0.266,0.64l-0.698,0.226l-0.615,0.279l-0.281,-0.018l-0.018,-0.271l-0.279,-0.136l-0.225,0.713l-0.318,0.648l-0.501,0.244l-1.149,0.369l-1.67,0.343l-1.063,0.081l-0.685,0.325l-0.552,0.424l0.333,0.865l-0.288,1.001l-0.148,0.839l-0.366,0.784l-0.41,-0.307l-0.392,-0.433l-0.24,-0.063l-0.085,-0.559l-0.421,0.271l-0.201,0.559l0.497,0.532l-0.201,0.829l0.534,0.433l-0.065,0.568l-0.478,-0.036l-0.135,-0.405l-0.822,0.648l-0.257,-0.234l-0.22,0.199l-0.163,0.757l0.039,0.433l-0.669,-0.026l-0.393,-0.163l-0.277,0.496l-0.767,0.812l-1.04,0.424l-0.861,0.045l-0.373,-0.045l-0.377,0.244l-0.028,0.531l0.229,0.262l0.189,0.396v0.451l0.225,0.487l-0.312,0.144l-0.421,-0.324l-0.07,-0.198l0.096,-0.289l-0.395,-0.297l-0.628,0.324l-0.074,0.343l0.07,0.315l0.039,0.478l-0.772,0.181l-0.102,0.324l-0.696,0.036l-0.75,-0.234l-0.335,-0.162l-0.262,0.217l-0.312,0.207l-0.53,0.072l-0.624,0.829l0.384,0.568l0.325,0.162l0.508,0.055l0.778,-0.145l0.074,0.343l-0.332,0.297l-0.488,0.145l-0.955,-0.054l-0.632,-0.406l-0.966,-0.009l-0.813,0.1l-0.454,-0.072l-0.767,1.001l-1.339,0.315l-0.471,-0.775l0.106,-0.686l-0.586,-0.162l-0.384,0.162l-0.414,0.081l-0.31,0.189l-0.691,0.613l-0.541,0.965l0.02,0.874l-0.114,0.424l0.17,0.253l0.113,0.271l-0.179,0.82l-0.057,0.217l-0.277,0.09l-0.277,0.289l-0.041,0.567l0.083,0.532l0.305,0.181l-0.037,0.604l0.407,1.163l-0.32,0.072l-0.503,-0.676l-0.244,-0.027l-0.318,0.217l-0.473,0.379l-0.14,0.469l0.037,0.522l0.218,0.433l0.384,0.189l0.491,0.127l0.087,0.793l-0.314,0.396l-0.172,0.622l-0.573,-0.063l-0.698,-0.019l-0.29,0.361l-0.146,0.369l-0.377,0.334l-0.49,-0.09l-1.082,0.369l-0.247,-0.522l-0.333,0.026l-0.469,-0.243l-0.835,0.153l-0.462,0.145l-0.794,0.424l-0.647,0.595l0.098,0.415l1.367,0.767l0.246,1.262l-0.451,2.245L236.996,560l-1.487,0.622l-2.507,0.162l-1.644,1.434l-1.19,1.632l-1.286,0.523l-1.548,-0.081l-0.357,1.055l-2.568,1.731l-1.886,2.443l-2.664,1.064l-2.728,2.786l-3.24,1.416l-2.507,-0.775l-0.835,1.604l-1.515,1.397l-4.177,0.884l-2.769,-0.099l-0.26,2.073l-1.201,2.489l-1.62,2.443l-2.239,0.532l-1.46,-1.01l0.048,-4.437l1.472,-2.534l-1.57,-1.073L193,572.578l-0.783,-1.704l-2.208,-1.073l-0.589,-2.633l-1.029,-1.56l-3.728,0.198l-2.551,-0.343l-0.393,-1.758l0.687,-1.605l-7.014,-0.496l0.312,-2.993l-7.131,-1.966l0.704,-3.643l-0.506,-3.273l-3.889,-4.454l-4.794,-1.163l-2.605,-2.634l-0.144,-2.857l-1.938,-3.066l-2.441,-0.216l-3.661,-3.778l-4.884,-8.494l1.208,-5.879l-1.945,-2.578l-1.524,-3.706l0.065,-4.066l2.045,-2.561l0.793,-3.408l-1.253,-2.426l-1.518,-2.425l-2.706,-1.569l-1.979,-0.396l-1.755,-1.623l-0.519,-1.776l-1.04,-1.316l-1.33,-0.658l-1.847,0.884l-0.571,1.208l-2.701,0.415l-0.454,-1.389l-0.194,-1.677l-1.903,-0.208l-2.664,-2.254l-0.042,-1.975l-0.46,-1.821l-3.707,0.046l-2.444,1.92l-2.599,0.207l-2.693,-0.271l-1.868,-1.379l-1.038,-2.416l-1.38,-0.884l-2.919,2.092l-4.949,0.486l-1.842,-0.721l-1.125,-2.696L93.961,475l-2.03,-2.93l-1.395,-3.372l-2.625,0.838l-3.091,0.172l-1.694,1.1l-2.455,0.884l-0.042,1.253l-1.609,0.424l-0.552,1.894l-4.029,-0.099l-0.052,-1.137l-1.657,0.108l0.105,1.127l-4.358,0.379l-5.161,-0.433l-0.314,-7.411l-2.788,-5.87l-4.705,-3.498l-4.535,0.352l-4.145,-0.405l-1.452,-2.092l-3.312,-0.396l-1.657,-2.61l-3.369,-3.972l-2.834,-0.929l-3.024,0.189l-1.997,1.92l-1.5,3.003l-1.652,0.004l-0.709,-4.67l-2.799,-6.546l-1.535,-3.345l-1.092,-0.789l-1.267,-0.135l-1.731,0.627l-0.883,1.127l-0.628,1.045l-0.527,1.511l-2.605,0.617l-2.616,-0.896l-1.306,-0.897l-1.674,0.897l-3.393,0.085l-2.81,-0.243L0,437.354l2.193,-1.785l1.33,1.848l2.858,-2.443l0.467,-4.16l-2.063,-3.701l2.59,-1.975l1.463,-2.101l2.115,-0.243l1.869,-3.557l4.798,-0.727l2.845,-0.888l2.115,-4.12l-0.164,-5.657l3.244,-0.591l2.39,-1.753l3.349,-1.335l2.775,-4.439l7.642,-16.322l15.771,-8.245l2.409,-0.946l2.599,-0.266l-0.189,-4.404l-2.063,-1.258l-0.471,-2.073l-0.87,-1.177l0.196,-1.925l0.674,-0.788l1.72,-1.046l1.264,-1.839l2.13,-1.523l0.388,-3.484l1.518,-1.533l0.654,-1.379l-0.868,-1.068l-1.114,-0.122l-1.034,1.028l-1.565,-1.758l0.322,-2.272l1.304,-2.533l2.671,-1.05l2.049,1.42l2.174,-1.23l0.682,-2.223l-0.682,-1.73l-1.243,-2.84l2.518,-1.835l1.857,-0.117l5.684,-0.059l5.35,-2.434l0.192,-0.193l-0.957,-3.138l-0.464,-2.997l1.696,-1.104l2.481,-0.266l0.449,-4.232l3.512,-0.37l1.145,1.275l2.677,-0.951l1.435,-1.329l0.765,-1.568l3.539,-0.951l1.149,-2.114l1.289,-0.311l-0.286,-3.277l-0.669,-5.179l0.652,-3.989l1.229,-4.624l6.981,-0.396l0.837,-4.94l-0.707,-6.689l-3.682,-6.283l1.088,-4.886l-0.395,-4.899l1.284,-5.39l1.938,-3.836l16.534,-24.261l6.181,-5.823l-1.518,-6.035l2.599,-5.841l6.809,-2.727l0.885,-3.759l5.887,-3.493l40.682,-21.66l15.638,-15.075l0.872,0.203l0.783,0.063l0.432,-0.099l0.242,-0.239l0.355,0.018l0.186,0.198l0.625,0.077l0.249,-0.378l0.5,0.09l0.128,0.275l0.748,-0.041l0.759,0.761l-0.129,0.244L212,172.75l-0.329,-0.379l0.052,0.545l0.12,0.149l0.043,0.563l0.527,0.198l-0.043,0.415l0.571,0.378l0.381,0.067l0.303,-0.112l0.467,0.171l0.266,0.252l0.116,0.343l0.259,0.266l0.9,0.275l1.622,0.793l0.534,0.031l0.774,-0.162l0,0l0.04,0.126l0.676,0.487l0.486,0.248l0.386,0.13l0.514,0.086l0.452,-0.014l0.519,-0.117l0.497,-0.203l0.194,0.271l0.643,3.24l0.043,0.396l0.018,0.685l0.037,0.401l0.113,0.717l0.174,0.793l0.249,0.901l0.347,1.032l0.294,0.748l0.567,1.239l0.296,0.757l0.229,0.775l0.107,0.667l0.015,0.419l-0.018,0.284l-0.067,0.419l-0.074,0.271l-0.205,0.527l-0.525,1.019l-0.188,0.415l-0.2,0.532l-0.142,0.514l-0.072,0.442l-0.024,0.473l0.035,0.473l0.079,0.419l0.159,0.532l0.222,0.541l0.325,0.626l0.44,0.717l0.41,0.599l0.695,0.933l1.563,1.916l3.438,12.402l-0.168,1.758l-0.15,1.275l-0.305,2.051l-0.246,1.307l-0.31,1.352l-0.491,1.694l-0.301,0.852l-0.395,0.955l-0.58,1.167l-0.316,0.541l-0.595,0.883l-0.272,0.352l-0.676,0.779l-0.726,0.753l-0.423,0.532l-0.305,0.442l-0.393,0.645l-0.466,0.888l-0.266,0.572l-0.418,1.019l-0.425,1.199l-0.371,1.217l-0.552,2.222l-0.353,1.816l-0.249,1.604l-0.181,1.496l-0.135,1.505l-0.118,2.33l-0.013,1.623l0.039,1.465l0.085,1.361l0.089,0.946l0.286,1.987l0.233,1.131l0.34,1.267l0.264,0.789l0.691,1.69l0.462,1.32l0.545,1.803l0.454,1.69l0.349,1.442l0.403,1.87l0.918,5.179l0.366,1.74l0.242,1.023l0.423,1.586l0.425,1.393l0.584,1.645l0.582,1.397l0.563,1.185l0.772,1.411l0.853,1.343l0.743,1.028l0.7,0.879l0.856,0.974l0.922,0.951l1.378,1.28l1.229,1.032l1.531,1.176l0.894,0.645l2.143,1.447l0.646,0.487l0.898,0.802l0.955,0.996l1.11,1.325l0.556,0.744l0.456,0.663l0.591,0.946l0.8,1.479l0.462,0.784l0.702,1.091l0.687,0.992l1.478,1.969l1.915,2.317l0,0l0.861,0.974l1.263,1.361l0,0l1.072,1.095l1.725,1.637l1.193,1.027l1.149,0.893l0.972,0.653l0.817,0.446l0.933,0.396l0.853,0.279l0.744,0.189l0.926,0.176l1.282,0.145l1.382,0.045l1.443,-0.067l1.06,-0.117l0.717,-0.113l1.289,-0.274l1.557,-0.455l1.522,-0.577l0.824,-0.279l0.682,-0.189l1.077,-0.226l0.586,-0.081l1.049,-0.072l1.153,0.036l0.848,0.108l1.016,0.226l0.981,0.333l0.674,0.302l0.778,0.434l0.724,0.491l0.552,0.446l0.564,0.527l1.186,1.217l0.687,0.612l0.617,0.482l0.665,0.41l0.249,0.104l0.255,0.04l0.242,0.09L291.618,323.009zM75.835,311.605l1.334,1.501l1.277,-1.154l3.713,0.465l1.625,1.384l0.349,1.901l1.681,0.632l0.174,2.019l-2.436,0.749l-3.541,-0.289l-1.334,-0.689l-1.915,-1.325l-1.798,-1.096l-1.799,-0.518l-0.231,-1.442l1.044,-0.465v-1.901L75.835,311.605zM67.849,331.794l-3.541,0.072l-0.02,-1.523l0.349,-1.235l1.397,-0.73l1.382,0.415l0.364,1.158L67.849,331.794zM166.456,599.864L163.927,600l-2.174,-1.506l-1.655,-2.228l-1.009,-2.119l0.118,-1.975l1.138,-0.884l1.396,0.289l2.601,0.46l1.842,2.461l1.119,2.724L166.456,599.864z",
@@ -41,48 +40,47 @@ var useMousePosition = () => {
 var mouseTrack_default = useMousePosition;
 
 // src/Sthelena.tsx
-import { useState as useState2, useId } from "react";
+import { useId } from "react";
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Sthelena = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -91,17 +89,17 @@ var Sthelena = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -114,17 +112,17 @@ var Sthelena = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -148,27 +146,47 @@ var SthelenaSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
   const [stateHovered, setStateHovered] = useState2(null);
   const [selectedState, setSelectedState] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -184,22 +202,14 @@ var SthelenaSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -207,7 +217,7 @@ var SthelenaSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -217,7 +227,7 @@ var SthelenaSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -226,43 +236,28 @@ var SthelenaSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var SthelenaMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -271,107 +266,114 @@ var SthelenaMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = useState2([]);
   const { x, y } = mouseTrack_default();
+  const [selectedStates, setSelectedStates] = useState2([]);
   const [stateHovered, setStateHovered] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   useEffect2(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Sthelena_default = Sthelena;
 

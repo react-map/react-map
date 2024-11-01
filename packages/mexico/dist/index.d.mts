@@ -23,6 +23,6 @@ interface MexicoProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Mexico: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MexicoProps) => React.JSX.Element | null;
+declare const Mexico: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MexicoProps) => React.JSX.Element | null;
 
 export { Mexico as default };

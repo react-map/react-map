@@ -23,6 +23,6 @@ interface TanzaniaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Tanzania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: TanzaniaProps) => React.JSX.Element | null;
+declare const Tanzania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TanzaniaProps) => React.JSX.Element | null;
 
 export { Tanzania as default };

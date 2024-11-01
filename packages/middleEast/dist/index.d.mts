@@ -23,6 +23,6 @@ interface MiddleeastProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Middleeast: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MiddleeastProps) => React.JSX.Element | null;
+declare const Middleeast: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MiddleeastProps) => React.JSX.Element | null;
 
 export { Middleeast as default };

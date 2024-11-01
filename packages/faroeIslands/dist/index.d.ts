@@ -23,6 +23,6 @@ interface FaroeislandsProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Faroeislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: FaroeislandsProps) => React.JSX.Element | null;
+declare const Faroeislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: FaroeislandsProps) => React.JSX.Element | null;
 
 export { Faroeislands as default };

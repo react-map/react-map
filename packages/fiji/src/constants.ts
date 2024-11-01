@@ -1,13 +1,13 @@
 export const constants = {
-  WIDTH: '500px',
+  WIDTH: 500,
   MAPCOLOR: '#ffffff',
   STROKE_COLOR: '#000000',
-  STROKE_WIDTH: '0.5',
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
+
 export const stateCode = ['Rotuma', 'Western', 'Northern', 'Eastern', 'Central'];
-export const viewBox = '50 -20 500 100';
 export const drawPath = {
   Rotuma:
     'M96.71,2.71L93.38,1.35L84.59,1.35L80.81,0L74.26,4.04L71.29,4.59L67.63,3.57L67.81,4.87L69,8.56L72.83,8.01L76.87,8.32L80.77,9.19L84.15,10.42L88.47,10.29L93.98,9.05L97.76,6.6L96.71,2.71z',

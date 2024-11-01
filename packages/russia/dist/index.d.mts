@@ -23,6 +23,6 @@ interface RussiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Russia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: RussiaProps) => React.JSX.Element | null;
+declare const Russia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: RussiaProps) => React.JSX.Element | null;
 
 export { Russia as default };

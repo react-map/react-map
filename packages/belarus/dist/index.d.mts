@@ -23,6 +23,6 @@ interface BelarusProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Belarus: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: BelarusProps) => React.JSX.Element | null;
+declare const Belarus: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BelarusProps) => React.JSX.Element | null;
 
 export { Belarus as default };

@@ -23,6 +23,6 @@ interface ParaguayProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Paraguay: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: ParaguayProps) => React.JSX.Element | null;
+declare const Paraguay: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ParaguayProps) => React.JSX.Element | null;
 
 export { Paraguay as default };

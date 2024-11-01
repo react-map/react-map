@@ -23,6 +23,6 @@ interface GuineaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Guinea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: GuineaProps) => React.JSX.Element | null;
+declare const Guinea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GuineaProps) => React.JSX.Element | null;
 
 export { Guinea as default };

@@ -1,17 +1,16 @@
 // src/Faroeislands.tsx
-import React, { useEffect as useEffect2 } from "react";
+import React, { useEffect as useEffect2, useState as useState2, useMemo } from "react";
 
 // src/constants.ts
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
 var stateCode = ["\xD8ster\xF8", "Norder\xF8erne", "Sand\xF8", "Str\xF8m\xF8", "Suder\xF8", "V\xE5g\xF8"];
-var viewBox = "-30 -10 2000 900";
 var drawPath = {
   \u00D8ster\u00F8: "M366.64,204.31l0,0.15l1.88,0.76l10.3,4.18l2.09,2.42l0.54,2.67l0.24,1.18l2.08,2.46l0.08,0l2.85,-0.11l2.85,3.7l4.42,5.72l0.17,0.22l-1.91,1.31l-6.83,4.68l-0.74,0.51l-4.74,0.91l-1.82,-0.05l-2.33,-0.06l-0.39,-0.01l-3.08,-2.93l2.11,14.74l0.01,0.08l-0.64,1.48l-0.38,0.89l-2.72,6.27l1.33,4.51l0.94,3.17l-0.75,3.39l-0.29,1.28l-2.08,2.3l-2.04,-0.14l-2.49,-0.17l-12.39,-24.39l-0.12,-0.24l-0.16,-0.31l-0.73,-1.43l0.55,-4.98l0.01,-0.09l-0.04,-0.08l-2.37,-4.36l2.39,-5.76l0.2,-0.51l4.36,0.16l-0.61,-8.78l-3.25,-10.97l0.27,-2.76l-15.24,-27.73l-1.01,-0.8l-4.83,-3.8l-3.36,-2.64l-4.24,-4.78l-2.74,-3.09l-3.42,-3.89l-5.27,-1.99l1.15,3.56l1.37,4.24l12.15,13.59l3.73,4.13l0.41,0.49l2.94,3.5l0.05,0.09l0.39,0.72l4.15,7.76l1.98,3.69l3.14,5.84l1,18.17l-4.75,12.03l0.51,5.24l0.16,1.68l-4.6,-3.01l-6.39,-10.62l-8.58,-8.96l-5.53,-2.54l-7.43,-11.51l-4.26,-9.2l-3.87,-3.9l-5.76,-1.67l-2.97,-2.41l-0.74,-0.61l-1.41,0.39l-9.4,2.57l-1.66,-3.44l-0.58,-1.3l-0.25,-0.49l-0.08,-0.16l-7.64,-9.13l-1.11,-1.32l-1.41,-3.5l-0.8,-1.99l-5.15,-3.57l-1.96,-0.27l-3.31,-0.46l-0.41,-4.37l-4.2,-11.75l0.57,-3.1l0.1,-0.56l-0.9,-0.69l-3.93,-3.04l-0.12,-0.22l-3.05,-5.61l-2.55,-2.77l-2.56,-5.73l-3.6,-1.91l0.02,-4.44l0.02,-3.21l-3.99,-8.76l-1.1,-2.4l-0.34,-0.76l-0.76,-6.12l-2.5,-8.28l-3.01,-3.19l0.2,-6.19l-2.12,-3.59l-4.66,0.2l-6.29,0.28l0.71,-3.22l1.41,-6.44l2.97,-8.14l0.2,-0.16l1.1,-0.89l2.52,2.13l1.94,1.64l2.96,4.67l0.42,0.67l3.27,-0.96l9.77,-3.03l8.06,-7.67l-0.1,-1.03l-0.07,-0.68l-0.05,-0.52l1.86,-3.18l7.18,-1.79l1.15,-1.44l2.74,0.27l1.34,-2.4l3.8,0.15l4.41,0.17l0.47,3.27l5.05,2.15l2.36,4.72l0.04,0.08l6.75,3.98l5.99,3.53l2.45,3.19l-9.06,3.91l-6.25,5.28l-7.83,6.61l3.73,11.22l0.06,0.2l-1.78,13.47l5.24,16.22l0.9,1.33l2.46,-0.86l0.13,-0.05l-0.1,-0.1l-2.89,-2.87l-3.53,-9.41l0.68,-4.36l3.27,-5.73l1.4,-6.98l0.53,-2.66l1.08,0.8l2.95,-0.85l1.71,-1.97l3.24,0.67l3.78,-3.41l1.13,-1.02l10.43,-1.15l6.27,-2.93l0.04,-0.02l2.21,1.41l5.67,3.62l1.49,4.06l-6.51,1.46l-0.66,0.15l-0.12,0.42l-2.63,8.99l-0.42,2.61l-0.03,0.18l0.13,1.22l0.06,0.54l12.47,-5.13l3.24,-1.33l2.75,1.55l11.22,6.34l2.61,2.68l0.73,0.75l1.7,4.07l-0.51,4.37l-1.05,2.1l-1.1,2.21l-4.59,3.42l-2.69,2l-3.31,0.24l-5.24,-6.85l-0.18,-0.23l-1.45,0.16l0.14,0.32l4.47,10.1l0.25,0.57l0.97,1.04l0.32,0.24l2.66,2.06l5.17,3.79l2.44,-0.74l3.99,-1.22l4.49,-3.18l3.45,-0.08l2.53,1.04l8.44,8.63l27.88,10.06l0.19,2.05l1.12,12.34l-2.84,2.65l-13.57,-6.65l-5.54,-2.68l-17.91,-3.88l-1.37,-2.25l-1.34,1.97l0.07,3.29l-2,-0.08l0.3,6.6l5.56,8.16l3.64,1.12l0.31,0.1l2.75,-0.64l0.14,0.11l3.52,2.91l6.26,5.16l0.92,0.36l8.73,3.38l10.12,8.69l1.54,1.32l0.72,0.38l2.03,1.05l10.62,5.4l0.68,4.39l-9.62,-3.2l-9.97,-5.61l-19.01,-1.72L366.64,204.31z",
   Norder\u00F8erne: "M404.86,11.24l-0.08,-1.45l2.35,-1.33l2.89,-1.63l1.45,-2.8L413.56,0l5.61,1.67l4.83,3.29l1.96,1.33l6.29,11.83l2.76,5.19l-0.06,2.67l-0.2,9.4l7.2,12.89l3.57,1.81l4.13,7.24l-1.23,8.19l0.56,9.01l2.86,1.36l0.51,-0.4l3.47,-2.71l3.83,-13.65l2.92,2.69l11.09,10.21l2.37,2.18l-8.8,11.01l-1.87,5.67l0.16,0.79l0.6,3.01l0.44,2.18l-32.26,-10.26l-5.44,-18.38l-1,-4.55l-1.2,-2.32l-3.73,-7.18l-3.42,-11.27l0.08,-0.35l0.05,-0.22l2.47,-10.31l-0.7,-5.92l-0.61,-0.93l-1.47,-2.26l-11.51,-5.52l-2.79,-3.6L404.86,11.24zM518.62,82.42l-3.23,-1.83l-2.85,0.55l-1.39,0.27l-0.33,0.06l-5.87,-4.55l-0.22,-2.95l-6.13,2.15l-4.58,6.15l-0.06,0.08l-5.06,10.33l-0.29,0.6l-5.75,-0.59l-2.08,-0.21l-3.8,1.27l-0.03,0.03l-0.15,0.16l-2.2,2.37l-1.34,3.17l-0.48,1.13l0.5,3.07l0.24,1.47l3.57,2.55l3.8,5.25l1.83,4.63l-0.24,5.82l0.38,1.01l2.26,6.05l0.49,1.3l1,-0.43l10.14,-4.42l3.87,-0.73l3.67,-0.7l1.58,-2.02l1.28,-1.64l-0.8,-2.43l1.25,-3.78l-0.45,-2.94l3.19,-6.27l-10.77,-7.92l-0.09,-4.53l1.84,-1.09l6.91,0.31l2.64,0.12l8.32,2.12l-0.02,-0.56L518.62,82.42zM405.85,114.87l-0.16,-8.89l-0.01,-0.42l-3.42,-7.53l-0.82,-1.8l-3.38,-17.31l-8,-14.26l-10.38,-18.5l0.87,-4.4l-1.47,-2.95l0.2,-0.15l1.45,-1.25L379,29.31l-2.43,-0.34l-1.58,-0.22l-1.19,-2.76l-5.45,-1.09l-3.94,8.13l1.29,10.1l-2.14,8.9l3.47,10.68l0.26,5.74l0.03,0.73l0.4,0.7l5.23,9.12l2.47,4.31l3.64,10.37l0.23,0.44l1.71,3.31l2.35,4.6l4.24,8.3l2.25,4.39l12.28,2.73L405.85,114.87zM459.61,111.42l-4.66,-6.93l-7.4,-2.08l-6.91,-5.18l-6.85,-7.15l-2.6,-3.99l0.92,-4.04L427.94,70.1l-4.66,-6.92l-6.92,-9.96l-2.73,-5.53l-1.89,-12.94l-1.14,-2.24l-1.42,-2.8l-2.37,0.17l-3.12,0.23l-3.98,4.07l-0.97,3.34l-1.77,6.09l4.14,9.61l0.13,0.3l-0.35,4.16l-0.02,0.31l6.76,14.13l-0.82,22.66l2.82,8.7l0.23,0.71l0.6,5.5l-1.15,7.25l-0.72,1.2l-2.81,4.7l0.24,0.87l2.51,9.08l-0.07,0.8l-0.14,1.55l-0.08,0.92l-4.12,-2.15l-1.63,-8.6l-0.2,0l-1.39,0.01l-7.61,0.06h-0.12l-0.49,3.05l1.42,5.29l0.67,2.49l-0.03,0.77l-0.19,5.36l1.3,3.9l3.23,1.56l3.9,6.92l0.86,1.53l7.72,13.69l2.88,2.37l2.43,2l5.29,8.87l0.06,0.02l1.3,0.35l1.71,0.46l0.42,-1.33l0.4,-1.29l-0.57,-7.58l-0.02,-0.28l-0.37,-0.68l-4.09,-7.49l-1.85,-3.36l0.72,-4.73l-1.76,-2.19l-3.09,-9.45l-2.82,-2.83l1.22,-3.39l1.52,-0.34l1.41,-0.32l4.33,4.99l2.66,3.07l1.41,4.83l1.97,6.78l4.49,6.36l4.61,3.66l3.2,6.63l1.82,0.1l15.42,0.87l3.03,-3.15l0.48,-2.46l0.24,-1.1l0.21,-0.96l-1.39,-1.67l-1.92,-2.31l1.45,-9.94l-0.13,-1.21l-0.94,-8.49l-14.25,-3.78l-6.82,-7.54l-7.06,-10.66l-2.16,-6.4l-0.64,-1.9l0.73,0.24l2.49,0.82l2.89,0.95l6.31,7.01l8.21,6.73l2.94,2.43l14.11,-2.79l0.51,-0.64l1.79,-2.23l0.97,-9.75l0.26,-2.59l-3.86,-3.98L459.61,111.42zM373.32,116.78l-3.26,-5.32l-0.09,-0.15l-2.59,-8l-0.25,-0.78l-1.62,-5.07l-1.69,-5.29l-0.67,-2.09l-11.06,-19.12l-1.98,-3.42l-3.86,-6.67l-0.26,-1.14l-1,-4.38l-3.94,-8.14l-3.3,-15.87l-2.53,-0.43l-0.46,-0.7L327,18.35l-4.2,0.08l-1.15,7.46l3.02,10.85l0.56,2.03l0.32,1.17l0.54,3.28l0.09,0.56l8.03,20.38l3.05,7.73l0.69,1.76l2.53,4.54l8.65,15.49l2.3,2.15l4.61,4.13l3.09,5.58l-0.72,20.96l2.04,4.09l8.67,7.23l5.02,2.53l5.38,-2.53l0.99,-4.58l0.31,-1.43l-2.13,-11.77L373.32,116.78zM525.9,42.17l-3.88,1.73l-4.34,0.63l-2.64,0.39l-1.58,-1.15l1.35,-2.23l0.59,-0.97l-0.36,-0.72l-1.65,-3.28l-6.18,-0.63l-2.4,-0.25l-1.57,2.98l-0.59,1.12l-0.62,1.18l-0.1,1.92l-0.6,11.43l5.67,9.92l0.31,0.55l1.11,-0.15l5.92,-0.77l3.96,-0.52l2.08,-1.2l0.85,-1.42l2.39,-4l0.14,-0.25l3.01,0.95l0.54,-1.38l0.3,-0.77l0.79,-6L525.9,42.17z",
@@ -39,48 +38,47 @@ var useMousePosition = () => {
 var mouseTrack_default = useMousePosition;
 
 // src/Faroeislands.tsx
-import { useState as useState2, useId } from "react";
+import { useId } from "react";
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Faroeislands = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -89,17 +87,17 @@ var Faroeislands = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -112,17 +110,17 @@ var Faroeislands = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -146,27 +144,47 @@ var FaroeislandsSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
   const [stateHovered, setStateHovered] = useState2(null);
   const [selectedState, setSelectedState] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -182,22 +200,14 @@ var FaroeislandsSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -205,7 +215,7 @@ var FaroeislandsSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -215,7 +225,7 @@ var FaroeislandsSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -224,43 +234,28 @@ var FaroeislandsSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var FaroeislandsMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -269,107 +264,114 @@ var FaroeislandsMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = useState2([]);
   const { x, y } = mouseTrack_default();
+  const [selectedStates, setSelectedStates] = useState2([]);
   const [stateHovered, setStateHovered] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   useEffect2(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Faroeislands_default = Faroeislands;
 

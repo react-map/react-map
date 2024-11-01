@@ -1,16 +1,15 @@
 // src/Denmark.tsx
-import React, { useEffect as useEffect2 } from "react";
+import React, { useEffect as useEffect2, useState as useState2, useMemo } from "react";
 
 // src/constants.ts
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var viewBox = "-50 -50 1500 900";
 var stateCode = ["Hovedstaden", "Midtjylland", "Nordjylland", "Sj\xE6lland", "Syddanmark"];
 var drawPath = {
   Hovedstaden: "M927.62,615.16l-0.13,1.36l2.35,1.27l-0.05,0.58l1.56,1.26l2.54,5.86l1.71,1.26l1.56,0.11l0.96,1.31l2.79,1.03l1.23,2.23l5.22,2.1l1.9,1.89l1.11,0.48l3.56,-1.31l1.24,1.19l1.5,3.91l4.39,4.18l2.93,1.19l2.44,2.62l4,2.51l3.68,1.03l0.46,0.71l2.65,-0.18l1.02,0.79l0.1,1.6l1.18,0.19l-0.3,1.46l0.47,1.04l-1.11,0.67l-0.56,1.78l0.23,1.27l0.13,1.24l1.44,2.67l-0.43,0.57l0.55,1.47l-0.87,1.89l-1.79,1.63l0.26,1.81l-0.18,1l-1.45,0.17l-0.55,2.32l-1.96,1.77l0.41,1.66l1.18,1.34l-0.62,1.54l0.48,1.45l-1.93,1.55l-3.28,4.68l-1.46,0.27L964.37,688l-3.22,-0.17l-8.02,-2.23l-3.96,-2.69l-1.48,0.09l-5.35,-4.1l-5.77,-2.54l-1.6,0.32l-5.19,-3.11l-2.48,0.35l-4.42,-2.67l-2.8,-3.79l-1.97,-0.49l-1.34,-1.74l-1.28,-0.61l0.23,-0.51l0.73,-0.55l-0.61,-1.07l-1.58,0.6l0.59,-1.45l1.75,-0.88l0.39,-1.73l-0.48,-1.86l1.13,-2.08l-0.18,-9.73l-0.72,-3.06l0.55,-0.88l-0.43,-2.25l1.44,-6.41l5.66,-11l0.67,-2.25l-0.74,-1.03l-0.05,-1.34l2.98,-2.87L927.62,615.16zM645.33,534.14l-0.77,-2.66l0.74,-0.37l-0.51,-0.97l0.12,-0.46l0.46,-0.29l-0.01,-2.3l0.77,-0.83l-0.34,-0.87l0.41,-0.83l0.75,0l1.68,-0.19l0.74,-1.13l1.11,1.36l0.37,1.57l0.19,4.79l0.5,0.37l-0.17,4.07l0.91,0.64l-0.68,1.11l1.33,1.36l-1.71,0.97l-2.48,-0.01l-0.41,-1.9l-1.06,-0.76l0.09,-0.99l-1.53,0.43l-0.56,-1.11l0.59,0.25l0.09,-0.89L645.33,534.14zM627.97,519.7l2.66,-0.83l0.42,0.68l-2.09,1.64l1.36,2.44l0.39,-0.23l-1.18,-2.08l1.47,-1.11l0.5,1.13l-0.89,1.13l1.67,-0.85l0.57,0.91l-1.38,1.8l-0.68,-0.8l-0.45,0.23l0.22,1.6l1.33,3.15l0.92,0.83l0,1.31l1.19,1.13l-0.36,0.92l2.94,0.31l0.72,0.95l0.07,3.74l-1.6,2.24l0.7,2.6l0.99,0.36l-0.71,0.44l0.44,0.44l-2.21,1.59l-4.44,1.32l-1.94,2.59l-3.61,2.78l-3.88,-1.31l-0.95,-3.49l-2.22,0.49l-1.76,-1l-2.21,-4.3l-0.45,-3.52l3.59,-5.49l2.42,-2.35l2.19,-5.04l1.6,-2.15l2.28,-1.98l0.75,-1.46l0.41,0l0.13,-1.25l0.16,-0.47l0.2,-1.53l2.31,-0.04l0.48,0.82L627.97,519.7zM541.01,464.09l1.19,0.23l1.39,-0.67l2.77,1.95l0.32,1.73l-2.12,2.51l-0.38,1.43l-0.98,0.6l-0.48,4.59l0.54,1.19l3.94,1.77l0.92,3.35l0.27,5.45l1.96,1.38l-1.57,0.85l-0.08,1.8l0.41,0.72l1.03,-0.23l1.03,-0.07l-0.8,3.15l2,4.39l-0.49,1.54l-1.14,0.91l0.17,0.69l0.95,0.28l-0.43,0.76l0.16,2.32l0.5,0.46l-0.38,2.05l-0.94,-0.88l-1.17,0.08l-0.99,0.93l-0.9,0.35l-1.09,0.09l-1.59,1.4l-0.96,-0.21l-0.09,-2.89l-1.42,0.69l-0.76,-2.17l-1.32,2.58l0,0l-6.81,-3.72l-3.72,3.42l-4.05,-1.59l0,0l-2.62,0.33l-0.09,-3.86l-0.78,0.31l-0.64,-1.27l0.96,0.15l0.74,-1.66l0.86,-8.36l1.98,-1.27l-0.12,-3.07l4.89,-1.59l1.15,0.95l2.72,-1.22l1.09,-1.55l1.55,-5.81l-2.08,-4.81l-1.59,-0.84l-0.6,-1.58l0.26,-2.68l-4.03,-6.52l0.51,-4.82l8.12,2.02L541.01,464.09zM585.95,411.72l2.51,0.99l2.92,0.42l4.99,4.57l3.33,0.44l3.54,1.57l2.98,-0.39l5.78,0.85l5.75,2.85l9.19,8.89l2.49,1.15l-0.28,0.57l-1.04,-0.15l0.15,1.34l-1.09,1.1l-1.52,3.65l-4.54,4.32l-2.58,5.64l-2.44,7.99l-0.69,1.24l0.04,1.56l-0.78,1.66l3.52,8.56l0.38,1.29l3.73,8.36l0.67,8.92l1.36,1.91l1.21,3.88l-0.49,3.36l1.22,3.67l-2.88,6.73l1.04,1.21l-0.36,0.53l-0.12,2.28l0.86,0.75l0.7,-1.7l0.63,-0.21l0.3,-1.26l2.88,1.94l-0.74,0.57l0.54,0.26l-1.4,1.15l-2.13,-0.71l-0.1,0.6l0.94,0.71l-1.43,0.27l0.33,0.75l0.09,1.76l0.54,0.03l0.26,1.19l-0.93,2.89l-4.35,3.87l0.17,0.76l-0.1,0.25l-0.62,1.48l-0.74,1.35l-0.83,-0.94l-0.54,0.38l0.16,1l0.47,-0.46l0.73,0.36l-0.77,1.22l-0.22,0.48l-2.04,1.81l0.05,-1.49l-3.1,0.86l-0.37,-0.36l-1.75,3.97l0.56,1.03l0.8,0.19l-1.78,3.46l-5.91,-0.89l-0.36,-1.25l-0.11,-0.51l-4.53,-0.41l-1.62,0.45l0.08,-0.61l1.24,-0.21l4.78,0.58l-0.31,-0.74l-5.54,-0.24l-0.61,1.26l-0.36,-0.8l-1.62,0.38l-0.78,0.9l0.15,0.36l0.67,-0.61l0.35,0.24l0.6,-0.38l0.17,0.79l0.79,-0.32l0.33,0.61l-5.04,3l0,0l-0.92,-0.81l0,0l-0.19,-0.23l0,0l-2.5,-2.34l-7.09,-2.26l-1.35,-1.23l-4.58,2.02l-1.11,-1.75l-2.74,0.83l-0.79,3.21l-6.89,-2.02l0.99,-5.23l-1.34,0.07l0.14,-3.76l-1.07,-5.32l4.85,-4.21l3.68,0.25l5.36,-5.19l-5.03,-4.51l1.14,-3.08l0.63,-0.2l-2.56,-2.57l-5.77,0.91l-2.4,-2.34l-2.93,-1.32l-2.74,-3.17l-2.68,-1.51l0,0l-2.19,-1.4l0.67,-3.11l-1.39,-2.29l-0.72,-4.85l-0.77,0.16l-0.92,-1.69l0.35,-0.47l-0.4,-1.39l-1.18,-0.46l0.64,-3.43l2.45,-0.51l0.35,-4.31l-1.55,-2l-1.26,-3.54l0.23,-3.57l-1.2,-3.73l-2.32,-4.2l-0.65,-3.22l-0.95,0.13l-0.95,-0.33l-0.98,-0.93l-1.13,-0.19l-1.7,-0.44l-3.78,2.1l-0.74,1.27l-1.51,0.82l-5.89,2.01l-2.7,-0.8l-0.68,0.11l-0.05,0.72l-1.71,-1.08l-1.37,-5.16l1.66,-2.39l5.17,-2.8l16.03,-10.64l7.41,-6.98l16.2,-12.08l2.33,-1.25l12.57,-3.98l1.47,0.36l1.66,-0.41L585.95,411.72z",
@@ -38,48 +37,47 @@ var useMousePosition = () => {
 var mouseTrack_default = useMousePosition;
 
 // src/Denmark.tsx
-import { useState as useState2, useId } from "react";
+import { useId } from "react";
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Denmark = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -88,17 +86,17 @@ var Denmark = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -111,17 +109,17 @@ var Denmark = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -145,27 +143,47 @@ var DenmarkSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
   const [stateHovered, setStateHovered] = useState2(null);
   const [selectedState, setSelectedState] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -181,22 +199,14 @@ var DenmarkSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -204,7 +214,7 @@ var DenmarkSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -214,7 +224,7 @@ var DenmarkSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -223,43 +233,28 @@ var DenmarkSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var DenmarkMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -268,107 +263,114 @@ var DenmarkMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = useState2([]);
   const { x, y } = mouseTrack_default();
+  const [selectedStates, setSelectedStates] = useState2([]);
   const [stateHovered, setStateHovered] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   useEffect2(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Denmark_default = Denmark;
 

@@ -23,6 +23,6 @@ interface UnregionsProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Unregions: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: UnregionsProps) => React.JSX.Element | null;
+declare const Unregions: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UnregionsProps) => React.JSX.Element | null;
 
 export { Unregions as default };

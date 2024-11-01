@@ -23,6 +23,6 @@ interface MaldivesProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Maldives: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MaldivesProps) => React.JSX.Element | null;
+declare const Maldives: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MaldivesProps) => React.JSX.Element | null;
 
 export { Maldives as default };

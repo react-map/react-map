@@ -23,6 +23,6 @@ interface IrelandProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Ireland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: IrelandProps) => React.JSX.Element | null;
+declare const Ireland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: IrelandProps) => React.JSX.Element | null;
 
 export { Ireland as default };

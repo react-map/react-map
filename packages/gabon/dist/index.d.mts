@@ -23,6 +23,6 @@ interface GabonProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Gabon: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: GabonProps) => React.JSX.Element | null;
+declare const Gabon: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GabonProps) => React.JSX.Element | null;
 
 export { Gabon as default };

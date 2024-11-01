@@ -1,16 +1,15 @@
 // src/Zambia.tsx
-import React, { useEffect as useEffect2 } from "react";
+import React, { useEffect as useEffect2, useState as useState2, useMemo } from "react";
 
 // src/constants.ts
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var viewBox = "-50 -20 1400 700";
 var stateCode = ["Western", "Central", "Eastern", "Luapula", "Northern", "North-Western", "Southern", "Copperbelt", "Lusaka", "Muchinga"];
 var drawPath = {
   Western: "M0.064,329.825L0.962,330.248L3.515,332.736L5.7,333.903L6.508,334.055L8.452,333.403L9.798,332.672L10.506,331.573L11.997,330.529L12.43,329.561L12.999,328.947L13.553,328.737L14.158,328.854L16.913,330.228L19.357,332.651L21.053,333.68L24.897,337.444L25.877,337.852L28.369,339.503L29.349,339.908L30.035,340.608L30.432,341.579L31.113,342.287L32.645,343.024L34.882,343.366L36.829,344.656L37.347,345.725L38.045,346.413L39.576,346.772L41.49,347.875L42.299,347.732L43.268,346.972L43.497,344.783L44.313,342.711L44.921,342.479L47.487,342.31L48.107,341.891L49.043,340.73L49.445,340.475L50.522,340.362L51.391,340.512L54.086,342.384L57.073,344.009L57.871,344.835L58.471,345.988L58.808,347.114L59.5,347.832L60.112,348.007L60.939,347.938L63.094,346.733L64.016,346.775L65.417,347.649L65.671,350.428L66.707,351.793L67.182,352.04L68.668,352.297L69.502,352.724L71.632,352.783L72.215,353.012L72.332,353.572L72.118,353.996L71.692,354.598L70.521,355.647L70.363,357.003L70.595,357.444L71.058,357.642L72.245,357.519L72.581,358.673L73.133,358.96L75.592,358.208L77.547,357.067L80.717,356.809L81.494,356.272L83.295,354.531L84.566,353.639L86.568,352.928L89.161,352.765L90.146,352.287L91.552,351.999L93.075,351.253L95.68,349.518L97.927,349.179L99.38,347.632L100.579,348.132L101.98,349.074L102.695,349.2L105.657,347.55L107.455,347.108L108.018,346.163L108.285,346.02L109.016,346.18L109.37,347.598L109.884,347.951L112.028,348.089L113.449,348.592L114.545,348.083L115.935,347.875L117.045,348.084L117.842,348.549L118.458,348.594L120.097,347.801L121.336,346.78L122.964,346.544L123.439,346.113L123.958,345.212L124.327,344.946L124.765,345.008L125.471,345.755L126.233,345.805L127.327,345.019L128.271,344.032L129.936,343.676L132.098,342.673L132.634,342.706L133.844,343.293L135.154,344.46L135.94,344.479L136.323,344.095L136.426,342.677L136.945,342.055L137.331,341.903L137.777,342.028L138.204,342.563L138.397,344.11L138.827,344.871L141.516,345.861L144.079,345.841L144.909,345.414L145.983,345.186L146.477,344.861L146.943,343.964L148.019,343.467L148.756,343.874L150.206,345.652L151.249,346.193L151.81,346.86L152.414,347.237L153.77,347.223L154.123,346.938L154.392,346.306L154.747,346.063L155.331,346.091L156.173,346.635L157.921,346.027L158.777,346.069L159.122,346.364L159.688,347.631L161.038,348.828L161.746,349.708L162.002,353.467L162.75,355.026L163.679,355.956L164.18,356.192L165.674,356.449L166.514,356.876L168.282,357.078L169.286,357.56L171.22,357.801L172.738,358.555L173.955,359.59L174.95,359.896L176.092,360.522L177.588,361.744L179.695,361.787L181.031,361.188L181.843,361.115L182.451,361.283L183.232,362.129L183.931,364.104L183.964,365.327L183.486,366.307L183.163,367.684L182.017,369.214L181.805,370.971L181.292,372.16L181.099,374.597L180.2,375.533L178.797,376.166L177.257,376.495L176.543,377.188L176.375,377.672L176.419,383.429L178.065,385.531L179.279,386.549L180.37,387.177L181.062,387.319L182.905,386.713L188.849,386.643L192.613,384.759L194.798,384.5L197.2,383.377L197.946,383.231L199.253,383.284L200.708,383.872L201.508,383.813L202.137,383.472L202.65,383.462L203.053,383.72L204.145,385.024L204.915,385.317L206.853,385.277L208.218,384.617L208.218,384.617L208.91,385.309L208.846,386.03L206.867,390.113L206.716,396.562L206.423,396.942L205.626,397.282L204.938,397.966L204.518,399.748L203.578,401.129L203.346,401.85L203.441,403.676L205.314,407.258L205.424,409.193L205.31,411.132L204.495,412.812L203.78,413.475L202.991,413.814L202.723,414.202L202.719,414.873L203.261,416.357L203.22,416.91L202.956,417.401L202.335,417.786L200.885,417.774L200.117,417.977L197.248,420.799L197.145,421.553L197.625,422.51L197.737,423.424L197.563,427.723L197.563,427.723L198.928,429.823L198.984,430.74L197.154,432.757L196.943,436.111L196.191,437.622L195.631,437.936L193.881,438.098L193.01,438.838L192.964,439.763L194.168,441.25L194.225,442.879L194.051,443.354L193.337,444.08L191.669,445.097L191.493,445.72L191.618,446.176L192.268,446.888L193.034,447.504L194.024,447.887L194.816,448.722L194.932,449.364L194.795,450.17L193.62,451.474L193.369,452.382L193.688,453.783L195.116,455.308L196.049,456.005L197.348,455.954L198.216,455.208L199.339,453.784L199.771,453.578L200.869,453.996L201.722,454.988L201.813,457.302L201.172,459.457L201.006,462.775L200.226,465.42L199.395,465.937L199.13,466.302L199.064,467.307L199.49,468.836L198.43,470.23L198.288,471.741L198.504,472.578L200.914,475.042L201.43,475.894L202.401,475.565L203.326,475.63L203.731,475.912L204.123,476.799L202.467,476.938L202.208,478.09L201.189,478.63L199.768,480.016L199.147,481.177L198.783,482.31L197.111,484.797L196.942,485.429L196.867,487.429L196.58,488.002L195.619,488.586L194.188,488.951L193.143,489.498L191.143,491.367L189.479,491.79L188.371,492.786L186.801,493.775L183.619,498.254L182.413,499.56L181.461,501.16L180.024,502.525L178.502,502.854L178.034,503.539L178.03,504.07L178.386,504.783L180.329,506.649L181.413,507.13L182.711,508.418L183.125,510.359L183.88,511.604L184.354,511.795L185.945,511.942L187.095,512.463L190.829,512.604L192.506,513.389L193.207,514.099L193.365,515.218L192.708,516.854L192.701,519.592L193.884,523.086L194.203,524.767L194.662,525.601L194.755,526.896L194.606,527.85L194.004,529.123L193.05,530.26L191.604,530.862L189.967,531.863L188.37,532.304L187.313,532.984L187.151,533.819L187.669,535.139L187.777,535.864L187.501,537.3L186.938,538.243L186.296,538.844L183.816,540.015L183.11,541.086L182.896,542.021L182.927,543.174L183.539,544.507L183.685,546.02L182.782,547.886L181.734,549.132L181.314,550.109L179.775,551.486L178.852,552.752L178.783,553.897L179.207,554.958L178.943,556.198L179.377,557.299L179.394,558.771L179.146,559.357L176.766,561.877L176.601,565.621L176.281,566.809L175.715,567.016L174.971,567.011L174.971,567.011L174.664,566.996L174.368,567.413L173.656,567.632L172.497,567.127L171.633,566.021L170.821,566.198L169.765,566.077L168.863,565.612L168.123,565.76L167.57,566.277L167.142,566.266L166.185,566.044L165.379,565.052L164.07,565.359L163.566,564.679L162.823,564.483L162.136,563.975L161.693,563.963L160.285,564.484L159.914,564.43L158.254,565.212L156.857,565.269L155.059,566.611L153.859,566.494L152.549,566.648L151.576,566.258L150.274,566.992L149.86,566.965L149.299,566.042L149.342,564.794L147.962,563.295L146.591,562.745L144.889,562.612L142.433,562L139.872,563.06L140.167,563.431L139.448,563.923L136.434,563.219L135.035,563.213L133.891,562.581L133.32,562.6L85.129,572.612L84.882,570.944L82.952,569.08L82.38,568.796L81.324,568.884L79.738,567.347L79.053,567.348L78.284,567.806L77.712,567.293L76.57,566.768L73.961,567.057L73.161,566.387L73.06,565.646L72.546,565.39L72.003,564.592L71.361,564.094L70.561,562.712L69.833,562.428L68.365,562.2L68.065,561.973L68.393,561.501L67.337,560.591L67.293,559.536L67.123,559.394L65.854,559.266L65.141,558.896L64.67,558.383L63.957,556.816L63.199,554.324L62.475,554.224L62.004,553.911L61.203,552.692L60.252,551.903L60.167,550.836L59.497,550.579L59.297,550.137L58.671,549.497L58.031,549.27L57.874,548.971L54.956,547.218L54.415,546.776L53.833,545.88L49.521,544.353L48.127,543.697L47.872,543.085L48.257,542.231L47.106,540.467L43.952,537.987L43.825,537.703L43.911,537.319L43.2,536.962L42.946,535.853L41.312,535.396L41.07,535.025L41.398,534.557L41.328,534.286L38.022,531.11L37.042,530.44L36.789,529.615L34.777,527.21L33.019,525.756L31.459,524.801L30.779,524.117L29.647,522.836L29.636,521.686L27.865,520.559L22.944,515.22L21.202,514.348L21.274,513.865L21.106,513.383L20.258,512.67L18.848,510.438L16.908,509.706L16.118,508.738L15.993,507.786L15.727,507.376L15.02,506.934L13.489,506.784L12.8,505.661L11.386,504.918L10.681,504.148L10.048,503.04L9.231,502.044L7.856,502.107L7.546,501.879L8.215,501.245L8.359,500.892L7.717,498.99L7.959,498.709L7.785,496.683L7.245,494.414L6.505,492.357L5.743,491.802L5.197,490.737L4.171,489.388L4.531,488.371L4.506,487.663L3.447,487.232L2.788,486.295L1.927,485.753L0.76,484.643L0.226,484.017L0.018,483.394z",
@@ -43,48 +42,47 @@ var useMousePosition = () => {
 var mouseTrack_default = useMousePosition;
 
 // src/Zambia.tsx
-import { useState as useState2, useId } from "react";
+import { useId } from "react";
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Zambia = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -93,17 +91,17 @@ var Zambia = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -116,17 +114,17 @@ var Zambia = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -150,27 +148,47 @@ var ZambiaSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
   const [stateHovered, setStateHovered] = useState2(null);
   const [selectedState, setSelectedState] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -186,22 +204,14 @@ var ZambiaSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -209,7 +219,7 @@ var ZambiaSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -219,7 +229,7 @@ var ZambiaSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -228,43 +238,28 @@ var ZambiaSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var ZambiaMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -273,107 +268,114 @@ var ZambiaMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = useId().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = useState2([]);
   const { x, y } = mouseTrack_default();
+  const [selectedStates, setSelectedStates] = useState2([]);
   const [stateHovered, setStateHovered] = useState2(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [viewBox, setViewBox] = useState2("0 0 100 100");
+  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  useEffect2(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = useMemo(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   useEffect2(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   useEffect2(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ React.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ React.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ React.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ React.createElement("div", null, stateHovered && /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ React.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Zambia_default = Zambia;
 

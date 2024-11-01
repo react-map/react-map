@@ -23,6 +23,6 @@ interface RomaniaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Romania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: RomaniaProps) => React.JSX.Element | null;
+declare const Romania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: RomaniaProps) => React.JSX.Element | null;
 
 export { Romania as default };

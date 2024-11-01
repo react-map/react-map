@@ -23,6 +23,6 @@ interface MongoliaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Mongolia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MongoliaProps) => React.JSX.Element | null;
+declare const Mongolia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MongoliaProps) => React.JSX.Element | null;
 
 export { Mongolia as default };

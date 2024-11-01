@@ -23,6 +23,6 @@ interface VietnamProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Vietnam: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: VietnamProps) => React.JSX.Element | null;
+declare const Vietnam: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: VietnamProps) => React.JSX.Element | null;
 
 export { Vietnam as default };

@@ -39,14 +39,13 @@ var import_react2 = __toESM(require("react"));
 
 // src/constants.ts
 var constants = {
-  WIDTH: "500px",
+  WIDTH: 500,
   MAPCOLOR: "#ffffff",
   STROKE_COLOR: "#000000",
-  STROKE_WIDTH: "0.5",
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: "#303030",
   SELECTED_COLOR: "#ff0000"
 };
-var viewBox = "-50 -50 900 900";
 var stateCode = ["Barisal", "Chittagong", "Dhaka", "Khulna", "Rajshahi", "Rangpur", "Sylhet"];
 var drawPath = {
   Barisal: "M240.76,468.87l-1.67,2.4l-5.61,7.07l-0.62,-3.3l-0.75,-2.85l0.08,-0.67l-0.69,-2.63l0.94,-3.84l4.02,-4.3l0.36,-0.39l1.22,-2.49l2.42,-2.29l2.37,-0.45l0.31,6.18l-1.09,2.4l-0.19,3.99L240.76,468.87zM247.45,444.45l-0.44,-1.65l0.1,-4.08l-0.75,0.48l-0.57,2.66l-1.2,1.9l-0.31,2.85l2.45,-2.4L247.45,444.45zM241.75,416.39l-0.29,-0.78l-3.93,-3.17l-0.7,0.45l1.87,4.26l3.52,2.19l0.26,-0.62l-0.1,-0.45l0.1,-0.73l-2.4,-0.92l1.44,-0.15L241.75,416.39zM236.45,405.7l0.74,-1.28l0.43,1.27l0.73,-0.1l0.16,-0.81l-1.74,-2.17l-2,0.65l0.03,1.99l1.64,-0.31l-0.54,0.77L236.45,405.7zM245.89,452.67l-0.34,-3.33l-3.1,0.39l-1.69,5.2l3.44,-0.56L245.89,452.67zM232.63,486.35l1.59,-1.26l-0.14,-0.86l-0.74,-1.18l-0.76,0.65L232.63,486.35zM238.72,477.31l0.81,-0.41l1.09,-1.21l-1.15,-0.33l-2.26,2.06L238.72,477.31zM195.7,485.83l-2.42,2.23l-1.92,-0.16l-2.74,-2.19l0.64,-3.85l-0.62,-0.42l0.68,-2.13l3.59,-2.07l0.66,-1.26l-0.15,-2.34l1.59,-4.03l4.6,-4.1l1.65,-2.95l2.83,0.84l2.57,-1.4l0.9,-4.37l1.31,-2.64l-0.83,-3.4l-1.04,-0.28l0.05,-3.63l-1.25,-4.5l0.31,-2.32l0.66,-0.73l2.28,0.53l1.22,-0.56l1.2,-2.2l0.62,-4.91l2.68,-2.35l0.65,-3.39l3.83,-0.17l0.96,-1.34l0.03,-1.36l1.34,0.83l3.79,0.73l1.07,2.63l1.87,-1.6l-1.38,-3.7l3.34,-2.6l-1.4,-4.26l5.88,-0.94l5.45,3.78l0.75,1.14l0.57,2.94l1.64,2.72l-1.12,2.03l-0.52,-1.17l-0.03,4.17l3.95,4.98l-2.63,9.87l-1.17,1.93l-4.99,4.79l-1.43,3.61l-1.69,1.17l-0.58,1.3l-5.97,7.6l-3.97,-1.12l-1.18,0.49l-4.07,3.3l-2.52,6.87l-1.94,-1.19l-2.04,1.69l-0.71,2.24l-1.46,-0.8l-1.09,-1.64l-2.3,-0.97l-0.21,0.53l-2.93,0.62l-0.87,-0.7l-1.04,0.36l-1.82,2.82l1.04,2.31l-2.5,0.17l-0.63,0.87l0.23,1.68L195.7,485.83zM240.16,384.46l0.75,0.33l1.62,0.15l0.36,-1.97l-2.5,0.84L240.16,384.46zM241.48,375.1l-2.09,-4.28l-0.61,-1.23l-2.7,1.06l-0.76,-0.29l0.49,-0.29l2.57,-1.11l0.02,-0.84l-1.9,-0.28l-1.48,0.74l-2.71,2.32l-0.17,0.1l-4.27,1.29l-1.87,1.32l3.1,0.68l2.74,1.84l1.11,0.8l0.57,-0.61l3.47,7.03l2.75,-0.49l1.93,-1.66l0.47,-1.4L241.48,375.1zM191.72,476.28l-3.93,-0.58l-1.78,-1.73l-0.83,-3.44l3.81,-1.63l0.7,-1.76l-0.47,-3.71l0.42,-2.32l3.67,-3.21l-1.04,-1.68l-3.51,-1.79l3.88,-1.43l1.25,-1.26l0.7,-3.83l1.77,-0.87l0.76,-1.65l-0.08,-2.35l-1.43,-3.75l1.82,-1.73l2.07,-3.6l3.42,-3.09l0.03,-2.74l1.77,-3.08l0.18,-0.76l1.48,-1.43l-0.68,-1.21l-1.93,0.45l0.52,-3.22l1.43,-2.94l-1.85,-1.65l-0.75,-3.2l3.05,-1.21l2.84,0.7l2.37,-0.95l1.38,0.34l1.2,-2.66l3.12,0.17l1.01,1.6l0.78,-0.08l2.97,-5.22l1.34,-0.65l-0.29,-2.86l1.12,-0.1l0.9,1.4l2.13,-0.48l0.6,-0.87l-0.96,-1.21l1.07,-1.21l2.07,0.52l2.95,2.89l0.94,2.25l-1.02,0.94l1.01,-0.21l0.4,10.42l-5.86,1.6l1.13,4.4l-2.44,1.96l-0.23,1.04l1.09,2.77l-1.08,1.1l-1.19,-1.97l-3.35,-0.62l-1.59,-1.01l-0.81,0.25l-0.44,2.16l-1.26,0.62l-1.86,-0.5l-1.48,0.48l-0.34,2.71l-3.35,4.1l-0.83,5.5l-0.89,0.35l-1.2,-0.53l-2.39,0.9l-0.7,1.18l0.92,9.98l2.03,3.72l-1.5,2.67l-0.83,3.89l-4.66,0.18l-2.82,3.72l-3.58,2.71l-2.01,3.63L191.72,476.28zM231.81,397.16l-0.97,-1.77l-1.21,-0.06l0.15,1.31l1.82,1.57L231.81,397.16zM246.36,424.8l-2.26,1.15l-2.29,4.48l4.87,5.57l-0.36,-3.83l0.6,-3.98l-0.03,-0.56l0.34,-2.18L246.36,424.8zM247.67,476.69l-2.66,4.4l-1.18,4.07l2,-0.33l1.39,-0.13l2.33,-2.93l1.15,-1.32l1.49,-3.84l-2.29,-0.17L247.67,476.69zM243.72,473.45l-1.92,-2.36l-1.63,1.58l-0.63,2.15l1.7,0.48l0.26,-0.01l1.68,0.99l1.37,-1.2L243.72,473.45zM239.32,477.73l-3.17,0.54l-2.05,2.94l-0.07,1.55l0.77,2.26l5.35,0.69l-0.13,-1.31l1.2,-1.45l1.44,-4.86l0.37,-1.16l-1.77,-1.29L239.32,477.73zM256.13,481.34l-1.5,1.35l-0.99,2.3l0.35,3.27l1.31,-0.17l2.45,-4.99l-0.74,-1.45L256.13,481.34zM262.23,482.99l-1.45,0.14l-1.53,3.01l1.36,-0.03l-0.11,-1.11l0.97,-0.84l0.09,0.94h0.58l0.91,-0.8l-0.19,-0.72L262.23,482.99zM247.76,419.36l-2,-0.84l-2.19,0.42l-0.96,1.29l0.47,1.54l1.33,0.78l0.81,1.82l2,0.39l-0.21,-2.69l-0.44,-1.43l0.42,-0.64L247.76,419.36zM258.67,419.14l8.99,11.16l-0.48,3.23l-1.97,3.54l0.08,10.43l-1.67,11.32l-1.09,2.93l-2.4,3.86l-4.35,3.24l-4.08,4.57l-3.79,1.12l-2.27,0.2l-1.18,-1.26l-1.8,-2.41l-0.26,-1.58l2.16,-6.7l0.42,-7.52l2.36,-2.87l2.55,-6.19l0.63,-5.67l-0.94,-3.78l-0.55,-16.7l-1.46,-2.2l-2.95,-0.95l-0.36,0.46l-1.6,-0.72l-2.57,-3.17l-3.63,-1.82l1.03,-1.69l2.88,-1.76l0.16,-1.78l-0.94,-3.06l-0.67,-0.44l-1.71,-0.11l0.13,-3.69l-0.42,-0.56l-0.85,-0.73l-0.03,4.21l-1.04,0.55l-2.55,-3.72l-0.59,-3.06l-1.19,-1.18l-0.81,0.23l-0.72,-2.29l-1.02,0.23l-1.2,1.66l-0.52,-0.03l0.51,1.04l0.47,1.46l-1.78,1.95l1.07,1.39l-1.65,1.01l-0.75,-1.74l-1.33,-0.14l-0.52,0.93l0.18,2.61l-0.99,0.65l-3.2,5.3l-1.12,-1.63l-3.41,-0.39l-1.27,2.83l-1.72,-0.42l-1.9,1.04l-2.81,-0.84l-3.36,1.32l0.73,3.79l1.85,1.43l-1.25,1.74l-0.91,4.15l0.62,0.67l1.98,-0.45l0.21,0.64l-1.64,1.32l-1.82,3.73l-0.08,2.77l-2.97,2.32l-2.68,4.45l-2.11,1.99l0.03,1.6l1.33,2.24l-0.73,2.4l-1.9,2.74l-0.62,3.69l-3.67,0.89l-1.07,0.98l0.34,2.54l3.65,1.37l-2.86,1.68l-1.38,1.82l-0.24,1.73l0.94,2.85l-3.66,3.14l-1.12,2.14l1.6,6.6l-1,1.39l-1.81,0.65l-2.04,-1.14l-0.5,-4.58l-1.4,-2.2l-1.54,-4.89l1.01,-6.68l-3.09,-8.9l-0.91,-5.52l5.01,-11.57l5.15,-4.38l1.16,-5.4l2.68,-0.15l-0.29,-0.66l-1.82,-0.28l-2.47,1.24l0.84,0.47l-0.44,3.33l-7.34,6.38l-2.23,-2.31l0.89,-2.79l0.09,1.23l3.04,-1.83l2.19,-0.45l0.81,-1.19l-1.07,-1.17l-2.18,0.39l-2.04,-0.6l-0.6,-1.28l0.67,-1.6l2.49,-0.05l4.37,1.17l-0.04,-1.33l-4.05,-0.26l2.89,-3.67l1.05,-4.22l-0.95,-1.05l-3.32,-0.48l0.83,-3.94l-3.23,-1.76l0.83,-1.72l1.36,1.52l0.88,-0.41l1.29,-1.16l-0.77,-0.9l-2.34,-0.8l-2.85,0.54l-0.91,-0.86l4.07,-2.93l2.19,0.49l0.28,-2.98l-1.89,0.13l0.12,-1.4l-0.89,-0.9l3.39,-0.6l-0.48,-1.57l-1.83,-0.22l1.91,-2.22l1.06,-0.68l-0.91,-3.77l2.34,1.1l5.04,-1.55l1.63,-6.28l2.26,-0.52l0.14,-3.46l1.06,-0.06l2.42,-3.51l2.67,-0.15l0.79,-3.22l0.73,-0.68l-0.74,-0.59l1.63,-0.48l0.97,-1.42l2.81,1.12l2.17,-1.46l1.83,2.34l-0.41,3.56l0.51,0.48l-0.9,1.87l0.88,2.21l0.68,-1.02l1.6,0.01l-0.56,0.84l0.37,0.65l1.63,-1.56l1.04,0.63l3.65,-0.29l0.23,-2.59l-1.55,-3.05l0.87,-2.38l4.82,-0.2l4.84,1.59l0.21,0.68l-1.17,1.09l-2.49,0.55l3.72,0.75l-2.4,0.92l5.35,2.23l0.7,0.39l4.01,3.15l2.08,4.38l-3.38,2.78l0.03,0.51l-1.61,3.06l0.54,2.19l0.92,0.58l0.13,0.65l1.33,-1.74l-1.98,-2.3l2.71,-3.03l0.18,-0.87l1.38,-0.67l9.11,1.71l3.1,2.67l1.61,2.61l-1.07,0.96l-2.03,0.45l-5.75,-0.45l-4.24,1.8l-2.71,-0.98l-1.04,0.36l2.43,0.69l1.04,1.68l2.51,-2.16l3.18,-0.48h0.68h0.34l2.63,0.51l1.64,0.91l4.74,14.58l2.11,2.3l2.42,1.32L258.67,419.14zM213.8,475.65l1.13,1.09l-0.31,2.03l-3.43,7.8l-0.57,3.48l-3.45,2.94l-2.43,1.14l-2.95,-0.06l-4.89,-1.58l-2.35,-2.1l-0.02,-2.2l1.22,-0.38l1.71,-3.55l-0.06,-2.54l2.01,0.05l0.78,-0.6l-0.9,-2.69l2.07,-2.52l1.02,0.74l3.93,-0.96l1.74,1.22l0.22,1.22l0.54,-0.15l2.08,1.29l1.11,-3.13L213.8,475.65zM223.9,474.77l-0.15,-1.82l-3.88,2.91l-4.77,9.99l0.45,2.5l0.95,1.08l3.35,-0.5l1.66,-1.81l-1.81,-4.67L223.9,474.77zM223.23,469.22l3.29,-2.78l-1.57,-0.48l-1.75,-0.55l-2.68,2.53l-2.25,4.08l0.19,1.85l-0.16,1.1l4.71,-5.2L223.23,469.22zM225.65,485.9l2.71,-0.66l0.89,-1.26l0.39,-1.1l-3.51,1.47L225.65,485.9zM226.94,489.46l-0.22,1.28l2.69,-0.56l-0.23,-2.2L226.94,489.46zM231.24,471.05l-1.27,-2.46l-4.62,2.52l-0.25,0.32l-0.94,1.16l0.38,2.37l-3.06,5.46l-0.88,1.82l0.49,3.14l1.66,1.22l0.83,-0.09l0.95,-1.89l5.16,-2.42l2.71,-3.14L231.24,471.05zM234.55,490.04l0.11,-1.34l-0.77,-0.28l-2.43,1.38l-0.53,1.86l0.45,1.2l1.37,0.11l2.94,-1.87l0.26,-0.61l-0.63,0.45L234.55,490.04zM237.31,486.6l-1.66,-1.12l-1.88,2.1l3.94,1l0.6,-0.4l-0.42,-1.05L237.31,486.6z",
@@ -77,47 +76,46 @@ var mouseTrack_default = useMousePosition;
 
 // src/Bangladesh.tsx
 var import_react3 = require("react");
+var hintStyleBase = {
+  position: "fixed",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: 5,
+  border: "1px solid #ccc",
+  pointerEvents: "none",
+  zIndex: 1e3
+};
 var getStrokeProperties = (borderStyle) => {
   switch (borderStyle) {
     case "dashed":
-      return {
-        strokeDasharray: "8 4"
-      };
+      return { strokeDasharray: "8 4" };
     case "dotted":
-      return {
-        strokeDasharray: "2 2"
-      };
+      return { strokeDasharray: "2 2" };
     case "dash-dot":
-      return {
-        strokeDasharray: "8 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4" };
     case "dash-double-dot":
-      return {
-        strokeDasharray: "8 4 2 4 2 4"
-      };
+      return { strokeDasharray: "8 4 2 4 2 4" };
     default:
-      return {
-        strokeDasharray: "none"
-      };
+      return { strokeDasharray: "none" };
   }
 };
 var Bangladesh = ({
   type,
-  size,
-  mapColor,
-  strokeColor,
-  strokeWidth,
+  size = constants.WIDTH,
+  mapColor = constants.MAPCOLOR,
+  strokeColor = constants.STROKE_COLOR,
+  strokeWidth = constants.STROKE_WIDTH,
   hoverColor,
-  onSelect,
-  hints,
   selectColor,
+  hints,
   hintTextColor,
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
-  disableClick,
-  disableHover,
+  onSelect,
+  cityColors = {},
+  disableClick = false,
+  disableHover = false,
   borderStyle
 }) => {
   if (type === "select-single") {
@@ -126,17 +124,17 @@ var Bangladesh = ({
       {
         type: "select-single",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
         hoverColor,
+        selectColor,
         hints,
-        onSelect,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -149,17 +147,17 @@ var Bangladesh = ({
       {
         type: "select-multiple",
         size,
-        selectColor,
         mapColor,
         strokeColor,
         strokeWidth,
-        onSelect,
         hoverColor,
+        selectColor,
         hints,
         hintTextColor,
         hintBackgroundColor,
         hintPadding,
         hintBorderRadius,
+        onSelect,
         cityColors,
         disableClick,
         disableHover,
@@ -183,27 +181,47 @@ var BangladeshSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = (0, import_react3.useId)().replace(/:/g, "");
   const { x, y } = mouseTrack_default();
-  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
-  const [selectedState, setSelectedState] = (0, import_react3.useState)(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [stateHovered, setStateHovered] = (0, import_react2.useState)(null);
+  const [selectedState, setSelectedState] = (0, import_react2.useState)(null);
+  const [viewBox, setViewBox] = (0, import_react2.useState)("0 0 100 100");
+  const strokeProps = (0, import_react2.useMemo)(() => getStrokeProperties(borderStyle), [borderStyle]);
+  (0, import_react2.useEffect)(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = (0, import_react2.useMemo)(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   (0, import_react2.useEffect)(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
@@ -219,22 +237,14 @@ var BangladeshSingle = ({
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedState === hoverStateId) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
   const handleClick = (stateCode2) => {
@@ -242,7 +252,7 @@ var BangladeshSingle = ({
     if (selectedState === stateCode2) {
       const path = document.getElementById(`${stateCode2}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[stateCode2] || mapColor;
       }
       setSelectedState(null);
       if (onSelect) {
@@ -252,7 +262,7 @@ var BangladeshSingle = ({
       if (selectedState) {
         const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
         if (previousPath) {
-          previousPath.style.fill = cityColors[selectedState] || mapColor || constants.MAPCOLOR;
+          previousPath.style.fill = cityColors[selectedState] || mapColor;
         }
       }
       setSelectedState(stateCode2);
@@ -261,43 +271,28 @@ var BangladeshSingle = ({
       }
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ import_react2.default.createElement("div", { style: hintStyle }, stateHovered));
 };
 var BangladeshMultiple = ({
   size,
-  selectColor,
   mapColor,
   strokeColor,
+  selectColor,
   strokeWidth,
   hoverColor,
   hints,
@@ -306,107 +301,114 @@ var BangladeshMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
-  disableClick = false,
-  disableHover = false,
+  cityColors,
+  disableClick,
+  disableHover,
   borderStyle
 }) => {
   const instanceId = (0, import_react3.useId)().replace(/:/g, "");
-  const [selectedStates, setSelectedStates] = (0, import_react3.useState)([]);
   const { x, y } = mouseTrack_default();
-  const [stateHovered, setStateHovered] = (0, import_react3.useState)(null);
-  const strokeProps = getStrokeProperties(borderStyle);
-  const mapStyle = {
-    width: size || constants.WIDTH,
-    stroke: strokeColor || constants.STROKE_COLOR,
-    strokeWidth: strokeWidth || constants.STROKE_WIDTH,
-    ...strokeProps
+  const [selectedStates, setSelectedStates] = (0, import_react2.useState)([]);
+  const [stateHovered, setStateHovered] = (0, import_react2.useState)(null);
+  const [viewBox, setViewBox] = (0, import_react2.useState)("0 0 100 100");
+  const strokeProps = (0, import_react2.useMemo)(() => getStrokeProperties(borderStyle), [borderStyle]);
+  (0, import_react2.useEffect)(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`);
+    if (svg) {
+      const bbox = svg.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
+  const mapStyle = (0, import_react2.useMemo)(
+    () => ({
+      width: size,
+      stroke: strokeColor,
+      strokeWidth,
+      ...strokeProps
+    }),
+    [size, strokeColor, strokeWidth, strokeProps]
+  );
+  const hintStyle = {
+    ...hintStyleBase,
+    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+    padding: hintPadding || hintStyleBase.padding,
+    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+    color: hintTextColor || "black",
+    top: y + 20,
+    left: x + 20
   };
   (0, import_react2.useEffect)(() => {
     stateCode.forEach((state) => {
       const path = document.getElementById(`${state}-${instanceId}`);
       if (path) {
-        path.style.fill = cityColors[state] || mapColor || constants.MAPCOLOR;
+        path.style.fill = cityColors[state] || mapColor;
       }
     });
   }, [cityColors, mapColor, instanceId]);
   (0, import_react2.useEffect)(() => {
-    selectedStates.forEach((stateCode2) => {
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
       if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
       }
     });
   }, [selectedStates, selectColor, instanceId]);
-  const handleClick = (stateCode2) => {
-    if (disableClick) return;
-    if (selectedStates.includes(stateCode2)) {
-      const remove_state_code = selectedStates.filter((state) => state !== stateCode2);
-      setSelectedStates(remove_state_code);
-      const path = document.getElementById(`${stateCode2}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors[stateCode2] || mapColor || constants.MAPCOLOR;
-      }
-    } else {
-      setSelectedStates([...selectedStates, stateCode2]);
-    }
-    if (onSelect) {
-      onSelect(stateCode2, selectedStates);
-    }
-  };
   const handleMouseEnter = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(hoverStateId);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = hoverColor || constants.HOVERCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
   const handleMouseLeave = (hoverStateId) => {
     const path = document.getElementById(`${hoverStateId}-${instanceId}`);
     setStateHovered(null);
     if (path && !disableHover) {
-      if (selectedStates.includes(hoverStateId)) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      } else {
-        path.style.fill = cityColors[hoverStateId] || mapColor || constants.MAPCOLOR;
-      }
+      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : cityColors[hoverStateId] || mapColor;
     }
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((stateCode2, index) => /* @__PURE__ */ import_react2.default.createElement(
+  const handleClick = (stateCode2) => {
+    if (disableClick) return;
+    if (selectedStates.includes(stateCode2)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode2);
+      const path = document.getElementById(`${stateCode2}-${instanceId}`);
+      if (path) {
+        path.style.fill = cityColors[stateCode2] || mapColor;
+      }
+      setSelectedStates(updatedSelectedStates);
+      if (onSelect) {
+        onSelect(stateCode2, updatedSelectedStates);
+      }
+    } else {
+      setSelectedStates((prevStates) => {
+        const updatedStates = [...prevStates, stateCode2];
+        const path = document.getElementById(`${stateCode2}-${instanceId}`);
+        if (path) {
+          path.style.fill = selectColor || constants.SELECTED_COLOR;
+        }
+        if (onSelect) {
+          onSelect(stateCode2, updatedStates);
+        }
+        return updatedStates;
+      });
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map", style: mapStyle }, /* @__PURE__ */ import_react2.default.createElement("svg", { version: "1.1", id: `svg2-${instanceId}`, x: "0px", y: "0px", viewBox }, stateCode?.map((code, index) => /* @__PURE__ */ import_react2.default.createElement(
     "path",
     {
       key: index,
-      onClick: () => handleClick(stateCode2),
-      onMouseEnter: () => handleMouseEnter(stateCode2),
-      onMouseLeave: () => handleMouseLeave(stateCode2),
-      id: `${stateCode2}-${instanceId}`,
-      d: drawPath[stateCode2],
+      onClick: () => handleClick(code),
+      onMouseEnter: () => handleMouseEnter(code),
+      onMouseLeave: () => handleMouseLeave(code),
+      id: `${code}-${instanceId}`,
+      d: drawPath[code],
       style: {
-        fill: cityColors[stateCode2] || mapColor || constants.MAPCOLOR,
+        fill: cityColors[code] || mapColor,
         cursor: disableClick ? "default" : "pointer",
         ...strokeProps
       }
     }
-  )))), hints && /* @__PURE__ */ import_react2.default.createElement("div", null, stateHovered && /* @__PURE__ */ import_react2.default.createElement(
-    "div",
-    {
-      style: {
-        position: "absolute",
-        top: y + 20,
-        left: x + 20,
-        backgroundColor: hintBackgroundColor || "white",
-        padding: hintPadding || "10px",
-        borderRadius: hintBorderRadius || "5px",
-        border: "1px solid #ccc",
-        color: hintTextColor || "black"
-      }
-    },
-    stateHovered
-  )));
+  )))), hints && stateHovered && /* @__PURE__ */ import_react2.default.createElement("div", { style: hintStyle }, stateHovered));
 };
 var Bangladesh_default = Bangladesh;
 

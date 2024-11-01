@@ -23,6 +23,6 @@ interface SouthamericaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Southamerica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SouthamericaProps) => React.JSX.Element | null;
+declare const Southamerica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SouthamericaProps) => React.JSX.Element | null;
 
 export { Southamerica as default };

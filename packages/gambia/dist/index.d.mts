@@ -23,6 +23,6 @@ interface GambiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Gambia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: GambiaProps) => React.JSX.Element | null;
+declare const Gambia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GambiaProps) => React.JSX.Element | null;
 
 export { Gambia as default };

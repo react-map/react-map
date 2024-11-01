@@ -23,6 +23,6 @@ interface IranProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Iran: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: IranProps) => React.JSX.Element | null;
+declare const Iran: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: IranProps) => React.JSX.Element | null;
 
 export { Iran as default };

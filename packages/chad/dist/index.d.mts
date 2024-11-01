@@ -23,6 +23,6 @@ interface ChadProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Chad: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: ChadProps) => React.JSX.Element | null;
+declare const Chad: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ChadProps) => React.JSX.Element | null;
 
 export { Chad as default };

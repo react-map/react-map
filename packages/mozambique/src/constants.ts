@@ -1,12 +1,12 @@
 export const constants = {
-  WIDTH: '500px',
+  WIDTH: 500,
   MAPCOLOR: '#ffffff',
   STROKE_COLOR: '#000000',
-  STROKE_WIDTH: '0.5',
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
-export const viewBox = '-50 -20 2000 1400';
+
 export const stateCode = ['Maputo City', 'Maputo', 'Inhambane', 'Zambezia', 'Sofala', 'Gaza', 'Nampula', 'Niassa', 'Cabo Delgado', 'Manica', 'Tete'];
 export const drawPath = {
   'Maputo City':

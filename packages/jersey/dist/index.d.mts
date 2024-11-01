@@ -23,6 +23,6 @@ interface JerseyProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Jersey: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: JerseyProps) => React.JSX.Element | null;
+declare const Jersey: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: JerseyProps) => React.JSX.Element | null;
 
 export { Jersey as default };

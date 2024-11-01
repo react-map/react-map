@@ -23,6 +23,6 @@ interface KyrgyzstanProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Kyrgyzstan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: KyrgyzstanProps) => React.JSX.Element | null;
+declare const Kyrgyzstan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: KyrgyzstanProps) => React.JSX.Element | null;
 
 export { Kyrgyzstan as default };

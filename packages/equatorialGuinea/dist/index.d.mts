@@ -23,6 +23,6 @@ interface EquatorialguineaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Equatorialguinea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: EquatorialguineaProps) => React.JSX.Element | null;
+declare const Equatorialguinea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EquatorialguineaProps) => React.JSX.Element | null;
 
 export { Equatorialguinea as default };

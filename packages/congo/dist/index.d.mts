@@ -23,6 +23,6 @@ interface CongoProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Congo: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: CongoProps) => React.JSX.Element | null;
+declare const Congo: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CongoProps) => React.JSX.Element | null;
 
 export { Congo as default };

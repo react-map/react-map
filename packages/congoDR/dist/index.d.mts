@@ -23,6 +23,6 @@ interface CongodrProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Congodr: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: CongodrProps) => React.JSX.Element | null;
+declare const Congodr: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CongodrProps) => React.JSX.Element | null;
 
 export { Congodr as default };

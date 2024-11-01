@@ -23,6 +23,6 @@ interface SaudiarabiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Saudiarabia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SaudiarabiaProps) => React.JSX.Element | null;
+declare const Saudiarabia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SaudiarabiaProps) => React.JSX.Element | null;
 
 export { Saudiarabia as default };

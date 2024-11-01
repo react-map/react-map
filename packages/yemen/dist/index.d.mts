@@ -23,6 +23,6 @@ interface YemenProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Yemen: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: YemenProps) => React.JSX.Element | null;
+declare const Yemen: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: YemenProps) => React.JSX.Element | null;
 
 export { Yemen as default };

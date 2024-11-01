@@ -23,6 +23,6 @@ interface SwedenProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Sweden: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SwedenProps) => React.JSX.Element | null;
+declare const Sweden: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SwedenProps) => React.JSX.Element | null;
 
 export { Sweden as default };

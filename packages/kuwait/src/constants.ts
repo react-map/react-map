@@ -1,12 +1,12 @@
 export const constants = {
-  WIDTH: '500px',
+  WIDTH: 500,
   MAPCOLOR: '#ffffff',
   STROKE_COLOR: '#000000',
-  STROKE_WIDTH: '0.5',
+  STROKE_WIDTH: 0.5,
   HOVERCOLOR: '#303030',
   SELECTED_COLOR: '#ff0000',
 };
-export const viewBox = '-20 -50 1500 900';
+
 export const stateCode = ['Hawalli', 'Al Jahrah', 'Mubarak Al-Kabeer', 'Al Ahmadi', 'Al Farwaniyah', 'Al Asimah'];
 export const drawPath = {
   Hawalli:

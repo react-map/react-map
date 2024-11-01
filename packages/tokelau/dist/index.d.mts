@@ -23,6 +23,6 @@ interface TokelauProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Tokelau: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: TokelauProps) => React.JSX.Element | null;
+declare const Tokelau: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TokelauProps) => React.JSX.Element | null;
 
 export { Tokelau as default };

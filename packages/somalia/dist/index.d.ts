@@ -23,6 +23,6 @@ interface SomaliaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Somalia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SomaliaProps) => React.JSX.Element | null;
+declare const Somalia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SomaliaProps) => React.JSX.Element | null;
 
 export { Somalia as default };

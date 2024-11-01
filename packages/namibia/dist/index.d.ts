@@ -23,6 +23,6 @@ interface NamibiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Namibia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: NamibiaProps) => React.JSX.Element | null;
+declare const Namibia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NamibiaProps) => React.JSX.Element | null;
 
 export { Namibia as default };

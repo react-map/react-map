@@ -23,6 +23,6 @@ interface UsaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Usa: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: UsaProps) => React.JSX.Element | null;
+declare const Usa: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UsaProps) => React.JSX.Element | null;
 
 export { Usa as default };

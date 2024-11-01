@@ -23,6 +23,6 @@ interface TaiwanProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Taiwan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: TaiwanProps) => React.JSX.Element | null;
+declare const Taiwan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TaiwanProps) => React.JSX.Element | null;
 
 export { Taiwan as default };

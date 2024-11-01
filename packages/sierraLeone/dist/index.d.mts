@@ -23,6 +23,6 @@ interface SierraleoneProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Sierraleone: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SierraleoneProps) => React.JSX.Element | null;
+declare const Sierraleone: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SierraleoneProps) => React.JSX.Element | null;
 
 export { Sierraleone as default };

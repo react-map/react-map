@@ -23,6 +23,6 @@ interface SerbiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Serbia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SerbiaProps) => React.JSX.Element | null;
+declare const Serbia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SerbiaProps) => React.JSX.Element | null;
 
 export { Serbia as default };

@@ -23,6 +23,6 @@ interface MontenegroProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Montenegro: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MontenegroProps) => React.JSX.Element | null;
+declare const Montenegro: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MontenegroProps) => React.JSX.Element | null;
 
 export { Montenegro as default };

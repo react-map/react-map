@@ -23,6 +23,6 @@ interface MartiniqueProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Martinique: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MartiniqueProps) => React.JSX.Element | null;
+declare const Martinique: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MartiniqueProps) => React.JSX.Element | null;
 
 export { Martinique as default };

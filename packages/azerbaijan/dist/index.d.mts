@@ -23,6 +23,6 @@ interface AzerbaijanProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Azerbaijan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: AzerbaijanProps) => React.JSX.Element | null;
+declare const Azerbaijan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AzerbaijanProps) => React.JSX.Element | null;
 
 export { Azerbaijan as default };

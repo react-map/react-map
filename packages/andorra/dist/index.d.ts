@@ -23,6 +23,6 @@ interface AndorraProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Andorra: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: AndorraProps) => React.JSX.Element | null;
+declare const Andorra: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AndorraProps) => React.JSX.Element | null;
 
 export { Andorra as default };

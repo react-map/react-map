@@ -23,6 +23,6 @@ interface SloveniaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Slovenia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SloveniaProps) => React.JSX.Element | null;
+declare const Slovenia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SloveniaProps) => React.JSX.Element | null;
 
 export { Slovenia as default };

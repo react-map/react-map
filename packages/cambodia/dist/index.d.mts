@@ -23,6 +23,6 @@ interface CambodiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Cambodia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: CambodiaProps) => React.JSX.Element | null;
+declare const Cambodia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CambodiaProps) => React.JSX.Element | null;
 
 export { Cambodia as default };

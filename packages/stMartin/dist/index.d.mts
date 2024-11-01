@@ -23,6 +23,6 @@ interface StmartinProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Stmartin: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: StmartinProps) => React.JSX.Element | null;
+declare const Stmartin: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: StmartinProps) => React.JSX.Element | null;
 
 export { Stmartin as default };

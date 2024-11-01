@@ -23,6 +23,6 @@ interface TunisiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Tunisia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: TunisiaProps) => React.JSX.Element | null;
+declare const Tunisia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TunisiaProps) => React.JSX.Element | null;
 
 export { Tunisia as default };

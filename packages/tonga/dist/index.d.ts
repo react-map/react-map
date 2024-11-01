@@ -23,6 +23,6 @@ interface TongaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Tonga: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: TongaProps) => React.JSX.Element | null;
+declare const Tonga: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TongaProps) => React.JSX.Element | null;
 
 export { Tonga as default };

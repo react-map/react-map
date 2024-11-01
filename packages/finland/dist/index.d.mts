@@ -23,6 +23,6 @@ interface FinlandProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Finland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: FinlandProps) => React.JSX.Element | null;
+declare const Finland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: FinlandProps) => React.JSX.Element | null;
 
 export { Finland as default };

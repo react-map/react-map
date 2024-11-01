@@ -23,6 +23,6 @@ interface GrenadaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Grenada: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: GrenadaProps) => React.JSX.Element | null;
+declare const Grenada: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GrenadaProps) => React.JSX.Element | null;
 
 export { Grenada as default };

@@ -23,6 +23,6 @@ interface LiechtensteinProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Liechtenstein: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: LiechtensteinProps) => React.JSX.Element | null;
+declare const Liechtenstein: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LiechtensteinProps) => React.JSX.Element | null;
 
 export { Liechtenstein as default };

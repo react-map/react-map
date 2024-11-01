@@ -23,6 +23,6 @@ interface ChannelislandsProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Channelislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: ChannelislandsProps) => React.JSX.Element | null;
+declare const Channelislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ChannelislandsProps) => React.JSX.Element | null;
 
 export { Channelislands as default };

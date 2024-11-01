@@ -23,6 +23,6 @@ interface DominicanrepublicProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Dominicanrepublic: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: DominicanrepublicProps) => React.JSX.Element | null;
+declare const Dominicanrepublic: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: DominicanrepublicProps) => React.JSX.Element | null;
 
 export { Dominicanrepublic as default };

@@ -23,6 +23,6 @@ interface SenegalProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Senegal: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SenegalProps) => React.JSX.Element | null;
+declare const Senegal: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SenegalProps) => React.JSX.Element | null;
 
 export { Senegal as default };

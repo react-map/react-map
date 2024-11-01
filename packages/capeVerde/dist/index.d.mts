@@ -23,6 +23,6 @@ interface CapeverdeProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Capeverde: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: CapeverdeProps) => React.JSX.Element | null;
+declare const Capeverde: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CapeverdeProps) => React.JSX.Element | null;
 
 export { Capeverde as default };

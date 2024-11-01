@@ -23,6 +23,6 @@ interface SouthsudanProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Southsudan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: SouthsudanProps) => React.JSX.Element | null;
+declare const Southsudan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SouthsudanProps) => React.JSX.Element | null;
 
 export { Southsudan as default };

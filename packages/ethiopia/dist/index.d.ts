@@ -23,6 +23,6 @@ interface EthiopiaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Ethiopia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: EthiopiaProps) => React.JSX.Element | null;
+declare const Ethiopia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EthiopiaProps) => React.JSX.Element | null;
 
 export { Ethiopia as default };

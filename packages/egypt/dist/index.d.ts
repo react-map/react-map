@@ -23,6 +23,6 @@ interface EgyptProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Egypt: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: EgyptProps) => React.JSX.Element | null;
+declare const Egypt: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EgyptProps) => React.JSX.Element | null;
 
 export { Egypt as default };

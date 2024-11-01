@@ -23,6 +23,6 @@ interface BurundiProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Burundi: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: BurundiProps) => React.JSX.Element | null;
+declare const Burundi: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BurundiProps) => React.JSX.Element | null;
 
 export { Burundi as default };

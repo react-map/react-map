@@ -23,6 +23,6 @@ interface MaliProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Mali: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: MaliProps) => React.JSX.Element | null;
+declare const Mali: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MaliProps) => React.JSX.Element | null;
 
 export { Mali as default };

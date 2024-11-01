@@ -23,6 +23,6 @@ interface NigerProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Niger: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: NigerProps) => React.JSX.Element | null;
+declare const Niger: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NigerProps) => React.JSX.Element | null;
 
 export { Niger as default };

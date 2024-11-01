@@ -23,6 +23,6 @@ interface AmericansamoaProps {
     disableHover?: boolean;
     borderStyle?: BorderStyle;
 }
-declare const Americansamoa: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, onSelect, hints, selectColor, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, cityColors, disableClick, disableHover, borderStyle, }: AmericansamoaProps) => React.JSX.Element | null;
+declare const Americansamoa: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AmericansamoaProps) => React.JSX.Element | null;
 
 export { Americansamoa as default };
