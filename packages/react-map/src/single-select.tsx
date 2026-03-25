@@ -1,8 +1,8 @@
 import { type MouseEventHandler, useId, useMemo } from 'react';
 import { DEFAULT_COLORS, DEFAULT_STROKE_WIDTH, DefaultHint } from './defaults';
-import { useMousePosition } from './hooks/mouseTrack';
 import { useControllableState } from './hooks/use-controllable-state';
 import { useHoveredState } from './hooks/use-hovered-state';
+import { useMousePosition } from './hooks/use-mouse-position';
 import { useViewbox } from './hooks/use-viewbox';
 import type { SingleSelectMapProps } from './types';
 import { getStateColor } from './utils/get-state-color';
