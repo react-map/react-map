@@ -1,6 +1,6 @@
 {
   "name": "@gurgelio/react-map",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A React component for displaying maps of countries and regions",
   "author": "Leonardo Gurgel",
   "license": "MIT",

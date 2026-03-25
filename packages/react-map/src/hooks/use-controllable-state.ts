@@ -1,31 +1,44 @@
-import { useEffect, useRef, useState } from 'react';
+import {
+  type Dispatch,
+  type SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 
 interface UseControllableStateProps<T> {
   value?: T | undefined;
-  onChange?: ((state: T) => void) | undefined;
+  onChange?: Dispatch<SetStateAction<T>> | undefined;
   defaultValue: T;
 }
 
 export function useControllableState<T>({
-  value,
-  onChange,
+  value: externalValue,
+  onChange: externalSetValue,
   defaultValue
 }: UseControllableStateProps<T>) {
-  const isControlled = value !== undefined;
-  const lastIsControlled = useRef<boolean>(isControlled);
-  const uncontrolledState = useState(value ?? defaultValue);
+  const lastIsControlled = useRef<boolean>(externalValue !== undefined);
+  const [value, setValue] = useState(externalValue ?? defaultValue);
+
+  const onChange = useCallback<Dispatch<SetStateAction<T>>>(
+    (value) => {
+      setValue(value);
+      externalSetValue?.(value);
+    },
+    [externalSetValue]
+  );
 
   useEffect(() => {
+    const isControlled = externalValue !== undefined;
     if (lastIsControlled.current !== isControlled) {
       console.warn(`[@gurgelio/react-map]: state changed from controlled to uncontrolled or vice versa.
         This will cause the state to be inconsistent. Use null instead of undefined to represent an empty state`);
       lastIsControlled.current = isControlled;
     }
-  }, [isControlled]);
 
-  if (isControlled) {
-    return [value, onChange] as const;
-  }
+    if (isControlled) setValue(externalValue);
+  }, [externalValue]);
 
-  return uncontrolledState;
+  return [value, onChange] as const;
 }

@@ -1,4 +1,9 @@
-import type { ComponentProps, ComponentType } from 'react';
+import type {
+  ComponentProps,
+  ComponentType,
+  Dispatch,
+  SetStateAction
+} from 'react';
 
 export type BorderStyle =
   | 'solid'
@@ -27,13 +32,13 @@ interface MapProps<T extends string>
 
 export interface SingleSelectMapProps<T extends string> extends MapProps<T> {
   value?: T | null;
-  onChange?: (value: T | null) => void;
+  onChange?: Dispatch<SetStateAction<T | null>>;
   defaultValue?: T | null;
 }
 
 export interface MultipleSelectMapProps<T extends string> extends MapProps<T> {
   value?: T[];
-  onChange?: (value: T[]) => void;
+  onChange?: Dispatch<SetStateAction<T[]>>;
   defaultValue?: T[];
 }
 
