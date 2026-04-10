@@ -67,10 +67,13 @@ export function MultiSelectMap<T extends string>({
         {...rest}
       >
         {states?.map((code) => {
+          const isHovered = hoveredState === code;
+          const isSelected = selectedStates.includes(code);
+
           const colorParams = {
             state: code,
-            isHovered: hoveredState === code,
-            isSelected: selectedStates.includes(code)
+            isHovered,
+            isSelected
           };
 
           return (
@@ -79,6 +82,8 @@ export function MultiSelectMap<T extends string>({
               key={code}
               onClick={disableClick ? undefined : handleClick}
               data-state={code}
+              data-hovered={isHovered}
+              data-selected={isSelected}
               onMouseEnter={disableHover ? undefined : handleMouseEnter}
               onMouseLeave={disableHover ? undefined : handleMouseLeave}
               d={map[code]}

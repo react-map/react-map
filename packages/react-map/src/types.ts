@@ -25,6 +25,7 @@ export interface MapColors<T extends string> {
 
 interface MapProps<T extends string>
   extends Omit<ComponentProps<'svg'>, 'onSelect' | 'onChange'> {
+  pathClassName?: string;
   colors: Partial<MapColors<T>>;
   strokeWidth?: number;
   map: Record<T, string>;

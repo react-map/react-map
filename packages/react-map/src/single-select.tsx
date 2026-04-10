@@ -17,6 +17,7 @@ export function SingleSelectMap<T extends string>({
   map,
   disableClick,
   disableHover,
+  pathClassName,
   borderStyle,
   HintComponent = DefaultHint,
   className,
@@ -65,10 +66,13 @@ export function SingleSelectMap<T extends string>({
         {...rest}
       >
         {states?.map((state) => {
+          const isHovered = hoveredState === state;
+          const isSelected = selectedState === state;
+
           const colorParams = {
             state,
-            isHovered: hoveredState === state,
-            isSelected: selectedState === state
+            isHovered,
+            isSelected
           };
 
           return (
@@ -76,7 +80,10 @@ export function SingleSelectMap<T extends string>({
             <path
               key={state}
               onClick={disableClick ? undefined : handleClick}
+              className={pathClassName}
               data-state={state}
+              data-hovered={isHovered}
+              data-selected={isSelected}
               onMouseEnter={disableHover ? undefined : handleMouseEnter}
               onMouseLeave={disableHover ? undefined : handleMouseLeave}
               id={`${state}-${instanceId}`}
