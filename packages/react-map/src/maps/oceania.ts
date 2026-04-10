@@ -1,4 +1,4 @@
-const oceaniaMap = {
+const oceania = {
   'American Samoa':
     'M1006.89,503.11L1006.77,503.13L1006.63,503L1006.91,502.89L1007,502.84L1007.34,502.86L1007.13,502.91z',
   Australia:
@@ -78,4 +78,5 @@ const oceaniaMap = {
     'M1002.38,500.56l0.31,0.27l0.13,0.36l-0.14,0.34l-0.3,-0.08l-0.43,0.07l-0.14,-0.02l-0.34,-0.42l-0.24,-0.19l-0.1,-0.18l0.3,0.02l0.45,-0.12L1002.38,500.56zM1004.85,502.23l-0.77,0l-0.38,-0.13l-0.13,0l-0.33,-0.27l-0.05,-0.14l0.17,-0.09l0.36,-0.05l0.71,0.21l0.11,0.18l0.16,0.02l0.13,0.08l0.03,0.13L1004.85,502.23z'
 };
 
-export default oceaniaMap;
+export type OceaniaStates = keyof typeof oceania;
+export default oceania;

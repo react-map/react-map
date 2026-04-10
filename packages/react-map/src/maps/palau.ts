@@ -1,4 +1,4 @@
-const palauMap = {
+const palau = {
   Sonsorol:
     'M242.45,627.65L243.86,624.95L242.42,623.63L241,624.33L242.45,627.65z',
   Peleliu:
@@ -33,4 +33,5 @@ const palauMap = {
     'M763.73,149.09L760.2,146.99L758.54,142.6L754.18,140.5L746.36,140.59L745.65,143.1L745.33,146L745.91,146.36L747.17,146.27L748.96,147.69L750.43,150.88L751.46,155.32L755.84,156.83L760.83,153.48L763.73,149.09z'
 };
 
-export default palauMap;
+export type PalauStates = keyof typeof palau;
+export default palau;
