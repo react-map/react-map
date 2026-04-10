@@ -24,7 +24,7 @@
     },
     "transit": {},
     "publish": {
-      "dependsOn": ["^check", "^build"]
+      "dependsOn": ["check", "build"]
     }
   }
 }
