@@ -13,8 +13,7 @@
     "check:types": "turbo run check:types",
     "clean": "turbo clean && rm -rf node_modules $HOME/.cache/biome",
     "postclean": "pnpm i",
-    "knip": "knip",
-    "publish-packages": "turbo run publish"
+    "knip": "knip"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.11",

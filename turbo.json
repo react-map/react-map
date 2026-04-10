@@ -27,10 +27,6 @@
       "outputLogs": "new-only",
       "dependsOn": ["^transit"]
     },
-    "transit": {},
-    "publish": {
-      "inputs": ["package.json"],
-      "dependsOn": ["check", "build"]
-    }
+    "transit": {}
   }
 }
