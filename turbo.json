@@ -22,6 +22,10 @@
     "check:types": {
       "dependsOn": ["^transit"]
     },
-    "transit": {}
+    "transit": {},
+    "publish": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "storybook-static/**"]
+    }
   }
 }

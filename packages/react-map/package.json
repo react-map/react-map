@@ -25,7 +25,8 @@
     "dev": "tsdown --watch",
     "build": "tsdown",
     "check:types": "tsc",
-    "clean": "rm -rf node_modules dist .turbo"
+    "clean": "rm -rf node_modules dist .turbo",
+    "publish": "pnpm publish --access public"
   },
   "exports": {
     ".": "./dist/index.js",

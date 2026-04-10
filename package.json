@@ -13,7 +13,8 @@
     "check:types": "turbo run check:types",
     "clean": "turbo clean && rm -rf node_modules $HOME/.cache/biome",
     "postclean": "pnpm i",
-    "knip": "knip"
+    "knip": "knip",
+    "publish": "turbo run publish"
   },
   "devDependencies": {
     "turbo": "^2.3.3",
