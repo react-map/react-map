@@ -4,9 +4,8 @@ export const DEFAULT_STROKE_WIDTH = 0.5;
 
 export const DEFAULT_COLORS: MapColors<string> = {
   stroke: 'black',
-  fill: 'white',
-  hover: '#303030',
-  select: '#ff0000'
+  fill: ({ isHovered, isSelected }) =>
+    isHovered ? '#303030' : isSelected ? '#ff0000' : 'white'
 };
 
 export function DefaultHint<T extends string>({

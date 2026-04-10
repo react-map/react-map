@@ -1,32 +1,25 @@
-import {
-  type Dispatch,
-  type SetStateAction,
-  useCallback,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface UseControllableStateProps<T> {
   value?: T | undefined;
-  onChange?: Dispatch<SetStateAction<T>> | undefined;
+  onChange?: ((value: T) => void) | undefined;
   defaultValue: T;
 }
 
 export function useControllableState<T>({
   value: externalValue,
-  onChange: externalSetValue,
+  onChange,
   defaultValue
 }: UseControllableStateProps<T>) {
   const lastIsControlled = useRef<boolean>(externalValue !== undefined);
   const [value, setValue] = useState(externalValue ?? defaultValue);
 
-  const onChange = useCallback<Dispatch<SetStateAction<T>>>(
-    (value) => {
+  const handleChange = useCallback(
+    (value: T) => {
       setValue(value);
-      externalSetValue?.(value);
+      onChange?.(value);
     },
-    [externalSetValue]
+    [onChange]
   );
 
   useEffect(() => {
@@ -40,5 +33,5 @@ export function useControllableState<T>({
     if (isControlled) setValue(externalValue);
   }, [externalValue]);
 
-  return [value, onChange] as const;
+  return [value, handleChange] as const;
 }

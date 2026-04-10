@@ -12,11 +12,15 @@ export type BorderStyle =
   | 'dash-dot'
   | 'dash-double-dot';
 
+export interface MapColorParams<T> {
+  state: T;
+  isHovered: boolean;
+  isSelected: boolean;
+}
+
 export interface MapColors<T extends string> {
-  stroke: string | ((state: T) => string);
-  fill: string | ((state: T) => string);
-  hover: string | ((state: T) => string);
-  select: string | ((state: T) => string);
+  stroke: string | ((params: MapColorParams<T>) => string);
+  fill: string | ((params: MapColorParams<T>) => string);
 }
 
 interface MapProps<T extends string>
@@ -32,7 +36,7 @@ interface MapProps<T extends string>
 
 export interface SingleSelectMapProps<T extends string> extends MapProps<T> {
   value?: T | null;
-  onChange?: Dispatch<SetStateAction<T | null>>;
+  onChange?: (value: T | null) => void;
   defaultValue?: T | null;
 }
 

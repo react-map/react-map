@@ -1,42 +1,22 @@
-import { type MouseEventHandler, useState } from 'react';
-import type { MapColors } from '../types';
-import { getStateColor } from '../utils/get-state-color';
+import { type MouseEventHandler, useCallback, useState } from 'react';
 
-export function useHoveredState<T extends string>(
-  selectedState: T | T[] | null,
-  colors: MapColors<T>
-) {
+export function useHoveredState<T extends string>() {
   const [hoveredState, setHoveredState] = useState<T | null>(null);
 
-  const handleMouseEnter: MouseEventHandler<SVGPathElement> = (event) => {
-    const path = event.target as SVGPathElement;
-    const hoveredState = path.dataset.state as T;
-    const isSelected = Array.isArray(selectedState)
-      ? selectedState.includes(hoveredState)
-      : selectedState === hoveredState;
+  const handleMouseEnter = useCallback<MouseEventHandler<SVGPathElement>>(
+    (event) => {
+      const path = event.target as SVGPathElement;
+      const hoveredState = path.dataset.state as T;
 
-    setHoveredState(hoveredState);
+      setHoveredState(hoveredState);
+    },
+    []
+  );
 
-    path.style.fill = getStateColor(
-      isSelected ? colors.select : colors.hover,
-      hoveredState
-    );
-  };
-
-  const handleMouseLeave: MouseEventHandler<SVGPathElement> = (event) => {
-    const path = event.target as SVGPathElement;
-    const hoveredState = path.dataset.state as T;
-    const isSelected = Array.isArray(selectedState)
-      ? selectedState.includes(hoveredState)
-      : selectedState === hoveredState;
-
-    setHoveredState(null);
-
-    path.style.fill = getStateColor(
-      isSelected ? colors.select : colors.fill,
-      hoveredState
-    );
-  };
+  const handleMouseLeave = useCallback<MouseEventHandler<SVGPathElement>>(
+    () => setHoveredState(null),
+    []
+  );
 
   return { hoveredState, handleMouseEnter, handleMouseLeave };
 }
