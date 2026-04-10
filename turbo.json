@@ -24,8 +24,7 @@
     },
     "transit": {},
     "publish": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", "storybook-static/**"]
+      "dependsOn": ["^check", "^build"]
     }
   }
 }
