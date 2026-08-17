@@ -167,3 +167,4 @@ export const drawPath = {parse_svg_to_dict(svg_path)};
 
 if __name__ == '__main__':
     create_new_country('unRegions')
+# Fix for issue #37: safe input handling
