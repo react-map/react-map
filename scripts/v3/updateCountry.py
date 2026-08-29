@@ -1,22 +1,17 @@
 from pathlib import Path
 
-def update_country(country_name):
-    packages_folder = Path('/home/jerry/react-map/packages')
-    country_dir = packages_folder / country_name
-    src_dir_path = country_dir / 'src'
-    country_name_capitalized = country_name.capitalize()
-    country_file_path = src_dir_path / f'{country_name_capitalized}.tsx'
+COUNTRY_PLACEHOLDER = '__COUNTRY__'
 
-    country_file_path.write_text(f'''import React,{{ useEffect, useState, useMemo }} from 'react';
-import {{ drawPath, stateCode, constants }} from './constants';
+COMPONENT_SOURCE = '''import React,{ useEffect, useState, useMemo } from 'react';
+import { drawPath, stateCode, constants } from './constants';
 import useMousePosition from './hooks/mouseTrack';
-import {{ useId }} from 'react';
+import { useId } from 'react';
 
-interface CityColorMap {{
+interface CityColorMap {
   [key: string]: string;
-}}
+}
 
-const hintStyleBase = {{
+const hintStyleBase = {
   position: 'fixed' as React.CSSProperties['position'],
   backgroundColor: 'white',
   padding: '10px',
@@ -24,26 +19,45 @@ const hintStyleBase = {{
   border: '1px solid #ccc',
   pointerEvents: 'none' as React.CSSProperties['pointerEvents'],
   zIndex: 1000,
-}};
+};
 
 type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'dash-dot' | 'dash-double-dot';
 
-const getStrokeProperties = (borderStyle?: BorderStyle) => {{
-  switch (borderStyle) {{
+const getStrokeProperties = (borderStyle?: BorderStyle) => {
+  switch (borderStyle) {
     case 'dashed':
-      return {{ strokeDasharray: '8 4' }};
+      return { strokeDasharray: '8 4' };
     case 'dotted':
-      return {{ strokeDasharray: '2 2' }};
+      return { strokeDasharray: '2 2' };
     case 'dash-dot':
-      return {{ strokeDasharray: '8 4 2 4' }};
+      return { strokeDasharray: '8 4 2 4' };
     case 'dash-double-dot':
-      return {{ strokeDasharray: '8 4 2 4 2 4' }};
+      return { strokeDasharray: '8 4 2 4 2 4' };
     default:
-      return {{ strokeDasharray: 'none' }};
-  }}
-}};
+      return { strokeDasharray: 'none' };
+  }
+};
 
-export interface {country_name_capitalized}Props {{
+const REGION_ATTRIBUTE = 'data-state';
+
+interface Region {
+  element: SVGElement;
+  code: string;
+}
+
+/**
+ * Resolves the region an event was raised on. Pointer events are bound once on the <svg> root and
+ * resolved here, rather than binding a fresh set of closures to every <path> the map renders.
+ */
+const regionFromEvent = (target: EventTarget | null): Region | null => {
+  if (!(target instanceof Element)) {
+    return null;
+  }
+  const code = target.getAttribute(REGION_ATTRIBUTE);
+  return code === null ? null : { element: target as SVGElement, code };
+};
+
+export interface __COUNTRY__Props {
   type: 'select-single' | 'select-multiple';
   size?: number;
   mapColor?: string;
@@ -61,9 +75,9 @@ export interface {country_name_capitalized}Props {{
   disableClick?: boolean;
   disableHover?: boolean;
   borderStyle?: BorderStyle;
-}}
+}
 
-const {country_name_capitalized} = ({{
+const __COUNTRY__ = ({
   type,
   size = constants.WIDTH,
   mapColor = constants.MAPCOLOR,
@@ -77,61 +91,61 @@ const {country_name_capitalized} = ({{
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {{}},
+  cityColors = {},
   disableClick = false,
   disableHover = false,
   borderStyle,
-}}: {country_name_capitalized}Props) => {{
-  if (type === 'select-single') {{
+}: __COUNTRY__Props) => {
+  if (type === 'select-single') {
     return (
-      <{country_name_capitalized}Single
+      <__COUNTRY__Single
         type="select-single"
-        size={{size}}
-        mapColor={{mapColor}}
-        strokeColor={{strokeColor}}
-        strokeWidth={{strokeWidth}}
-        hoverColor={{hoverColor}}
-        selectColor={{selectColor}}
-        hints={{hints}}
-        hintTextColor={{hintTextColor}}
-        hintBackgroundColor={{hintBackgroundColor}}
-        hintPadding={{hintPadding}}
-        hintBorderRadius={{hintBorderRadius}}
-        onSelect={{onSelect}}
-        cityColors={{cityColors}}
-        disableClick={{disableClick}}
-        disableHover={{disableHover}}
-        borderStyle={{borderStyle}}
+        size={size}
+        mapColor={mapColor}
+        strokeColor={strokeColor}
+        strokeWidth={strokeWidth}
+        hoverColor={hoverColor}
+        selectColor={selectColor}
+        hints={hints}
+        hintTextColor={hintTextColor}
+        hintBackgroundColor={hintBackgroundColor}
+        hintPadding={hintPadding}
+        hintBorderRadius={hintBorderRadius}
+        onSelect={onSelect}
+        cityColors={cityColors}
+        disableClick={disableClick}
+        disableHover={disableHover}
+        borderStyle={borderStyle}
       />
     );
-  }} else if (type === 'select-multiple') {{
+  } else if (type === 'select-multiple') {
     return (
-      <{country_name_capitalized}Multiple
+      <__COUNTRY__Multiple
         type="select-multiple"
-        size={{size}}
-        mapColor={{mapColor}}
-        strokeColor={{strokeColor}}
-        strokeWidth={{strokeWidth}}
-        hoverColor={{hoverColor}}
-        selectColor={{selectColor}}
-        hints={{hints}}
-        hintTextColor={{hintTextColor}}
-        hintBackgroundColor={{hintBackgroundColor}}
-        hintPadding={{hintPadding}}
-        hintBorderRadius={{hintBorderRadius}}
-        onSelect={{onSelect}}
-        cityColors={{cityColors}}
-        disableClick={{disableClick}}
-        disableHover={{disableHover}}
-        borderStyle={{borderStyle}}
+        size={size}
+        mapColor={mapColor}
+        strokeColor={strokeColor}
+        strokeWidth={strokeWidth}
+        hoverColor={hoverColor}
+        selectColor={selectColor}
+        hints={hints}
+        hintTextColor={hintTextColor}
+        hintBackgroundColor={hintBackgroundColor}
+        hintPadding={hintPadding}
+        hintBorderRadius={hintBorderRadius}
+        onSelect={onSelect}
+        cityColors={cityColors}
+        disableClick={disableClick}
+        disableHover={disableHover}
+        borderStyle={borderStyle}
       />
     );
-  }} else {{
+  } else {
     return null;
-  }}
-}};
+  }
+};
 
-const {country_name_capitalized}Single = ({{
+const __COUNTRY__Single = ({
   size,
   mapColor,
   strokeColor,
@@ -148,33 +162,33 @@ const {country_name_capitalized}Single = ({{
   disableClick,
   disableHover,
   borderStyle,
-}}: {country_name_capitalized}Props) => {{
+}: __COUNTRY__Props) => {
   const instanceId = useId().replace(/:/g, '');
-  const {{ x, y }} = useMousePosition();
+  const { x, y } = useMousePosition();
   const [stateHovered, setStateHovered] = useState<string | null>(null);
   const [selectedState, setSelectedState] = useState<string | null>(null);
   const [viewBox, setViewBox] = useState<string>('0 0 100 100');
   const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
 
-  useEffect(() => {{
-    const svg = document.getElementById(`svg2-${{instanceId}}`) as SVGGraphicsElement | null;
-    if (svg) {{
+  useEffect(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`) as SVGGraphicsElement | null;
+    if (svg) {
       const bbox = svg.getBBox();
-      setViewBox(`${{bbox.x}} ${{bbox.y}} ${{bbox.width}} ${{bbox.height}}`);
-    }}
-  }}, [instanceId]);
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
 
   const mapStyle = useMemo(
-    () => ({{
+    () => ({
       width: size,
       stroke: strokeColor,
       strokeWidth,
       ...strokeProps,
-    }}),
+    }),
     [size, strokeColor, strokeWidth, strokeProps]
   );
 
-  const hintStyle = {{
+  const hintStyle = {
     ...hintStyleBase,
     backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
     padding: hintPadding || hintStyleBase.padding,
@@ -182,95 +196,116 @@ const {country_name_capitalized}Single = ({{
     color: hintTextColor || 'black',
     top: y + 20,
     left: x + 20,
-  }};
+  };
 
-  useEffect(() => {{
-    stateCode.forEach((state) => {{
-      const path = document.getElementById(`${{state}}-${{instanceId}}`);
-      if (path) {{
+  useEffect(() => {
+    stateCode.forEach((state) => {
+      const path = document.getElementById(`${state}-${instanceId}`);
+      if (path) {
         path.style.fill = cityColors![state] || (mapColor as string);
-      }}
-    }});
-  }}, [cityColors, mapColor, instanceId]);
+      }
+    });
+  }, [cityColors, mapColor, instanceId]);
 
-  useEffect(() => {{
-    if (selectedState) {{
-      const path = document.getElementById(`${{selectedState}}-${{instanceId}}`);
-      if (path) {{
+  useEffect(() => {
+    if (selectedState) {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
+      if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
-      }}
-    }}
-  }}, [selectedState, selectColor, instanceId]);
+      }
+    }
+  }, [selectedState, selectColor, instanceId]);
 
-  const handleMouseEnter = (hoverStateId: string) => {{
-    const path = document.getElementById(`${{hoverStateId}}-${{instanceId}}`);
-    setStateHovered(hoverStateId);
-    if (path && !disableHover) {{
-      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
-    }}
-  }};
+  const handleMouseOver = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
+    setStateHovered(region.code);
+    if (!disableHover) {
+      region.element.style.fill =
+        selectedState === region.code ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
+    }
+  };
 
-  const handleMouseLeave = (hoverStateId: string) => {{
-    const path = document.getElementById(`${{hoverStateId}}-${{instanceId}}`);
+  const handleMouseOut = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
     setStateHovered(null);
-    if (path && !disableHover) {{
-      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors![hoverStateId] || (mapColor as string);
-    }}
-  }};
+    if (!disableHover) {
+      region.element.style.fill =
+        selectedState === region.code
+          ? selectColor || constants.SELECTED_COLOR
+          : cityColors![region.code] || (mapColor as string);
+    }
+  };
 
-  const handleClick = (stateCode: string) => {{
-    if (disableClick) return;
+  const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
+    if (disableClick) {
+      return;
+    }
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
 
-    if (selectedState === stateCode) {{
-      const path = document.getElementById(`${{stateCode}}-${{instanceId}}`);
-      if (path) {{
-        path.style.fill = cityColors![stateCode] || (mapColor as string);
-      }}
+    if (selectedState === region.code) {
+      region.element.style.fill = cityColors![region.code] || (mapColor as string);
       setSelectedState(null);
-      if (onSelect) {{
+      if (onSelect) {
         onSelect(null);
-      }}
-    }} else {{
-      if (selectedState) {{
-        const previousPath = document.getElementById(`${{selectedState}}-${{instanceId}}`);
-        if (previousPath) {{
-          previousPath.style.fill = cityColors![selectedState] || (mapColor as string);
-        }}
-      }}
-      setSelectedState(stateCode);
-      if (onSelect) {{
-        onSelect(stateCode);
-      }}
-    }}
-  }};
+      }
+      return;
+    }
+
+    if (selectedState) {
+      const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
+      if (previousPath) {
+        previousPath.style.fill = cityColors![selectedState] || (mapColor as string);
+      }
+    }
+    setSelectedState(region.code);
+    if (onSelect) {
+      onSelect(region.code);
+    }
+  };
 
   return (
     <>
-      <div className="map" style={{mapStyle}}>
-        <svg version="1.1" id={{`svg2-${{instanceId}}`}} x="0px" y="0px" viewBox={{viewBox}}>
-          {{stateCode?.map((code, index) => (
+      <div className="map" style={mapStyle}>
+        <svg
+          version="1.1"
+          id={`svg2-${instanceId}`}
+          x="0px"
+          y="0px"
+          viewBox={viewBox}
+          onClick={handleClick}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          {stateCode?.map((code, index) => (
             <path
-              key={{index}}
-              onClick={{() => handleClick(code)}}
-              onMouseEnter={{() => handleMouseEnter(code)}}
-              onMouseLeave={{() => handleMouseLeave(code)}}
-              id={{`${{code}}-${{instanceId}}`}}
-              d={{drawPath[code as keyof typeof drawPath]}}
-              style={{{{
+              key={index}
+              id={`${code}-${instanceId}`}
+              data-state={code}
+              d={drawPath[code as keyof typeof drawPath]}
+              style={{
                 fill: cityColors![code] || mapColor,
                 cursor: disableClick ? 'default' : 'pointer',
                 ...strokeProps,
-              }}}}
+              }}
             />
-          ))}}
+          ))}
         </svg>
       </div>
-      {{hints && stateHovered && <div style={{hintStyle}}>{{stateHovered}}</div>}}
+      {hints && stateHovered && <div style={hintStyle}>{stateHovered}</div>}
     </>
   );
-}};
+};
 
-const {country_name_capitalized}Multiple = ({{
+const __COUNTRY__Multiple = ({
   size,
   mapColor,
   strokeColor,
@@ -287,33 +322,33 @@ const {country_name_capitalized}Multiple = ({{
   disableClick,
   disableHover,
   borderStyle,
-}}: {country_name_capitalized}Props) => {{
+}: __COUNTRY__Props) => {
   const instanceId = useId().replace(/:/g, '');
-  const {{ x, y }} = useMousePosition();
+  const { x, y } = useMousePosition();
   const [selectedStates, setSelectedStates] = useState<string[]>([]);
   const [stateHovered, setStateHovered] = useState<string | null>(null);
   const [viewBox, setViewBox] = useState<string>('0 0 100 100');
   const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
 
-  useEffect(() => {{
-    const svg = document.getElementById(`svg2-${{instanceId}}`) as SVGGraphicsElement | null;
-    if (svg) {{
+  useEffect(() => {
+    const svg = document.getElementById(`svg2-${instanceId}`) as SVGGraphicsElement | null;
+    if (svg) {
       const bbox = svg.getBBox();
-      setViewBox(`${{bbox.x}} ${{bbox.y}} ${{bbox.width}} ${{bbox.height}}`);
-    }}
-  }}, [instanceId]);
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [instanceId]);
 
   const mapStyle = useMemo(
-    () => ({{
+    () => ({
       width: size,
       stroke: strokeColor,
       strokeWidth,
       ...strokeProps,
-    }}),
+    }),
     [size, strokeColor, strokeWidth, strokeProps]
   );
 
-  const hintStyle = {{
+  const hintStyle = {
     ...hintStyleBase,
     backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
     padding: hintPadding || hintStyleBase.padding,
@@ -321,106 +356,126 @@ const {country_name_capitalized}Multiple = ({{
     color: hintTextColor || 'black',
     top: y + 20,
     left: x + 20,
-  }};
+  };
 
-  useEffect(() => {{
-    stateCode.forEach((state) => {{
-      const path = document.getElementById(`${{state}}-${{instanceId}}`);
-      if (path) {{
+  useEffect(() => {
+    stateCode.forEach((state) => {
+      const path = document.getElementById(`${state}-${instanceId}`);
+      if (path) {
         path.style.fill = cityColors![state] || (mapColor as string);
-      }}
-    }});
-  }}, [cityColors, mapColor, instanceId]);
+      }
+    });
+  }, [cityColors, mapColor, instanceId]);
 
-  useEffect(() => {{
-    selectedStates.forEach((selectedState) => {{
-      const path = document.getElementById(`${{selectedState}}-${{instanceId}}`);
-      if (path) {{
+  useEffect(() => {
+    selectedStates.forEach((selectedState) => {
+      const path = document.getElementById(`${selectedState}-${instanceId}`);
+      if (path) {
         path.style.fill = selectColor || constants.SELECTED_COLOR;
-      }}
-    }});
-  }}, [selectedStates, selectColor, instanceId]);
+      }
+    });
+  }, [selectedStates, selectColor, instanceId]);
 
-  const handleMouseEnter = (hoverStateId: string) => {{
-    const path = document.getElementById(`${{hoverStateId}}-${{instanceId}}`);
-    setStateHovered(hoverStateId);
-    if (path && !disableHover) {{
-      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
-    }}
-  }};
-
-  const handleMouseLeave = (hoverStateId: string) => {{
-    const path = document.getElementById(`${{hoverStateId}}-${{instanceId}}`);
-    setStateHovered(null);
-    if (path && !disableHover) {{
-      path.style.fill = selectedStates.includes(hoverStateId)
+  const handleMouseOver = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
+    setStateHovered(region.code);
+    if (!disableHover) {
+      region.element.style.fill = selectedStates.includes(region.code)
         ? selectColor || constants.SELECTED_COLOR
-        : cityColors![hoverStateId] || (mapColor as string);
-    }}
-  }};
+        : hoverColor || constants.HOVERCOLOR;
+    }
+  };
 
-  const handleClick = (stateCode: string) => {{
-    if (disableClick) return;
+  const handleMouseOut = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
+    setStateHovered(null);
+    if (!disableHover) {
+      region.element.style.fill = selectedStates.includes(region.code)
+        ? selectColor || constants.SELECTED_COLOR
+        : cityColors![region.code] || (mapColor as string);
+    }
+  };
 
-    if (selectedStates.includes(stateCode)) {{
-      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode);
-      const path = document.getElementById(`${{stateCode}}-${{instanceId}}`);
-      if (path) {{
-        path.style.fill = cityColors![stateCode] || (mapColor as string);
-      }}
+  const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
+    if (disableClick) {
+      return;
+    }
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
+
+    if (selectedStates.includes(region.code)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== region.code);
+      region.element.style.fill = cityColors![region.code] || (mapColor as string);
       setSelectedStates(updatedSelectedStates);
-      if (onSelect) {{
-        onSelect(stateCode, updatedSelectedStates);
-      }}
-    }} else {{
-      setSelectedStates((prevStates) => {{
-        const updatedStates = [...prevStates, stateCode];
-        const path = document.getElementById(`${{stateCode}}-${{instanceId}}`);
-        if (path) {{
-          path.style.fill = selectColor || constants.SELECTED_COLOR;
-        }}
-        if (onSelect) {{
-          onSelect(stateCode, updatedStates);
-        }}
-        return updatedStates;
-      }});
-    }}
-  }};
+      if (onSelect) {
+        onSelect(region.code, updatedSelectedStates);
+      }
+      return;
+    }
+
+    const updatedSelectedStates = [...selectedStates, region.code];
+    region.element.style.fill = selectColor || constants.SELECTED_COLOR;
+    setSelectedStates(updatedSelectedStates);
+    if (onSelect) {
+      onSelect(region.code, updatedSelectedStates);
+    }
+  };
 
   return (
     <>
-      <div className="map" style={{mapStyle}}>
-        <svg version="1.1" id={{`svg2-${{instanceId}}`}} x="0px" y="0px" viewBox={{viewBox}}>
-          {{stateCode?.map((code, index) => (
+      <div className="map" style={mapStyle}>
+        <svg
+          version="1.1"
+          id={`svg2-${instanceId}`}
+          x="0px"
+          y="0px"
+          viewBox={viewBox}
+          onClick={handleClick}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          {stateCode?.map((code, index) => (
             <path
-              key={{index}}
-              onClick={{() => handleClick(code)}}
-              onMouseEnter={{() => handleMouseEnter(code)}}
-              onMouseLeave={{() => handleMouseLeave(code)}}
-              id={{`${{code}}-${{instanceId}}`}}
-              d={{drawPath[code as keyof typeof drawPath]}}
-              style={{{{
+              key={index}
+              id={`${code}-${instanceId}`}
+              data-state={code}
+              d={drawPath[code as keyof typeof drawPath]}
+              style={{
                 fill: cityColors![code] || mapColor,
                 cursor: disableClick ? 'default' : 'pointer',
                 ...strokeProps,
-              }}}}
+              }}
             />
-          ))}}
+          ))}
         </svg>
       </div>
-      {{hints && stateHovered && <div style={{hintStyle}}>{{stateHovered}}</div>}}
+      {hints && stateHovered && <div style={hintStyle}>{stateHovered}</div>}
     </>
   );
-}};
+};
 
-export default {country_name_capitalized};
-''')
-    
+export default __COUNTRY__;
+'''
+
+
+def update_country(packages_folder, country_name):
+    src_dir_path = packages_folder / country_name / 'src'
+    country_name_capitalized = country_name.capitalize()
+    country_file_path = src_dir_path / f'{country_name_capitalized}.tsx'
+    country_file_path.write_text(COMPONENT_SOURCE.replace(COUNTRY_PLACEHOLDER, country_name_capitalized))
     print(f'Updated {country_name_capitalized} file')
 
 
-packages_directory = Path("/home/jerry/react-map/packages")
+packages_directory = Path(__file__).resolve().parents[2] / 'packages'
 
-for package_dir in packages_directory.iterdir():
+for package_dir in sorted(packages_directory.iterdir()):
     if package_dir.is_dir():
-        update_country(package_dir.name)
+        update_country(packages_directory, package_dir.name)

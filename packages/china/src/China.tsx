@@ -34,6 +34,25 @@ const getStrokeProperties = (borderStyle?: BorderStyle) => {
   }
 };
 
+const REGION_ATTRIBUTE = 'data-state';
+
+interface Region {
+  element: SVGElement;
+  code: string;
+}
+
+/**
+ * Resolves the region an event was raised on. Pointer events are bound once on the <svg> root and
+ * resolved here, rather than binding a fresh set of closures to every <path> the map renders.
+ */
+const regionFromEvent = (target: EventTarget | null): Region | null => {
+  if (!(target instanceof Element)) {
+    return null;
+  }
+  const code = target.getAttribute(REGION_ATTRIBUTE);
+  return code === null ? null : { element: target as SVGElement, code };
+};
+
 export interface ChinaProps {
   type: 'select-single' | 'select-multiple';
   size?: number;
@@ -193,59 +212,80 @@ const ChinaSingle = ({
     }
   }, [selectedState, selectColor, instanceId]);
 
-  const handleMouseEnter = (hoverStateId: string) => {
-    const path = document.getElementById(`${hoverStateId}-${instanceId}`);
-    setStateHovered(hoverStateId);
-    if (path && !disableHover) {
-      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
+  const handleMouseOver = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
+    setStateHovered(region.code);
+    if (!disableHover) {
+      region.element.style.fill =
+        selectedState === region.code ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
     }
   };
 
-  const handleMouseLeave = (hoverStateId: string) => {
-    const path = document.getElementById(`${hoverStateId}-${instanceId}`);
+  const handleMouseOut = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
     setStateHovered(null);
-    if (path && !disableHover) {
-      path.style.fill = selectedState === hoverStateId ? selectColor || constants.SELECTED_COLOR : cityColors![hoverStateId] || (mapColor as string);
+    if (!disableHover) {
+      region.element.style.fill =
+        selectedState === region.code
+          ? selectColor || constants.SELECTED_COLOR
+          : cityColors![region.code] || (mapColor as string);
     }
   };
 
-  const handleClick = (stateCode: string) => {
-    if (disableClick) return;
+  const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
+    if (disableClick) {
+      return;
+    }
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
 
-    if (selectedState === stateCode) {
-      const path = document.getElementById(`${stateCode}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors![stateCode] || (mapColor as string);
-      }
+    if (selectedState === region.code) {
+      region.element.style.fill = cityColors![region.code] || (mapColor as string);
       setSelectedState(null);
       if (onSelect) {
         onSelect(null);
       }
-    } else {
-      if (selectedState) {
-        const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
-        if (previousPath) {
-          previousPath.style.fill = cityColors![selectedState] || (mapColor as string);
-        }
+      return;
+    }
+
+    if (selectedState) {
+      const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
+      if (previousPath) {
+        previousPath.style.fill = cityColors![selectedState] || (mapColor as string);
       }
-      setSelectedState(stateCode);
-      if (onSelect) {
-        onSelect(stateCode);
-      }
+    }
+    setSelectedState(region.code);
+    if (onSelect) {
+      onSelect(region.code);
     }
   };
 
   return (
     <>
       <div className="map" style={mapStyle}>
-        <svg version="1.1" id={`svg2-${instanceId}`} x="0px" y="0px" viewBox={viewBox}>
+        <svg
+          version="1.1"
+          id={`svg2-${instanceId}`}
+          x="0px"
+          y="0px"
+          viewBox={viewBox}
+          onClick={handleClick}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
           {stateCode?.map((code, index) => (
             <path
               key={index}
-              onClick={() => handleClick(code)}
-              onMouseEnter={() => handleMouseEnter(code)}
-              onMouseLeave={() => handleMouseLeave(code)}
               id={`${code}-${instanceId}`}
+              data-state={code}
               d={drawPath[code as keyof typeof drawPath]}
               style={{
                 fill: cityColors![code] || mapColor,
@@ -332,63 +372,77 @@ const ChinaMultiple = ({
     });
   }, [selectedStates, selectColor, instanceId]);
 
-  const handleMouseEnter = (hoverStateId: string) => {
-    const path = document.getElementById(`${hoverStateId}-${instanceId}`);
-    setStateHovered(hoverStateId);
-    if (path && !disableHover) {
-      path.style.fill = selectedStates.includes(hoverStateId) ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
+  const handleMouseOver = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
     }
-  };
-
-  const handleMouseLeave = (hoverStateId: string) => {
-    const path = document.getElementById(`${hoverStateId}-${instanceId}`);
-    setStateHovered(null);
-    if (path && !disableHover) {
-      path.style.fill = selectedStates.includes(hoverStateId)
+    setStateHovered(region.code);
+    if (!disableHover) {
+      region.element.style.fill = selectedStates.includes(region.code)
         ? selectColor || constants.SELECTED_COLOR
-        : cityColors![hoverStateId] || (mapColor as string);
+        : hoverColor || constants.HOVERCOLOR;
     }
   };
 
-  const handleClick = (stateCode: string) => {
-    if (disableClick) return;
+  const handleMouseOut = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
+    setStateHovered(null);
+    if (!disableHover) {
+      region.element.style.fill = selectedStates.includes(region.code)
+        ? selectColor || constants.SELECTED_COLOR
+        : cityColors![region.code] || (mapColor as string);
+    }
+  };
 
-    if (selectedStates.includes(stateCode)) {
-      const updatedSelectedStates = selectedStates.filter((state) => state !== stateCode);
-      const path = document.getElementById(`${stateCode}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors![stateCode] || (mapColor as string);
-      }
+  const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
+    if (disableClick) {
+      return;
+    }
+    const region = regionFromEvent(event.target);
+    if (!region) {
+      return;
+    }
+
+    if (selectedStates.includes(region.code)) {
+      const updatedSelectedStates = selectedStates.filter((state) => state !== region.code);
+      region.element.style.fill = cityColors![region.code] || (mapColor as string);
       setSelectedStates(updatedSelectedStates);
       if (onSelect) {
-        onSelect(stateCode, updatedSelectedStates);
+        onSelect(region.code, updatedSelectedStates);
       }
-    } else {
-      setSelectedStates((prevStates) => {
-        const updatedStates = [...prevStates, stateCode];
-        const path = document.getElementById(`${stateCode}-${instanceId}`);
-        if (path) {
-          path.style.fill = selectColor || constants.SELECTED_COLOR;
-        }
-        if (onSelect) {
-          onSelect(stateCode, updatedStates);
-        }
-        return updatedStates;
-      });
+      return;
+    }
+
+    const updatedSelectedStates = [...selectedStates, region.code];
+    region.element.style.fill = selectColor || constants.SELECTED_COLOR;
+    setSelectedStates(updatedSelectedStates);
+    if (onSelect) {
+      onSelect(region.code, updatedSelectedStates);
     }
   };
 
   return (
     <>
       <div className="map" style={mapStyle}>
-        <svg version="1.1" id={`svg2-${instanceId}`} x="0px" y="0px" viewBox={viewBox}>
+        <svg
+          version="1.1"
+          id={`svg2-${instanceId}`}
+          x="0px"
+          y="0px"
+          viewBox={viewBox}
+          onClick={handleClick}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
           {stateCode?.map((code, index) => (
             <path
               key={index}
-              onClick={() => handleClick(code)}
-              onMouseEnter={() => handleMouseEnter(code)}
-              onMouseLeave={() => handleMouseLeave(code)}
               id={`${code}-${instanceId}`}
+              data-state={code}
               d={drawPath[code as keyof typeof drawPath]}
               style={{
                 fill: cityColors![code] || mapColor,
