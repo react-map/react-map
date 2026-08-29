@@ -25,4 +25,4 @@ interface LesothoProps {
 }
 declare const Lesotho: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LesothoProps) => React.JSX.Element | null;
 
-export { Lesotho as default };
+export { type BorderStyle, type CityColorMap, type LesothoProps, Lesotho as default };

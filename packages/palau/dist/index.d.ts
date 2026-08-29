@@ -25,4 +25,4 @@ interface PalauProps {
 }
 declare const Palau: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: PalauProps) => React.JSX.Element | null;
 
-export { Palau as default };
+export { type BorderStyle, type CityColorMap, type PalauProps, Palau as default };

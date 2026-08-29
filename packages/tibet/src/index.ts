@@ -1,4 +1,4 @@
+import Tibet from './Tibet';
 
-        import Tibet from './Tibet';
-        export default Tibet;
-    
+export type { TibetProps, CityColorMap, BorderStyle } from './Tibet';
+export default Tibet;

@@ -25,4 +25,4 @@ interface PeruProps {
 }
 declare const Peru: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: PeruProps) => React.JSX.Element | null;
 
-export { Peru as default };
+export { type BorderStyle, type CityColorMap, type PeruProps, Peru as default };

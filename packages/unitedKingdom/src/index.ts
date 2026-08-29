@@ -1,4 +1,4 @@
+import Unitedkingdom from './Unitedkingdom';
 
-        import Unitedkingdom from './Unitedkingdom';
-        export default Unitedkingdom;
-    
+export type { UnitedkingdomProps, CityColorMap, BorderStyle } from './Unitedkingdom';
+export default Unitedkingdom;

@@ -25,4 +25,4 @@ interface AlgeriaProps {
 }
 declare const Algeria: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AlgeriaProps) => React.JSX.Element | null;
 
-export { Algeria as default };
+export { type AlgeriaProps, type BorderStyle, type CityColorMap, Algeria as default };

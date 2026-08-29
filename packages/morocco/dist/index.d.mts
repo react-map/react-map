@@ -25,4 +25,4 @@ interface MoroccoProps {
 }
 declare const Morocco: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MoroccoProps) => React.JSX.Element | null;
 
-export { Morocco as default };
+export { type BorderStyle, type CityColorMap, type MoroccoProps, Morocco as default };

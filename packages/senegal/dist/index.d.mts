@@ -25,4 +25,4 @@ interface SenegalProps {
 }
 declare const Senegal: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SenegalProps) => React.JSX.Element | null;
 
-export { Senegal as default };
+export { type BorderStyle, type CityColorMap, type SenegalProps, Senegal as default };

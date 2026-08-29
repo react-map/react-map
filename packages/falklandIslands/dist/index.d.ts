@@ -25,4 +25,4 @@ interface FalklandislandsProps {
 }
 declare const Falklandislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: FalklandislandsProps) => React.JSX.Element | null;
 
-export { Falklandislands as default };
+export { type BorderStyle, type CityColorMap, type FalklandislandsProps, Falklandislands as default };

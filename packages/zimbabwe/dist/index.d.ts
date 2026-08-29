@@ -25,4 +25,4 @@ interface ZimbabweProps {
 }
 declare const Zimbabwe: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ZimbabweProps) => React.JSX.Element | null;
 
-export { Zimbabwe as default };
+export { type BorderStyle, type CityColorMap, type ZimbabweProps, Zimbabwe as default };

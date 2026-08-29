@@ -25,4 +25,4 @@ interface StluciaProps {
 }
 declare const Stlucia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: StluciaProps) => React.JSX.Element | null;
 
-export { Stlucia as default };
+export { type BorderStyle, type CityColorMap, type StluciaProps, Stlucia as default };

@@ -1,4 +1,4 @@
+import Turkey from './Turkey';
 
-        import Turkey from './Turkey';
-        export default Turkey;
-    
+export type { TurkeyProps, CityColorMap, BorderStyle } from './Turkey';
+export default Turkey;

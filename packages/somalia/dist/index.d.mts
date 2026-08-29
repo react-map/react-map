@@ -25,4 +25,4 @@ interface SomaliaProps {
 }
 declare const Somalia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SomaliaProps) => React.JSX.Element | null;
 
-export { Somalia as default };
+export { type BorderStyle, type CityColorMap, type SomaliaProps, Somalia as default };

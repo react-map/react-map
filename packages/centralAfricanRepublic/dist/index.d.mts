@@ -25,4 +25,4 @@ interface CentralafricanrepublicProps {
 }
 declare const Centralafricanrepublic: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CentralafricanrepublicProps) => React.JSX.Element | null;
 
-export { Centralafricanrepublic as default };
+export { type BorderStyle, type CentralafricanrepublicProps, type CityColorMap, Centralafricanrepublic as default };

@@ -2,11 +2,17 @@ from pathlib import Path
 
 COUNTRY_PLACEHOLDER = '__COUNTRY__'
 
+INDEX_SOURCE = '''import __COUNTRY__ from './__COUNTRY__';
+
+export type { __COUNTRY__Props, CityColorMap, BorderStyle } from './__COUNTRY__';
+export default __COUNTRY__;
+'''
+
 COMPONENT_SOURCE = '''import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { drawPath, stateCode, constants } from './constants';
 import useMousePosition from './hooks/mouseTrack';
 
-interface CityColorMap {
+export interface CityColorMap {
   [key: string]: string;
 }
 
@@ -26,7 +32,7 @@ const hintStyleBase = {
   zIndex: 1000,
 };
 
-type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'dash-dot' | 'dash-double-dot';
+export type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'dash-dot' | 'dash-double-dot';
 
 /** Hoisted so a given border style always yields the same object reference. */
 const strokeProperties: Record<BorderStyle, { strokeDasharray: string }> = {
@@ -615,6 +621,8 @@ def update_country(packages_folder, country_name):
     country_name_capitalized = country_name.capitalize()
     country_file_path = src_dir_path / f'{country_name_capitalized}.tsx'
     country_file_path.write_text(COMPONENT_SOURCE.replace(COUNTRY_PLACEHOLDER, country_name_capitalized))
+    index_file_path = src_dir_path / 'index.ts'
+    index_file_path.write_text(INDEX_SOURCE.replace(COUNTRY_PLACEHOLDER, country_name_capitalized))
     print(f'Updated {country_name_capitalized} file')
 
 

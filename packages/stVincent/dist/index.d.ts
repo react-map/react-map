@@ -25,4 +25,4 @@ interface StvincentProps {
 }
 declare const Stvincent: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: StvincentProps) => React.JSX.Element | null;
 
-export { Stvincent as default };
+export { type BorderStyle, type CityColorMap, type StvincentProps, Stvincent as default };

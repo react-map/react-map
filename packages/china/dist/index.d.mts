@@ -25,4 +25,4 @@ interface ChinaProps {
 }
 declare const China: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ChinaProps) => React.JSX.Element | null;
 
-export { China as default };
+export { type BorderStyle, type ChinaProps, type CityColorMap, China as default };

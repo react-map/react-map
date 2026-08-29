@@ -25,4 +25,4 @@ interface CubaProps {
 }
 declare const Cuba: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CubaProps) => React.JSX.Element | null;
 
-export { Cuba as default };
+export { type BorderStyle, type CityColorMap, type CubaProps, Cuba as default };

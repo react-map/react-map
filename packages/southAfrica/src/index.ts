@@ -1,4 +1,4 @@
+import Southafrica from './Southafrica';
 
-        import Southafrica from './Southafrica';
-        export default Southafrica;
-    
+export type { SouthafricaProps, CityColorMap, BorderStyle } from './Southafrica';
+export default Southafrica;

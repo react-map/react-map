@@ -25,4 +25,4 @@ interface BurkinafasoProps {
 }
 declare const Burkinafaso: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BurkinafasoProps) => React.JSX.Element | null;
 
-export { Burkinafaso as default };
+export { type BorderStyle, type BurkinafasoProps, type CityColorMap, Burkinafaso as default };

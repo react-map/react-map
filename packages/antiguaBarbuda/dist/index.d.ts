@@ -25,4 +25,4 @@ interface AntiguabarbudaProps {
 }
 declare const Antiguabarbuda: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AntiguabarbudaProps) => React.JSX.Element | null;
 
-export { Antiguabarbuda as default };
+export { type AntiguabarbudaProps, type BorderStyle, type CityColorMap, Antiguabarbuda as default };

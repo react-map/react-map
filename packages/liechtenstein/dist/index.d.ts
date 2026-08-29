@@ -25,4 +25,4 @@ interface LiechtensteinProps {
 }
 declare const Liechtenstein: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LiechtensteinProps) => React.JSX.Element | null;
 
-export { Liechtenstein as default };
+export { type BorderStyle, type CityColorMap, type LiechtensteinProps, Liechtenstein as default };

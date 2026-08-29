@@ -1,4 +1,4 @@
+import Stlucia from './Stlucia';
 
-        import Stlucia from './Stlucia';
-        export default Stlucia;
-    
+export type { StluciaProps, CityColorMap, BorderStyle } from './Stlucia';
+export default Stlucia;

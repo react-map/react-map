@@ -25,4 +25,4 @@ interface SingaporeProps {
 }
 declare const Singapore: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SingaporeProps) => React.JSX.Element | null;
 
-export { Singapore as default };
+export { type BorderStyle, type CityColorMap, type SingaporeProps, Singapore as default };

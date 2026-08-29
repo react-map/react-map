@@ -25,4 +25,4 @@ interface ContinentsProps {
 }
 declare const Continents: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ContinentsProps) => React.JSX.Element | null;
 
-export { Continents as default };
+export { type BorderStyle, type CityColorMap, type ContinentsProps, Continents as default };

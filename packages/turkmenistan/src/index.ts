@@ -1,4 +1,4 @@
+import Turkmenistan from './Turkmenistan';
 
-        import Turkmenistan from './Turkmenistan';
-        export default Turkmenistan;
-    
+export type { TurkmenistanProps, CityColorMap, BorderStyle } from './Turkmenistan';
+export default Turkmenistan;

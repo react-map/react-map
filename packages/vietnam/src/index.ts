@@ -1,4 +1,4 @@
+import Vietnam from './Vietnam';
 
-        import Vietnam from './Vietnam';
-        export default Vietnam;
-    
+export type { VietnamProps, CityColorMap, BorderStyle } from './Vietnam';
+export default Vietnam;

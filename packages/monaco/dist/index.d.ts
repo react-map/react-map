@@ -25,4 +25,4 @@ interface MonacoProps {
 }
 declare const Monaco: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MonacoProps) => React.JSX.Element | null;
 
-export { Monaco as default };
+export { type BorderStyle, type CityColorMap, type MonacoProps, Monaco as default };

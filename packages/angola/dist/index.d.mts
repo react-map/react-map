@@ -25,4 +25,4 @@ interface AngolaProps {
 }
 declare const Angola: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AngolaProps) => React.JSX.Element | null;
 
-export { Angola as default };
+export { type AngolaProps, type BorderStyle, type CityColorMap, Angola as default };

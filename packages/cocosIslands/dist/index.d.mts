@@ -25,4 +25,4 @@ interface CocosislandsProps {
 }
 declare const Cocosislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CocosislandsProps) => React.JSX.Element | null;
 
-export { Cocosislands as default };
+export { type BorderStyle, type CityColorMap, type CocosislandsProps, Cocosislands as default };

@@ -25,4 +25,4 @@ interface MozambiqueProps {
 }
 declare const Mozambique: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MozambiqueProps) => React.JSX.Element | null;
 
-export { Mozambique as default };
+export { type BorderStyle, type CityColorMap, type MozambiqueProps, Mozambique as default };

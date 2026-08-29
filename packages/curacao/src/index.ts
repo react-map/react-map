@@ -1,4 +1,4 @@
+import Curacao from './Curacao';
 
-        import Curacao from './Curacao';
-        export default Curacao;
-    
+export type { CuracaoProps, CityColorMap, BorderStyle } from './Curacao';
+export default Curacao;

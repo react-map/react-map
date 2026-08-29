@@ -1,4 +1,4 @@
+import Thailand from './Thailand';
 
-        import Thailand from './Thailand';
-        export default Thailand;
-    
+export type { ThailandProps, CityColorMap, BorderStyle } from './Thailand';
+export default Thailand;

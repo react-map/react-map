@@ -25,4 +25,4 @@ interface TaiwanProps {
 }
 declare const Taiwan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TaiwanProps) => React.JSX.Element | null;
 
-export { Taiwan as default };
+export { type BorderStyle, type CityColorMap, type TaiwanProps, Taiwan as default };

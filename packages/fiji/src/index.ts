@@ -1,4 +1,4 @@
+import Fiji from './Fiji';
 
-        import Fiji from './Fiji';
-        export default Fiji;
-    
+export type { FijiProps, CityColorMap, BorderStyle } from './Fiji';
+export default Fiji;

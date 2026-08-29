@@ -25,4 +25,4 @@ interface GreeceProps {
 }
 declare const Greece: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GreeceProps) => React.JSX.Element | null;
 
-export { Greece as default };
+export { type BorderStyle, type CityColorMap, type GreeceProps, Greece as default };

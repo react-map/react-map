@@ -25,4 +25,4 @@ interface LiberiaProps {
 }
 declare const Liberia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LiberiaProps) => React.JSX.Element | null;
 
-export { Liberia as default };
+export { type BorderStyle, type CityColorMap, type LiberiaProps, Liberia as default };

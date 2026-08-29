@@ -25,4 +25,4 @@ interface MyanmarProps {
 }
 declare const Myanmar: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MyanmarProps) => React.JSX.Element | null;
 
-export { Myanmar as default };
+export { type BorderStyle, type CityColorMap, type MyanmarProps, Myanmar as default };

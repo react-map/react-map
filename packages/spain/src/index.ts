@@ -1,4 +1,4 @@
+import Spain from './Spain';
 
-        import Spain from './Spain';
-        export default Spain;
-    
+export type { SpainProps, CityColorMap, BorderStyle } from './Spain';
+export default Spain;

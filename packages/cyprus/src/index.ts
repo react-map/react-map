@@ -1,4 +1,4 @@
+import Cyprus from './Cyprus';
 
-        import Cyprus from './Cyprus';
-        export default Cyprus;
-    
+export type { CyprusProps, CityColorMap, BorderStyle } from './Cyprus';
+export default Cyprus;

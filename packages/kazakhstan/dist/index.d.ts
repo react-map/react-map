@@ -25,4 +25,4 @@ interface KazakhstanProps {
 }
 declare const Kazakhstan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: KazakhstanProps) => React.JSX.Element | null;
 
-export { Kazakhstan as default };
+export { type BorderStyle, type CityColorMap, type KazakhstanProps, Kazakhstan as default };

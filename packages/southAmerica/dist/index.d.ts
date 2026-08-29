@@ -25,4 +25,4 @@ interface SouthamericaProps {
 }
 declare const Southamerica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SouthamericaProps) => React.JSX.Element | null;
 
-export { Southamerica as default };
+export { type BorderStyle, type CityColorMap, type SouthamericaProps, Southamerica as default };

@@ -1,4 +1,4 @@
+import Cambodia from './Cambodia';
 
-        import Cambodia from './Cambodia';
-        export default Cambodia;
-    
+export type { CambodiaProps, CityColorMap, BorderStyle } from './Cambodia';
+export default Cambodia;

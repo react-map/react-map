@@ -25,4 +25,4 @@ interface BahamasProps {
 }
 declare const Bahamas: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BahamasProps) => React.JSX.Element | null;
 
-export { Bahamas as default };
+export { type BahamasProps, type BorderStyle, type CityColorMap, Bahamas as default };

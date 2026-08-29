@@ -1,2 +1,4 @@
-import Monaco from "./Monaco";
+import Monaco from './Monaco';
+
+export type { MonacoProps, CityColorMap, BorderStyle } from './Monaco';
 export default Monaco;

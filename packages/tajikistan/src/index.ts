@@ -1,4 +1,4 @@
+import Tajikistan from './Tajikistan';
 
-        import Tajikistan from './Tajikistan';
-        export default Tajikistan;
-    
+export type { TajikistanProps, CityColorMap, BorderStyle } from './Tajikistan';
+export default Tajikistan;

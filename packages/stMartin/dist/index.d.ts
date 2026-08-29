@@ -25,4 +25,4 @@ interface StmartinProps {
 }
 declare const Stmartin: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: StmartinProps) => React.JSX.Element | null;
 
-export { Stmartin as default };
+export { type BorderStyle, type CityColorMap, type StmartinProps, Stmartin as default };

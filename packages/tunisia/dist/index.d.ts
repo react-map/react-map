@@ -25,4 +25,4 @@ interface TunisiaProps {
 }
 declare const Tunisia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TunisiaProps) => React.JSX.Element | null;
 
-export { Tunisia as default };
+export { type BorderStyle, type CityColorMap, type TunisiaProps, Tunisia as default };

@@ -25,4 +25,4 @@ interface LaosProps {
 }
 declare const Laos: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LaosProps) => React.JSX.Element | null;
 
-export { Laos as default };
+export { type BorderStyle, type CityColorMap, type LaosProps, Laos as default };

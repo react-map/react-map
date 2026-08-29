@@ -25,4 +25,4 @@ interface BhutanProps {
 }
 declare const Bhutan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BhutanProps) => React.JSX.Element | null;
 
-export { Bhutan as default };
+export { type BhutanProps, type BorderStyle, type CityColorMap, Bhutan as default };

@@ -1,4 +1,4 @@
+import Samoa from './Samoa';
 
-        import Samoa from './Samoa';
-        export default Samoa;
-    
+export type { SamoaProps, CityColorMap, BorderStyle } from './Samoa';
+export default Samoa;

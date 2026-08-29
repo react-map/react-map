@@ -1,4 +1,4 @@
+import Tunisia from './Tunisia';
 
-        import Tunisia from './Tunisia';
-        export default Tunisia;
-    
+export type { TunisiaProps, CityColorMap, BorderStyle } from './Tunisia';
+export default Tunisia;

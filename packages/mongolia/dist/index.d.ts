@@ -25,4 +25,4 @@ interface MongoliaProps {
 }
 declare const Mongolia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MongoliaProps) => React.JSX.Element | null;
 
-export { Mongolia as default };
+export { type BorderStyle, type CityColorMap, type MongoliaProps, Mongolia as default };

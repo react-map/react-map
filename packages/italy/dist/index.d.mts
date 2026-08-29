@@ -25,4 +25,4 @@ interface ItalyProps {
 }
 declare const Italy: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ItalyProps) => React.JSX.Element | null;
 
-export { Italy as default };
+export { type BorderStyle, type CityColorMap, type ItalyProps, Italy as default };

@@ -1,4 +1,4 @@
+import Romania from './Romania';
 
-        import Romania from './Romania';
-        export default Romania;
-    
+export type { RomaniaProps, CityColorMap, BorderStyle } from './Romania';
+export default Romania;

@@ -25,4 +25,4 @@ interface OceaniaProps {
 }
 declare const Oceania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: OceaniaProps) => React.JSX.Element | null;
 
-export { Oceania as default };
+export { type BorderStyle, type CityColorMap, type OceaniaProps, Oceania as default };

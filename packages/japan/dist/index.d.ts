@@ -25,4 +25,4 @@ interface JapanProps {
 }
 declare const Japan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: JapanProps) => React.JSX.Element | null;
 
-export { Japan as default };
+export { type BorderStyle, type CityColorMap, type JapanProps, Japan as default };

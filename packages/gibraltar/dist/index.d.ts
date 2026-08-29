@@ -25,4 +25,4 @@ interface GibraltarProps {
 }
 declare const Gibraltar: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GibraltarProps) => React.JSX.Element | null;
 
-export { Gibraltar as default };
+export { type BorderStyle, type CityColorMap, type GibraltarProps, Gibraltar as default };

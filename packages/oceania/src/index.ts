@@ -1,4 +1,4 @@
+import Oceania from './Oceania';
 
-        import Oceania from './Oceania';
-        export default Oceania;
-    
+export type { OceaniaProps, CityColorMap, BorderStyle } from './Oceania';
+export default Oceania;

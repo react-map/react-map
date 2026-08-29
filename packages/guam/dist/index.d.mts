@@ -25,4 +25,4 @@ interface GuamProps {
 }
 declare const Guam: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GuamProps) => React.JSX.Element | null;
 
-export { Guam as default };
+export { type BorderStyle, type CityColorMap, type GuamProps, Guam as default };

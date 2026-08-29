@@ -1,4 +1,4 @@
+import Serbia from './Serbia';
 
-        import Serbia from './Serbia';
-        export default Serbia;
-    
+export type { SerbiaProps, CityColorMap, BorderStyle } from './Serbia';
+export default Serbia;

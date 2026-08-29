@@ -25,4 +25,4 @@ interface SrilankaProps {
 }
 declare const Srilanka: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SrilankaProps) => React.JSX.Element | null;
 
-export { Srilanka as default };
+export { type BorderStyle, type CityColorMap, type SrilankaProps, Srilanka as default };

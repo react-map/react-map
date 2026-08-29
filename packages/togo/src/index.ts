@@ -1,4 +1,4 @@
+import Togo from './Togo';
 
-        import Togo from './Togo';
-        export default Togo;
-    
+export type { TogoProps, CityColorMap, BorderStyle } from './Togo';
+export default Togo;

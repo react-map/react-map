@@ -25,4 +25,4 @@ interface PuertoricoProps {
 }
 declare const Puertorico: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: PuertoricoProps) => React.JSX.Element | null;
 
-export { Puertorico as default };
+export { type BorderStyle, type CityColorMap, type PuertoricoProps, Puertorico as default };

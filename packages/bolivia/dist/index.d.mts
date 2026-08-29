@@ -25,4 +25,4 @@ interface BoliviaProps {
 }
 declare const Bolivia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BoliviaProps) => React.JSX.Element | null;
 
-export { Bolivia as default };
+export { type BoliviaProps, type BorderStyle, type CityColorMap, Bolivia as default };

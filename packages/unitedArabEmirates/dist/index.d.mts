@@ -25,4 +25,4 @@ interface UnitedarabemiratesProps {
 }
 declare const Unitedarabemirates: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UnitedarabemiratesProps) => React.JSX.Element | null;
 
-export { Unitedarabemirates as default };
+export { type BorderStyle, type CityColorMap, type UnitedarabemiratesProps, Unitedarabemirates as default };

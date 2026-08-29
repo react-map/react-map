@@ -25,4 +25,4 @@ interface AfganistanProps {
 }
 declare const Afganistan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AfganistanProps) => React.JSX.Element | null;
 
-export { Afganistan as default };
+export { type AfganistanProps, type BorderStyle, type CityColorMap, Afganistan as default };

@@ -25,4 +25,4 @@ interface KiribatiProps {
 }
 declare const Kiribati: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: KiribatiProps) => React.JSX.Element | null;
 
-export { Kiribati as default };
+export { type BorderStyle, type CityColorMap, type KiribatiProps, Kiribati as default };

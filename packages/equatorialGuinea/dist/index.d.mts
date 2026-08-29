@@ -25,4 +25,4 @@ interface EquatorialguineaProps {
 }
 declare const Equatorialguinea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EquatorialguineaProps) => React.JSX.Element | null;
 
-export { Equatorialguinea as default };
+export { type BorderStyle, type CityColorMap, type EquatorialguineaProps, Equatorialguinea as default };

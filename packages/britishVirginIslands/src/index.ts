@@ -1,4 +1,4 @@
+import Britishvirginislands from './Britishvirginislands';
 
-        import Britishvirginislands from './Britishvirginislands';
-        export default Britishvirginislands;
-    
+export type { BritishvirginislandsProps, CityColorMap, BorderStyle } from './Britishvirginislands';
+export default Britishvirginislands;

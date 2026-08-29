@@ -25,4 +25,4 @@ interface UsvirginislandsProps {
 }
 declare const Usvirginislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UsvirginislandsProps) => React.JSX.Element | null;
 
-export { Usvirginislands as default };
+export { type BorderStyle, type CityColorMap, type UsvirginislandsProps, Usvirginislands as default };

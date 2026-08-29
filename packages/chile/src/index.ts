@@ -1,4 +1,4 @@
+import Chile from './Chile';
 
-        import Chile from './Chile';
-        export default Chile;
-    
+export type { ChileProps, CityColorMap, BorderStyle } from './Chile';
+export default Chile;

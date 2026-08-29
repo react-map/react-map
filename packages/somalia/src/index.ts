@@ -1,4 +1,4 @@
+import Somalia from './Somalia';
 
-        import Somalia from './Somalia';
-        export default Somalia;
-    
+export type { SomaliaProps, CityColorMap, BorderStyle } from './Somalia';
+export default Somalia;

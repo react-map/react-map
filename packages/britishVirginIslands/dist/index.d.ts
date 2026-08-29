@@ -25,4 +25,4 @@ interface BritishvirginislandsProps {
 }
 declare const Britishvirginislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BritishvirginislandsProps) => React.JSX.Element | null;
 
-export { Britishvirginislands as default };
+export { type BorderStyle, type BritishvirginislandsProps, type CityColorMap, Britishvirginislands as default };

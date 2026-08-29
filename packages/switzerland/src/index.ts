@@ -1,4 +1,4 @@
+import Switzerland from './Switzerland';
 
-        import Switzerland from './Switzerland';
-        export default Switzerland;
-    
+export type { SwitzerlandProps, CityColorMap, BorderStyle } from './Switzerland';
+export default Switzerland;

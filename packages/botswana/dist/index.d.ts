@@ -25,4 +25,4 @@ interface BotswanaProps {
 }
 declare const Botswana: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BotswanaProps) => React.JSX.Element | null;
 
-export { Botswana as default };
+export { type BorderStyle, type BotswanaProps, type CityColorMap, Botswana as default };

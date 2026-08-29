@@ -1,4 +1,4 @@
+import Burundi from './Burundi';
 
-        import Burundi from './Burundi';
-        export default Burundi;
-    
+export type { BurundiProps, CityColorMap, BorderStyle } from './Burundi';
+export default Burundi;

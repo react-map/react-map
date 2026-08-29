@@ -25,4 +25,4 @@ interface ChristmasislandProps {
 }
 declare const Christmasisland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ChristmasislandProps) => React.JSX.Element | null;
 
-export { Christmasisland as default };
+export { type BorderStyle, type ChristmasislandProps, type CityColorMap, Christmasisland as default };

@@ -1,4 +1,4 @@
+import Yemen from './Yemen';
 
-        import Yemen from './Yemen';
-        export default Yemen;
-    
+export type { YemenProps, CityColorMap, BorderStyle } from './Yemen';
+export default Yemen;

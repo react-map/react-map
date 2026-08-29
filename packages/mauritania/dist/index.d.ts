@@ -25,4 +25,4 @@ interface MauritaniaProps {
 }
 declare const Mauritania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MauritaniaProps) => React.JSX.Element | null;
 
-export { Mauritania as default };
+export { type BorderStyle, type CityColorMap, type MauritaniaProps, Mauritania as default };

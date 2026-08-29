@@ -25,4 +25,4 @@ interface EstoniaProps {
 }
 declare const Estonia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EstoniaProps) => React.JSX.Element | null;
 
-export { Estonia as default };
+export { type BorderStyle, type CityColorMap, type EstoniaProps, Estonia as default };

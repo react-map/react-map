@@ -25,4 +25,4 @@ interface SeychellesProps {
 }
 declare const Seychelles: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SeychellesProps) => React.JSX.Element | null;
 
-export { Seychelles as default };
+export { type BorderStyle, type CityColorMap, type SeychellesProps, Seychelles as default };

@@ -1,4 +1,4 @@
+import Brunei from './Brunei';
 
-        import Brunei from './Brunei';
-        export default Brunei;
-    
+export type { BruneiProps, CityColorMap, BorderStyle } from './Brunei';
+export default Brunei;

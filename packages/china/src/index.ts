@@ -1,4 +1,4 @@
+import China from './China';
 
-        import China from './China';
-        export default China;
-    
+export type { ChinaProps, CityColorMap, BorderStyle } from './China';
+export default China;

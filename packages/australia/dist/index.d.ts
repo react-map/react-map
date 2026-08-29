@@ -25,4 +25,4 @@ interface AustraliaProps {
 }
 declare const Australia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AustraliaProps) => React.JSX.Element | null;
 
-export { Australia as default };
+export { type AustraliaProps, type BorderStyle, type CityColorMap, Australia as default };

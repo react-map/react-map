@@ -25,4 +25,4 @@ interface MexicoProps {
 }
 declare const Mexico: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MexicoProps) => React.JSX.Element | null;
 
-export { Mexico as default };
+export { type BorderStyle, type CityColorMap, type MexicoProps, Mexico as default };

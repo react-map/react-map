@@ -25,4 +25,4 @@ interface BeninProps {
 }
 declare const Benin: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BeninProps) => React.JSX.Element | null;
 
-export { Benin as default };
+export { type BeninProps, type BorderStyle, type CityColorMap, Benin as default };

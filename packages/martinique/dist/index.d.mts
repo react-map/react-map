@@ -25,4 +25,4 @@ interface MartiniqueProps {
 }
 declare const Martinique: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MartiniqueProps) => React.JSX.Element | null;
 
-export { Martinique as default };
+export { type BorderStyle, type CityColorMap, type MartiniqueProps, Martinique as default };

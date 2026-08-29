@@ -25,4 +25,4 @@ interface TuvaluProps {
 }
 declare const Tuvalu: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TuvaluProps) => React.JSX.Element | null;
 
-export { Tuvalu as default };
+export { type BorderStyle, type CityColorMap, type TuvaluProps, Tuvalu as default };

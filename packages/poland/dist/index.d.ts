@@ -25,4 +25,4 @@ interface PolandProps {
 }
 declare const Poland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: PolandProps) => React.JSX.Element | null;
 
-export { Poland as default };
+export { type BorderStyle, type CityColorMap, type PolandProps, Poland as default };

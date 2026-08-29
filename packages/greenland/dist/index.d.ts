@@ -25,4 +25,4 @@ interface GreenlandProps {
 }
 declare const Greenland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GreenlandProps) => React.JSX.Element | null;
 
-export { Greenland as default };
+export { type BorderStyle, type CityColorMap, type GreenlandProps, Greenland as default };

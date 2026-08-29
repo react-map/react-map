@@ -25,4 +25,4 @@ interface NicaraguaProps {
 }
 declare const Nicaragua: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NicaraguaProps) => React.JSX.Element | null;
 
-export { Nicaragua as default };
+export { type BorderStyle, type CityColorMap, type NicaraguaProps, Nicaragua as default };

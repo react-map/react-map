@@ -25,4 +25,4 @@ interface QatarProps {
 }
 declare const Qatar: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: QatarProps) => React.JSX.Element | null;
 
-export { Qatar as default };
+export { type BorderStyle, type CityColorMap, type QatarProps, Qatar as default };

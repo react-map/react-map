@@ -25,4 +25,4 @@ interface AlbaniaProps {
 }
 declare const Albania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AlbaniaProps) => React.JSX.Element | null;
 
-export { Albania as default };
+export { type AlbaniaProps, type BorderStyle, type CityColorMap, Albania as default };

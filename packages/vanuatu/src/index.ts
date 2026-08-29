@@ -1,4 +1,4 @@
+import Vanuatu from './Vanuatu';
 
-        import Vanuatu from './Vanuatu';
-        export default Vanuatu;
-    
+export type { VanuatuProps, CityColorMap, BorderStyle } from './Vanuatu';
+export default Vanuatu;

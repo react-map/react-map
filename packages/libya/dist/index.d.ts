@@ -25,4 +25,4 @@ interface LibyaProps {
 }
 declare const Libya: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LibyaProps) => React.JSX.Element | null;
 
-export { Libya as default };
+export { type BorderStyle, type CityColorMap, type LibyaProps, Libya as default };

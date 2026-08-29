@@ -25,4 +25,4 @@ interface IndonesiaProps {
 }
 declare const Indonesia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: IndonesiaProps) => React.JSX.Element | null;
 
-export { Indonesia as default };
+export { type BorderStyle, type CityColorMap, type IndonesiaProps, Indonesia as default };

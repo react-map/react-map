@@ -1,4 +1,4 @@
+import Portugal from './Portugal';
 
-        import Portugal from './Portugal';
-        export default Portugal;
-    
+export type { PortugalProps, CityColorMap, BorderStyle } from './Portugal';
+export default Portugal;

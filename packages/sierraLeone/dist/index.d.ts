@@ -25,4 +25,4 @@ interface SierraleoneProps {
 }
 declare const Sierraleone: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SierraleoneProps) => React.JSX.Element | null;
 
-export { Sierraleone as default };
+export { type BorderStyle, type CityColorMap, type SierraleoneProps, Sierraleone as default };

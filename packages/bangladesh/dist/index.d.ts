@@ -25,4 +25,4 @@ interface BangladeshProps {
 }
 declare const Bangladesh: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BangladeshProps) => React.JSX.Element | null;
 
-export { Bangladesh as default };
+export { type BangladeshProps, type BorderStyle, type CityColorMap, Bangladesh as default };

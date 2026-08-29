@@ -25,4 +25,4 @@ interface NepalProps {
 }
 declare const Nepal: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NepalProps) => React.JSX.Element | null;
 
-export { Nepal as default };
+export { type BorderStyle, type CityColorMap, type NepalProps, Nepal as default };

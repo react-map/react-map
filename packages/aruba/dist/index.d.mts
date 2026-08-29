@@ -25,4 +25,4 @@ interface ArubaProps {
 }
 declare const Aruba: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ArubaProps) => React.JSX.Element | null;
 
-export { Aruba as default };
+export { type ArubaProps, type BorderStyle, type CityColorMap, Aruba as default };

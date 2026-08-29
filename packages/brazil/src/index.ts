@@ -1,4 +1,4 @@
+import Brazil from './Brazil';
 
-        import Brazil from './Brazil';
-        export default Brazil;
-    
+export type { BrazilProps, CityColorMap, BorderStyle } from './Brazil';
+export default Brazil;

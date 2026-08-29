@@ -25,4 +25,4 @@ interface MaliProps {
 }
 declare const Mali: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MaliProps) => React.JSX.Element | null;
 
-export { Mali as default };
+export { type BorderStyle, type CityColorMap, type MaliProps, Mali as default };

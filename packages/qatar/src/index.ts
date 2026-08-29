@@ -1,4 +1,4 @@
+import Qatar from './Qatar';
 
-        import Qatar from './Qatar';
-        export default Qatar;
-    
+export type { QatarProps, CityColorMap, BorderStyle } from './Qatar';
+export default Qatar;

@@ -25,4 +25,4 @@ interface MacaoProps {
 }
 declare const Macao: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MacaoProps) => React.JSX.Element | null;
 
-export { Macao as default };
+export { type BorderStyle, type CityColorMap, type MacaoProps, Macao as default };

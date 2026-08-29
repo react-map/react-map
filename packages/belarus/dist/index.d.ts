@@ -25,4 +25,4 @@ interface BelarusProps {
 }
 declare const Belarus: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BelarusProps) => React.JSX.Element | null;
 
-export { Belarus as default };
+export { type BelarusProps, type BorderStyle, type CityColorMap, Belarus as default };

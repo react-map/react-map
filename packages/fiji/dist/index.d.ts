@@ -25,4 +25,4 @@ interface FijiProps {
 }
 declare const Fiji: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: FijiProps) => React.JSX.Element | null;
 
-export { Fiji as default };
+export { type BorderStyle, type CityColorMap, type FijiProps, Fiji as default };

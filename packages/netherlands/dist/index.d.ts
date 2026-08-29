@@ -25,4 +25,4 @@ interface NetherlandsProps {
 }
 declare const Netherlands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NetherlandsProps) => React.JSX.Element | null;
 
-export { Netherlands as default };
+export { type BorderStyle, type CityColorMap, type NetherlandsProps, Netherlands as default };

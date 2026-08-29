@@ -1,4 +1,4 @@
+import Uganda from './Uganda';
 
-        import Uganda from './Uganda';
-        export default Uganda;
-    
+export type { UgandaProps, CityColorMap, BorderStyle } from './Uganda';
+export default Uganda;

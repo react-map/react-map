@@ -25,4 +25,4 @@ interface MadagascarProps {
 }
 declare const Madagascar: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MadagascarProps) => React.JSX.Element | null;
 
-export { Madagascar as default };
+export { type BorderStyle, type CityColorMap, type MadagascarProps, Madagascar as default };

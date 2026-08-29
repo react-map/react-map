@@ -25,4 +25,4 @@ interface ElsalvadorProps {
 }
 declare const Elsalvador: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ElsalvadorProps) => React.JSX.Element | null;
 
-export { Elsalvador as default };
+export { type BorderStyle, type CityColorMap, type ElsalvadorProps, Elsalvador as default };

@@ -1,4 +1,4 @@
+import Congodr from './Congodr';
 
-        import Congodr from './Congodr';
-        export default Congodr;
-    
+export type { CongodrProps, CityColorMap, BorderStyle } from './Congodr';
+export default Congodr;

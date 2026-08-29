@@ -25,4 +25,4 @@ interface SamoaProps {
 }
 declare const Samoa: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SamoaProps) => React.JSX.Element | null;
 
-export { Samoa as default };
+export { type BorderStyle, type CityColorMap, type SamoaProps, Samoa as default };

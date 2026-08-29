@@ -1,4 +1,4 @@
+import Suriname from './Suriname';
 
-        import Suriname from './Suriname';
-        export default Suriname;
-    
+export type { SurinameProps, CityColorMap, BorderStyle } from './Suriname';
+export default Suriname;

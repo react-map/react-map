@@ -1,4 +1,4 @@
+import Tuvalu from './Tuvalu';
 
-        import Tuvalu from './Tuvalu';
-        export default Tuvalu;
-    
+export type { TuvaluProps, CityColorMap, BorderStyle } from './Tuvalu';
+export default Tuvalu;

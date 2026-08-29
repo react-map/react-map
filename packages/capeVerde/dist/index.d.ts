@@ -25,4 +25,4 @@ interface CapeverdeProps {
 }
 declare const Capeverde: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CapeverdeProps) => React.JSX.Element | null;
 
-export { Capeverde as default };
+export { type BorderStyle, type CapeverdeProps, type CityColorMap, Capeverde as default };

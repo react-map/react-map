@@ -1,4 +1,4 @@
+import Tanzania from './Tanzania';
 
-        import Tanzania from './Tanzania';
-        export default Tanzania;
-    
+export type { TanzaniaProps, CityColorMap, BorderStyle } from './Tanzania';
+export default Tanzania;

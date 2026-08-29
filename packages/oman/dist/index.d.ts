@@ -25,4 +25,4 @@ interface OmanProps {
 }
 declare const Oman: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: OmanProps) => React.JSX.Element | null;
 
-export { Oman as default };
+export { type BorderStyle, type CityColorMap, type OmanProps, Oman as default };

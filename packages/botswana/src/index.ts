@@ -1,4 +1,4 @@
+import Botswana from './Botswana';
 
-        import Botswana from './Botswana';
-        export default Botswana;
-    
+export type { BotswanaProps, CityColorMap, BorderStyle } from './Botswana';
+export default Botswana;

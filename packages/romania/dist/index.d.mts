@@ -25,4 +25,4 @@ interface RomaniaProps {
 }
 declare const Romania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: RomaniaProps) => React.JSX.Element | null;
 
-export { Romania as default };
+export { type BorderStyle, type CityColorMap, type RomaniaProps, Romania as default };

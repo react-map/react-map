@@ -25,4 +25,4 @@ interface FaroeislandsProps {
 }
 declare const Faroeislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: FaroeislandsProps) => React.JSX.Element | null;
 
-export { Faroeislands as default };
+export { type BorderStyle, type CityColorMap, type FaroeislandsProps, Faroeislands as default };

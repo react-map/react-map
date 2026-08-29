@@ -25,4 +25,4 @@ interface MiddleeastProps {
 }
 declare const Middleeast: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MiddleeastProps) => React.JSX.Element | null;
 
-export { Middleeast as default };
+export { type BorderStyle, type CityColorMap, type MiddleeastProps, Middleeast as default };

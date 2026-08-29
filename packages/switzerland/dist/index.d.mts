@@ -25,4 +25,4 @@ interface SwitzerlandProps {
 }
 declare const Switzerland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SwitzerlandProps) => React.JSX.Element | null;
 
-export { Switzerland as default };
+export { type BorderStyle, type CityColorMap, type SwitzerlandProps, Switzerland as default };

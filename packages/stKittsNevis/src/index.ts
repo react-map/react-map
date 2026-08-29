@@ -1,4 +1,4 @@
+import Stkittsnevis from './Stkittsnevis';
 
-        import Stkittsnevis from './Stkittsnevis';
-        export default Stkittsnevis;
-    
+export type { StkittsnevisProps, CityColorMap, BorderStyle } from './Stkittsnevis';
+export default Stkittsnevis;

@@ -1,4 +1,4 @@
+import Sanmarino from './Sanmarino';
 
-        import Sanmarino from './Sanmarino';
-        export default Sanmarino;
-    
+export type { SanmarinoProps, CityColorMap, BorderStyle } from './Sanmarino';
+export default Sanmarino;

@@ -25,4 +25,4 @@ interface FrenchguianaProps {
 }
 declare const Frenchguiana: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: FrenchguianaProps) => React.JSX.Element | null;
 
-export { Frenchguiana as default };
+export { type BorderStyle, type CityColorMap, type FrenchguianaProps, Frenchguiana as default };

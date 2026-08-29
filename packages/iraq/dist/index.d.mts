@@ -25,4 +25,4 @@ interface IraqProps {
 }
 declare const Iraq: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: IraqProps) => React.JSX.Element | null;
 
-export { Iraq as default };
+export { type BorderStyle, type CityColorMap, type IraqProps, Iraq as default };

@@ -25,4 +25,4 @@ interface NorthamericaProps {
 }
 declare const Northamerica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NorthamericaProps) => React.JSX.Element | null;
 
-export { Northamerica as default };
+export { type BorderStyle, type CityColorMap, type NorthamericaProps, Northamerica as default };

@@ -1,4 +1,4 @@
+import Belgium from './Belgium';
 
-        import Belgium from './Belgium';
-        export default Belgium;
-    
+export type { BelgiumProps, CityColorMap, BorderStyle } from './Belgium';
+export default Belgium;

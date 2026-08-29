@@ -25,4 +25,4 @@ interface TokelauProps {
 }
 declare const Tokelau: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TokelauProps) => React.JSX.Element | null;
 
-export { Tokelau as default };
+export { type BorderStyle, type CityColorMap, type TokelauProps, Tokelau as default };

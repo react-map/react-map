@@ -25,4 +25,4 @@ interface AustriaProps {
 }
 declare const Austria: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AustriaProps) => React.JSX.Element | null;
 
-export { Austria as default };
+export { type AustriaProps, type BorderStyle, type CityColorMap, Austria as default };

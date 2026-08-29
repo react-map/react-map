@@ -25,4 +25,4 @@ interface EcuadorProps {
 }
 declare const Ecuador: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EcuadorProps) => React.JSX.Element | null;
 
-export { Ecuador as default };
+export { type BorderStyle, type CityColorMap, type EcuadorProps, Ecuador as default };

@@ -1,4 +1,4 @@
+import Taiwan from './Taiwan';
 
-        import Taiwan from './Taiwan';
-        export default Taiwan;
-    
+export type { TaiwanProps, CityColorMap, BorderStyle } from './Taiwan';
+export default Taiwan;

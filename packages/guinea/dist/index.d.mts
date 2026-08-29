@@ -25,4 +25,4 @@ interface GuineaProps {
 }
 declare const Guinea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GuineaProps) => React.JSX.Element | null;
 
-export { Guinea as default };
+export { type BorderStyle, type CityColorMap, type GuineaProps, Guinea as default };

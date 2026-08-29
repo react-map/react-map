@@ -1,4 +1,4 @@
+import Burkinafaso from './Burkinafaso';
 
-        import Burkinafaso from './Burkinafaso';
-        export default Burkinafaso;
-    
+export type { BurkinafasoProps, CityColorMap, BorderStyle } from './Burkinafaso';
+export default Burkinafaso;

@@ -1,4 +1,4 @@
+import Barbados from './Barbados';
 
-        import Barbados from './Barbados';
-        export default Barbados;
-    
+export type { BarbadosProps, CityColorMap, BorderStyle } from './Barbados';
+export default Barbados;

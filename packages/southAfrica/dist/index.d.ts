@@ -25,4 +25,4 @@ interface SouthafricaProps {
 }
 declare const Southafrica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SouthafricaProps) => React.JSX.Element | null;
 
-export { Southafrica as default };
+export { type BorderStyle, type CityColorMap, type SouthafricaProps, Southafrica as default };

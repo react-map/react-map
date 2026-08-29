@@ -1,4 +1,4 @@
+import Solomonislands from './Solomonislands';
 
-        import Solomonislands from './Solomonislands';
-        export default Solomonislands;
-    
+export type { SolomonislandsProps, CityColorMap, BorderStyle } from './Solomonislands';
+export default Solomonislands;

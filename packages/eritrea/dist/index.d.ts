@@ -25,4 +25,4 @@ interface EritreaProps {
 }
 declare const Eritrea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EritreaProps) => React.JSX.Element | null;
 
-export { Eritrea as default };
+export { type BorderStyle, type CityColorMap, type EritreaProps, Eritrea as default };

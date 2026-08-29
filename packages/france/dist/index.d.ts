@@ -25,4 +25,4 @@ interface FranceProps {
 }
 declare const France: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: FranceProps) => React.JSX.Element | null;
 
-export { France as default };
+export { type BorderStyle, type CityColorMap, type FranceProps, France as default };

@@ -25,4 +25,4 @@ interface EgyptProps {
 }
 declare const Egypt: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EgyptProps) => React.JSX.Element | null;
 
-export { Egypt as default };
+export { type BorderStyle, type CityColorMap, type EgyptProps, Egypt as default };

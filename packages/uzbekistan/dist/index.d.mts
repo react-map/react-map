@@ -25,4 +25,4 @@ interface UzbekistanProps {
 }
 declare const Uzbekistan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UzbekistanProps) => React.JSX.Element | null;
 
-export { Uzbekistan as default };
+export { type BorderStyle, type CityColorMap, type UzbekistanProps, Uzbekistan as default };

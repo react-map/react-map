@@ -1,4 +1,4 @@
+import Colombia from './Colombia';
 
-        import Colombia from './Colombia';
-        export default Colombia;
-    
+export type { ColombiaProps, CityColorMap, BorderStyle } from './Colombia';
+export default Colombia;

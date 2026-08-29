@@ -1,4 +1,4 @@
+import Venezuela from './Venezuela';
 
-        import Venezuela from './Venezuela';
-        export default Venezuela;
-    
+export type { VenezuelaProps, CityColorMap, BorderStyle } from './Venezuela';
+export default Venezuela;

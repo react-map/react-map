@@ -25,4 +25,4 @@ interface GuyanaProps {
 }
 declare const Guyana: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GuyanaProps) => React.JSX.Element | null;
 
-export { Guyana as default };
+export { type BorderStyle, type CityColorMap, type GuyanaProps, Guyana as default };

@@ -25,4 +25,4 @@ interface SloveniaProps {
 }
 declare const Slovenia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SloveniaProps) => React.JSX.Element | null;
 
-export { Slovenia as default };
+export { type BorderStyle, type CityColorMap, type SloveniaProps, Slovenia as default };

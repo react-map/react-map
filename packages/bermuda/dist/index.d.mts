@@ -25,4 +25,4 @@ interface BermudaProps {
 }
 declare const Bermuda: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BermudaProps) => React.JSX.Element | null;
 
-export { Bermuda as default };
+export { type BermudaProps, type BorderStyle, type CityColorMap, Bermuda as default };

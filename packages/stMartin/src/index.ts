@@ -1,4 +1,4 @@
+import Stmartin from './Stmartin';
 
-        import Stmartin from './Stmartin';
-        export default Stmartin;
-    
+export type { StmartinProps, CityColorMap, BorderStyle } from './Stmartin';
+export default Stmartin;

@@ -25,4 +25,4 @@ interface SolomonislandsProps {
 }
 declare const Solomonislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SolomonislandsProps) => React.JSX.Element | null;
 
-export { Solomonislands as default };
+export { type BorderStyle, type CityColorMap, type SolomonislandsProps, Solomonislands as default };

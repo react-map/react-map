@@ -25,4 +25,4 @@ interface DominicanrepublicProps {
 }
 declare const Dominicanrepublic: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: DominicanrepublicProps) => React.JSX.Element | null;
 
-export { Dominicanrepublic as default };
+export { type BorderStyle, type CityColorMap, type DominicanrepublicProps, Dominicanrepublic as default };

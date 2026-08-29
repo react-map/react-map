@@ -1,4 +1,4 @@
+import Tonga from './Tonga';
 
-        import Tonga from './Tonga';
-        export default Tonga;
-    
+export type { TongaProps, CityColorMap, BorderStyle } from './Tonga';
+export default Tonga;

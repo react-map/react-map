@@ -25,4 +25,4 @@ interface AsiaProps {
 }
 declare const Asia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AsiaProps) => React.JSX.Element | null;
 
-export { Asia as default };
+export { type AsiaProps, type BorderStyle, type CityColorMap, Asia as default };

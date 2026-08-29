@@ -25,4 +25,4 @@ interface NigeriaProps {
 }
 declare const Nigeria: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NigeriaProps) => React.JSX.Element | null;
 
-export { Nigeria as default };
+export { type BorderStyle, type CityColorMap, type NigeriaProps, Nigeria as default };

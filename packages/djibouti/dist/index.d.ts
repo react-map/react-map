@@ -25,4 +25,4 @@ interface DjiboutiProps {
 }
 declare const Djibouti: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: DjiboutiProps) => React.JSX.Element | null;
 
-export { Djibouti as default };
+export { type BorderStyle, type CityColorMap, type DjiboutiProps, Djibouti as default };

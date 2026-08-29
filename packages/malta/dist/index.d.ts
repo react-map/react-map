@@ -25,4 +25,4 @@ interface MaltaProps {
 }
 declare const Malta: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MaltaProps) => React.JSX.Element | null;
 
-export { Malta as default };
+export { type BorderStyle, type CityColorMap, type MaltaProps, Malta as default };

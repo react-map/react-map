@@ -1,2 +1,4 @@
-import Newzealand from "./Newzealand";
+import Newzealand from './Newzealand';
+
+export type { NewzealandProps, CityColorMap, BorderStyle } from './Newzealand';
 export default Newzealand;

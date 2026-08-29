@@ -25,4 +25,4 @@ interface LebanonProps {
 }
 declare const Lebanon: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LebanonProps) => React.JSX.Element | null;
 
-export { Lebanon as default };
+export { type BorderStyle, type CityColorMap, type LebanonProps, Lebanon as default };

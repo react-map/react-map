@@ -1,4 +1,4 @@
+import Palau from './Palau';
 
-        import Palau from './Palau';
-        export default Palau;
-    
+export type { PalauProps, CityColorMap, BorderStyle } from './Palau';
+export default Palau;

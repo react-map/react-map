@@ -25,4 +25,4 @@ interface GuadeloupeProps {
 }
 declare const Guadeloupe: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GuadeloupeProps) => React.JSX.Element | null;
 
-export { Guadeloupe as default };
+export { type BorderStyle, type CityColorMap, type GuadeloupeProps, Guadeloupe as default };

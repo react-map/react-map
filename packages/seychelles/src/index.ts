@@ -1,4 +1,4 @@
+import Seychelles from './Seychelles';
 
-        import Seychelles from './Seychelles';
-        export default Seychelles;
-    
+export type { SeychellesProps, CityColorMap, BorderStyle } from './Seychelles';
+export default Seychelles;

@@ -25,4 +25,4 @@ interface SouthkoreaProps {
 }
 declare const Southkorea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SouthkoreaProps) => React.JSX.Element | null;
 
-export { Southkorea as default };
+export { type BorderStyle, type CityColorMap, type SouthkoreaProps, Southkorea as default };

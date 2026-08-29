@@ -25,4 +25,4 @@ interface StkittsnevisProps {
 }
 declare const Stkittsnevis: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: StkittsnevisProps) => React.JSX.Element | null;
 
-export { Stkittsnevis as default };
+export { type BorderStyle, type CityColorMap, type StkittsnevisProps, Stkittsnevis as default };

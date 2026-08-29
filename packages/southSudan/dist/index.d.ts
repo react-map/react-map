@@ -25,4 +25,4 @@ interface SouthsudanProps {
 }
 declare const Southsudan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SouthsudanProps) => React.JSX.Element | null;
 
-export { Southsudan as default };
+export { type BorderStyle, type CityColorMap, type SouthsudanProps, Southsudan as default };

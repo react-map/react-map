@@ -25,4 +25,4 @@ interface NiueProps {
 }
 declare const Niue: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NiueProps) => React.JSX.Element | null;
 
-export { Niue as default };
+export { type BorderStyle, type CityColorMap, type NiueProps, Niue as default };

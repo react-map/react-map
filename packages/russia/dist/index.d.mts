@@ -25,4 +25,4 @@ interface RussiaProps {
 }
 declare const Russia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: RussiaProps) => React.JSX.Element | null;
 
-export { Russia as default };
+export { type BorderStyle, type CityColorMap, type RussiaProps, Russia as default };

@@ -25,4 +25,4 @@ interface BosniaherzegovinaProps {
 }
 declare const Bosniaherzegovina: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BosniaherzegovinaProps) => React.JSX.Element | null;
 
-export { Bosniaherzegovina as default };
+export { type BorderStyle, type BosniaherzegovinaProps, type CityColorMap, Bosniaherzegovina as default };

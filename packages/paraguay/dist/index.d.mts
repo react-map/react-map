@@ -25,4 +25,4 @@ interface ParaguayProps {
 }
 declare const Paraguay: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ParaguayProps) => React.JSX.Element | null;
 
-export { Paraguay as default };
+export { type BorderStyle, type CityColorMap, type ParaguayProps, Paraguay as default };

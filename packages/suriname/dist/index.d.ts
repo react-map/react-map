@@ -25,4 +25,4 @@ interface SurinameProps {
 }
 declare const Suriname: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SurinameProps) => React.JSX.Element | null;
 
-export { Suriname as default };
+export { type BorderStyle, type CityColorMap, type SurinameProps, Suriname as default };

@@ -25,4 +25,4 @@ interface WorldProps {
 }
 declare const World: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: WorldProps) => React.JSX.Element | null;
 
-export { World as default };
+export { type BorderStyle, type CityColorMap, type WorldProps, World as default };

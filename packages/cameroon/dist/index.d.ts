@@ -25,4 +25,4 @@ interface CameroonProps {
 }
 declare const Cameroon: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CameroonProps) => React.JSX.Element | null;
 
-export { Cameroon as default };
+export { type BorderStyle, type CameroonProps, type CityColorMap, Cameroon as default };

@@ -25,4 +25,4 @@ interface TurkeyProps {
 }
 declare const Turkey: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TurkeyProps) => React.JSX.Element | null;
 
-export { Turkey as default };
+export { type BorderStyle, type CityColorMap, type TurkeyProps, Turkey as default };

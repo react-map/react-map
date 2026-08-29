@@ -1,4 +1,4 @@
+import Guineabissau from './Guineabissau';
 
-        import Guineabissau from './Guineabissau';
-        export default Guineabissau;
-    
+export type { GuineabissauProps, CityColorMap, BorderStyle } from './Guineabissau';
+export default Guineabissau;

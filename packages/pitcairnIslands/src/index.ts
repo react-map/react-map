@@ -1,4 +1,4 @@
+import Pitcairnislands from './Pitcairnislands';
 
-        import Pitcairnislands from './Pitcairnislands';
-        export default Pitcairnislands;
-    
+export type { PitcairnislandsProps, CityColorMap, BorderStyle } from './Pitcairnislands';
+export default Pitcairnislands;

@@ -1,4 +1,4 @@
+import Belarus from './Belarus';
 
-        import Belarus from './Belarus';
-        export default Belarus;
-    
+export type { BelarusProps, CityColorMap, BorderStyle } from './Belarus';
+export default Belarus;

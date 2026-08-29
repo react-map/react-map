@@ -25,4 +25,4 @@ interface IndiaProps {
 }
 declare const India: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: IndiaProps) => React.JSX.Element | null;
 
-export { India as default };
+export { type BorderStyle, type CityColorMap, type IndiaProps, India as default };

@@ -25,4 +25,4 @@ interface MontserratProps {
 }
 declare const Montserrat: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MontserratProps) => React.JSX.Element | null;
 
-export { Montserrat as default };
+export { type BorderStyle, type CityColorMap, type MontserratProps, Montserrat as default };

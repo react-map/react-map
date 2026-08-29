@@ -1,4 +1,4 @@
+import Caymanislands from './Caymanislands';
 
-        import Caymanislands from './Caymanislands';
-        export default Caymanislands;
-    
+export type { CaymanislandsProps, CityColorMap, BorderStyle } from './Caymanislands';
+export default Caymanislands;

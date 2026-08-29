@@ -25,4 +25,4 @@ interface BahrainProps {
 }
 declare const Bahrain: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BahrainProps) => React.JSX.Element | null;
 
-export { Bahrain as default };
+export { type BahrainProps, type BorderStyle, type CityColorMap, Bahrain as default };

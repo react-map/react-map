@@ -25,4 +25,4 @@ interface CuracaoProps {
 }
 declare const Curacao: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CuracaoProps) => React.JSX.Element | null;
 
-export { Curacao as default };
+export { type BorderStyle, type CityColorMap, type CuracaoProps, Curacao as default };

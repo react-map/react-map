@@ -25,4 +25,4 @@ interface BruneiProps {
 }
 declare const Brunei: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BruneiProps) => React.JSX.Element | null;
 
-export { Brunei as default };
+export { type BorderStyle, type BruneiProps, type CityColorMap, Brunei as default };

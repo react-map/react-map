@@ -25,4 +25,4 @@ interface KenyaProps {
 }
 declare const Kenya: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: KenyaProps) => React.JSX.Element | null;
 
-export { Kenya as default };
+export { type BorderStyle, type CityColorMap, type KenyaProps, Kenya as default };

@@ -25,4 +25,4 @@ interface SerbiaProps {
 }
 declare const Serbia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SerbiaProps) => React.JSX.Element | null;
 
-export { Serbia as default };
+export { type BorderStyle, type CityColorMap, type SerbiaProps, Serbia as default };

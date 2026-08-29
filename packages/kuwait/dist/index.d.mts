@@ -25,4 +25,4 @@ interface KuwaitProps {
 }
 declare const Kuwait: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: KuwaitProps) => React.JSX.Element | null;
 
-export { Kuwait as default };
+export { type BorderStyle, type CityColorMap, type KuwaitProps, Kuwait as default };

@@ -1,4 +1,4 @@
+import Stvincent from './Stvincent';
 
-        import Stvincent from './Stvincent';
-        export default Stvincent;
-    
+export type { StvincentProps, CityColorMap, BorderStyle } from './Stvincent';
+export default Stvincent;

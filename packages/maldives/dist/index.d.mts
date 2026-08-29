@@ -25,4 +25,4 @@ interface MaldivesProps {
 }
 declare const Maldives: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MaldivesProps) => React.JSX.Element | null;
 
-export { Maldives as default };
+export { type BorderStyle, type CityColorMap, type MaldivesProps, Maldives as default };

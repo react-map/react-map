@@ -25,4 +25,4 @@ interface SyriaProps {
 }
 declare const Syria: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SyriaProps) => React.JSX.Element | null;
 
-export { Syria as default };
+export { type BorderStyle, type CityColorMap, type SyriaProps, Syria as default };

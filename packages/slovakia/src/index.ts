@@ -1,4 +1,4 @@
+import Slovakia from './Slovakia';
 
-        import Slovakia from './Slovakia';
-        export default Slovakia;
-    
+export type { SlovakiaProps, CityColorMap, BorderStyle } from './Slovakia';
+export default Slovakia;

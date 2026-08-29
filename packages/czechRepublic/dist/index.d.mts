@@ -25,4 +25,4 @@ interface CzechrepublicProps {
 }
 declare const Czechrepublic: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CzechrepublicProps) => React.JSX.Element | null;
 
-export { Czechrepublic as default };
+export { type BorderStyle, type CityColorMap, type CzechrepublicProps, Czechrepublic as default };

@@ -25,4 +25,4 @@ interface PakistanProps {
 }
 declare const Pakistan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: PakistanProps) => React.JSX.Element | null;
 
-export { Pakistan as default };
+export { type BorderStyle, type CityColorMap, type PakistanProps, Pakistan as default };

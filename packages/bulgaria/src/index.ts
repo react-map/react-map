@@ -1,4 +1,4 @@
+import Bulgaria from './Bulgaria';
 
-        import Bulgaria from './Bulgaria';
-        export default Bulgaria;
-    
+export type { BulgariaProps, CityColorMap, BorderStyle } from './Bulgaria';
+export default Bulgaria;

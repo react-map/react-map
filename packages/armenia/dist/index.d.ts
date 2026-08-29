@@ -25,4 +25,4 @@ interface ArmeniaProps {
 }
 declare const Armenia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ArmeniaProps) => React.JSX.Element | null;
 
-export { Armenia as default };
+export { type ArmeniaProps, type BorderStyle, type CityColorMap, Armenia as default };

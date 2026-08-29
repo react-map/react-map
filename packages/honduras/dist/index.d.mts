@@ -25,4 +25,4 @@ interface HondurasProps {
 }
 declare const Honduras: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: HondurasProps) => React.JSX.Element | null;
 
-export { Honduras as default };
+export { type BorderStyle, type CityColorMap, type HondurasProps, Honduras as default };

@@ -1,4 +1,4 @@
+import Bolivia from './Bolivia';
 
-        import Bolivia from './Bolivia';
-        export default Bolivia;
-    
+export type { BoliviaProps, CityColorMap, BorderStyle } from './Bolivia';
+export default Bolivia;

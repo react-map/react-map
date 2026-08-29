@@ -25,4 +25,4 @@ interface GambiaProps {
 }
 declare const Gambia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GambiaProps) => React.JSX.Element | null;
 
-export { Gambia as default };
+export { type BorderStyle, type CityColorMap, type GambiaProps, Gambia as default };

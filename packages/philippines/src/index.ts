@@ -1,4 +1,4 @@
+import Philippines from './Philippines';
 
-        import Philippines from './Philippines';
-        export default Philippines;
-    
+export type { PhilippinesProps, CityColorMap, BorderStyle } from './Philippines';
+export default Philippines;

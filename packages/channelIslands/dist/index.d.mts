@@ -25,4 +25,4 @@ interface ChannelislandsProps {
 }
 declare const Channelislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ChannelislandsProps) => React.JSX.Element | null;
 
-export { Channelislands as default };
+export { type BorderStyle, type ChannelislandsProps, type CityColorMap, Channelislands as default };

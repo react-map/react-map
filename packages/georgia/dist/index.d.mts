@@ -25,4 +25,4 @@ interface GeorgiaProps {
 }
 declare const Georgia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GeorgiaProps) => React.JSX.Element | null;
 
-export { Georgia as default };
+export { type BorderStyle, type CityColorMap, type GeorgiaProps, Georgia as default };

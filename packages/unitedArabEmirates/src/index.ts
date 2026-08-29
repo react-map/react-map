@@ -1,4 +1,4 @@
+import Unitedarabemirates from './Unitedarabemirates';
 
-        import Unitedarabemirates from './Unitedarabemirates';
-        export default Unitedarabemirates;
-    
+export type { UnitedarabemiratesProps, CityColorMap, BorderStyle } from './Unitedarabemirates';
+export default Unitedarabemirates;

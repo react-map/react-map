@@ -25,4 +25,4 @@ interface GabonProps {
 }
 declare const Gabon: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GabonProps) => React.JSX.Element | null;
 
-export { Gabon as default };
+export { type BorderStyle, type CityColorMap, type GabonProps, Gabon as default };

@@ -25,4 +25,4 @@ interface HaitiProps {
 }
 declare const Haiti: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: HaitiProps) => React.JSX.Element | null;
 
-export { Haiti as default };
+export { type BorderStyle, type CityColorMap, type HaitiProps, Haiti as default };

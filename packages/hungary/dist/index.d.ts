@@ -25,4 +25,4 @@ interface HungaryProps {
 }
 declare const Hungary: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: HungaryProps) => React.JSX.Element | null;
 
-export { Hungary as default };
+export { type BorderStyle, type CityColorMap, type HungaryProps, Hungary as default };

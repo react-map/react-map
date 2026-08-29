@@ -25,4 +25,4 @@ interface CongoProps {
 }
 declare const Congo: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CongoProps) => React.JSX.Element | null;
 
-export { Congo as default };
+export { type BorderStyle, type CityColorMap, type CongoProps, Congo as default };

@@ -25,4 +25,4 @@ interface VaticancityProps {
 }
 declare const Vaticancity: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: VaticancityProps) => React.JSX.Element | null;
 
-export { Vaticancity as default };
+export { type BorderStyle, type CityColorMap, type VaticancityProps, Vaticancity as default };

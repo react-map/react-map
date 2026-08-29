@@ -25,4 +25,4 @@ interface UnitedkingdomProps {
 }
 declare const Unitedkingdom: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UnitedkingdomProps) => React.JSX.Element | null;
 
-export { Unitedkingdom as default };
+export { type BorderStyle, type CityColorMap, type UnitedkingdomProps, Unitedkingdom as default };

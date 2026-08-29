@@ -25,4 +25,4 @@ interface CroatiaProps {
 }
 declare const Croatia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CroatiaProps) => React.JSX.Element | null;
 
-export { Croatia as default };
+export { type BorderStyle, type CityColorMap, type CroatiaProps, Croatia as default };

@@ -25,4 +25,4 @@ interface ThailandProps {
 }
 declare const Thailand: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ThailandProps) => React.JSX.Element | null;
 
-export { Thailand as default };
+export { type BorderStyle, type CityColorMap, type ThailandProps, Thailand as default };

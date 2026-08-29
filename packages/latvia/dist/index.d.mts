@@ -25,4 +25,4 @@ interface LatviaProps {
 }
 declare const Latvia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LatviaProps) => React.JSX.Element | null;
 
-export { Latvia as default };
+export { type BorderStyle, type CityColorMap, type LatviaProps, Latvia as default };

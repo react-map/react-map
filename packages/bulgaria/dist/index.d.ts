@@ -25,4 +25,4 @@ interface BulgariaProps {
 }
 declare const Bulgaria: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BulgariaProps) => React.JSX.Element | null;
 
-export { Bulgaria as default };
+export { type BorderStyle, type BulgariaProps, type CityColorMap, Bulgaria as default };

@@ -25,4 +25,4 @@ interface SanmarinoProps {
 }
 declare const Sanmarino: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SanmarinoProps) => React.JSX.Element | null;
 
-export { Sanmarino as default };
+export { type BorderStyle, type CityColorMap, type SanmarinoProps, Sanmarino as default };

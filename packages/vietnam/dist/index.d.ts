@@ -25,4 +25,4 @@ interface VietnamProps {
 }
 declare const Vietnam: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: VietnamProps) => React.JSX.Element | null;
 
-export { Vietnam as default };
+export { type BorderStyle, type CityColorMap, type VietnamProps, Vietnam as default };

@@ -25,4 +25,4 @@ interface ZambiaProps {
 }
 declare const Zambia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ZambiaProps) => React.JSX.Element | null;
 
-export { Zambia as default };
+export { type BorderStyle, type CityColorMap, type ZambiaProps, Zambia as default };

@@ -25,4 +25,4 @@ interface BelizeProps {
 }
 declare const Belize: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BelizeProps) => React.JSX.Element | null;
 
-export { Belize as default };
+export { type BelizeProps, type BorderStyle, type CityColorMap, Belize as default };

@@ -25,4 +25,4 @@ interface EthiopiaProps {
 }
 declare const Ethiopia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EthiopiaProps) => React.JSX.Element | null;
 
-export { Ethiopia as default };
+export { type BorderStyle, type CityColorMap, type EthiopiaProps, Ethiopia as default };

@@ -1,4 +1,4 @@
+import Singapore from './Singapore';
 
-        import Singapore from './Singapore';
-        export default Singapore;
-    
+export type { SingaporeProps, CityColorMap, BorderStyle } from './Singapore';
+export default Singapore;

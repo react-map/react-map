@@ -25,4 +25,4 @@ interface TajikistanProps {
 }
 declare const Tajikistan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TajikistanProps) => React.JSX.Element | null;
 
-export { Tajikistan as default };
+export { type BorderStyle, type CityColorMap, type TajikistanProps, Tajikistan as default };

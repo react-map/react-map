@@ -1,4 +1,4 @@
+import Saudiarabia from './Saudiarabia';
 
-        import Saudiarabia from './Saudiarabia';
-        export default Saudiarabia;
-    
+export type { SaudiarabiaProps, CityColorMap, BorderStyle } from './Saudiarabia';
+export default Saudiarabia;

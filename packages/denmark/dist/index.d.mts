@@ -25,4 +25,4 @@ interface DenmarkProps {
 }
 declare const Denmark: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: DenmarkProps) => React.JSX.Element | null;
 
-export { Denmark as default };
+export { type BorderStyle, type CityColorMap, type DenmarkProps, Denmark as default };

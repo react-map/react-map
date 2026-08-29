@@ -1,4 +1,4 @@
+import Equatorialguinea from './Equatorialguinea';
 
-        import Equatorialguinea from './Equatorialguinea';
-        export default Equatorialguinea;
-    
+export type { EquatorialguineaProps, CityColorMap, BorderStyle } from './Equatorialguinea';
+export default Equatorialguinea;

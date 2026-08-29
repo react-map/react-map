@@ -25,4 +25,4 @@ interface TogoProps {
 }
 declare const Togo: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TogoProps) => React.JSX.Element | null;
 
-export { Togo as default };
+export { type BorderStyle, type CityColorMap, type TogoProps, Togo as default };

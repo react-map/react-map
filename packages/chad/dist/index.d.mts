@@ -25,4 +25,4 @@ interface ChadProps {
 }
 declare const Chad: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ChadProps) => React.JSX.Element | null;
 
-export { Chad as default };
+export { type BorderStyle, type ChadProps, type CityColorMap, Chad as default };

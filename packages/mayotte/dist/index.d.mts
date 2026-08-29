@@ -25,4 +25,4 @@ interface MayotteProps {
 }
 declare const Mayotte: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MayotteProps) => React.JSX.Element | null;
 
-export { Mayotte as default };
+export { type BorderStyle, type CityColorMap, type MayotteProps, Mayotte as default };

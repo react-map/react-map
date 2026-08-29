@@ -25,4 +25,4 @@ interface NauruProps {
 }
 declare const Nauru: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NauruProps) => React.JSX.Element | null;
 
-export { Nauru as default };
+export { type BorderStyle, type CityColorMap, type NauruProps, Nauru as default };

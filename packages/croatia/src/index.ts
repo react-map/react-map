@@ -1,4 +1,4 @@
+import Croatia from './Croatia';
 
-        import Croatia from './Croatia';
-        export default Croatia;
-    
+export type { CroatiaProps, CityColorMap, BorderStyle } from './Croatia';
+export default Croatia;

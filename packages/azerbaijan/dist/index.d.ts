@@ -25,4 +25,4 @@ interface AzerbaijanProps {
 }
 declare const Azerbaijan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AzerbaijanProps) => React.JSX.Element | null;
 
-export { Azerbaijan as default };
+export { type AzerbaijanProps, type BorderStyle, type CityColorMap, Azerbaijan as default };

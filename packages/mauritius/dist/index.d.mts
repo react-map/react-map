@@ -25,4 +25,4 @@ interface MauritiusProps {
 }
 declare const Mauritius: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MauritiusProps) => React.JSX.Element | null;
 
-export { Mauritius as default };
+export { type BorderStyle, type CityColorMap, type MauritiusProps, Mauritius as default };

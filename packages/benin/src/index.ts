@@ -1,4 +1,4 @@
+import Benin from './Benin';
 
-        import Benin from './Benin';
-        export default Benin;
-    
+export type { BeninProps, CityColorMap, BorderStyle } from './Benin';
+export default Benin;

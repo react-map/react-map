@@ -25,4 +25,4 @@ interface JamaicaProps {
 }
 declare const Jamaica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: JamaicaProps) => React.JSX.Element | null;
 
-export { Jamaica as default };
+export { type BorderStyle, type CityColorMap, type JamaicaProps, Jamaica as default };

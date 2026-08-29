@@ -1,4 +1,4 @@
+import Bermuda from './Bermuda';
 
-        import Bermuda from './Bermuda';
-        export default Bermuda;
-    
+export type { BermudaProps, CityColorMap, BorderStyle } from './Bermuda';
+export default Bermuda;

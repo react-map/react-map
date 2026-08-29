@@ -25,4 +25,4 @@ interface NewzealandProps {
 }
 declare const Newzealand: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NewzealandProps) => React.JSX.Element | null;
 
-export { Newzealand as default };
+export { type BorderStyle, type CityColorMap, type NewzealandProps, Newzealand as default };

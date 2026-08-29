@@ -25,4 +25,4 @@ interface JordanProps {
 }
 declare const Jordan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: JordanProps) => React.JSX.Element | null;
 
-export { Jordan as default };
+export { type BorderStyle, type CityColorMap, type JordanProps, Jordan as default };

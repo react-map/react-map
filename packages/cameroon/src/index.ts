@@ -1,4 +1,4 @@
+import Cameroon from './Cameroon';
 
-        import Cameroon from './Cameroon';
-        export default Cameroon;
-    
+export type { CameroonProps, CityColorMap, BorderStyle } from './Cameroon';
+export default Cameroon;

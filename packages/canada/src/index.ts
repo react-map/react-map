@@ -1,4 +1,4 @@
+import Canada from './Canada';
 
-        import Canada from './Canada';
-        export default Canada;
-    
+export type { CanadaProps, CityColorMap, BorderStyle } from './Canada';
+export default Canada;

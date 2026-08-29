@@ -2,7 +2,7 @@ import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { drawPath, stateCode, constants } from './constants';
 import useMousePosition from './hooks/mouseTrack';
 
-interface CityColorMap {
+export interface CityColorMap {
   [key: string]: string;
 }
 
@@ -22,7 +22,7 @@ const hintStyleBase = {
   zIndex: 1000,
 };
 
-type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'dash-dot' | 'dash-double-dot';
+export type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'dash-dot' | 'dash-double-dot';
 
 /** Hoisted so a given border style always yields the same object reference. */
 const strokeProperties: Record<BorderStyle, { strokeDasharray: string }> = {

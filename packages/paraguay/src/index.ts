@@ -1,4 +1,4 @@
+import Paraguay from './Paraguay';
 
-        import Paraguay from './Paraguay';
-        export default Paraguay;
-    
+export type { ParaguayProps, CityColorMap, BorderStyle } from './Paraguay';
+export default Paraguay;

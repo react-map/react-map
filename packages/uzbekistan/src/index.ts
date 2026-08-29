@@ -1,4 +1,4 @@
+import Uzbekistan from './Uzbekistan';
 
-        import Uzbekistan from './Uzbekistan';
-        export default Uzbekistan;
-    
+export type { UzbekistanProps, CityColorMap, BorderStyle } from './Uzbekistan';
+export default Uzbekistan;

@@ -25,4 +25,4 @@ interface JerseyProps {
 }
 declare const Jersey: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: JerseyProps) => React.JSX.Element | null;
 
-export { Jersey as default };
+export { type BorderStyle, type CityColorMap, type JerseyProps, Jersey as default };

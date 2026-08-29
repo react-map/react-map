@@ -25,4 +25,4 @@ interface IrelandProps {
 }
 declare const Ireland: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: IrelandProps) => React.JSX.Element | null;
 
-export { Ireland as default };
+export { type BorderStyle, type CityColorMap, type IrelandProps, Ireland as default };

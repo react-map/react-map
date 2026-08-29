@@ -25,4 +25,4 @@ interface IsraelProps {
 }
 declare const Israel: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: IsraelProps) => React.JSX.Element | null;
 
-export { Israel as default };
+export { type BorderStyle, type CityColorMap, type IsraelProps, Israel as default };

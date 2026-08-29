@@ -25,4 +25,4 @@ interface LithuaniaProps {
 }
 declare const Lithuania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LithuaniaProps) => React.JSX.Element | null;
 
-export { Lithuania as default };
+export { type BorderStyle, type CityColorMap, type LithuaniaProps, Lithuania as default };

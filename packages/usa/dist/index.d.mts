@@ -25,4 +25,4 @@ interface UsaProps {
 }
 declare const Usa: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UsaProps) => React.JSX.Element | null;
 
-export { Usa as default };
+export { type BorderStyle, type CityColorMap, type UsaProps, Usa as default };

@@ -25,4 +25,4 @@ interface MacedoniaProps {
 }
 declare const Macedonia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MacedoniaProps) => React.JSX.Element | null;
 
-export { Macedonia as default };
+export { type BorderStyle, type CityColorMap, type MacedoniaProps, Macedonia as default };

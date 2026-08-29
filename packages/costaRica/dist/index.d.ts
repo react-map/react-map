@@ -25,4 +25,4 @@ interface CostaricaProps {
 }
 declare const Costarica: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CostaricaProps) => React.JSX.Element | null;
 
-export { Costarica as default };
+export { type BorderStyle, type CityColorMap, type CostaricaProps, Costarica as default };

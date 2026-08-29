@@ -25,4 +25,4 @@ interface SudanProps {
 }
 declare const Sudan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SudanProps) => React.JSX.Element | null;
 
-export { Sudan as default };
+export { type BorderStyle, type CityColorMap, type SudanProps, Sudan as default };

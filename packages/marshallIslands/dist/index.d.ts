@@ -25,4 +25,4 @@ interface MarshallislandsProps {
 }
 declare const Marshallislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MarshallislandsProps) => React.JSX.Element | null;
 
-export { Marshallislands as default };
+export { type BorderStyle, type CityColorMap, type MarshallislandsProps, Marshallislands as default };

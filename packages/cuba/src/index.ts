@@ -1,4 +1,4 @@
+import Cuba from './Cuba';
 
-        import Cuba from './Cuba';
-        export default Cuba;
-    
+export type { CubaProps, CityColorMap, BorderStyle } from './Cuba';
+export default Cuba;

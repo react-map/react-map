@@ -25,4 +25,4 @@ interface SwedenProps {
 }
 declare const Sweden: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SwedenProps) => React.JSX.Element | null;
 
-export { Sweden as default };
+export { type BorderStyle, type CityColorMap, type SwedenProps, Sweden as default };

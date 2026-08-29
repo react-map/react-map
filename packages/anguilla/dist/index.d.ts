@@ -25,4 +25,4 @@ interface AnguillaProps {
 }
 declare const Anguilla: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AnguillaProps) => React.JSX.Element | null;
 
-export { Anguilla as default };
+export { type AnguillaProps, type BorderStyle, type CityColorMap, Anguilla as default };

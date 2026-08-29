@@ -25,4 +25,4 @@ interface ChileProps {
 }
 declare const Chile: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ChileProps) => React.JSX.Element | null;
 
-export { Chile as default };
+export { type BorderStyle, type ChileProps, type CityColorMap, Chile as default };

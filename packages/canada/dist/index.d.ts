@@ -25,4 +25,4 @@ interface CanadaProps {
 }
 declare const Canada: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CanadaProps) => React.JSX.Element | null;
 
-export { Canada as default };
+export { type BorderStyle, type CanadaProps, type CityColorMap, Canada as default };

@@ -25,4 +25,4 @@ interface MalaysiaProps {
 }
 declare const Malaysia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MalaysiaProps) => React.JSX.Element | null;
 
-export { Malaysia as default };
+export { type BorderStyle, type CityColorMap, type MalaysiaProps, Malaysia as default };

@@ -25,4 +25,4 @@ interface SaudiarabiaProps {
 }
 declare const Saudiarabia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SaudiarabiaProps) => React.JSX.Element | null;
 
-export { Saudiarabia as default };
+export { type BorderStyle, type CityColorMap, type SaudiarabiaProps, Saudiarabia as default };

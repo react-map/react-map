@@ -25,4 +25,4 @@ interface BarbadosProps {
 }
 declare const Barbados: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BarbadosProps) => React.JSX.Element | null;
 
-export { Barbados as default };
+export { type BarbadosProps, type BorderStyle, type CityColorMap, Barbados as default };

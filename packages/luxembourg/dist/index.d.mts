@@ -25,4 +25,4 @@ interface LuxembourgProps {
 }
 declare const Luxembourg: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: LuxembourgProps) => React.JSX.Element | null;
 
-export { Luxembourg as default };
+export { type BorderStyle, type CityColorMap, type LuxembourgProps, Luxembourg as default };

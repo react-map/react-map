@@ -25,4 +25,4 @@ interface KosovoProps {
 }
 declare const Kosovo: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: KosovoProps) => React.JSX.Element | null;
 
-export { Kosovo as default };
+export { type BorderStyle, type CityColorMap, type KosovoProps, Kosovo as default };

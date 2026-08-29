@@ -1,4 +1,4 @@
+import Papuanewguinea from './Papuanewguinea';
 
-        import Papuanewguinea from './Papuanewguinea';
-        export default Papuanewguinea;
-    
+export type { PapuanewguineaProps, CityColorMap, BorderStyle } from './Papuanewguinea';
+export default Papuanewguinea;

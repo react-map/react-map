@@ -25,4 +25,4 @@ interface MalawiProps {
 }
 declare const Malawi: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MalawiProps) => React.JSX.Element | null;
 
-export { Malawi as default };
+export { type BorderStyle, type CityColorMap, type MalawiProps, Malawi as default };

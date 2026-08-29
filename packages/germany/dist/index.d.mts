@@ -25,4 +25,4 @@ interface GermanyProps {
 }
 declare const Germany: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GermanyProps) => React.JSX.Element | null;
 
-export { Germany as default };
+export { type BorderStyle, type CityColorMap, type GermanyProps, Germany as default };

@@ -1,4 +1,4 @@
+import Bhutan from './Bhutan';
 
-        import Bhutan from './Bhutan';
-        export default Bhutan;
-    
+export type { BhutanProps, CityColorMap, BorderStyle } from './Bhutan';
+export default Bhutan;

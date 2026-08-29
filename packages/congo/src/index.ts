@@ -1,4 +1,4 @@
+import Congo from './Congo';
 
-        import Congo from './Congo';
-        export default Congo;
-    
+export type { CongoProps, CityColorMap, BorderStyle } from './Congo';
+export default Congo;

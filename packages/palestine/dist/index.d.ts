@@ -25,4 +25,4 @@ interface PalestineProps {
 }
 declare const Palestine: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: PalestineProps) => React.JSX.Element | null;
 
-export { Palestine as default };
+export { type BorderStyle, type CityColorMap, type PalestineProps, Palestine as default };

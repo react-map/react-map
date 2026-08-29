@@ -1,4 +1,4 @@
+import Chad from './Chad';
 
-        import Chad from './Chad';
-        export default Chad;
-    
+export type { ChadProps, CityColorMap, BorderStyle } from './Chad';
+export default Chad;

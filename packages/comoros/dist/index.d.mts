@@ -25,4 +25,4 @@ interface ComorosProps {
 }
 declare const Comoros: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ComorosProps) => React.JSX.Element | null;
 
-export { Comoros as default };
+export { type BorderStyle, type CityColorMap, type ComorosProps, Comoros as default };

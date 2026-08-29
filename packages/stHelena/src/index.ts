@@ -1,4 +1,4 @@
+import Sthelena from './Sthelena';
 
-        import Sthelena from './Sthelena';
-        export default Sthelena;
-    
+export type { SthelenaProps, CityColorMap, BorderStyle } from './Sthelena';
+export default Sthelena;

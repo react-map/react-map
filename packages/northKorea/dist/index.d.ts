@@ -25,4 +25,4 @@ interface NorthkoreaProps {
 }
 declare const Northkorea: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NorthkoreaProps) => React.JSX.Element | null;
 
-export { Northkorea as default };
+export { type BorderStyle, type CityColorMap, type NorthkoreaProps, Northkorea as default };

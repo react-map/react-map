@@ -25,4 +25,4 @@ interface GuatemalaProps {
 }
 declare const Guatemala: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: GuatemalaProps) => React.JSX.Element | null;
 
-export { Guatemala as default };
+export { type BorderStyle, type CityColorMap, type GuatemalaProps, Guatemala as default };

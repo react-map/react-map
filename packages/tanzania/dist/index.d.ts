@@ -25,4 +25,4 @@ interface TanzaniaProps {
 }
 declare const Tanzania: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TanzaniaProps) => React.JSX.Element | null;
 
-export { Tanzania as default };
+export { type BorderStyle, type CityColorMap, type TanzaniaProps, Tanzania as default };

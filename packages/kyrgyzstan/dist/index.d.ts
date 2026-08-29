@@ -25,4 +25,4 @@ interface KyrgyzstanProps {
 }
 declare const Kyrgyzstan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: KyrgyzstanProps) => React.JSX.Element | null;
 
-export { Kyrgyzstan as default };
+export { type BorderStyle, type CityColorMap, type KyrgyzstanProps, Kyrgyzstan as default };

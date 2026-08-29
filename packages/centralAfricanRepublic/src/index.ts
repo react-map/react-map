@@ -1,4 +1,4 @@
+import Centralafricanrepublic from './Centralafricanrepublic';
 
-        import Centralafricanrepublic from './Centralafricanrepublic';
-        export default Centralafricanrepublic;
-    
+export type { CentralafricanrepublicProps, CityColorMap, BorderStyle } from './Centralafricanrepublic';
+export default Centralafricanrepublic;

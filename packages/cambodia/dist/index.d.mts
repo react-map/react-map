@@ -25,4 +25,4 @@ interface CambodiaProps {
 }
 declare const Cambodia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CambodiaProps) => React.JSX.Element | null;
 
-export { Cambodia as default };
+export { type BorderStyle, type CambodiaProps, type CityColorMap, Cambodia as default };

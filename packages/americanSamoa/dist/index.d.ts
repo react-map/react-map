@@ -25,4 +25,4 @@ interface AmericansamoaProps {
 }
 declare const Americansamoa: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AmericansamoaProps) => React.JSX.Element | null;
 
-export { Americansamoa as default };
+export { type AmericansamoaProps, type BorderStyle, type CityColorMap, Americansamoa as default };

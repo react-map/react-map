@@ -25,4 +25,4 @@ interface IvorycoastProps {
 }
 declare const Ivorycoast: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: IvorycoastProps) => React.JSX.Element | null;
 
-export { Ivorycoast as default };
+export { type BorderStyle, type CityColorMap, type IvorycoastProps, Ivorycoast as default };

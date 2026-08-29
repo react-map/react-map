@@ -25,4 +25,4 @@ interface MoldovaProps {
 }
 declare const Moldova: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MoldovaProps) => React.JSX.Element | null;
 
-export { Moldova as default };
+export { type BorderStyle, type CityColorMap, type MoldovaProps, Moldova as default };

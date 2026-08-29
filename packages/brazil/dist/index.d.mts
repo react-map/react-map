@@ -25,4 +25,4 @@ interface BrazilProps {
 }
 declare const Brazil: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BrazilProps) => React.JSX.Element | null;
 
-export { Brazil as default };
+export { type BorderStyle, type BrazilProps, type CityColorMap, Brazil as default };

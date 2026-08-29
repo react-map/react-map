@@ -1,2 +1,4 @@
-import Nigeria from "./Nigeria";
+import Nigeria from './Nigeria';
+
+export type { NigeriaProps, CityColorMap, BorderStyle } from './Nigeria';
 export default Nigeria;

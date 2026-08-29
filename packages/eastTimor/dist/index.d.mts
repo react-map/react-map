@@ -25,4 +25,4 @@ interface EasttimorProps {
 }
 declare const Easttimor: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: EasttimorProps) => React.JSX.Element | null;
 
-export { Easttimor as default };
+export { type BorderStyle, type CityColorMap, type EasttimorProps, Easttimor as default };

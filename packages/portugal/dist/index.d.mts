@@ -25,4 +25,4 @@ interface PortugalProps {
 }
 declare const Portugal: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: PortugalProps) => React.JSX.Element | null;
 
-export { Portugal as default };
+export { type BorderStyle, type CityColorMap, type PortugalProps, Portugal as default };

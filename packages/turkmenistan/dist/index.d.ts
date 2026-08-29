@@ -25,4 +25,4 @@ interface TurkmenistanProps {
 }
 declare const Turkmenistan: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TurkmenistanProps) => React.JSX.Element | null;
 
-export { Turkmenistan as default };
+export { type BorderStyle, type CityColorMap, type TurkmenistanProps, Turkmenistan as default };

@@ -1,4 +1,4 @@
+import Senegal from './Senegal';
 
-        import Senegal from './Senegal';
-        export default Senegal;
-    
+export type { SenegalProps, CityColorMap, BorderStyle } from './Senegal';
+export default Senegal;

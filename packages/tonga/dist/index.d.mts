@@ -25,4 +25,4 @@ interface TongaProps {
 }
 declare const Tonga: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TongaProps) => React.JSX.Element | null;
 
-export { Tonga as default };
+export { type BorderStyle, type CityColorMap, type TongaProps, Tonga as default };

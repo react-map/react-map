@@ -25,4 +25,4 @@ interface CaymanislandsProps {
 }
 declare const Caymanislands: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: CaymanislandsProps) => React.JSX.Element | null;
 
-export { Caymanislands as default };
+export { type BorderStyle, type CaymanislandsProps, type CityColorMap, Caymanislands as default };

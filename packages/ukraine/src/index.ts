@@ -1,4 +1,4 @@
+import Ukraine from './Ukraine';
 
-        import Ukraine from './Ukraine';
-        export default Ukraine;
-    
+export type { UkraineProps, CityColorMap, BorderStyle } from './Ukraine';
+export default Ukraine;

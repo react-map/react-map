@@ -1,4 +1,4 @@
+import Uruguay from './Uruguay';
 
-        import Uruguay from './Uruguay';
-        export default Uruguay;
-    
+export type { UruguayProps, CityColorMap, BorderStyle } from './Uruguay';
+export default Uruguay;

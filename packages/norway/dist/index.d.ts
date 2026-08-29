@@ -25,4 +25,4 @@ interface NorwayProps {
 }
 declare const Norway: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: NorwayProps) => React.JSX.Element | null;
 
-export { Norway as default };
+export { type BorderStyle, type CityColorMap, type NorwayProps, Norway as default };

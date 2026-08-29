@@ -25,4 +25,4 @@ interface MicronesiaProps {
 }
 declare const Micronesia: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: MicronesiaProps) => React.JSX.Element | null;
 
-export { Micronesia as default };
+export { type BorderStyle, type CityColorMap, type MicronesiaProps, Micronesia as default };

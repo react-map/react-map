@@ -25,4 +25,4 @@ interface ArgentinaProps {
 }
 declare const Argentina: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: ArgentinaProps) => React.JSX.Element | null;
 
-export { Argentina as default };
+export { type ArgentinaProps, type BorderStyle, type CityColorMap, Argentina as default };

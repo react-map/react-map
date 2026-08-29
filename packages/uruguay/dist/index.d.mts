@@ -25,4 +25,4 @@ interface UruguayProps {
 }
 declare const Uruguay: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UruguayProps) => React.JSX.Element | null;
 
-export { Uruguay as default };
+export { type BorderStyle, type CityColorMap, type UruguayProps, Uruguay as default };

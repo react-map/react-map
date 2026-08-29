@@ -1,4 +1,4 @@
+import Zambia from './Zambia';
 
-        import Zambia from './Zambia';
-        export default Zambia;
-    
+export type { ZambiaProps, CityColorMap, BorderStyle } from './Zambia';
+export default Zambia;

@@ -25,4 +25,4 @@ interface AfricaProps {
 }
 declare const Africa: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: AfricaProps) => React.JSX.Element | null;
 
-export { Africa as default };
+export { type AfricaProps, type BorderStyle, type CityColorMap, Africa as default };

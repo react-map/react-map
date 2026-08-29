@@ -25,4 +25,4 @@ interface VenezuelaProps {
 }
 declare const Venezuela: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: VenezuelaProps) => React.JSX.Element | null;
 
-export { Venezuela as default };
+export { type BorderStyle, type CityColorMap, type VenezuelaProps, Venezuela as default };

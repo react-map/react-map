@@ -1,4 +1,4 @@
+import Belize from './Belize';
 
-        import Belize from './Belize';
-        export default Belize;
-    
+export type { BelizeProps, CityColorMap, BorderStyle } from './Belize';
+export default Belize;

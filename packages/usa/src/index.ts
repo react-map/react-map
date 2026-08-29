@@ -1,4 +1,4 @@
+import Usa from './Usa';
 
-        import Usa from './Usa';
-        export default Usa;
-    
+export type { UsaProps, CityColorMap, BorderStyle } from './Usa';
+export default Usa;

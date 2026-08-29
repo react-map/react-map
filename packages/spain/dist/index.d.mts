@@ -25,4 +25,4 @@ interface SpainProps {
 }
 declare const Spain: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SpainProps) => React.JSX.Element | null;
 
-export { Spain as default };
+export { type BorderStyle, type CityColorMap, type SpainProps, Spain as default };

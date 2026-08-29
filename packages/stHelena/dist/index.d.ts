@@ -25,4 +25,4 @@ interface SthelenaProps {
 }
 declare const Sthelena: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: SthelenaProps) => React.JSX.Element | null;
 
-export { Sthelena as default };
+export { type BorderStyle, type CityColorMap, type SthelenaProps, Sthelena as default };

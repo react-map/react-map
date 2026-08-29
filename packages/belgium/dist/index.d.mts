@@ -25,4 +25,4 @@ interface BelgiumProps {
 }
 declare const Belgium: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: BelgiumProps) => React.JSX.Element | null;
 
-export { Belgium as default };
+export { type BelgiumProps, type BorderStyle, type CityColorMap, Belgium as default };

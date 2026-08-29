@@ -25,4 +25,4 @@ interface TibetProps {
 }
 declare const Tibet: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: TibetProps) => React.JSX.Element | null;
 
-export { Tibet as default };
+export { type BorderStyle, type CityColorMap, type TibetProps, Tibet as default };

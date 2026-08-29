@@ -25,4 +25,4 @@ interface VanuatuProps {
 }
 declare const Vanuatu: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: VanuatuProps) => React.JSX.Element | null;
 
-export { Vanuatu as default };
+export { type BorderStyle, type CityColorMap, type VanuatuProps, Vanuatu as default };

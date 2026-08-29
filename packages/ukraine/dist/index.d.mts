@@ -25,4 +25,4 @@ interface UkraineProps {
 }
 declare const Ukraine: ({ type, size, mapColor, strokeColor, strokeWidth, hoverColor, selectColor, hints, hintTextColor, hintBackgroundColor, hintPadding, hintBorderRadius, onSelect, cityColors, disableClick, disableHover, borderStyle, }: UkraineProps) => React.JSX.Element | null;
 
-export { Ukraine as default };
+export { type BorderStyle, type CityColorMap, type UkraineProps, Ukraine as default };
