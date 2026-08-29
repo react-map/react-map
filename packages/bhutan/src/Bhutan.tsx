@@ -1,11 +1,16 @@
-import React,{ useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { drawPath, stateCode, constants } from './constants';
 import useMousePosition from './hooks/mouseTrack';
-import { useId } from 'react';
 
 interface CityColorMap {
   [key: string]: string;
 }
+
+/**
+ * Shared empty map. Defaulting `cityColors` to a fresh `{}` on every render gave the fill effects a
+ * dependency that never compared equal, so they re-walked the whole map on each pass.
+ */
+const EMPTY_CITY_COLORS: CityColorMap = {};
 
 const hintStyleBase = {
   position: 'fixed' as React.CSSProperties['position'],
@@ -19,22 +24,20 @@ const hintStyleBase = {
 
 type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'dash-dot' | 'dash-double-dot';
 
-const getStrokeProperties = (borderStyle?: BorderStyle) => {
-  switch (borderStyle) {
-    case 'dashed':
-      return { strokeDasharray: '8 4' };
-    case 'dotted':
-      return { strokeDasharray: '2 2' };
-    case 'dash-dot':
-      return { strokeDasharray: '8 4 2 4' };
-    case 'dash-double-dot':
-      return { strokeDasharray: '8 4 2 4 2 4' };
-    default:
-      return { strokeDasharray: 'none' };
-  }
+/** Hoisted so a given border style always yields the same object reference. */
+const strokeProperties: Record<BorderStyle, { strokeDasharray: string }> = {
+  solid: { strokeDasharray: 'none' },
+  dashed: { strokeDasharray: '8 4' },
+  dotted: { strokeDasharray: '2 2' },
+  'dash-dot': { strokeDasharray: '8 4 2 4' },
+  'dash-double-dot': { strokeDasharray: '8 4 2 4 2 4' },
 };
 
+const getStrokeProperties = (borderStyle?: BorderStyle) =>
+  (borderStyle && strokeProperties[borderStyle]) || strokeProperties.solid;
+
 const REGION_ATTRIBUTE = 'data-state';
+const REGION_SELECTOR = `[${REGION_ATTRIBUTE}]`;
 
 interface Region {
   element: SVGElement;
@@ -87,7 +90,7 @@ const Bhutan = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors = {},
+  cityColors,
   disableClick = false,
   disableHover = false,
   borderStyle,
@@ -154,25 +157,26 @@ const BhutanSingle = ({
   hintBackgroundColor,
   hintPadding,
   hintBorderRadius,
-  cityColors,
+  cityColors = EMPTY_CITY_COLORS,
   disableClick,
   disableHover,
   borderStyle,
 }: BhutanProps) => {
   const instanceId = useId().replace(/:/g, '');
-  const { x, y } = useMousePosition();
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const { x, y } = useMousePosition(Boolean(hints));
   const [stateHovered, setStateHovered] = useState<string | null>(null);
   const [selectedState, setSelectedState] = useState<string | null>(null);
   const [viewBox, setViewBox] = useState<string>('0 0 100 100');
-  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  const strokeProps = getStrokeProperties(borderStyle);
 
   useEffect(() => {
-    const svg = document.getElementById(`svg2-${instanceId}`) as SVGGraphicsElement | null;
+    const svg = svgRef.current;
     if (svg) {
       const bbox = svg.getBBox();
       setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
     }
-  }, [instanceId]);
+  }, []);
 
   const mapStyle = useMemo(
     () => ({
@@ -184,40 +188,43 @@ const BhutanSingle = ({
     [size, strokeColor, strokeWidth, strokeProps]
   );
 
-  const hintStyle = {
-    ...hintStyleBase,
-    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
-    padding: hintPadding || hintStyleBase.padding,
-    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
-    color: hintTextColor || 'black',
-    top: y + 20,
-    left: x + 20,
-  };
+  const hintStyle = useMemo(
+    () => ({
+      ...hintStyleBase,
+      backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+      padding: hintPadding || hintStyleBase.padding,
+      borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+      color: hintTextColor || 'black',
+      top: y + 20,
+      left: x + 20,
+    }),
+    [hintBackgroundColor, hintPadding, hintBorderRadius, hintTextColor, x, y]
+  );
 
+  /**
+   * Repaints every region in one pass. Selection is folded in here so that changing the palette
+   * while something is selected no longer wipes the selected fill.
+   */
   useEffect(() => {
-    stateCode.forEach((state) => {
-      const path = document.getElementById(`${state}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors![state] || (mapColor as string);
-      }
-    });
-  }, [cityColors, mapColor, instanceId]);
-
-  useEffect(() => {
-    if (selectedState) {
-      const path = document.getElementById(`${selectedState}-${instanceId}`);
-      if (path) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      }
+    const svg = svgRef.current;
+    if (!svg) {
+      return;
     }
-  }, [selectedState, selectColor, instanceId]);
+    svg.querySelectorAll<SVGElement>(REGION_SELECTOR).forEach((region) => {
+      const code = region.getAttribute(REGION_ATTRIBUTE) as string;
+      region.style.fill =
+        code === selectedState ? selectColor || constants.SELECTED_COLOR : cityColors[code] || (mapColor as string);
+    });
+  }, [cityColors, mapColor, selectColor, selectedState]);
 
   const handleMouseOver = (event: React.MouseEvent<SVGSVGElement>) => {
     const region = regionFromEvent(event.target);
     if (!region) {
       return;
     }
-    setStateHovered(region.code);
+    if (hints) {
+      setStateHovered(region.code);
+    }
     if (!disableHover) {
       region.element.style.fill =
         selectedState === region.code ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
@@ -229,12 +236,14 @@ const BhutanSingle = ({
     if (!region) {
       return;
     }
-    setStateHovered(null);
+    if (hints) {
+      setStateHovered(null);
+    }
     if (!disableHover) {
       region.element.style.fill =
         selectedState === region.code
           ? selectColor || constants.SELECTED_COLOR
-          : cityColors![region.code] || (mapColor as string);
+          : cityColors[region.code] || (mapColor as string);
     }
   };
 
@@ -248,7 +257,7 @@ const BhutanSingle = ({
     }
 
     if (selectedState === region.code) {
-      region.element.style.fill = cityColors![region.code] || (mapColor as string);
+      region.element.style.fill = cityColors[region.code] || (mapColor as string);
       setSelectedState(null);
       if (onSelect) {
         onSelect(null);
@@ -259,20 +268,43 @@ const BhutanSingle = ({
     if (selectedState) {
       const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
       if (previousPath) {
-        previousPath.style.fill = cityColors![selectedState] || (mapColor as string);
+        previousPath.style.fill = cityColors[selectedState] || (mapColor as string);
       }
     }
+    region.element.style.fill = selectColor || constants.SELECTED_COLOR;
     setSelectedState(region.code);
     if (onSelect) {
       onSelect(region.code);
     }
   };
 
+  /**
+   * The regions only depend on props, never on hover or pointer position, so the element array is
+   * built once and reused. Hovering or moving the pointer re-renders the hint, not the map.
+   */
+  const regions = useMemo(
+    () =>
+      stateCode.map((code) => (
+        <path
+          key={code}
+          id={`${code}-${instanceId}`}
+          data-state={code}
+          d={drawPath[code as keyof typeof drawPath]}
+          style={{
+            fill: cityColors[code] || mapColor,
+            cursor: disableClick ? 'default' : 'pointer',
+          }}
+        />
+      )),
+    [cityColors, mapColor, disableClick, instanceId]
+  );
+
   return (
     <>
       <div className="map" style={mapStyle}>
         <svg
           version="1.1"
+          ref={svgRef}
           id={`svg2-${instanceId}`}
           x="0px"
           y="0px"
@@ -281,19 +313,7 @@ const BhutanSingle = ({
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
-          {stateCode?.map((code, index) => (
-            <path
-              key={index}
-              id={`${code}-${instanceId}`}
-              data-state={code}
-              d={drawPath[code as keyof typeof drawPath]}
-              style={{
-                fill: cityColors![code] || mapColor,
-                cursor: disableClick ? 'default' : 'pointer',
-                ...strokeProps,
-              }}
-            />
-          ))}
+          {regions}
         </svg>
       </div>
       {hints && stateHovered && <div style={hintStyle}>{stateHovered}</div>}
@@ -314,25 +334,26 @@ const BhutanMultiple = ({
   hintPadding,
   hintBorderRadius,
   onSelect,
-  cityColors,
+  cityColors = EMPTY_CITY_COLORS,
   disableClick,
   disableHover,
   borderStyle,
 }: BhutanProps) => {
   const instanceId = useId().replace(/:/g, '');
-  const { x, y } = useMousePosition();
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const { x, y } = useMousePosition(Boolean(hints));
   const [selectedStates, setSelectedStates] = useState<string[]>([]);
   const [stateHovered, setStateHovered] = useState<string | null>(null);
   const [viewBox, setViewBox] = useState<string>('0 0 100 100');
-  const strokeProps = useMemo(() => getStrokeProperties(borderStyle), [borderStyle]);
+  const strokeProps = getStrokeProperties(borderStyle);
 
   useEffect(() => {
-    const svg = document.getElementById(`svg2-${instanceId}`) as SVGGraphicsElement | null;
+    const svg = svgRef.current;
     if (svg) {
       const bbox = svg.getBBox();
       setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
     }
-  }, [instanceId]);
+  }, []);
 
   const mapStyle = useMemo(
     () => ({
@@ -344,40 +365,44 @@ const BhutanMultiple = ({
     [size, strokeColor, strokeWidth, strokeProps]
   );
 
-  const hintStyle = {
-    ...hintStyleBase,
-    backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
-    padding: hintPadding || hintStyleBase.padding,
-    borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
-    color: hintTextColor || 'black',
-    top: y + 20,
-    left: x + 20,
-  };
+  const hintStyle = useMemo(
+    () => ({
+      ...hintStyleBase,
+      backgroundColor: hintBackgroundColor || hintStyleBase.backgroundColor,
+      padding: hintPadding || hintStyleBase.padding,
+      borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
+      color: hintTextColor || 'black',
+      top: y + 20,
+      left: x + 20,
+    }),
+    [hintBackgroundColor, hintPadding, hintBorderRadius, hintTextColor, x, y]
+  );
 
+  /**
+   * Repaints every region in one pass. Selection is folded in here so that changing the palette
+   * while something is selected no longer wipes the selected fills.
+   */
   useEffect(() => {
-    stateCode.forEach((state) => {
-      const path = document.getElementById(`${state}-${instanceId}`);
-      if (path) {
-        path.style.fill = cityColors![state] || (mapColor as string);
-      }
+    const svg = svgRef.current;
+    if (!svg) {
+      return;
+    }
+    svg.querySelectorAll<SVGElement>(REGION_SELECTOR).forEach((region) => {
+      const code = region.getAttribute(REGION_ATTRIBUTE) as string;
+      region.style.fill = selectedStates.includes(code)
+        ? selectColor || constants.SELECTED_COLOR
+        : cityColors[code] || (mapColor as string);
     });
-  }, [cityColors, mapColor, instanceId]);
-
-  useEffect(() => {
-    selectedStates.forEach((selectedState) => {
-      const path = document.getElementById(`${selectedState}-${instanceId}`);
-      if (path) {
-        path.style.fill = selectColor || constants.SELECTED_COLOR;
-      }
-    });
-  }, [selectedStates, selectColor, instanceId]);
+  }, [cityColors, mapColor, selectColor, selectedStates]);
 
   const handleMouseOver = (event: React.MouseEvent<SVGSVGElement>) => {
     const region = regionFromEvent(event.target);
     if (!region) {
       return;
     }
-    setStateHovered(region.code);
+    if (hints) {
+      setStateHovered(region.code);
+    }
     if (!disableHover) {
       region.element.style.fill = selectedStates.includes(region.code)
         ? selectColor || constants.SELECTED_COLOR
@@ -390,11 +415,13 @@ const BhutanMultiple = ({
     if (!region) {
       return;
     }
-    setStateHovered(null);
+    if (hints) {
+      setStateHovered(null);
+    }
     if (!disableHover) {
       region.element.style.fill = selectedStates.includes(region.code)
         ? selectColor || constants.SELECTED_COLOR
-        : cityColors![region.code] || (mapColor as string);
+        : cityColors[region.code] || (mapColor as string);
     }
   };
 
@@ -409,7 +436,7 @@ const BhutanMultiple = ({
 
     if (selectedStates.includes(region.code)) {
       const updatedSelectedStates = selectedStates.filter((state) => state !== region.code);
-      region.element.style.fill = cityColors![region.code] || (mapColor as string);
+      region.element.style.fill = cityColors[region.code] || (mapColor as string);
       setSelectedStates(updatedSelectedStates);
       if (onSelect) {
         onSelect(region.code, updatedSelectedStates);
@@ -425,11 +452,33 @@ const BhutanMultiple = ({
     }
   };
 
+  /**
+   * The regions only depend on props, never on hover or pointer position, so the element array is
+   * built once and reused. Hovering or moving the pointer re-renders the hint, not the map.
+   */
+  const regions = useMemo(
+    () =>
+      stateCode.map((code) => (
+        <path
+          key={code}
+          id={`${code}-${instanceId}`}
+          data-state={code}
+          d={drawPath[code as keyof typeof drawPath]}
+          style={{
+            fill: cityColors[code] || mapColor,
+            cursor: disableClick ? 'default' : 'pointer',
+          }}
+        />
+      )),
+    [cityColors, mapColor, disableClick, instanceId]
+  );
+
   return (
     <>
       <div className="map" style={mapStyle}>
         <svg
           version="1.1"
+          ref={svgRef}
           id={`svg2-${instanceId}`}
           x="0px"
           y="0px"
@@ -438,19 +487,7 @@ const BhutanMultiple = ({
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
-          {stateCode?.map((code, index) => (
-            <path
-              key={index}
-              id={`${code}-${instanceId}`}
-              data-state={code}
-              d={drawPath[code as keyof typeof drawPath]}
-              style={{
-                fill: cityColors![code] || mapColor,
-                cursor: disableClick ? 'default' : 'pointer',
-                ...strokeProps,
-              }}
-            />
-          ))}
+          {regions}
         </svg>
       </div>
       {hints && stateHovered && <div style={hintStyle}>{stateHovered}</div>}
