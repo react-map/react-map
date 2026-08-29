@@ -58,6 +58,15 @@ export interface props = {
 
 Each element in a map returns a string, that represents the name of the region. That could be used to add different functionality based on the region that is clicked.
 
+# Accessibility
+Maps are usable without a mouse. Every region is a labelled control in the tab order, so:
+
+1) `Tab` / `Shift+Tab` moves between regions, which highlights them exactly like hovering does and shows the hint (if `hints` is on) pinned to that region.
+2) `Enter` or `Space` selects and deselects the focused region, firing `onSelect` just like a click.
+3) Screen readers announce each region by name and report whether it is currently selected.
+
+Setting `disableClick` takes the regions out of the tab order and announces them as images rather than buttons, so a display-only map is not presented as interactive.
+
 # Examples 
 React Map components are customizable and can be easily used with whichever library you want! For example - 
 1) `react-toastify`

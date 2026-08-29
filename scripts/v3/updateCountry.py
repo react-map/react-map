@@ -60,6 +60,19 @@ const regionFromEvent = (target: EventTarget | null): Region | null => {
   return code === null ? null : { element: target as SVGElement, code };
 };
 
+interface HintAnchor {
+  x: number;
+  y: number;
+}
+
+/** Where to pin the hint for a region reached by keyboard, since there is no pointer to follow. */
+const anchorOf = (element: SVGElement): HintAnchor => {
+  const rect = element.getBoundingClientRect();
+  return { x: rect.left, y: rect.bottom };
+};
+
+const isActivationKey = (key: string) => key === 'Enter' || key === ' ' || key === 'Spacebar';
+
 export interface __COUNTRY__Props {
   type: 'select-single' | 'select-multiple';
   size?: number;
@@ -170,9 +183,11 @@ const __COUNTRY__Single = ({
   const svgRef = useRef<SVGSVGElement | null>(null);
   const { x, y } = useMousePosition(Boolean(hints));
   const [stateHovered, setStateHovered] = useState<string | null>(null);
+  const [hintAnchor, setHintAnchor] = useState<HintAnchor | null>(null);
   const [selectedState, setSelectedState] = useState<string | null>(null);
   const [viewBox, setViewBox] = useState<string>('0 0 100 100');
   const strokeProps = getStrokeProperties(borderStyle);
+  const selectedFill = selectColor || constants.SELECTED_COLOR;
 
   useEffect(() => {
     const svg = svgRef.current;
@@ -199,15 +214,16 @@ const __COUNTRY__Single = ({
       padding: hintPadding || hintStyleBase.padding,
       borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
       color: hintTextColor || 'black',
-      top: y + 20,
-      left: x + 20,
+      top: (hintAnchor ? hintAnchor.y : y) + 20,
+      left: (hintAnchor ? hintAnchor.x : x) + 20,
     }),
-    [hintBackgroundColor, hintPadding, hintBorderRadius, hintTextColor, x, y]
+    [hintBackgroundColor, hintPadding, hintBorderRadius, hintTextColor, hintAnchor, x, y]
   );
 
   /**
-   * Repaints every region in one pass. Selection is folded in here so that changing the palette
-   * while something is selected no longer wipes the selected fill.
+   * Repaints every region in one pass and keeps the pressed state in sync for assistive tech.
+   * Selection is folded in here so that changing the palette while something is selected no longer
+   * wipes the selected fill.
    */
   useEffect(() => {
     const svg = svgRef.current;
@@ -216,52 +232,38 @@ const __COUNTRY__Single = ({
     }
     svg.querySelectorAll<SVGElement>(REGION_SELECTOR).forEach((region) => {
       const code = region.getAttribute(REGION_ATTRIBUTE) as string;
-      region.style.fill =
-        code === selectedState ? selectColor || constants.SELECTED_COLOR : cityColors[code] || (mapColor as string);
+      const isSelected = code === selectedState;
+      region.style.fill = isSelected ? selectedFill : cityColors[code] || (mapColor as string);
+      if (!disableClick) {
+        region.setAttribute('aria-pressed', String(isSelected));
+      }
     });
-  }, [cityColors, mapColor, selectColor, selectedState]);
+  }, [cityColors, mapColor, selectedFill, selectedState, disableClick]);
 
-  const handleMouseOver = (event: React.MouseEvent<SVGSVGElement>) => {
-    const region = regionFromEvent(event.target);
-    if (!region) {
-      return;
-    }
+  const enterRegion = (region: Region, anchor: HintAnchor | null) => {
     if (hints) {
       setStateHovered(region.code);
+      setHintAnchor(anchor);
     }
     if (!disableHover) {
-      region.element.style.fill =
-        selectedState === region.code ? selectColor || constants.SELECTED_COLOR : hoverColor || constants.HOVERCOLOR;
+      region.element.style.fill = selectedState === region.code ? selectedFill : hoverColor || constants.HOVERCOLOR;
     }
   };
 
-  const handleMouseOut = (event: React.MouseEvent<SVGSVGElement>) => {
-    const region = regionFromEvent(event.target);
-    if (!region) {
-      return;
-    }
+  const leaveRegion = (region: Region) => {
     if (hints) {
       setStateHovered(null);
+      setHintAnchor(null);
     }
     if (!disableHover) {
-      region.element.style.fill =
-        selectedState === region.code
-          ? selectColor || constants.SELECTED_COLOR
-          : cityColors[region.code] || (mapColor as string);
+      region.element.style.fill = selectedState === region.code ? selectedFill : cityColors[region.code] || (mapColor as string);
     }
   };
 
-  const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
-    if (disableClick) {
-      return;
-    }
-    const region = regionFromEvent(event.target);
-    if (!region) {
-      return;
-    }
-
+  const toggleRegion = (region: Region) => {
     if (selectedState === region.code) {
       region.element.style.fill = cityColors[region.code] || (mapColor as string);
+      region.element.setAttribute('aria-pressed', 'false');
       setSelectedState(null);
       if (onSelect) {
         onSelect(null);
@@ -273,12 +275,64 @@ const __COUNTRY__Single = ({
       const previousPath = document.getElementById(`${selectedState}-${instanceId}`);
       if (previousPath) {
         previousPath.style.fill = cityColors[selectedState] || (mapColor as string);
+        previousPath.setAttribute('aria-pressed', 'false');
       }
     }
-    region.element.style.fill = selectColor || constants.SELECTED_COLOR;
+    region.element.style.fill = selectedFill;
+    region.element.setAttribute('aria-pressed', 'true');
     setSelectedState(region.code);
     if (onSelect) {
       onSelect(region.code);
+    }
+  };
+
+  const handleMouseOver = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (region) {
+      enterRegion(region, null);
+    }
+  };
+
+  const handleMouseOut = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (region) {
+      leaveRegion(region);
+    }
+  };
+
+  /** Keyboard focus highlights a region exactly like hover, with the hint pinned to its box. */
+  const handleFocus = (event: React.FocusEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (region) {
+      enterRegion(region, anchorOf(region.element));
+    }
+  };
+
+  const handleBlur = (event: React.FocusEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (region) {
+      leaveRegion(region);
+    }
+  };
+
+  const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
+    if (disableClick) {
+      return;
+    }
+    const region = regionFromEvent(event.target);
+    if (region) {
+      toggleRegion(region);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<SVGSVGElement>) => {
+    if (disableClick || !isActivationKey(event.key)) {
+      return;
+    }
+    const region = regionFromEvent(event.target);
+    if (region) {
+      event.preventDefault();
+      toggleRegion(region);
     }
   };
 
@@ -294,6 +348,9 @@ const __COUNTRY__Single = ({
           id={`${code}-${instanceId}`}
           data-state={code}
           d={drawPath[code as keyof typeof drawPath]}
+          role={disableClick ? 'img' : 'button'}
+          aria-label={code}
+          tabIndex={disableClick ? -1 : 0}
           style={{
             fill: cityColors[code] || mapColor,
             cursor: disableClick ? 'default' : 'pointer',
@@ -313,9 +370,13 @@ const __COUNTRY__Single = ({
           x="0px"
           y="0px"
           viewBox={viewBox}
+          role="group"
           onClick={handleClick}
+          onKeyDown={handleKeyDown}
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         >
           {regions}
         </svg>
@@ -346,10 +407,12 @@ const __COUNTRY__Multiple = ({
   const instanceId = useId().replace(/:/g, '');
   const svgRef = useRef<SVGSVGElement | null>(null);
   const { x, y } = useMousePosition(Boolean(hints));
-  const [selectedStates, setSelectedStates] = useState<string[]>([]);
   const [stateHovered, setStateHovered] = useState<string | null>(null);
+  const [hintAnchor, setHintAnchor] = useState<HintAnchor | null>(null);
+  const [selectedStates, setSelectedStates] = useState<string[]>([]);
   const [viewBox, setViewBox] = useState<string>('0 0 100 100');
   const strokeProps = getStrokeProperties(borderStyle);
+  const selectedFill = selectColor || constants.SELECTED_COLOR;
 
   useEffect(() => {
     const svg = svgRef.current;
@@ -376,15 +439,16 @@ const __COUNTRY__Multiple = ({
       padding: hintPadding || hintStyleBase.padding,
       borderRadius: hintBorderRadius || hintStyleBase.borderRadius,
       color: hintTextColor || 'black',
-      top: y + 20,
-      left: x + 20,
+      top: (hintAnchor ? hintAnchor.y : y) + 20,
+      left: (hintAnchor ? hintAnchor.x : x) + 20,
     }),
-    [hintBackgroundColor, hintPadding, hintBorderRadius, hintTextColor, x, y]
+    [hintBackgroundColor, hintPadding, hintBorderRadius, hintTextColor, hintAnchor, x, y]
   );
 
   /**
-   * Repaints every region in one pass. Selection is folded in here so that changing the palette
-   * while something is selected no longer wipes the selected fills.
+   * Repaints every region in one pass and keeps the pressed state in sync for assistive tech.
+   * Selection is folded in here so that changing the palette while something is selected no longer
+   * wipes the selected fills.
    */
   useEffect(() => {
     const svg = svgRef.current;
@@ -393,54 +457,39 @@ const __COUNTRY__Multiple = ({
     }
     svg.querySelectorAll<SVGElement>(REGION_SELECTOR).forEach((region) => {
       const code = region.getAttribute(REGION_ATTRIBUTE) as string;
-      region.style.fill = selectedStates.includes(code)
-        ? selectColor || constants.SELECTED_COLOR
-        : cityColors[code] || (mapColor as string);
+      const isSelected = selectedStates.includes(code);
+      region.style.fill = isSelected ? selectedFill : cityColors[code] || (mapColor as string);
+      if (!disableClick) {
+        region.setAttribute('aria-pressed', String(isSelected));
+      }
     });
-  }, [cityColors, mapColor, selectColor, selectedStates]);
+  }, [cityColors, mapColor, selectedFill, selectedStates, disableClick]);
 
-  const handleMouseOver = (event: React.MouseEvent<SVGSVGElement>) => {
-    const region = regionFromEvent(event.target);
-    if (!region) {
-      return;
-    }
+  const enterRegion = (region: Region, anchor: HintAnchor | null) => {
     if (hints) {
       setStateHovered(region.code);
+      setHintAnchor(anchor);
     }
     if (!disableHover) {
-      region.element.style.fill = selectedStates.includes(region.code)
-        ? selectColor || constants.SELECTED_COLOR
-        : hoverColor || constants.HOVERCOLOR;
+      region.element.style.fill = selectedStates.includes(region.code) ? selectedFill : hoverColor || constants.HOVERCOLOR;
     }
   };
 
-  const handleMouseOut = (event: React.MouseEvent<SVGSVGElement>) => {
-    const region = regionFromEvent(event.target);
-    if (!region) {
-      return;
-    }
+  const leaveRegion = (region: Region) => {
     if (hints) {
       setStateHovered(null);
+      setHintAnchor(null);
     }
     if (!disableHover) {
-      region.element.style.fill = selectedStates.includes(region.code)
-        ? selectColor || constants.SELECTED_COLOR
-        : cityColors[region.code] || (mapColor as string);
+      region.element.style.fill = selectedStates.includes(region.code) ? selectedFill : cityColors[region.code] || (mapColor as string);
     }
   };
 
-  const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
-    if (disableClick) {
-      return;
-    }
-    const region = regionFromEvent(event.target);
-    if (!region) {
-      return;
-    }
-
+  const toggleRegion = (region: Region) => {
     if (selectedStates.includes(region.code)) {
       const updatedSelectedStates = selectedStates.filter((state) => state !== region.code);
       region.element.style.fill = cityColors[region.code] || (mapColor as string);
+      region.element.setAttribute('aria-pressed', 'false');
       setSelectedStates(updatedSelectedStates);
       if (onSelect) {
         onSelect(region.code, updatedSelectedStates);
@@ -449,10 +498,61 @@ const __COUNTRY__Multiple = ({
     }
 
     const updatedSelectedStates = [...selectedStates, region.code];
-    region.element.style.fill = selectColor || constants.SELECTED_COLOR;
+    region.element.style.fill = selectedFill;
+    region.element.setAttribute('aria-pressed', 'true');
     setSelectedStates(updatedSelectedStates);
     if (onSelect) {
       onSelect(region.code, updatedSelectedStates);
+    }
+  };
+
+  const handleMouseOver = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (region) {
+      enterRegion(region, null);
+    }
+  };
+
+  const handleMouseOut = (event: React.MouseEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (region) {
+      leaveRegion(region);
+    }
+  };
+
+  /** Keyboard focus highlights a region exactly like hover, with the hint pinned to its box. */
+  const handleFocus = (event: React.FocusEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (region) {
+      enterRegion(region, anchorOf(region.element));
+    }
+  };
+
+  const handleBlur = (event: React.FocusEvent<SVGSVGElement>) => {
+    const region = regionFromEvent(event.target);
+    if (region) {
+      leaveRegion(region);
+    }
+  };
+
+  const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
+    if (disableClick) {
+      return;
+    }
+    const region = regionFromEvent(event.target);
+    if (region) {
+      toggleRegion(region);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<SVGSVGElement>) => {
+    if (disableClick || !isActivationKey(event.key)) {
+      return;
+    }
+    const region = regionFromEvent(event.target);
+    if (region) {
+      event.preventDefault();
+      toggleRegion(region);
     }
   };
 
@@ -468,6 +568,9 @@ const __COUNTRY__Multiple = ({
           id={`${code}-${instanceId}`}
           data-state={code}
           d={drawPath[code as keyof typeof drawPath]}
+          role={disableClick ? 'img' : 'button'}
+          aria-label={code}
+          tabIndex={disableClick ? -1 : 0}
           style={{
             fill: cityColors[code] || mapColor,
             cursor: disableClick ? 'default' : 'pointer',
@@ -487,9 +590,13 @@ const __COUNTRY__Multiple = ({
           x="0px"
           y="0px"
           viewBox={viewBox}
+          role="group"
           onClick={handleClick}
+          onKeyDown={handleKeyDown}
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         >
           {regions}
         </svg>
