@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { drawPath, stateCode, constants } from './constants';
 import useMousePosition from './hooks/mouseTrack';
 
@@ -11,6 +11,24 @@ export interface CityColorMap {
  * dependency that never compared equal, so they re-walked the whole map on each pass.
  */
 const EMPTY_CITY_COLORS: CityColorMap = {};
+
+let fallbackInstanceId = 0;
+
+/**
+ * useId only exists from React 18, while the declared peer range starts at 16.8. Prefer the real
+ * hook when present and otherwise mint a stable per-instance counter id, so mounts never crash.
+ */
+const useId = () => {
+  const fallbackRef = useRef<string | null>(null);
+  const reactId = React.useId ? React.useId() : null;
+  if (reactId !== null) {
+    return reactId;
+  }
+  if (fallbackRef.current === null) {
+    fallbackRef.current = `react-map-${fallbackInstanceId++}`;
+  }
+  return fallbackRef.current;
+};
 
 const hintStyleBase = {
   position: 'fixed' as React.CSSProperties['position'],
